@@ -296,3 +296,8 @@ body {
       background: #555;
   }
 }
+
+/* Search bar */
+.form-control, .search-form .search-field, .comment-form input[type="text"], .comment-form input[type="email"], .comment-form input[type="url"], .comment-form textarea {
+  padding: 0;
+}
