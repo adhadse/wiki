@@ -12,6 +12,15 @@
   font-size: $font-size-sm;
   margin-bottom: 0;
 }
+li#copyright-footer {
+  a {
+      color: $gray-600;
+      text-decoration: none;
+      &:hover {
+        color: $purple;
+      }
+  }
+}
 
 @include media-breakpoint-up(md) {
   .footer li {

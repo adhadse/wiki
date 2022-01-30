@@ -1,5 +1,6 @@
 import hljs from 'highlight.js/lib/core';
-
+window.hljs = hljs;
+require('highlightjs-line-numbers.js');
 import javascript from 'highlight.js/lib/languages/javascript';
 import json from 'highlight.js/lib/languages/json';
 import bash from 'highlight.js/lib/languages/bash';
@@ -20,8 +21,8 @@ hljs.registerLanguage('md', markdown);
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('pre code:not(.language-mermaid)').forEach((block) => {
     hljs.highlightElement(block);
-    hljs.lineNumbersBlock(block);
+    hljs.initLineNumbersOnLoad();
     var language = block.result.language;
-    block.insertAdjacentHTML("afterend",`<label>${language}</label>`);
+    block.insertAdjacentHTML("afterend",`<label id="language">${language}</label>`);
   });
 });
