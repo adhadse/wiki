@@ -251,7 +251,11 @@ $navbar-dark-active-color:          $link-color-dark;
 [data-dark-mode] body .form-control.is-search {
   background: $body-overlay-dark;
   border: 1px solid transparent;
-  color: $gray-300;
+  background: transparent;
+  input#search {
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+  }
 
   /*
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%236c757d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-search'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E");
@@ -262,13 +266,13 @@ $navbar-dark-active-color:          $link-color-dark;
 }
 
 [data-dark-mode] body .form-control.is-search:focus {
-  border: 1px solid $link-color-dark;
+  background-color: $gray-900;
 }
 
-[data-dark-mode] body .doks-search::after {
-  color: $gray-300;
-  border: 1px solid $gray-700;
-}
+// [data-dark-mode] body .doks-search::after {
+//   color: $gray-300;
+//   border: 1px solid $gray-700;
+// }
 
 [data-dark-mode] body .text-dark {
   color: $body-color-dark !important;
@@ -363,7 +367,7 @@ $navbar-dark-active-color:          $link-color-dark;
       }
     }
   }
-  .active {
+  .side-active {
     color: $blue-300!important;
     border-left: 1px solid $blue-300;
   }
