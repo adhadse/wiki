@@ -20,5 +20,8 @@ hljs.registerLanguage('md', markdown);
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('pre code:not(.language-mermaid)').forEach((block) => {
     hljs.highlightElement(block);
+    hljs.lineNumbersBlock(block);
+    var language = block.result.language;
+    block.insertAdjacentHTML("afterend",`<label>${language}</label>`);
   });
 });
