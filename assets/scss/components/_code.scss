@@ -15,6 +15,51 @@ code {
 
 pre {
   margin: 2rem 0;
+  overflow-x: hidden;
+  label#language {
+    position: absolute;
+    color: lightgray;
+    right: -10%;
+    top: 0em;
+    border-radius: 25px;
+    background: rgba(69, 68, 68, 1);
+    padding: 0 1em;
+    margin: 0.3em;
+    opacity: 0;
+    transition: .5s cubic-bezier(1, 0, 0, 1);
+    &:hover {
+        background: #555555;
+    }
+  }
+  &:hover label#language {
+      opacity: 1;
+      right: 10%;
+  }
+  &:hover button#copy {
+    opacity: 1;
+    right: 0%
+  }
+  button#copy {
+    position: absolute;
+    color: lightgray;
+    outline: none; 
+    border: none;
+    right: -20%;
+    top: 0em;
+    border-radius: 25px;
+    background: #454444;
+    padding: 0 1em;
+    margin: 0.3em;
+    opacity: 0;
+    transition: 0.5s cubic-bezier(1, 0, 0, 1);
+    &:hover {
+        background: #555555;
+    }
+    &:focus, &active {
+      display: block;
+      background: $link-color;
+    }
+  }
 }
 
 pre code {

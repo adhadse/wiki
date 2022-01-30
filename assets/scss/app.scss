@@ -8,13 +8,13 @@
 @import "bootstrap/scss/bootstrap";
 
 /** Import highlight.js */
-@import "highlight.js/scss/base16/dracula";
+@import "highlight.js/styles/base16/darcula";
 
 /** Import KaTeX */
 @import "katex/dist/katex";
 
 /** Import theme styles */
-@import "common/fonts";
+// @import "common/fonts";
 @import "common/global";
 @import "common/dark";
 @import "components/alerts";
