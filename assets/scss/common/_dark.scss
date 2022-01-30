@@ -337,8 +337,36 @@ $navbar-dark-active-color:          $link-color-dark;
   scrollbar-color: $body-bg-dark $body-bg-dark;
 }
 
-[data-dark-mode] body nav#TableOfContents {
-  border-left: 1px solid $gray-800;
+[data-dark-mode] body .page-links {
+  box-shadow: inset 1px 0px 0px 0px $gray-800;
+  nav#TableOfContents{
+    ul { 
+      list-style: none;
+      padding: 0;
+      li a {
+        padding-left: 1em!important;
+        padding-right: 1em!important;
+        color: $gray-200;
+        display: block;
+        padding: 0.125rem 0;
+        font-size: $font-size-base * 0.9375;
+        text-decoration: none;
+        &:hover{
+          color: $blue-300;
+        }
+      }
+      ul li {
+        a {
+          padding-left: 2em!important;
+          padding-right: 2em!important;
+        }
+      }
+    }
+  }
+  .active {
+    color: $blue-300!important;
+    border-left: 1px solid $blue-300;
+  }
 }
 
 [data-dark-mode] body .docs-links::-webkit-scrollbar,
