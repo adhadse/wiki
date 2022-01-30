@@ -96,3 +96,27 @@ Build production website including draft and future content:
 ```bash
 npm run build:preview
 ```
+--- 
+# Components
+
+## Code blocks
+```js
+function highlight(obj){
+  var orig = obj.style.color;
+  obj.style.color = " #00FF00";
+  setTimeout(function(){
+       obj.style.background = "#454444";
+  }, 3000);
+}
+```
+
+```python
+from abc import abstractmethod
+ 
+# Our interface for class
+class CircleInterface:
+    @abstractmehod
+    def draw_circle(self):
+        pass
+```
+
