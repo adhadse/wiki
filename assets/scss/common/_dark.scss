@@ -573,3 +573,7 @@ $navbar-dark-active-color:          $link-color-dark;
     border-color: $border-dark;
   }
 }
+
+[data-dark-mode] .katex-display > .katex > .katex-html {
+  background: $body-overlay-dark;
+}
