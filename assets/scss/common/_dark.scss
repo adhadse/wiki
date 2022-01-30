@@ -334,6 +334,15 @@ $navbar-dark-active-color:          $link-color-dark;
 [data-dark-mode] body .footer {
   border-top: 1px solid $border-dark;
 }
+[data-dark-mode] li#copyright-footer {
+  a {
+      color: $gray-400;
+      text-decoration: none;
+      &:hover {
+        color: $blue-300;
+      }
+    }
+}
 
 [data-dark-mode] body .docs-links,
 [data-dark-mode] body .docs-toc {
