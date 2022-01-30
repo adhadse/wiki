@@ -68,7 +68,6 @@ alertText = "Introducing the Doks child theme, several DX + UX updates, and more
 # Edit Page
 # repoHost [Github | Gitea | GitLab] is used for building the edit link based on git hoster
 repoHost = "GitHub"
-#repoHost = "Gitea"
 docsRepo = "https://github.com/h-enk/doks"
 docsRepoBranch = "master"
 editPage = false
@@ -81,9 +80,9 @@ lastMod = false
   flexSearch = true
   darkMode = true
   bootStrapJs = true
-  breadCrumb = false
+  breadCrumb = true
   highLight = true
-  kaTex = false
+  kaTex = true
   multilingualMode = false
   docsVersioning = false
   fullWidth = false

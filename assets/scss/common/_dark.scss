@@ -337,6 +337,10 @@ $navbar-dark-active-color:          $link-color-dark;
   scrollbar-color: $body-bg-dark $body-bg-dark;
 }
 
+[data-dark-mode] body nav#TableOfContents {
+  border-left: 1px solid $gray-800;
+}
+
 [data-dark-mode] body .docs-links::-webkit-scrollbar,
 [data-dark-mode] body .docs-toc::-webkit-scrollbar {
   width: 5px;
@@ -377,7 +381,7 @@ $navbar-dark-active-color:          $link-color-dark;
 }
 
 [data-dark-mode] body .page-links li:not(:first-child) {
-  border-top: 1px dashed $border-dark;
+  border-top: 0px dashed $border-dark;
 }
 
 [data-dark-mode] body .card {

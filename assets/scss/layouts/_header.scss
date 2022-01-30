@@ -6,11 +6,15 @@
   @extend .nav-link;
 }
 
+// nav.docs-toc {
+//   border-left: 0px solid $gray-200;
+// }
+
 .navbar-text {
   margin-left: 1rem;
 }
 
-.navbar-brand {
+vbar-brand {
   font-weight: $headings-font-weight;
 }
 
@@ -129,12 +133,6 @@ button#doks-versions {
   margin-top: 4px;
 }
 */
-
-.header-bar {
-  border-top: 4px solid;
-  border-image-source: linear-gradient(90deg, $primary, #8ed6fb 50%, #d32e9d);
-  border-image-slice: 1;
-}
 
 .offcanvas .header-bar {
   margin-bottom: -4px;

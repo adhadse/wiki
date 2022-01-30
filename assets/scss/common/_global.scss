@@ -206,10 +206,7 @@ body {
   text-decoration: none;
 }
 
-#TableOfContents ul {
-  padding-left: 0;
-  list-style: none;
-}
+
 
 ::selection {
   background: rgba(212, 53, 159, 0.2);
@@ -269,4 +266,11 @@ body {
   .modal-backdrop.show {
     opacity: 0;
   }
+}
+
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: var(--bs-breadcrumb-divider, "›")!important;
+  width: 16px;
+  height: 16px;
 }
