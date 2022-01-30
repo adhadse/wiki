@@ -33,17 +33,26 @@
             {{- $active = or $active (and (eq .Name ($section | humanize)) (eq $current.Section $section)) -}}
             {{- $active = or $active (and (eq .Name "Blog") (eq $current.Section "blog" "contributors")) -}}
             <li class="nav-item">
-              <a class="nav-link ps-0 py-1{{ if $active }} active{{ end }}" href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+              <a class="nav-link {{ if $active }} active{{ end }}" href="{{ .URL | relLangURL }}">{{ .Name }}</a>
             </li>
           {{ end -}}
         </ul>
         <hr class="text-black-50 my-4 d-md-none">
         <h3 class="h6 text-uppercase mb-3 d-md-none">Socials</h3>
         <ul class="nav flex-column flex-md-row ms-md-auto me-md-n5 pe-md-2">
+          
+          
+        {{ if .Site.Params.options.flexSearch -}}
+          <form class="doks-search position-relative flex-grow-1 me-auto">
+            <input id="search" class="form-control is-search" type="search" placeholder="Search docs..." aria-label="Search docs..." autocomplete="off">
+            <div id="suggestions" class="shadow bg-white rounded d-none"></div>
+          </form>
+        {{ end -}}
+
           {{ range .Site.Menus.social -}}
-            <li class="nav-item">
-              <a class="nav-link ps-0 py-1" href="{{ .URL | relURL }}">{{ .Pre | safeHTML }}<small class="ms-2 d-md-none">{{ .Name | safeHTML }}</small></a>
-            </li>
+          <li class="nav-item">
+            <a class="nav-link ps-0 py-1" href="{{ .URL | relURL }}">{{ .Pre | safeHTML }}<small class="ms-2 d-md-none">{{ .Name | safeHTML }}</small></a>
+          </li>
           {{ end -}}
         </ul>
       </div>
@@ -101,12 +110,7 @@
 <nav class="doks-subnavbar py-2 {{ if eq .Site.Params.options.flexSearch false }} d-lg-none{{ end }}" aria-label="Secondary navigation">
   <div class="container-{{ if .Site.Params.options.fullWidth }}fluid{{ else }}xxl{{ end }} d-flex align-items-md-center">
 
-    {{ if .Site.Params.options.flexSearch -}}
-        <form class="doks-search position-relative flex-grow-1 me-auto">
-          <input id="search" class="form-control is-search" type="search" placeholder="Search docs..." aria-label="Search docs..." autocomplete="off">
-          <div id="suggestions" class="shadow bg-white rounded d-none"></div>
-        </form>
-    {{ end -}}
+    <!-- Insert something here -->
 
     {{ if eq .Site.Params.options.docsVersioning true -}}
     <div class="dropdown ms-3">
