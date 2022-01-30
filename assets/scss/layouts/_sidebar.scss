@@ -63,7 +63,7 @@ a.docs-link {
 }
 
 .page-links {
-  border-left: 1px solid $gray-200;
+  box-shadow: inset 1px 0px 0px 0px $gray-200;
   h3 {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -99,28 +99,6 @@ a.docs-link {
   }
 }
 
-
-// .page-links li {
-//   a {
-//     padding-top: 0.2em;
-//     padding-bottom: 0.2em;
-//     padding-left: 1em;
-//     padding-right: 1em;
-//     color: $body-color;
-//     display: block;
-//     padding: 0.125rem 0;
-//     font-size: $font-size-base * 0.9375;
-//     text-decoration: none;
-//     &:hover{
-//       color: $link-color;
-//     }
-//     ul li {
-//       a {
-//         padding-left: 1.5em;
-//         padding-right: 1.5em;
-//       }
-//     }
-// }
 
 
 .docs-link:hover,

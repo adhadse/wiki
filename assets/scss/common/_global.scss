@@ -269,8 +269,30 @@ body {
 }
 
 
+/* Bootstrap breadcrumb separator */
 .breadcrumb-item + .breadcrumb-item::before {
   content: var(--bs-breadcrumb-divider, "›")!important;
   width: 16px;
   height: 16px;
+}
+
+/* Scrollbar style */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  display: none;
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  :hover {
+      /* Handle on hover */
+      background: #555;
+  }
 }
