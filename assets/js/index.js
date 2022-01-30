@@ -227,9 +227,9 @@ function sync() {
         // if content is visible if viewport highlight it 
         // else remove highlight from it
         if (isElementInViewport(content[i])) {
-            toc[i].classList.add('active');
+            toc[i].classList.add('side-active');
         } else {
-            toc[i].classList.remove('active');
+            toc[i].classList.remove('side-active');
         }
     }
 }
