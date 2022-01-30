@@ -10,12 +10,6 @@
   identifier = "help"
   url = "/docs/help/"
 
-[[docs]]
-  name = "Components"
-  weight = 70
-  identifier = "components"
-  url = "/docs/components/"
-
 [[guide]]
   name = "Lorem"
   weight = 10

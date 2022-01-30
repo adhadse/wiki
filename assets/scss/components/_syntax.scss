@@ -8,11 +8,27 @@ Based on Ascetic by (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
   display: block;
   overflow-x: auto;
   padding: 1.25rem 1.5rem;
-  background: $beige;
-  color: $body-color;
+  background: $body-overlay-dark;
+  color: $code-white;
+  thead, tbody, tfoot, tr, td, th {
+    border-color: transparent;
+    border-style: none!important;
+    border-width: 0;
+  } 
 }
 
-.hljs-string,
+table.hljs-ln {
+  margin: 0!important;
+}
+
+.table, table {
+  color: $code-white!important;
+} 
+
+.table > :not(caption) > * > *, table > :not(caption) > * > * {
+  background: none;
+}
+
 .hljs-variable,
 .hljs-template-variable,
 .hljs-symbol,
@@ -37,7 +53,7 @@ Based on Ascetic by (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
 .hljs-name,
 .hljs-type,
 .hljs-strong {
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .hljs-emphasis {
@@ -46,7 +62,7 @@ Based on Ascetic by (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
 
 [data-dark-mode] body .hljs {
   background: $body-overlay-dark;
-  color: $body-color-dark;
+  color: $code-white;
 }
 
 [data-dark-mode] body .hljs-string,
@@ -59,4 +75,9 @@ Based on Ascetic by (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
 [data-dark-mode] body .hljs-attribute,
 [data-dark-mode] body .hljs-link {
   color: $blue-300;
+}
+
+/* Hihglight.js line number padding*/
+.hljs-ln-n {
+  padding-right: 0.9rem;
 }
