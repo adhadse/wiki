@@ -13,8 +13,6 @@ weight: 130
 toc: true
 ---
 
-{{< alert icon="💡" text="You can change the commands in the scripts section of `./package.json`." />}}
-
 ## create
 
 Create new content for your site:
@@ -119,4 +117,21 @@ class CircleInterface:
     def draw_circle(self):
         pass
 ```
+## Katex
 
+This is an example of inline katex $\frac{x}{y}$ with `inline code`. 
+
+This is an example of math block of katex.
+
+$$
+\sin^2 + \cos^2 = 1
+$$
+
+## Tabs
+
+{{< tabs "uniqueid" >}}
+{{< tab "MacOS" >}} ### MacOS Content 
+  Add a default page, documentation page, blog post or contributor page. Customize the homepage and 404 page.  {{< /tab >}}
+{{< tab "Linux" >}} ### Linux Content {{< /tab >}}
+{{< tab "Windows" >}} ### Windows Content {{< /tab >}}
+{{< /tabs >}}
