@@ -317,6 +317,7 @@ $navbar-dark-active-color:          $link-color-dark;
 [data-dark-mode] body code:not(.hljs) {
   background: $body-overlay-dark;
   color: $body-color-dark;
+  border: 1px solid $gray-800;
 }
 
 [data-dark-mode] body pre code:hover {
