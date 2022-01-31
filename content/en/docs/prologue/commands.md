@@ -191,3 +191,28 @@ Let's try putting code in panel.
 {{< /panel >}}
 
 
+## Alerts
+
+{{< alert type="primary" title="A Primary alert">}}
+Primary alert with `type="primary"`
+{{< /alert >}}
+
+{{< alert type="success" title="A Sucess alert">}}
+Sucess alert with `type="success"`
+{{< /alert >}}
+
+{{< alert type="danger" title="A Danger alert" >}}
+Danger alert with `type="danger"`
+{{< /alert >}}
+
+{{< alert type="warning" title="A Warning alert" >}}
+Warning alert with `type="warning"`
+{{< /alert >}}
+
+{{< alert type="secondary" title="A Secondary alert" >}}
+Secondary alert with `type="secondary"`
+{{< /alert >}}
+
+{{< alert type="secondary" >}}
+Secondary alert with `type="secondary"` with no title.
+{{< /alert >}}

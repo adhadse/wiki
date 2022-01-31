@@ -12,6 +12,9 @@ code {
   color: $black;
   padding: 0.25rem 0.5rem;
 }
+code:not(.hljs){
+  border: 1px solid $gray-200;
+}
 
 pre {
   margin: 2rem 0;
