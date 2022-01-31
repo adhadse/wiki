@@ -8,12 +8,9 @@ $padding-16: 1rem !default;
 .book-tabs {
     margin-top: $padding-16;
     margin-bottom: $padding-16;
-
     border: $padding-1 solid $gray-200;
     border-radius: 5px;
-
     overflow: hidden;
-
     display: flex;
     flex-wrap: wrap;
 
@@ -32,7 +29,8 @@ $padding-16: 1rem !default;
       padding: $padding-16;
       display: none;
     }
-
+    
+    
     input[type="radio"] {
       display: none;
     }
@@ -54,11 +52,12 @@ $padding-16: 1rem !default;
     [data-dark-mode] input[type="radio"]:hover + label {
       color: $purple;
     }
-    [data-dark-mode] .book-tabs-content {
-      border-top: $padding-1 solid $gray-800;
-    }
-   
 }
+
 [data-dark-mode] .book-tabs {
   border: $padding-1 solid $gray-800;
+  
+  .book-tabs-content {
+    border-top: $padding-1 solid $gray-800;
+  }
 }
