@@ -19,6 +19,11 @@ Based on Ascetic by (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
 
 table.hljs-ln {
   margin: 0!important;
+  tr {
+    td.hljs-ln-numbers {
+      width: 2em;
+    }
+  }
 }
 
 .table, table {
@@ -79,5 +84,5 @@ table.hljs-ln {
 
 /* Hihglight.js line number padding*/
 .hljs-ln-n {
-  padding-right: 0.9rem;
+  max-width: 0.9em;
 }
