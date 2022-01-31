@@ -141,7 +141,7 @@ $$
 {{< tab "Linux" >}} ### Linux Content 
 
 {{< /tab >}}
-{{< tab "Windows" >}} ### Windows Content 
+{{< tab "Windows" >}}  
   A sample content to check `code` in tabs.
 ```python 
 def num(l):
@@ -171,3 +171,23 @@ Check item
 
 - [X] checked
 - [ ] unchecked
+
+## Panel
+
+{{< panel title="What is panel?" >}} 
+### A panel is a collapsible section
+This is a collapsible panel
+{{< /panel >}}
+
+Let's try putting code in panel.
+{{< panel title="Code in panel" >}} 
+```html
+<div class="accordion-item">
+  <div class="card-body">
+    Text to display
+  </div>
+</div>
+```
+{{< /panel >}}
+
+
