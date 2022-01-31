@@ -31,12 +31,6 @@ p {
   font-family: $font-family-open-sans;
 }
 
-ul, ol {
-  li {
-    font-family: $font-family-open-sans;
-  }
-}
-
 .offcanvas-header {
   border-bottom: 1px solid $gray-300;
   padding-top: 1.0625rem;
@@ -187,6 +181,11 @@ body {
 .docs-content {
   padding-bottom: 3rem;
   order: 1;
+  ul, ol {
+    li {
+      font-family: $font-family-open-sans;
+    }
+  }
 }
 
 .docs-navigation {
@@ -288,7 +287,7 @@ body {
 /* Scrollbar style */
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 0.8rem;
 }
 
 /* Track */

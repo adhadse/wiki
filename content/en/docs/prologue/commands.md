@@ -138,8 +138,20 @@ $$
 {{< tabs "uniqueid" >}}
 {{< tab "MacOS" >}} ### MacOS Content 
   Add a default page, documentation page, blog post or contributor page. Customize the homepage and 404 page.  {{< /tab >}}
-{{< tab "Linux" >}} ### Linux Content {{< /tab >}}
-{{< tab "Windows" >}} ### Windows Content {{< /tab >}}
+{{< tab "Linux" >}} ### Linux Content 
+
+{{< /tab >}}
+{{< tab "Windows" >}} ### Windows Content 
+  A sample content to check `code` in tabs.
+```python 
+def num(l):
+  for i in l:
+    print(i)
+```
+$$
+\sin^2 + \cos^2 = 1
+$$
+{{< /tab >}}
 {{< /tabs >}}
 
 ## Lists
@@ -155,4 +167,7 @@ Unordered List
 - second
 - third
 
+Check item
 
+- [X] checked
+- [ ] unchecked
