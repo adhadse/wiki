@@ -31,6 +31,12 @@ p {
   font-family: $font-family-open-sans;
 }
 
+ul, ol {
+  li {
+    font-family: $font-family-open-sans;
+  }
+}
+
 .offcanvas-header {
   border-bottom: 1px solid $gray-300;
   padding-top: 1.0625rem;

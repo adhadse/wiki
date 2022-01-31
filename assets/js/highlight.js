@@ -22,7 +22,7 @@ hljs.registerLanguage('html', xml);
 hljs.registerLanguage('ini', ini);
 hljs.registerLanguage('toml', ini);
 hljs.registerLanguage('yaml', yaml);
-hljs.registerLanguage('md', markdown);
+hljs.registerLanguage('markdown', markdown);
 hljs.registerLanguage('go', go);
 hljs.registerLanguage('python', python);
 hljs.registerLanguage('cpp', cpp);
@@ -35,6 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
     hljs.highlightElement(block);
     hljs.initLineNumbersOnLoad();
     var language = block.result.language;
+    if (language === undefined) {
+      language = "?"
+    }
     block.insertAdjacentHTML("afterend",`<label id="language">${language}</label>`);
   });
 });
