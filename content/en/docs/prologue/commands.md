@@ -119,9 +119,15 @@ class CircleInterface:
 ```
 ## Katex
 
-This is an example of inline katex $\frac{x}{y}$ with `inline code`. 
+This is an example of inline katex $\frac{x}{y}$ with `$\frac{x}{y}$`. 
 
 This is an example of math block of katex.
+
+```markdown
+$$
+\sin^2 + \cos^2 = 1
+$$
+```
 
 $$
 \sin^2 + \cos^2 = 1
@@ -142,4 +148,11 @@ Ordered List
 1. first
 2. second
 3. third
+
+Unordered List 
+
+- first
+- second
+- third
+
 
