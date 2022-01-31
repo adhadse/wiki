@@ -1,0 +1,17 @@
+{{ $title := .Get "title" }}
+{{ .Scratch.Set "identifier" (first 10 (md5 $title)) }}
+
+<div class="panel" id="{{printf "accordian-%s" (.Scratch.Get "identifier") }}">
+    <div class="card">
+        <p class="accordion-header" id="{{printf "heading_%s" (.Scratch.Get "identifier") }}">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{printf "panel_%s" (.Scratch.Get "identifier") }}" aria-controls="{{printf "panel_%s" (.Scratch.Get "identifier") }}">
+                <b>{{ print (.Get "title" )}}</b>
+            </button>
+        </p>
+        <div id="{{printf "panel_%s" (.Scratch.Get "identifier") }}" class="accordion-collapse collapse" aria-labelledby="{{printf "heading_%s" (.Scratch.Get "identifier") }}" data-bs-parent="#{{printf "accordian-%s" (.Scratch.Get "identifier") }}">
+            <div class="card-body">
+                {{- .Inner | $.Page.RenderString -}}
+            </div>
+        </div>
+    </div>
+</div>
