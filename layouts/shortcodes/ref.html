@@ -26,5 +26,5 @@
         {{ errorf "%q: %q does not exist." .Page.Path $link }}
     {{ end }}
 {{ else }}
-    {{ errorf "%q: Link was not provided to 'file' shortcode " .Page.Path }}
+    {{ errorf "%q: Link was not provided to 'ref' shortcode " .Page.Path }}
 {{ end }}
