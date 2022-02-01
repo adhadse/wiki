@@ -134,7 +134,7 @@ $$
 $$
 
 ## Tabs
-
+Tabs can be created using `tabs` shortcode passed with uniqueid and `tab` shortcode containing tab content.
 {{< tabs "uniqueid" >}}
 {{< tab "MacOS" >}} ### MacOS Content 
   Add a default page, documentation page, blog post or contributor page. Customize the homepage and 404 page.  {{< /tab >}}
@@ -174,7 +174,7 @@ Check item
 - [ ] onemore unchecked
 
 ## Panel
-
+Panel can be created using `panel` shortcode.
 {{< panel title="What is panel?" >}} 
 ### A panel is a collapsible section
 This is a collapsible panel
@@ -193,7 +193,7 @@ Let's try putting code in panel.
 
 
 ## Alerts
-
+Alert can be created using shortcode `alert`
 {{< alert type="primary" title="A Primary alert">}}
 Primary alert with `type="primary"`
 {{< /alert >}}
@@ -219,14 +219,14 @@ Secondary alert with `type="secondary"` with no title.
 {{< /alert >}}
 
 ## Tables 
-
+Tables in markdown.
 | Heading 1 📝 | Heading 2🤟 | Heading 3 🎋|
 | --- | --- | --- |
 | item 1 😶‍🌫️| item 2 | item 3|
 | item 3 | $\alpha = \beta$ | `def` |
 
 ## File Download 
-
+File download button using `file` shortcode.
 {{< file link="/videos/flower.mp4" >}}
 
 File Download button with custom text.
@@ -234,11 +234,18 @@ File Download button with custom text.
 {{< file link="/files/help.txt" title="Django manage.py commands">}}
 
 ## Reference Link 
-Reference Link can be used to refer to other pages in docs.
+Reference Link can be used to refer to other pages in docs using `ref` shortcode.
 {{< ref link="/docs/prologue/quick-start.md">}}
 
 Reference Link can also be passed with custom text. 
 {{< ref link="/docs/prologue/introduction.md" title="Let's Begin">}}
 
-With Custom icon `:heart:`. Check [emjoi cheat sheet](https://www.webfx.com/tools/emoji-cheat-sheet/) for more.
+With Custom icon `:h-e-a-r-t:` (without '-'). Check [emjoi cheat sheet](https://www.webfx.com/tools/emoji-cheat-sheet/) for more.
 {{< ref link="/docs/prologue/commands.md" icon=":heart:" >}}
+
+## Plain Link to external site 
+Link button can be created using `link` shortcode.
+{{< link link="https://gohugo.io/functions/urls.parse/" title="Hugo Url parse function" >}}
+
+Can be passed with custom icon.
+{{< link link="https://colab.research.google.com/github/adhadse/ColabRepo/blob/master/pydata/Ch%205%20Getting%20Started%20with%20Pandas.ipynb" title="Ch 5 Getting started with pandas" icon=":page_facing_up:">}}
