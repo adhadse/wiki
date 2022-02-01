@@ -232,3 +232,13 @@ Secondary alert with `type="secondary"` with no title.
 File Download button with custom text.
 
 {{< file link="/files/help.txt" title="Django manage.py commands">}}
+
+## Reference Link 
+Reference Link can be used to refer to other pages in docs.
+{{< ref link="/docs/prologue/quick-start.md">}}
+
+Reference Link can also be passed with custom text. 
+{{< ref link="/docs/prologue/introduction.md" title="Let's Begin">}}
+
+With Custom icon `:heart:`. Check [emjoi cheat sheet](https://www.webfx.com/tools/emoji-cheat-sheet/) for more.
+{{< ref link="/docs/prologue/commands.md" icon=":heart:" >}}
