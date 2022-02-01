@@ -171,6 +171,7 @@ Check item
 
 - [X] checked
 - [ ] unchecked
+- [ ] onemore unchecked
 
 ## Panel
 
@@ -210,9 +211,24 @@ Warning alert with `type="warning"`
 {{< /alert >}}
 
 {{< alert type="secondary" title="A Secondary alert" >}}
-Secondary alert with `type="secondary"`
+Secondary alert with `type="secondary"`. Can have [link](https://wikipedia.com)
 {{< /alert >}}
 
 {{< alert type="secondary" >}}
 Secondary alert with `type="secondary"` with no title.
 {{< /alert >}}
+
+## Tables 
+
+| Heading 1 📝 | Heading 2🤟 | Heading 3 🎋|
+| --- | --- | --- |
+| item 1 😶‍🌫️| item 2 | item 3|
+| item 3 | $\alpha = \beta$ | `def` |
+
+## File Download 
+
+{{< file link="/videos/flower.mp4" >}}
+
+File Download button with custom text.
+
+{{< file link="/files/help.txt" title="Django manage.py commands">}}

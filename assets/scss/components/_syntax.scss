@@ -15,6 +15,10 @@ Based on Ascetic by (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
     border-style: none!important;
     border-width: 0;
   } 
+  .table, table {
+    color: $code-white!important;
+    font-family: $font-family-monospace!important;
+  } 
 }
 
 table.hljs-ln {
@@ -25,10 +29,6 @@ table.hljs-ln {
     }
   }
 }
-
-.table, table {
-  color: $code-white!important;
-} 
 
 .table > :not(caption) > * > *, table > :not(caption) > * > * {
   background: none;
