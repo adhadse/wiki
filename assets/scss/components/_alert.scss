@@ -34,7 +34,7 @@
 /* Dark mode */
 [data-dark-mode] .doks-alert {
     border: 0px;
-    background-color: #272727;
+    background-color: $black-light;
 }
 [data-dark-mode] .doks-alert-primary {
     border-left: 5px solid #3286e9;

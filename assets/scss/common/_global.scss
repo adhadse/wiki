@@ -186,6 +186,16 @@ body {
       font-family: $font-family-open-sans;
     }
   }
+  .table, table {
+    font-family: $font-family-open-sans;
+    thead {
+      background: $gray-200;
+      border: $gray-200;
+    }
+    :not(:first-child) {
+      border-top: none;
+    }
+  }
 }
 
 .docs-navigation {
