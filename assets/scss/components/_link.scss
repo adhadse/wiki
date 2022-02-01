@@ -1,4 +1,4 @@
-.ref {
+.link {
     border: 1px solid $gray-200;
     padding: 1rem;
     border-radius: 5px;
@@ -18,17 +18,17 @@
         border: 1px solid $gray-700;
     }
     
-    .ref-icon {
+    .link-icon {
         padding-left: 1em;
-        content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23007bff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>');
+        content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23007bff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link-2"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg>');
     }
-    .ref-custom-icon {
+    .link-custom-icon {
         padding-left: 1em;
     }
     .title {
         padding-left: 0.5em; 
     }
-    .ref-info {
+    .link-info {
         margin-left: auto;
         padding-right: 0.5em;
         color: $gray-500;
@@ -46,15 +46,15 @@
     }
 }
 
-[data-dark-mode] .ref {
+[data-dark-mode] .link {
     border: 1px solid $gray-800;
     color: $blue-300;
 }
 
-[data-dark-mode] .ref .ref-icon {
-    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%235FA0FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>');
+[data-dark-mode] .link .link-icon {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%235FA0FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link-2"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg>');
 }
 
-[data-dark-mode] .ref .ref-info {
+[data-dark-mode] .link .link-info {
     color: $gray-600;
 }
