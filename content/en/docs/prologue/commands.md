@@ -232,7 +232,7 @@ Tables in markdown.
 File download button using `file` shortcode with `link` argument.
 {{< file link="/videos/flower.mp4" >}}
 
-File Download button with custom text.
+File Download button can be provided with custom text using `title` argument.
 
 {{< file link="/files/help.txt" title="Django manage.py commands">}}
 
@@ -256,3 +256,31 @@ Can be passed with custom icon with argument `icon`.
 Pass a `target` argument to change the opened link target, default is `_blank`. This is an example when `target="_self"`.
 {{< link link="https://www.w3schools.com/tags/att_a_target.asp" title="Attribute a Target" target="_self">}}
 
+## Badge 
+Badges can be created using `badge` shortcode and passing a `title` to it.
+| Type (`type`) | Example |
+| --- | --- |
+| `primary` (default) | {{< badge title="Primary" >}} |
+| `success`| {{< badge title="Success" type="success" >}} |
+| `danger`| {{< badge title="Danger" type="danger" >}} |
+| `warning`| {{< badge title="Warning" type="warning" >}} |
+| `secondary`| {{< badge title="Secondary" type="secondary" >}} |
+
+Badges's shape can also configured using `shape` argument
+
+| Shape (`shape`) | Example |
+| --- | --- |
+| `round` (default) | {{< badge title="Rounded Badge" >}} |
+| `square` | {{< badge title="Square Badge" shape="square" >}} |
+| `pill` | {{< badge title="Pill Badge" shape="pill" >}} |
+
+
+## Image
+Images can be added using `figure` shortcode and caption is provided using `caption` argument.
+{{< figure src="/images/Shinkansen.jpg" caption=" Shinkansen (Image source: [Wikipedia](https://en.wikipedia.org/wiki/Shinkansen#/media/File:JR_East_Shinkansen_lineup_at_Niigata_Depot_201210.jpg))" >}}
+
+And some text after image looks like this.
+
+## Youtube 
+Youtube video can be embedded using `youtube` shortcode with `id` argument provided as Video ID. 
+{{< youtube id="zHcef4eHOc8" autoplay="false" >}}
