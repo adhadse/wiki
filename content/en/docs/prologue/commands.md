@@ -98,7 +98,7 @@ npm run build:preview
 # Components
 
 ## Code blocks
-```js
+```javascript
 function highlight(obj){
   var orig = obj.style.color;
   obj.style.color = " #00FF00";
@@ -180,8 +180,8 @@ Panel can be created using `panel` shortcode.
 This is a collapsible panel
 {{< /panel >}}
 
-Let's try putting code in panel.
-{{< panel title="Code in panel" >}} 
+Panel can be by default remain expanded, by passing `collapsed="false"` default is `true`. 
+{{< panel title="Code in panel" collapsed="false" >}} 
 ```html
 <div class="accordion-item">
   <div class="card-body">
@@ -193,8 +193,10 @@ Let's try putting code in panel.
 
 
 ## Alerts
-Alert can be created using shortcode `alert`
-{{< alert type="primary" title="A Primary alert">}}
+Alert can be created using shortcode `alert` and passing `type="type-name"`. 
+
+If `type` is not provided then `"primary"` is default.
+{{< alert title="A Primary alert">}}
 Primary alert with `type="primary"`
 {{< /alert >}}
 
@@ -215,7 +217,8 @@ Secondary alert with `type="secondary"`. Can have [link](https://wikipedia.com)
 {{< /alert >}}
 
 {{< alert type="secondary" >}}
-Secondary alert with `type="secondary"` with no title.
+Secondary alert with `type="secondary"` with no title. The use of alert is 
+to help reader guide on some of the most important points or make him aware.
 {{< /alert >}}
 
 ## Tables 
@@ -226,7 +229,7 @@ Tables in markdown.
 | item 3 | $\alpha = \beta$ | `def` |
 
 ## File Download 
-File download button using `file` shortcode.
+File download button using `file` shortcode with `link` argument.
 {{< file link="/videos/flower.mp4" >}}
 
 File Download button with custom text.
@@ -237,15 +240,19 @@ File Download button with custom text.
 Reference Link can be used to refer to other pages in docs using `ref` shortcode.
 {{< ref link="/docs/prologue/quick-start.md">}}
 
-Reference Link can also be passed with custom text. 
+Reference Link can also be passed with custom text using `title` argument. 
 {{< ref link="/docs/prologue/introduction.md" title="Let's Begin">}}
 
-With Custom icon `:h-e-a-r-t:` (without '-'). Check [emjoi cheat sheet](https://www.webfx.com/tools/emoji-cheat-sheet/) for more.
+With Custom icon `:icon-shortcode:` using `icon` argument. Check [emjoi cheat sheet](https://www.webfx.com/tools/emoji-cheat-sheet/) for more.
 {{< ref link="/docs/prologue/commands.md" icon=":heart:" >}}
 
 ## Plain Link to external site 
 Link button can be created using `link` shortcode.
 {{< link link="https://gohugo.io/functions/urls.parse/" title="Hugo Url parse function" >}}
 
-Can be passed with custom icon.
+Can be passed with custom icon with argument `icon`.
 {{< link link="https://colab.research.google.com/github/adhadse/ColabRepo/blob/master/pydata/Ch%205%20Getting%20Started%20with%20Pandas.ipynb" title="Ch 5 Getting started with pandas" icon=":page_facing_up:">}}
+
+Pass a `target` argument to change the opened link target, default is `_blank`. This is an example when `target="_self"`.
+{{< link link="https://www.w3schools.com/tags/att_a_target.asp" title="Attribute a Target" target="_self">}}
+

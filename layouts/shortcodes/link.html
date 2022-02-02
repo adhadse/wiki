@@ -1,6 +1,7 @@
 {{ $link := .Get "link"}}
 {{ $title := .Get "title" }}
 {{ $icon := .Get "icon" }}
+{{ $target := .Get "target" }}
 
 {{ if $link }}
 <div class="link">
@@ -20,7 +21,7 @@
                 {{ $url := urls.Parse $link }}
                 {{ $url.Host }}
             </div>
-            <a href="{{ $link }}"></a>
+            <a href="{{ $link }}" target="{{ if $target }}{{ $target }}{{ else }}_blank{{ end }}"></a>
     </div>
 {{ else }}
     {{ errorf "%q: Link was not provided to 'link' shortcode " .Page.Path }}
