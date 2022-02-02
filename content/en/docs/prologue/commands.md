@@ -281,6 +281,8 @@ Images can be added using `figure` shortcode and caption is provided using `capt
 
 And some text after image looks like this.
 
+{{< figure src="https://upload.wikimedia.org/wikipedia/commons/b/be/New_hampshire_in_autumn.jpg" caption="And can be added from external sources as well. (Source [Wikipedia](https://upload.wikimedia.org/wikipedia/commons/b/be/New_hampshire_in_autumn.jpg))" >}}
+
 ## Youtube 
 Youtube video can be embedded using `youtube` shortcode with `id` argument provided as Video ID. 
 {{< youtube id="zHcef4eHOc8" autoplay="false" >}}
