@@ -590,3 +590,7 @@ $navbar-dark-active-color:          $link-color-dark;
 [data-dark-mode] .katex-display > .katex > .katex-html {
   background: $body-overlay-dark;
 }
+
+[data-dark-mode] figure figcaption {
+  color: $gray-600;
+}

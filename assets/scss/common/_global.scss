@@ -325,3 +325,17 @@ body {
   padding: 1.5rem 0;
   background: $gray-100;
 }
+
+/* figure */
+figure {
+  figcaption {
+    padding: 0 15px;
+    text-align: center;
+    margin-top: -.5em;
+    color: $gray-600;
+    font-size: $font-size-sm;
+    margin: 0.5em auto;
+    font-family: $font-family-open-sans;
+
+  }
+}
