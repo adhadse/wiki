@@ -62,7 +62,9 @@ pre {
     }
     &:focus, &active {
       display: block;
-      border: 1px solid $link-color;
+      box-shadow: inset 0px 0px 0px 1px $link-color;
+      color: $link-color;
+      transition: 0s;
     }
   }
 }
