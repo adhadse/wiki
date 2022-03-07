@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     hljs.initLineNumbersOnLoad();
     var language = block.result.language;
     if (language === undefined) {
-      language = "?"
+      language = '?'
     }
     block.insertAdjacentHTML("afterend",`<label id="language">${language}</label>`);
   });
