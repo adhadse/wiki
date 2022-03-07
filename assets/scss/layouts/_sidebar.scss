@@ -50,17 +50,6 @@
   }
 }
 
-.docs-links h3:not(:first-child) {
-  border-top: 1px solid $gray-200;
-}
-
-a.docs-link {
-  color: $body-color;
-  display: block;
-  padding: 0.125rem 0;
-  font-size: $font-size-base;
-}
-
 .page-links {
   box-shadow: inset 1px 0 0 0 $gray-200;
 
@@ -74,25 +63,23 @@ a.docs-link {
       list-style: none;
       padding: 0;
 
-      li a {
-        padding-left: 1em !important;
-        padding-right: 1em !important;
-        padding-top: 0.125rem;
-        padding-bottom: 0;
-        color: $body-color;
-        display: block;
-        font-size: $font-size-base * 0.9375;
-        text-decoration: none;
-
-        &:hover{
-          color: $link-color;
-        }
-      }
-
-      ul li {
+      li {
         a {
-          padding-left: 2em !important;
-          padding-right: 2em !important;
+          padding: 0.2rem 1em !important;
+          color: $body-color;
+          display: block;
+          font-size: $font-size-base * 0.9375;
+          text-decoration: none;
+  
+          &:hover {
+            color: $link-color;
+          }
+        }
+        ul li {
+          a {
+            padding-left: 2em !important;
+            padding-right: 2em !important;
+          }
         }
       }
     }
@@ -102,6 +89,17 @@ a.docs-link {
     color: $purple !important;
     border-left: 1px solid $purple;
   }
+}
+
+.docs-links h3:not(:first-child) {
+  border-top: 1px solid $gray-200;
+}
+
+a.docs-link {
+  color: $body-color;
+  display: block;
+  padding: 0.125rem 0;
+  font-size: $font-size-base;
 }
 
 .docs-link:hover,
@@ -133,4 +131,3 @@ a.docs-link {
 .page-links h3.sidebar-link a:hover {
   text-decoration: underline;
 }
-  

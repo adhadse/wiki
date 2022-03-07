@@ -168,68 +168,23 @@ Source:
   }
 }());
 
-
-// array of the links in the toc (table of content) block
-var toc;
-// array of content (links are refers to the content)
-var content = [];
-
-// call prepare function for while page is loaded complete
-document.addEventListener('DOMContentLoaded', function () {
-    prepare();
-    sync();
-}, false);
-
-/**
- * this function get all toc (table of content) links and content 
- * and save theme
- */
-function prepare() {
-    // get all toc (table of content) links
-    toc = document.querySelectorAll('#TableOfContents a');
-    // get content so that link refer to it
-    toc.forEach(function (link) {
-        var id = link.getAttribute("href");
-        var element = document.querySelector(id);
-        content.push(element);
+window.addEventListener('DOMContentLoaded', () => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+    const id = entry.target.getAttribute('id');
+      if (entry.intersectionRatio > 0) {
+        document.querySelector(`#TableOfContents a[href="#${id}"]`).classList.add('side-active');
+      } else {
+        document.querySelector(`#TableOfContents a[href="#${id}"]`).classList.remove('side-active');
+      }
     });
-    // sync toc (table of content) whit part of content that is 
-    // visible into viewport while user scroll
-    window.addEventListener("scroll", sync, false);
-}
+  });
 
-
-/**
- * this function check if element is visible in viewport 
- * 
- * @argument {String} element which we need to check it 
- * @returns true if element is visible in viewport else return false 
- */
-function isElementInViewport(element) {
-    // get element position
-    var rect = element.getBoundingClientRect();
-
-    // return true if a partial of the element is visible
-    return (rect.bottom >= 0 &&
-        rect.top <= (window.innerHeight/5 || document.documentElement.clientHeight/5));
-
-    // for while we need check if all off the element is visible in viewport
-    // return (rect.top >= 0 &&
-    //     rect.bottom <= (window.innerHeight || document.documentElement.clientHeight));
-}
-
-/**
- * this function highlight toc (table of content) links which is visible in viewport
- */
-function sync() {
-    // check all content 
-    for (var i = 0; i < content.length; i++) {
-        // if content is visible if viewport highlight it 
-        // else remove highlight from it
-        if (isElementInViewport(content[i])) {
-            toc[i].classList.add('side-active');
-        } else {
-            toc[i].classList.remove('side-active');
-        }
-    }
-}
+  toc = document.querySelectorAll('#TableOfContents a');
+    // get content so that link refer to it
+  toc.forEach(function (link) {
+    var id = link.getAttribute("href");
+    var element = document.querySelector(id);
+    observer.observe(element);
+  });
+});

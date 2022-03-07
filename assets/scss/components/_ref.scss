@@ -16,10 +16,6 @@
     border: 1px solid $gray-400;
   }
 
-  [data-dark-mode] &:hover {
-    border: 1px solid $gray-700;
-  }
-
   .ref-icon {
     padding-left: 1em;
     content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23007bff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>');
@@ -53,15 +49,19 @@
   }
 }
 
-[data-dark-mode] .ref {
+[data-dark-mode] body .ref {
   border: 1px solid $gray-800;
   color: $blue-300;
+
+  &:hover {
+    border: 1px solid $gray-700;
+  }
 }
 
-[data-dark-mode] .ref .ref-icon {
+[data-dark-mode] body .ref .ref-icon {
   content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%235FA0FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>');
 }
 
-[data-dark-mode] .ref .ref-info {
+[data-dark-mode] body .ref .ref-info {
   color: $gray-600;
 }
