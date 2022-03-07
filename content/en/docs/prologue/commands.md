@@ -157,7 +157,7 @@ Tabs can be created using `tabs` shortcode passed with uniqueid and `tab` shortc
 {{< /tab >}}
 {{< tab "Windows" >}}  
   A sample content to check `code` in tabs.
-```python 
+```sparql 
 def num(l):
   for i in l:
     print(i)

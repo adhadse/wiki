@@ -12,18 +12,20 @@ code {
   color: $black;
   padding: 0.25rem 0.5rem;
 }
-code:not(.hljs){
+
+code:not(.hljs) {
   border: 1px solid $gray-200;
 }
 
 pre {
   margin: 2rem 0;
   overflow-x: hidden;
+
   label#language {
     position: absolute;
     color: lightgray;
     right: -10%;
-    top: 0em;
+    top: 0;
     font-size: inherit;
     border-radius: 25px;
     background: rgba(69, 68, 68, 1);
@@ -31,41 +33,48 @@ pre {
     margin: 0.3em;
     opacity: 0;
     transition: .5s cubic-bezier(1, 0, 0, 1);
+
     &:hover {
-        background: #555555;
+      background: #555;
     }
   }
-  &:hover label#language {
-      opacity: 1;
-      right: 10%;
-  }
-  &:hover button#copy {
-    opacity: 1;
-    right: 0%
-  }
+
   button#copy {
     position: absolute;
     color: lightgray;
-    outline: none; 
+    outline: none;
     border: none;
     font-size: inherit;
     right: -20%;
-    top: 0em;
+    top: 0;
     border-radius: 25px;
     background: #454444;
     padding: 0 1em;
     margin: 0.3em;
     opacity: 0;
     transition: 0.5s cubic-bezier(1, 0, 0, 1);
+
     &:hover {
-        background: #555555;
+      background: #555;
     }
-    &:focus, &active {
+
+    &:focus,
+    &:active {
       display: block;
-      box-shadow: inset 0px 0px 0px 1px $link-color;
+      box-shadow: inset 0 0 0 1px $link-color;
       color: $link-color;
       transition: 0s;
     }
+  }
+
+  &:hover label#language {
+    opacity: 1;
+    right: 10%;
+  }
+
+  &:hover button#copy {
+    opacity: 1;
+    right: 0%;
   }
 }
 
