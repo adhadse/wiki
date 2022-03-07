@@ -31,7 +31,7 @@ jobs:
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.WIKI_GH_PAGES_TOKEN }}
+          deploy_key: ${{ secrets.WIKI_GH_PAGES_TOKEN }}
           external_repository: adhadse/wiki
           publish_dir: ./public
           publish_branch: master
