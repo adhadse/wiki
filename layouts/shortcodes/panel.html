@@ -11,7 +11,7 @@
         </p>
         <div id="{{printf "panel_%s" (.Scratch.Get "identifier") }}" class="accordion-collapse collapse {{ if not $collapsed }}{{ else }} show {{ end }}" aria-labelledby="{{printf "heading_%s" (.Scratch.Get "identifier") }}" data-bs-parent="#{{printf "accordian-%s" (.Scratch.Get "identifier") }}">
             <div class="card-body">
-                {{print .Inner | markdownify}}
+                {{print .Inner | markdownify }}
             </div>
         </div>
     </div>
