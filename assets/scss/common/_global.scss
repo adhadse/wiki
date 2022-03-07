@@ -27,6 +27,7 @@ h6,
 .h6 {
   margin: 2rem 0 1rem;
 }
+
 p {
   font-family: $font-family-open-sans;
 }
@@ -181,17 +182,21 @@ body {
 .docs-content {
   padding-bottom: 3rem;
   order: 1;
+
   ul, ol {
     li {
       font-family: $font-family-open-sans;
     }
   }
+
   .table, table {
     font-family: $font-family-open-sans;
+
     thead {
       background: $gray-200;
       border: $gray-200;
     }
+
     :not(:first-child) {
       border-top: none;
     }
@@ -203,6 +208,7 @@ body {
   margin-top: 2rem;
   margin-bottom: 0;
   padding-top: 2rem;
+
   .card {
     &:hover {
 			border: 1px solid $gray-400;
