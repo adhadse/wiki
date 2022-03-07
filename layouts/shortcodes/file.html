@@ -2,8 +2,8 @@
 {{ $title := .Get "title" }}
 
 
-{{ if $link }}
-    {{ if os.FileExists (path.Join "static/" $link ) }}
+{{ with $link }}
+    {{ with os.FileExists (path.Join "static/" $link ) }}
     <div class="file">
         <div class="file-icon"></div>
         <div class="title">
