@@ -21,7 +21,7 @@ $beige:    #fbf7f0;
 $purple:   #007bff;
 $brown:    #aa9c84;
 
-$blue-300: #5FA0FF;
+$blue-300: #5fa0ff;
 $pink-100: #fcfaff;
 $pink-500: #d32e9d;
 
@@ -112,7 +112,7 @@ $border-color:                $gray-200;
 $font-family-sans-serif:      "Poppins", -apple-system, blinkmacsystemfont, "Segoe UI", "Helvetica Neue", arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 $font-family-monospace:       "JetBrains Mono", menlo, monaco, consolas, "Liberation Mono", "Courier New", monospace;
 $font-family-base:            $font-family-sans-serif;
-$font-family-open-sans:       "Open Sans", "Poppins", -apple-system, blinkmacsystemfont, "Noto Sans", sans-serif!important;
+$font-family-open-sans:       "Open Sans", "Poppins", -apple-system, blinkmacsystemfont, "Noto Sans", sans-serif !important;
 // stylelint-enable value-keyword-case
 
 $font-size-base:              1rem; // Assumes the browser default, typically `16px`

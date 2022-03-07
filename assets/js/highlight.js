@@ -38,6 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (language === undefined) {
       language = '?'
     }
-    block.insertAdjacentHTML("afterend",`<label id="language">${language}</label>`);
+    block.insertAdjacentHTML('afterend',`<label id="language">${language}</label>`);
   });
 });

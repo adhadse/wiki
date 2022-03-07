@@ -40,7 +40,6 @@
   text-transform: uppercase;
   font-size: $font-size-base;
   margin: 1.25rem 0 0.5rem;
-  // padding: 1.5rem 0 0;
 }
 
 @include media-breakpoint-up(lg) {
@@ -63,43 +62,47 @@ a.docs-link {
 }
 
 .page-links {
-  box-shadow: inset 1px 0px 0px 0px $gray-200;
+  box-shadow: inset 1px 0 0 0 $gray-200;
+
   h3 {
     padding-left: 1rem;
     padding-right: 1rem;
   }
 
-  nav#TableOfContents{
-    ul { 
+  nav#TableOfContents {
+    ul {
       list-style: none;
       padding: 0;
+
       li a {
-        padding-left: 1em!important;
-        padding-right: 1em!important;
+        padding-left: 1em !important;
+        padding-right: 1em !important;
+        padding-top: 0.125rem;
+        padding-bottom: 0;
         color: $body-color;
         display: block;
-        padding: 0.125rem 0;
         font-size: $font-size-base * 0.9375;
         text-decoration: none;
+
         &:hover{
           color: $link-color;
         }
       }
+
       ul li {
         a {
-          padding-left: 2em!important;
-          padding-right: 2em!important;
+          padding-left: 2em !important;
+          padding-right: 2em !important;
         }
       }
     }
   }
+
   .side-active {
-    color: $purple!important;
+    color: $purple !important;
     border-left: 1px solid $purple;
   }
 }
-
-
 
 .docs-link:hover,
 .docs-link.active,
