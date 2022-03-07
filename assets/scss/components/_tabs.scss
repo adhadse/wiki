@@ -47,21 +47,21 @@ $padding-16: 1rem !default;
   input[type="radio"]:hover + label {
     color: $blue-300;
   }
+}
 
-  [data-dark-mode] input[type="radio"]:checked + label {
+[data-dark-mode] .book-tabs .book-tabs-content {
+  border-top: $padding-1 solid $gray-800;
+}
+
+[data-dark-mode] body .book-tabs {
+  border: $padding-1 solid $gray-800;
+
+  input[type="radio"]:checked + label {
     border-bottom: $padding-1 solid $purple;
     color: $purple;
   }
 
-  [data-dark-mode] input[type="radio"]:hover + label {
+  input[type="radio"]:hover + label {
     color: $purple;
-  }
-}
-
-[data-dark-mode] .book-tabs {
-  border: $padding-1 solid $gray-800;
-
-  .book-tabs-content {
-    border-top: $padding-1 solid $gray-800;
   }
 }

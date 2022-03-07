@@ -20,7 +20,7 @@
   }
 }
 
-[data-dark-mode] .accordion-button {
+[data-dark-mode] body .panel .accordion-button {
   background-color: $body-bg-dark;
   color: $gray-300;
 
@@ -29,7 +29,7 @@
   }
 }
 
-[data-dark-mode] .accordion-button:not(.collapsed) {
+[data-dark-mode] body .panel .accordion-button:not(.collapsed) {
   box-shadow: none;
 
   &::after {

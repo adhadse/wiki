@@ -13,6 +13,16 @@ code {
   padding: 0.25rem 0.5rem;
 }
 
+pre code {
+  display: block;
+  overflow-x: auto;
+  line-height: $line-height-base;
+  padding: 1.25rem 1.5rem;
+  tab-size: 4;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
 code:not(.hljs) {
   border: 1px solid $gray-200;
 }
@@ -32,7 +42,7 @@ pre {
     padding: 0 1em;
     margin: 0.3em;
     opacity: 0;
-    transition: .5s cubic-bezier(1, 0, 0, 1);
+    transition: 0.5s cubic-bezier(1, 0, 0, 1);
 
     &:hover {
       background: #555;
@@ -76,16 +86,6 @@ pre {
     opacity: 1;
     right: 0%;
   }
-}
-
-pre code {
-  display: block;
-  overflow-x: auto;
-  line-height: $line-height-base;
-  padding: 1.25rem 1.5rem;
-  tab-size: 4;
-  scrollbar-width: thin;
-  scrollbar-color: transparent transparent;
 }
 
 .hljs {
