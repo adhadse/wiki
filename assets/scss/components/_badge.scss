@@ -1,34 +1,38 @@
-/* Badge variants */ 
+/* Badge variants */
 .badge-primary {
-    color: darken($primary, 10%);
-    background: lighten($primary, 35%);
+  color: darken($primary, 10%);
+  background: lighten($primary, 35%);
 }
+
 .badge-success {
-    color: darken($success, 25%);
-    background: lighten($success, 35%);
+  color: darken($success, 25%);
+  background: lighten($success, 35%);
 }
+
 .badge-danger {
-    color: darken($danger, 10%);
-    background: lighten($danger, 35%);
+  color: darken($danger, 10%);
+  background: lighten($danger, 35%);
 }
+
 .badge-warning {
-    color: darken($warning, 25%);
-    background: lighten($warning, 35%);
+  color: darken($warning, 25%);
+  background: lighten($warning, 35%);
 }
+
 .badge-secondary {
-    color: $secondary;
-    background: lighten($secondary, 45%);
+  color: $secondary;
+  background: lighten($secondary, 45%);
 }
 
 /* Badge shapes */
 .badge-round {
-    border-radius: 5px;
+  border-radius: 5px;
 }
 
 .badge-square {
-    border-radius: 0px;
+  border-radius: 0;
 }
 
 .badge-pill {
-    border-radius: 25px;
+  border-radius: 25px;
 }
