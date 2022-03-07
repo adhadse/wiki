@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    if: github.repository == 'adhadse/wiki'
+    if: github.repository == 'adhadse/doks'
     runs-on: ${{ matrix.os }}
 
     strategy:
