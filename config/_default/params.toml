@@ -1,9 +1,10 @@
 # Meta Data for SEO
 
 ## Homepage
-title = "Anurag's Wiki"
+title = "Anurag Dhadse"
+homeURL = ""
 titleSeparator = "-"
-titleAddition = "Modern Documentation Theme"
+titleAddition = "Wiki"
 description = "Doks is a Hugo theme for building secure, fast, and SEO-ready documentation websites, which you can easily update and customize."
 
 ## Documentation
@@ -13,7 +14,7 @@ description = "Doks is a Hugo theme for building secure, fast, and SEO-ready doc
 images = ["doks.png"]
 ogLocale = "en_US"
 domainTLD = "wiki.anuragdhadse.com"
-titleHome = "Anurag's Wiki"
+titleHome = "Wiki"
 
 ## Twitter Cards
 twitterSite = "@adhadse_"
@@ -57,7 +58,7 @@ smallLimit = "300"
 footer = "Powered by <a class=\"text-muted\" href=\"https://www.netlify.com/\">Netlify</a>, <a class=\"text-muted\" href=\"https://gohugo.io/\">Hugo</a>, and <a class=\"text-muted\" href=\"https://getdoks.org/\">Doks</a>"
 
 # Feed
-copyRight = "Copyright (c) 2020-2021 Henk Verlinde"
+copyRight = "Copyright (c) 2022, Anurag Dhadse"
 
 # Alert
 alert = false
