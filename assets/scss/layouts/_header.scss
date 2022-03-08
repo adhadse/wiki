@@ -167,9 +167,13 @@ button#doks-versions {
   }
 
   .doks-search {
-    max-width: 20rem;
-    margin-top: 0.125rem;
-    margin-bottom: 0.125rem;
+    width: 15rem;
+    margin: 00.125rem 0.5rem;
+    transition: 0.5s cubic-bezier(0, 1, 0, 1);
+
+    &:focus-within {
+      width: 20rem;
+    }
   }
 
   /*
@@ -414,7 +418,7 @@ button#doks-versions {
 .navbar-light .navbar-brand:hover,
 .navbar-light .navbar-brand:active {
   color: $body-color;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .navbar-light .navbar-nav .active .nav-link {
