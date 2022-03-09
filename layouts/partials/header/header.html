@@ -8,7 +8,7 @@
 
 <header class="navbar navbar-expand-md navbar-light doks-navbar sticky-lg-top">
   <nav class="container-{{ if .Site.Params.options.fullWidth }}fluid{{ else }}xxl{{ end }} flex-wrap flex-md-nowrap" aria-label="Main navigation">
-    <a class="navbar-brand p-0 me-auto" href='{{ if .Site.Params.homeurl }} {{ .Site.Params.homeurl }} {{ else }} {{ "/" | relLangURL }}{{ end }}' aria-label="{{ .Site.Params.Title }}">
+    <a class="navbar-brand p-0 me-auto" href='{{ if .Site.Params.homeURL }} {{ .Site.Params.homeURL }} {{ else }} {{ "/" | relLangURL }}{{ end }}' aria-label="{{ .Site.Params.Title }}">
       {{ .Site.Params.Title }}
     </a>
 
@@ -61,7 +61,7 @@
           
         {{ if .Site.Params.options.flexSearch -}}
           <form class="doks-search position-relative flex-grow-1">
-            <input id="search" class="form-control is-search" type="search" placeholder='Search docs...' aria-label="Search docs..." autocomplete="off">
+            <input id="search" class="form-control is-search" type="search" placeholder='Search wiki...' aria-label="Search docs..." autocomplete="off">
             <div id="suggestions" class="shadow bg-white rounded d-none"></div>
           </form>
         {{ end -}}
@@ -123,7 +123,7 @@
 </div>
 {{ end -}}
 
-{{ if eq .Section "docs" -}}
+{{ if in site.Params.mainSections .Section -}}
 <nav class="doks-subnavbar py-2 {{ if eq .Site.Params.options.flexSearch false }} d-lg-none{{ end }}" aria-label="Secondary navigation">
   <div class="container-{{ if .Site.Params.options.fullWidth }}fluid{{ else }}xxl{{ end }} d-flex align-items-md-center">
 
