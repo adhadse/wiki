@@ -1,0 +1,65 @@
+.doks-alert {
+  border: 1px solid $gray-200;
+  padding: 1rem;
+  border-radius: 5px;
+  display: flex;
+  margin: 1em 0;
+
+  .content {
+    padding-left: 1em;
+
+    p {
+      margin-bottom: 0;
+    }
+
+    .body {
+      font-family: $font-family-open-sans;
+    }
+  }
+}
+
+.doks-alert-primary {
+  border-left: 5px solid $primary;
+}
+
+.doks-alert-success {
+  border-left: 5px solid $success;
+}
+
+.doks-alert-danger {
+  border-left: 5px solid $danger;
+}
+
+.doks-alert-warning {
+  border-left: 5px solid $warning;
+}
+
+.doks-alert-secondary {
+  border-left: 5px solid;
+}
+
+/* Dark mode */
+[data-dark-mode] .doks-alert {
+  border: 0;
+  background-color: $black-light;
+}
+
+[data-dark-mode] .doks-alert-primary {
+  border-left: 5px solid $primary;
+}
+
+[data-dark-mode] .doks-alert-success {
+  border-left: 5px solid $success;
+}
+
+[data-dark-mode] .doks-alert-danger {
+  border-left: 5px solid $danger;
+}
+
+[data-dark-mode] .doks-alert-warning {
+  border-left: 5px solid $warning;
+}
+
+[data-dark-mode] .doks-alert-secondary {
+  border-left: 5px solid $secondary;
+}
