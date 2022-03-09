@@ -12,6 +12,8 @@
 
 {{ $mermaid := resources.Get "js/mermaid.js" | js.Build -}}
 
+{{ $dotwave := resources.Get "js/dot-wave.js" -}}
+
 {{ $app := resources.Get "js/app.js" -}}
 
 {{ $slice := slice $app -}}
@@ -74,9 +76,10 @@
   {{ with .Params.mermaid -}}
     <script src="{{ $mermaid.RelPermalink }}" defer></script>
   {{ end -}}
-  {{ if and (.Site.Params.options.flexSearch) (eq .Section "docs") -}}
+  {{ if and (.Site.Params.options.flexSearch) (in site.Params.mainSections .Section) -}}
     <script src="{{ $index.RelPermalink }}" defer></script>
   {{ end -}}
+  <script src="{{ $dotwave.Permalink }}" defer></script>
 {{ else -}}
   {{ $js := $js | minify | fingerprint "sha512" -}}
   {{ $index := $index | minify | fingerprint "sha512" -}}
@@ -85,6 +88,7 @@
   {{ $katex := $katex | minify | fingerprint "sha512" -}}
   {{ $katexAutoRender := $katexAutoRender | minify | fingerprint "sha512" -}}
   {{ $mermaid := $mermaid | minify | fingerprint "sha512" -}}
+  {{ $dotwave := $dotwave | minify | fingerprint "sha512" -}}
   {{ if .Site.Params.options.bootStrapJs -}}
     <script src="{{ $bs.RelPermalink }}" integrity="{{ $bs.Data.Integrity }}" crossorigin="anonymous" defer></script>
   {{ end -}}
@@ -99,7 +103,8 @@
   {{ with .Params.mermaid -}}
     <script src="{{ $mermaid.RelPermalink }}" integrity="{{ $mermaid.Data.Integrity }}" crossorigin="anonymous" defer></script>
   {{ end -}}
-  {{ if and (.Site.Params.options.flexSearch) (eq .Section "docs") -}}
+  {{ if and (.Site.Params.options.flexSearch) (in site.Params.mainSections .Section) -}}
     <script src="{{ $index.Permalink }}" integrity="{{ $index.Data.Integrity }}" crossorigin="anonymous" defer></script>
   {{ end -}}
+  <script src="{{ $dotwave.Permalink }}" integrity="{{ $dotwave.Data.Integrity }}" crossorigin="anonymous" defer></script>
 {{ end -}}

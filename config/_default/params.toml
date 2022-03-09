@@ -1,11 +1,14 @@
 # Meta Data for SEO
 
+# Search
+mainSections = ["ml", "docs", "etc"]
+
 ## Homepage
 title = "Anurag Dhadse"
 homeurl = ""
-titleSeparator = "-"
+titleSeparator = "—"
 titleAddition = "Wiki"
-description = "Doks is a Hugo theme for building secure, fast, and SEO-ready documentation websites, which you can easily update and customize."
+description = "This is my wiki containing Notes, formula cheet sheets and lot more."
 
 ## Documentation
 # docsVersion = "0.3"
@@ -23,9 +26,9 @@ twitterCreator = "@adhadse_"
 ## JSON-LD
 # schemaType = "Person"
 schemaType = "Organization"
-schemaName = "Doks"
+schemaName = "Wiki"
 schemaAuthor = "Anurag Dhadse"
-schemaAuthorTwitter = "https://twitter.com/henkverlinde"
+schemaAuthorTwitter = "https://twitter.com/adhadse"
 schemaAuthorLinkedIn = "https://www.linkedin.com/in/adhadse/"
 schemaAuthorGitHub = "https://github.com/adhadse"
 schemaLocale = "en-US"
@@ -82,7 +85,7 @@ lastMod = false
   flexSearch = true
   darkMode = true
   bootStrapJs = true
-  breadCrumb = true
+  breadCrumb = false
   highLight = true
   kaTex = true
   multilingualMode = false
@@ -93,3 +96,5 @@ lastMod = false
   [menu.section]
     auto = true
     collapsibleSidebar = true
+
+

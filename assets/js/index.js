@@ -71,30 +71,28 @@ Source:
       store: [
         "href", "title", "description"
       ],
-      index: ["title", "description", "content"]
+      index: ["title", "description"]
     }
   });
 
 
   // Not yet supported: https://github.com/nextapps-de/flexsearch#complex-documents
 
-  /*
-  var docs = [
-    {{ range $index, $page := (where .Site.Pages "Section" "docs") -}}
-      {
-        id: {{ $index }},
-        href: "{{ .Permalink }}",
-        title: {{ .Title | jsonify }},
-        description: {{ .Params.description | jsonify }},
-        content: {{ .Content | jsonify }}
-      },
-    {{ end -}}
-  ];
-  */
-
+  
+  // var docs = [
+  //   {{ range $index, $page := (where .Site.Pages "Section" site.Params.mainSections ) -}}
+  //     {
+  //       id: {{ $index }},
+  //       href: "{{ .Permalink }}",
+  //       title: {{ .Title | jsonify }},
+  //       description: {{ .Params.description | jsonify }},
+  //     },
+  //   {{ end -}}
+  // ];
+  
   // https://discourse.gohugo.io/t/range-length-or-last-element/3803/2
 
-  {{ $list := (where .Site.Pages "Section" "docs") -}}
+  {{ $list := (where .Site.Pages "Section" .Section ) -}}
   {{ $len := (len $list) -}}
 
   index.add(
@@ -114,7 +112,7 @@ Source:
         .add(
       {{ end -}}
     {{ end -}}
-  ;
+        ;
 
   search.addEventListener('input', show_results, true);
 

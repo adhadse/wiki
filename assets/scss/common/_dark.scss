@@ -81,6 +81,17 @@ $navbar-dark-active-color:          $link-color-dark;
   @extend .dropdown-menu-dark;
 }
 */
+[data-dark-mode] body.home {
+  background-color: white;
+
+  h1 {
+    color: black;
+  }
+
+  p {
+    color: black;
+  }
+}
 
 [data-dark-mode] body .navbar,
 [data-dark-mode] body .doks-subnavbar {
