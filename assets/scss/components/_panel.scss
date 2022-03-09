@@ -1,6 +1,10 @@
 .panel {
   margin: 1em 0;
 
+  .collapsing {
+    transition: height 0.5s cubic-bezier(0, 1, 0, 1);
+  }
+
   .accordion-button {
     background-color: var(--bs-body-bg);
     color: $black;
