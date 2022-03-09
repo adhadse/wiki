@@ -4,10 +4,8 @@ Welcome # AI (Artificial Intelligence) is the new Electricity to bring about a c
 Logistic Regression as a Neural Network # Logistic Regression is an algorithm for Binary Classification. Consider we have an image we want to classify as cat or not of 64x64 dimension
 The images are stored as matrix pixel intensity value for different color channels. (one matrix per color channel and with each layer dimension being the dimension of image).
 To represent image we can use a single feature vector:</description></item><item><title>Week 3 — One hidden layer Neural Networks</title><link>https://wiki.anuragdhadse.com/ml/intro_dl/neural-networks/week3/</link><pubDate>Tue, 25 Jan 2022 14:41:39 +0100</pubDate><guid>https://wiki.anuragdhadse.com/ml/intro_dl/neural-networks/week3/</guid><description>May 4, 2021
-Shallow Neural Network # Neural Networks Overview #
-Note: For new notation
-We&amp;rsquo;ll use superscript square bracket one to refer to quantities associated with a particular layer.
-Neural Network Representation # The term hidden layer refers to the fact that in the training set, for these nodes in the middle (the hidden layer neurons) are not observed.
+Shallow Neural Network # Neural Networks Overview # Note: For new notation
+We&amp;rsquo;ll use superscript square bracket one to refer to quantities associated with a particular layer. Neural Network Representation # The term hidden layer refers to the fact that in the training set, for these nodes in the middle (the hidden layer neurons) are not observed.
 Source: Wikipedia. Used for representation only.</description></item><item><title>Week 4 — L Layers Deep Neural Networks</title><link>https://wiki.anuragdhadse.com/ml/intro_dl/neural-networks/week4/</link><pubDate>Tue, 25 Jan 2022 14:41:39 +0100</pubDate><guid>https://wiki.anuragdhadse.com/ml/intro_dl/neural-networks/week4/</guid><description>May 6, 2021
 New notations introduces
 $L$ to denote the number of layers in the network
