@@ -1,0 +1,10 @@
+{{ $title := .Get "title" }}
+{{ $type := .Get "type" | default "primary"}}
+{{ $shape := .Get "shape" | default "round" }}
+{{ $size := .Get "size" | default "a"}}
+
+{{ if $title }}
+    <span class="badge  badge-{{ $type }} badge-{{ $shape }}">{{ $title }}</span>
+{{ else }}
+    {{ errorf "%q: 'alert' shortcode was not provided with 'title'." .Page.Path $type }}
+{{ end }}
