@@ -67,7 +67,7 @@ Other reasons:
 
 The scale at which we creating data is also important, as neural networks performance don't stagnant unlike traditional machine learning algorithms
 
-In this course <mark style="background-color:#FFF3B8;">$m$ denotes no of training examples.</mark>
+In this course <mark class="y">$m$ denotes no of training examples.</mark>
 
 ### About this Course
 * Week 1: Introduction
