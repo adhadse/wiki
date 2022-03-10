@@ -1,7 +1,7 @@
 # Meta Data for SEO
 
 # Search
-mainSections = ["ml", "docs", "etc"]
+mainSections = ["ml", "etc", "docs"]
 
 ## Homepage
 title = "Anurag Dhadse"
