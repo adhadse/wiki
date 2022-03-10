@@ -91,6 +91,17 @@ $navbar-dark-active-color:          $link-color-dark;
   p {
     color: black;
   }
+
+  .footer {
+    border-top: 1px solid $gray-200;
+    
+    li#copyright-footer {
+      color: $gray-600;
+      a {
+        color: $gray-600;
+      }
+    }
+  }
 }
 
 [data-dark-mode] body .navbar,
