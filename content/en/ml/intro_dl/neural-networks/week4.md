@@ -97,9 +97,9 @@ The the backward step would be like to calculate $dA^{[l-1]},\enspace dZ^{[l]},\
 {{< figure src="/images/ml/intro_dl/neural_networks/Untitled 20.png">}}
 
 ## Forward and Backward Propagation
-{% hint style="warning" %}
+{{< alert type="warning">}}
 Note that in the next video at 2:30, the text that's written should be $dw^{\[l]} = dz^{\[l]} \* a^{\[l-1]\bold{\top}}$
-{% endhint %}
+{{< /alert>}}
 
 {{< figure src="/images/ml/intro_dl/neural_networks/Untitled 21.png" caption="Forward and backward propagation. Source: Coursera Assignment">}}
 
@@ -118,8 +118,8 @@ $dAL = -(\text{np.divide($Y, AL$)} - \text{np.divide($1-Y$, $1-AL$)}$
 
 ## Parameters VS Hyperparameters
 
-**Parameters** are values that the neural net needs to learn by itself such as $W$ and $b$.
+<mark class="y">**Parameters** are values that the neural net needs to learn by itself such as $W$ and $b$.</mark>
 
-**Hyperparameters** are the extra values we decide and that we give it that it needs to run - the learning rate, the number of iterations of gradient descent, the number of hidden layers, the number of hidden units in each layer, and the choice of activation function.
+<mark class="y">**Hyperparameters** are the extra values we decide and that we give it that it needs to run - the learning rate, the number of iterations of gradient descent, the number of hidden layers, the number of hidden units in each layer, and the choice of activation function.</mark>
 
 We call these hyperparameters since these influence the actual parameters that the neural net is responsible for calculating.

@@ -1,6 +1,6 @@
 ---
 title: "Maths Formula Compendium"
-description: "A complete list of high school math formaulaes"
+description: "A complete list of high school math formulaes"
 lead: ""
 date: 2022-01-25T14:41:39+01:00
 lastmod: 2022-01-25T14:41:39+01:00
