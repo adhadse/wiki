@@ -4,10 +4,10 @@ $(function () {
         sectionIds.each(function(i, e){
             var container = $(this).attr('href');
             var containerOffset = $(container).offset().top;
-            var nextCotainer = $(sectionIds[i+1]).attr('href')
+            var nextContainer = $(sectionIds[i+1]).attr('href')
 
             if (i != sectionIds.length-1) {
-              var containerHeight = $(nextCotainer).offset().top;
+              var containerHeight = $(nextContainer).offset().top;
             } else {
               var containerHeight = $(container).outerHeight();
             }
