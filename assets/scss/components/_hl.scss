@@ -1,0 +1,88 @@
+mark {
+  cursor: pointer;
+  padding: 0 0.1rem;
+}
+
+[data-dark-mode] mark {
+  color: white;
+}
+
+.y {
+  background-color: #f7f2e2;
+
+  &:hover {
+    background-color: #fff2c8;
+  }
+}
+
+[data-dark-mode] .y {
+  background-color: #564328;
+
+  &:hover {
+    background-color: #9b6f32;
+  }
+}
+
+.r {
+  background-color: #ffe9eb;
+
+  &:hover {
+    background-color: #f9d5d8;
+  }
+}
+
+[data-dark-mode] .r {
+  background-color: #522e2a;
+
+  &:hover {
+    background-color: #933f35;
+  }
+}
+
+.b {
+  background-color:#e5f4ff;
+
+  &:hover {
+    background-color: #d2e8f7;
+  }
+}
+
+[data-dark-mode] .b {
+  background-color: #143a4e;
+
+  &:hover {
+    background-color: #245671;
+  }
+}
+
+.v {
+  background-color: #efe5f7cc;
+
+  &:hover {
+    background-color: #e6d6f2cc;
+  }
+}
+
+[data-dark-mode] .v {
+  background-color: #3c2d49;
+
+  &:hover {
+    background-color: #42215f;
+  }
+}
+
+.g {
+  background-color: #edf3ec;
+
+  &:hover {
+    background-color: #d6f2d1;
+  }
+}
+
+[data-dark-mode] .g {
+  background-color: #243d30;
+
+  &:hover {
+    background-color: #25573d;
+  }
+}

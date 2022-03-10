@@ -235,8 +235,8 @@ Secondary alert with `type="secondary"` with no title. The use of alert is
 to help reader guide on some of the most important points or make him aware.
 {{< /alert >}}
 
-Say you have a two-column layout: a main column with content and a sidebar. Say it has a lot of content, with sections that requires scrolling. The sidebar column that is largely empty, such that you can safely put a position: sticky; table of contents over there for all that content in the main column. A fairly common pattern for documentation.
-Bramus Van Damme has a nice tutorial on all this, starting from semantic markup, implementing most of the functionality with HTML and CSS, and then doing the last bit of active nav enhancement with JavaScript. 
+<mark class="y">Say you have a two-column layout: </mark> a main column with content and a sidebar. <mark class="r">Say it has a lot of content,</mark> with sections that requires scrolling. <mark class="b">The sidebar column that is largely empty</mark>, such that you can safely put a position: sticky; <mark class="v">table of contents over there for all that content in the main column</mark>. A fairly common pattern for documentation.
+Bramus Van Damme has a nice tutorial on all this, starting from semantic markup, <mark class="g">implementing most of the functionality with HTML and CSS</mark>, and then doing the last bit of active nav enhancement with JavaScript. 
 For example, if you don’t click yourself down to a section (where you might be able to get away with :target styling for active navigation), JavaScript is necessary to tell where you are scrolled to and to highlight the active navigation. That active bit is handled nicely with IntersectionObserver, which is, like, the perfect API for this.
 
 Here’s that result:
