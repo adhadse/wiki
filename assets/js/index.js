@@ -1,23 +1,29 @@
-// Table of Contents highlighting
-window.addEventListener('DOMContentLoaded', () => {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-    const id = entry.target.getAttribute('id');
-      if (entry.intersectionRatio > 0) {
-        document.querySelector(`#TableOfContents a[href="#${id}"]`).classList.add('side-active');
-      } else {
-        document.querySelector(`#TableOfContents a[href="#${id}"]`).classList.remove('side-active');
-      }
-    });
-  });
+$(function () {
+  var sectionIds = $('#TableOfContents:first a');
+    $(document).on('scroll', function(){
+        sectionIds.each(function(i, e){
+            var container = $(this).attr('href');
+            var containerOffset = $(container).offset().top;
+            var nextCotainer = $(sectionIds[i+1]).attr('href')
 
-  toc = document.querySelectorAll('#TableOfContents a');
-    // get content so that link refer to it
-  toc.forEach(function (link) {
-    var id = link.getAttribute("href");
-    var element = document.querySelector(id);
-    observer.observe(element);
-  });
+            if (i != sectionIds.length-1) {
+              var containerHeight = $(nextCotainer).offset().top;
+            } else {
+              var containerHeight = $(container).outerHeight();
+            }
+            var containerBottom = containerOffset + containerHeight;
+
+            var scrollPosition = $(document).scrollTop();
+            if(scrollPosition < containerBottom - 20 && scrollPosition >= containerOffset - 20){
+              for (var j = i; j >= 0; j--) {
+                $(sectionIds[j]).removeClass('active');
+              }  
+              $(sectionIds[i]).addClass('active');
+            } else{
+                $(sectionIds[i]).removeClass('active');
+            }
+        });
+    });
 });
 
 var suggestions = document.getElementById('suggestions');
@@ -117,24 +123,25 @@ Source:
   {{ $list := (where .Site.Pages "Section" .Section ) -}}
   {{ $len := (len $list) -}}
 
-  index.add(
-    {{ range $index, $element := $list -}}
-      {
-        id: {{ $index }},
-        href: "{{ .RelPermalink }}",
-        title: {{ .Title | jsonify }},
-        {{ with .Description -}}
-          description: {{ . | jsonify }},
-        {{ else -}}
-          description: {{ .Summary | plainify | jsonify }},
+  {{ if eq $len 0 -}}
+    index.add();
+  {{ else -}}
+    index.add(
+      {{ range $index, $element := $list -}}
+        {
+          id: {{ $index }},
+          href: "{{ .RelPermalink }}",
+          title: {{ .Title | jsonify }},
+          {{ with .Description -}}
+            description: {{ . | jsonify }},
+          {{ else -}}
+            description: {{ .Summary | plainify | jsonify }},
+          {{ end -}}
+          content: {{ .Plain | jsonify }}
+        })
+        {{ if ne (add $index 1) $len -}}
+          .add();
         {{ end -}}
-        content: {{ .Plain | jsonify }}
-      })
-      {{ if ne (add $index 1) $len -}}
-        .add(
-      {{ end -}}
-    {{ end -}}
-        ;
 
   search.addEventListener('input', show_results, true);
 
