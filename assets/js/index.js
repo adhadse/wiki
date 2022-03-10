@@ -140,8 +140,11 @@ Source:
           content: {{ .Plain | jsonify }}
         })
         {{ if ne (add $index 1) $len -}}
-          .add();
+        .add(
+          {{ end -}}
         {{ end -}}
+            ;
+    {{ end -}}
 
   search.addEventListener('input', show_results, true);
 
