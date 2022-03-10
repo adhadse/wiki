@@ -29,6 +29,7 @@ module.exports = {
           './assets/scss/components/_diagrams.scss',
           './assets/scss/components/_syntax.scss',
           './assets/scss/components/_search.scss',
+          './assets/scss/components/_panel.scss',
           './assets/scss/common/_dark.scss',
           './node_modules/bootstrap/scss/_dropdown.scss',
           './node_modules/katex/dist/katex.css',
