@@ -99,6 +99,10 @@ $navbar-dark-active-color:          $link-color-dark;
       color: $gray-600;
       a {
         color: $gray-600;
+
+        &:hover {
+          color: $purple;
+        }
       }
     }
   }
