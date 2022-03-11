@@ -66,7 +66,7 @@ $$
 
 {{< figure src="/images/ml/intro_dl/neural_networks/0005.svg" caption="Exponential function $y = e^x$ (source: Wikipedia)" >}}
 
-Hence, this satisfy the the two conditions:
+Hence, this satisfy the the two conditions:dx
 
 If $z$ is large:
 
@@ -240,13 +240,13 @@ $$
 
 {{< figure src="/images/ml/intro_dl/neural_networks/RBJQM5T.jpg" caption="The photo above uses $a$ for prediction $\hat{y}$">}}
 
-Hence, we use $$dz = (a-y)$$ for calculating Loss function for single instance with respect to $$w\_1$$ by calulating:
+Hence, we use $dz = (a-y)$ for calculating Loss function for single instance with respect to $w\_1$ by calulating:
 
 $$
 \frac{dL}{dw\_1} = \frac{dL}{da}\frac{da}{dz}\frac{dz}{dw\_1} = (a-y)(x\_1) = \bold{x\_1\frac{dL}{dz}}
 $$
 
-and with respect to $$w\_2$$
+and with respect to $w\_2$
 
 $$
 \frac{dL}{dw\_2} = \frac{dL}{da}\frac{da}{dz}\frac{dz}{dw\_2} = (a-y)(x\_2) = \bold{x\_2\frac{dL}{dz}}
