@@ -173,7 +173,7 @@ $$
 
 ## Computing with a computation Graph
 
-{{ figure src="/images/ml/intro_dl/neural_networks/0006.png" }}
+{{< figure src="/images/ml/intro_dl/neural_networks/Untitled 5.png" >}}
 
 - Let's say **we want to compute the derivative of $J$ with respect to $v$.** $\frac{dJ}{dv} = ?$
 - i.e. for a little change in $v$ how the value of $J$ changes?
