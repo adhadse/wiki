@@ -32,7 +32,7 @@ The term _hidden layer_ refers to the fact that in the training set, for these n
 
 {{< figure src="/images/ml/intro_dl/neural_networks/Untitled 10.png" caption="Source: Wikipedia. Used for representation only." width="300rem">}}
 
-The term $a$ also stands for the activations, we will use it for denoting the outputs/activations of a layer that the layer is passing on to the subsequent layers.
+<mark class="y">The term $a$ also stands for the activations, we will use it for denoting the outputs/activations of a layer that the layer is passing on to the subsequent layers.</mark>
 
 - *Input layer* is passing activations $a^{\[0]}$ to the hidden layer (which we previously denoting by $X$.       
 
@@ -51,7 +51,7 @@ The term $a$ also stands for the activations, we will use it for denoting the ou
 {{<figure src="/images/ml/intro_dl/neural_networks/Untitled 11.png" caption="2 layer NN: We don't count the 'input layer'">}}
 
 - The parameter associated with the layers will also be denoted with Superscript notations like $W^{[1]}$, $b^{[1]}$. Here,
-  - $W^{[1]}$ will be $(4. 3)$ dimensional vector for $(\text{noOfNeuronsInCurrentLayer},\text{ noOfNeuronsInPreviviousLayer})$ with each value associated with the connection weights.
+  - $W^{[1]}$ will be $(4. 3)$ dimensional vector for <mark class="y">$(\text{noOfNeuronsInCurrentLayer},\text{ noOfNeuronsInPreviviousLayer})$</mark> with each value associated with the connection weights.
   * $b^{[1]}$ will be $(4, 1)$ dimensional vector, only stores biases for number of neurons in current layer.
 
 ## Computing a Neural Network's Output
@@ -166,7 +166,7 @@ $$
 
 {{< figure src="/images/ml/intro_dl/neural_networks/Untitled 16.png" caption="These matrices  is corresponds to a single hidden layer." >}}
 
-A good thing about these matrices $(Z, A)$ is that they represent vertically *hidden units* and horizontally they represent training examples.
+<mark class="y">A good thing about these matrices $(Z, A)$ is that they represent vertically *hidden units* and horizontally they represent training examples.</mark>
 
 - That means first row first column represent output from first hidden unit for first training example. The second in the first row output of same first hidden unit for second training example.
 - Vertically you get output from second, third and so on hidden unit for the training examples.
@@ -290,47 +290,50 @@ Where,
 
 When training a neural network it is important to initialize the parameters randomly rather than to all zeros.
 
-<div>
+<mark class="v">
 $\text{Repeat\{}$
-</div>
+</mark>
 
-  $\text{Compute the prediction} (\hat{y}^{[i]}, i=1...m)$
+  <mark class="v">$\newline\qquad\text{Compute the prediction} (\hat{y}^{[i]}, i=1...m)$</mark>
 
-  $dW^{[1]}=\frac{dJ}{dW^{[1]}}$, $db^{[1]} = \frac{dJ}{db^{[1]}}$, $...$
+  <mark class="v">$\qquad dW^{[1]}=\frac{dJ}{dW^{[1]}}$, $db^{[1]} = \frac{dJ}{db^{[1]}}$, $...$</mark>
 
-  $W^{[1]} =W^{[1]} - \alpha dW^{[1]}$
+  <mark class="v">$\qquad W^{[1]} =W^{[1]} - \alpha dW^{[1]}$</mark>
 
-  $b^{[1]} = b^{[1]} - \alpha db^{[1]}$
+  <mark class="v">$\qquad b^{[1]} = b^{[1]} - \alpha db^{[1]}$</mark>
 
-  $W^{[1]} = W^{[2]} - \alpha dW^{[2]}$
+  <mark class="v">$\qquad W^{[1]} = W^{[2]} - \alpha dW^{[2]}$</mark>
 
-  $b^{[2]} = b^{[2]} - \alpha db^{[2]}$
+  <mark class="v">$\qquad b^{[2]} = b^{[2]} - \alpha db^{[2]}$</mark>
 
-$\\}$
+<mark class="v">$\\}$</mark>
 
 #### Formulas for computing derivatives (assuming for binary classification)
 
 **Forward Propagation**
 
-<div>
-$$
-Z^{[1]} = W^{[1]}X + b^{[1]}\\ A^{[1]} =  \sigma(Z^{[1]})\\ Z^{[2]} = W^{[2]}A^{[1]} + b ^{[2]}\\ A^{[2]}=\hat{Y}^{[2]} = g^{[1]}(Z^{[2]})=\sigma(Z^{[2]})
-$$
-</div>
+<mark class="v">$Z^{[1]} = W^{[1]}X + b^{[1]}$</mark>
+
+<mark class="v">$A^{[1]} =  \sigma(Z^{[1]})$</mark>
+
+<mark class="v">$Z^{[2]} = W^{[2]}A^{[1]} + b ^{[2]}$</mark>
+
+<mark class="v">$A^{[2]}=\hat{Y}^{[2]} = g^{[1]}(Z^{[2]})=\sigma(Z^{[2]})$</mark>
+
 
 **Back Propagation**
 
-$dZ^{[2]} = A^{\[2]} - Y$
+<mark class="v">$dZ^{[2]} = A^{\[2]} - Y$</mark>
 
-$dW^{[2]} = \frac{1}{m}dZ^{[2]}A^{[1]\bold{\top}}$
+<mark class="v">$dW^{[2]} = \frac{1}{m}dZ^{[2]}A^{[1]\bold{\top}}$</mark>
 
-$db^{[2]} = \frac{1}{m}\text{ np.sum($dZ^{[2]}$, axis=1, keepdims=True)}\\;\fcolorbox{red}{white}{avoids  1 rank matrix}$
+<mark class="v">$db^{[2]} = \frac{1}{m}\text{ np.sum($dZ^{[2]}$, axis=1, keepdims=True)}\\;\fcolorbox{red}{white}{avoids  1 rank matrix}$</mark>
 
-$dZ^{[1]} = W^{[2]\bold{\top}} dZ^{[2]} \* g'^{[1]}(Z^{[1]})$
+<mark class="v">$dZ^{[1]} = W^{[2]\bold{\top}} dZ^{[2]} \* g'^{[1]}(Z^{[1]})$</mark>
 
-$dW^{[1]} = \frac{1}{m} dZ^{[1]}X^\bold{\top}$
+<mark class="v">$dW^{[1]} = \frac{1}{m} dZ^{[1]}X^\bold{\top}$</mark>
 
-$db^{[1]} = \frac{1}{m}\text{np.sum($dZ^{[1]}$, axis=1, keepdims=True})$
+<mark class="v">$db^{[1]} = \frac{1}{m}\text{np.sum($dZ^{[1]}$, axis=1, keepdims=True})$</mark>
 
 Where,
 
@@ -348,7 +351,7 @@ Please note that in the this video at 8:20, the text should be "$dw^{[1]}$" inst
 
 If two hidden units with the same activation function are connected to the same inputs, then these units must have different initial parameters. If they have the same initial parameters, then a deterministic learning algorithm applied to a deterministic cost and model will constantly update both of these units in the same way.
 
-This helps in breaking symmetry and every neuron is no longer performing the same computation.
+<mark class="y">This helps in breaking symmetry and every neuron is no longer performing the same computation.</mark>
 
 $W^{[1]} = \text{np.random.randn((2, 2)) \* 0.01}$
 

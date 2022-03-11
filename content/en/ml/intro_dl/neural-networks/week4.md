@@ -27,7 +27,7 @@ In previous week example $n^{[1]} = 4, \, n^{[0]} = n_x = 3$
 
 ## Forward Propagation in a Deep Network
 
-Let's go over what forward propagation will look like for a single training example $x$ (which is also $a^{[0]}$).
+Let's go over <mark class="y">what forward propagation will look like for a single training example $x$ (which is also $a^{[0]}$).</mark>
 
 {{< figure src="/images/ml/intro_dl/neural_networks/Untitled 19.png">}}
 
@@ -47,19 +47,15 @@ $a^{[4]} = \hat{y} = g^{[4]}(z^{[4]})$
 
 #### Generally equation for the forward propagation of any layer $l$
 
-<div>
-$$
-z^{[l]} = W^{[l]}a^{[l-1]} + b^{[l]} \\[5pt] a^{[l]} = g^{[l]}(z^{[l]})
-$$
-</div>
+<mark class="v">$z^{[l]} = W^{[l]}a^{[l-1]} + b^{[l]}$<mark>
+
+<mark class="v">$ a^{[l]} = g^{[l]}(z^{[l]})$</mark>
 
 #### Vectorizing over whole training set or $m$ training example
 
-<div>
-$$
-Z^{[l]} = W^{[l]}A^{[l-1]} + b^{[l]}\\[5pt] A^{[l]} = g^{[l]}(Z^{[l]})
-$$
-</div>
+<mark class="v">$Z^{[l]} = W^{[l]}A^{[l-1]} + b^{[l]}$</mark>
+
+<mark class="v">$A^{[l]} = g^{[l]}(Z^{[l]})$</mark>
 
 Here $A^{[0]}$ is going to be $X$.
 
@@ -72,13 +68,13 @@ $a^{\[l]} = g^{\[l]}(z^{\[l]})$
 
 Note that "a" and "z have dimensions $(n^{[l]},1)$.
 
-* Check the dimension of the matrix $W^{[l]}$ as to be $(n^{[l]}, n^{[l-1]})$
-* and dimension of $X$ or $A^{[0]}$ to be $(n^{[0]}, m)$.
-* The dimension of the matrix $b^{[l]}$ to be $(n^{[l]},1)$
-* The dimension of $Z^{[l]}$ and $A^{[l]}$ to be $(n^{[l]}, m)$
-* The dimension of $dW^{[l]}$ be $(n^{[l]}, n^{[l-1]})$.
-* The dimension of $db^{[l]}$ be $(n^{[l]}, 1)$
-* The dimension of $dZ^{[l]}$ and $dA^{[l]}$ be $(n^{[l]}, m )$.
+* <mark class="y">Check the dimension of the matrix $W^{[l]}$ as to be $(n^{[l]}, n^{[l-1]})$</mark>
+* <mark class="y">and dimension of $X$ or $A^{[0]}$ to be $(n^{[0]}, m)$.</mark>
+* <mark class="y">The dimension of the matrix $b^{[l]}$ to be $(n^{[l]},1)$</mark>
+* <mark class="y">The dimension of $Z^{[l]}$ and $A^{[l]}$ to be $(n^{[l]}, m)$</mark>
+* <mark class="y">The dimension of $dW^{[l]}$ be $(n^{[l]}, n^{[l-1]})$.</mark>
+* <mark class="y">The dimension of $db^{[l]}$ be $(n^{[l]}, 1)$</mark>
+* <mark class="y">The dimension of $dZ^{[l]}$ and $dA^{[l]}$ be $(n^{[l]}, m )$.</mark>
 
 ## Why deep representations?
 
@@ -106,15 +102,15 @@ Note that in the next video at 2:30, the text that's written should be $dw^{\[l]
 
 To output $dA^{[l-1]},\enspace dZ^{[l]},\enspace dW^{[l]}.\enspace db^{[l]}$; we do:
 
-$dZ^{[l]} = dA^{[l]}\* g'^{\[l]}(Z^{\[l]})$
+<mark class="v">$dZ^{[l]} = dA^{[l]}\* g'^{\[l]}(Z^{\[l]})$</mark>
 
-$dW^{[l]}=\frac{1}{m}dZ^{[l]}.A^{[l-1]\bold{\top}}$
+<mark class="v">$dW^{[l]}=\frac{1}{m}dZ^{[l]}.A^{[l-1]\bold{\top}}$</mark>
 
-$db^{[l]}=\frac{1}{m}\text{np.sum($dZ^{[l]}$, axis=1, keepdims=True)}$
+<mark class="v">$db^{[l]}=\frac{1}{m}\text{np.sum($dZ^{[l]}$, axis=1, keepdims=True)}$</mark>
 
-$dA^{[l-1]}=W^{[l]\bold{\top}}dZ^{[l]}$
+<mark class="v">$dA^{[l-1]}=W^{[l]\bold{\top}}dZ^{[l]}$</mark>
 
-$dAL = -(\text{np.divide($Y, AL$)} - \text{np.divide($1-Y$, $1-AL$)}$
+<mark class="v">$dAL = -(\text{np.divide($Y, AL$)} - \text{np.divide($1-Y$, $1-AL$)}$</mark>
 
 ## Parameters VS Hyperparameters
 
