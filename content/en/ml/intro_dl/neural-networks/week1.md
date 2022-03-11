@@ -22,6 +22,8 @@ toc: true
 
 {{< youtube id="CS4cs9xVecg" >}}
 
+{{< youtube id="aircAruvnKk">}}
+
 ## Week 1 — Introduction to Deep Learning
 
 May 1, 2021

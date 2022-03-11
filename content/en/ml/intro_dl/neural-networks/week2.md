@@ -39,7 +39,7 @@ $$
 
 Notations:
 
-{{< figure src="/images/0004.png" >}}
+{{< figure src="/images//ml/intro_dl/neural_networks/0004.png" >}}
 
 ## Logistic Regression
 
@@ -53,7 +53,7 @@ where,
 
 **Parameters**: $w\in \mathbb{R}^{n_x}, b\in \mathbb{R}$
 
-### **Output or Activation function**
+### Output or Activation function
 
 **Output** : $\hat{y} = \sigma(w^\intercal x + b)$
 
@@ -90,7 +90,7 @@ In a alternate notation you might see (like in Hands-on machine learning book) $
 
 ## Logistic Regression Cost Function
 
-* Cost function (loss function for single training example) to optimize, want to be as small as possible. The Loss function is cost function averaged for all training instances.
+- **Cost function** (loss function for single training example) to optimize, <mark class="y">want to be as small as possible.The Loss function is cost function averaged for all training instances.</mark>
 
 $$
 J(w, b)=J(\theta) = -\frac{1}{m}\sum^m_{i=1}\bigg[y^{(i)}\log\Big(\hat{y}^{(i)}\Big)+ \Big(1-y^{(i)}\Big)\log\Big(1-\hat{y}^{(i)}\Big)\bigg]
@@ -106,15 +106,15 @@ c(\theta) = \begin{cases}-\log(\hat{y}) & \text{if}\enspace y=1\\-\log(1-\hat{y}
 $$
 ​</div>
 
-* That means
-  * If label is 1, we want $(-\log(\hat{y}))$ to be **as small as possible** $\rightarrow$ want $(\log\hat{y})$ to be **large** as possible $\rightarrow$ want $\hat{y}$ to be **large** (i.e. $\approx 1$).
-  * If label is 0, we want $(-\log(1- \hat{y}))$ to be **as small as possible** $\rightarrow$ want $(\log1-\hat{y})$ to be **large** $\rightarrow$ want $\hat{y}$ to be **small.**
+- That means
+  - <mark class="v">If label is 1, we want $(-\log(\hat{y}))$ to be **as small as possible** $\rightarrow$ want $(\log\hat{y})$ to be **large** as possible $\rightarrow$ want $\hat{y}$ to be **large** (i.e. $\approx 1$).</mark>
+  - <mark class="v">If label is 0, we want $(-\log(1- \hat{y}))$ to be **as small as possible** $\rightarrow$ want $(\log1-\hat{y})$ to be **large** $\rightarrow$ want $\hat{y}$ to be **small.**</mark>
 
 ## Gradient Descent
 
 May 2, 2021
 
-Gradient Descent is a generic optimization algorithm capable of finding optimal solutions to a wide range of problems, The general idea of Gradient Descent is to tweak parameters iteratively to minimize cost function.
+<mark class="y">Gradient Descent is a generic optimization algorithm capable of finding optimal solutions to a wide range of problems, The general idea of Gradient Descent is to tweak parameters iteratively to minimize cost function.</mark>
 
 We have a cost function for logistic regression.
 
@@ -142,7 +142,7 @@ b = b - \alpha \frac{\partial J(w, b)}{\partial b}
 $$
 
 {{< alert >}}
-**Tip**: Remember $d$ is used for derivative whereas $\partial$ is used to denote partial derivative when the function we want to derivate has multiple other variables (which are considered constant at the time we are finding the derivative).
+**Tip**: <mark class="y"> Remember $d$ is used for derivative whereas $\partial$ is used to denote partial derivative</mark> when the function we want to derivate has multiple other variables (which are considered constant at the time we are finding the derivative).
 {{< /alert >}}
 
 ## Derivatives
@@ -151,7 +151,7 @@ $$
 
 ## Computation Graph
 
-A computational graph is defined as a directed graph where the nodes correspond to mathematical operations. Computational graphs are a way of expressing and evaluating a mathematical expression.
+<mark class="y">A computational graph is defined as a directed graph where the nodes correspond to mathematical operations. Computational graphs are a way of expressing and evaluating a mathematical expression.</mark>
 
 * The computation graph explains why the computations of neural network is organised with first a forward pass and then a backward pass in Backpropagation algorithm.
 * Reverse-mode autodiff performs a forward pass through a computation graph, computing every node's value for the current training batch, and then it performs a reverse pass, computing all the gradients at once.
@@ -264,7 +264,7 @@ $$
 w\_1 = w\_1 - \alpha dw\_1\\\ w\_2 = w\_2 = \alpha dw\_2\\\b = b -\alpha db
 $$
 
-* where $dw\_1, dw\_2, db$ as said earlier represents the derivative of the final output variable (Loss function) with respect to respective variable.
+- <mark class="y">where $dw\_1, dw\_2, db$ as said earlier represents the derivative of the final output variable (Loss function) with respect to respective variable.</mark>
 
 ## Gradient Descent on $m$ Examples
 
@@ -317,7 +317,7 @@ Vectorization relies on parallelization instructions called **SIMD (Single Instr
 
 {{< figure src="/images/ml/intro_dl/neural_networks/Untitled 7.png" caption="And that's how we eliminate one for loop which was iterating over the features for calculating derivative and updating derivatives.." >}}
 
-{{< alert title="IMPORTANT" >}}
+{{< alert type="warning" title="IMPORTANT" >}}
 Andrew refers to $dz = a (1-a)$
 
 Note that Andrew is using "$dz$" as a shorthand to refer to $\frac{da}{dz} = a (1-a)$ .
@@ -368,19 +368,19 @@ Then:
 
 $\hat{Y} = \[\hat{y}^{(1)}, ..., \hat{(m)}]$ $Y = \[y^{(1)},..., y^{(m)}]$
 
-$dZ = \hat{Y} - Y$
+<mark class="b">$dZ = \hat{Y} - Y$</mark>
 
 ### vectorizing updates of weights and bias
 
-$dw = \frac{1}{m}X{dZ}^\intercal$
+<mark class="b">$dw = \frac{1}{m}X{dZ}^\intercal$</mark>
 
-Which creates as ($n, 1$) dimensional vector with each element being from $dz\_{(i)}$ to $dz\_{(n)}$ where $n$ is the number of features.
+Which creates as ($n, 1$) dimensional vector with each element being from $dz\_{(i)}$ to $dz\_{(n)}$ where <mark class="y">$n$ is the number of features.</mark>
 
 ```python
 dw = (1/m)*np.dot(X, dZ.T)
 ```
 
-$db = \frac{1}{m} \sum^m\_{i=1} dz^{(i)}$
+<mark class="b">$db = \frac{1}{m} \sum^m\_{i=1} dz^{(i)}$</mark>
 
 which in python is done using
 
@@ -389,25 +389,25 @@ db = (1/m)*np.sum(dZ)
 ```
 ### Implementing Logistic Regression
 
-$Z = w^\intercal X +b = \text{np.dot(w.T, X)+b}$
+<mark class="v">$Z = w^\intercal X +b = \text{np.dot(w.T, X)+b}$</mark>
 
-$\hat{Y} = \sigma(Z) $
+<mark class="v">$\hat{Y} = \sigma(Z) $</mark>
 
-$dZ = \hat{Y} - Y$
+<mark class="v">$dZ = \hat{Y} - Y$</mark>
 
-$dw= \frac{1}{m}XdZ^\intercal$
+<mark class="v">$dw= \frac{1}{m}XdZ^\intercal$</mark>
 
-$db = \frac{1}{m}\text{ \* np.sum($dZ$)}$
+<mark class="v">$db = \frac{1}{m}\text{ \* np.sum($dZ$)}$</mark>
 
-$w = w -\alpha dw$
+<mark class="v">$w = w -\alpha dw$</mark>
 
-$b = b - \alpha db$
+<mark class="v">$b = b - \alpha db$</mark>
 
 ## General Principle of Broadcasting
 
 If we have $(m, n)$ matrix and for any operation we want to do with $(1, n)$ or $(m, 1)$ matrix, the matrix with be converted to $(m, n)$ dimensional matrix by copying.
 
-If we have $(m, 1)$ or $(1, m)$ matrix and for any operation we want to do with a real number $R$ get converted to $$(m, 1)$ or $(1, m)$ dimensional matrix by copying $R$.
+If we have $(m, 1)$ or $(1, m)$ matrix and for any operation we want to do with a real number $R$ get converted to $(m, 1)$ or $(1, m)$ dimensional matrix by copying $R$.
 
 ## A note on python/NumPy vectors
 
@@ -422,7 +422,7 @@ print(a.shape)
 >>>(5,)
 ```
 
-Vectors like `a` are called **rank 1 array** in python. That is it is neither a row vector, nor a column vector. Which leads to some slightly non-intuitive effects such as-
+<mark class="y">Vectors like `a` are called **rank 1 array** in python.</mark> That is it is neither a row vector, nor a column vector. Which leads to some slightly non-intuitive effects such as-
 
 ```python
 print(a.T)
