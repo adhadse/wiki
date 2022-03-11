@@ -8,13 +8,13 @@ title = "Anurag Dhadse"
 homeurl = ""
 titleSeparator = "—"
 titleAddition = "Wiki"
-description = "This is my wiki containing Notes, formula cheet sheets and lot more."
+description = "My personal wiki!"
 
 ## Documentation
 # docsVersion = "0.3"
 
 ## Open Graph
-images = ["doks.png"]
+images = ["wiki.png"]
 ogLocale = "en_US"
 domainTLD = "wiki.anuragdhadse.com"
 titleHome = "Wiki"
@@ -32,10 +32,10 @@ schemaAuthorTwitter = "https://twitter.com/adhadse"
 schemaAuthorLinkedIn = "https://www.linkedin.com/in/adhadse/"
 schemaAuthorGitHub = "https://github.com/adhadse"
 schemaLocale = "en-US"
-schemaLogo = "logo-doks.png"
+schemaLogo = "logo-wiki.png"
 schemaLogoWidth = 512
 schemaLogoHeight = 512
-schemaImage = "doks.png"
+schemaImage = "wiki.png"
 schemaImageWidth = 1280
 schemaImageHeight = 640
 schemaTwitter = "https://twitter.com/adhadse_"
