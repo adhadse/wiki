@@ -225,3 +225,26 @@ $\text{Volume} = \frac{1}{3}\pi h (r_1^2 + r_2^2 + r_1r_2)$
 where   $l= \sqrt{h^2+(r_1-r_2)^2}$
 
 {{< figure src="/images/etc/maths/frustum.png">}}
+
+## Adjoint and Inverse
+- $A(\text{adj} A) = |A| I_n = (\text{adj}) A $
+- $A^{-1} = \frac{1}{|A|} (\text{adj} A)$
+- $(A^\top)^{-1} = (A^{-1})^\top$
+- $|A \enspace adj A| = |A|^{n}$
+
+---
+- $|\text{adj} A| = |A|^{n-1}$
+- $\text{adj} \space(adj A) = |A|^{n-2} A$
+- $|\text{adj} \space(adj A)| = |A|^{(n-1)^{2}}$
+---
+- $|A^\top| = |A| $
+- $AA^{-1} = I_n$
+- $(A^{-1})^{-1} = A$
+- $(AB)^{-1} = B^{-1}A^{-1}$
+- $\text{adj}\space AB = (\text{adj} B)(\text{adj} A)$
+- $|AB| = |A| |B|$
+- $\text{adj}A^\top = (\text{adj} A)\top$
+- $|KA| = K^n |A|$
+- $AA^{-1}=I$
+- $A^{-1}I = A^{-1}$
+
