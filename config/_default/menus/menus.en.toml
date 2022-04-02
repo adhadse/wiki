@@ -13,9 +13,14 @@
 
 [[ml]]
   name = "Intro to MLOps"
-  weight = 20
+  weight = 30
   identifier = "intro-to-mlops"
   url = "/ml/mle_for_production/intro_to_mlops/week1"
+
+[[ml]]
+  name = "Deploying ML Models in Production"
+  weight = 40 
+  identifier = "deploying-ml-models"
 
 [[main]]
   name = "Etc"
