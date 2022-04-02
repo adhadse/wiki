@@ -8,15 +8,14 @@
 
 [[main]]
   name = "ML"
-  identifier = "ml"
   weight = 20
-
-[[main]]
-  name = "Intro To DL"
-  weight = 10
-  identifier = "intro-to-dl"
   url = "/ml/intro_dl/neural-networks/week1"
-  parent = "ml"
+
+[[ml]]
+  name = "Intro to MLOps"
+  weight = 20
+  identifier = "intro-to-mlops"
+  url = "/ml/mle_for_production/intro_to_mlops/week1"
 
 [[main]]
   name = "Etc"
