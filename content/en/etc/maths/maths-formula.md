@@ -36,68 +36,57 @@ toc: true
 | $\sec^{-1}x$ | $R- (-1, 1)$ | $[0, \pi-\{\pi/2\}$ |
 | $\cosec^{-1}x$ | $R-(-1, 1)$ | $[-\pi/2, \pi/2] - \{0\}$ |
 
-**Property 1** 
+| **Property 1** | **Property 2** | 
+| --- | --- | 
+| $\sin^{-1}(\sin\theta) = \theta$     | $\sin(\sin^{-1}x) = x$     |
+| $\cos^{-1}(\cos\theta) = \theta$     | $\cos(\cos^{-1}x) = x$     |
+| $\tan^{-1}(\tan\theta) = \theta$     | $\tan(\tan^{-1}x) = x$     |
+| $\cosec^{-1}(\cosec\theta) = \theta$ | $\cosec(\cosec^{-1}x) = x$ |
+| $\sec^{-1}(\sec\theta) = \theta$     | $\sec(\sec^{-1}x) = x$     |
+| $\cot^{-1}(\cot\theta) = \theta$     | $\cot(\cot^{-1}x) = x$     |
 
-- $\sin^{-1}(\sin\theta) = \theta$
-- $\cos^{-1}(\cos\theta) = \theta$
-- $\tan^{-1}(\tan\theta) = \theta$
-- $\cosec^{-1}(\cosec\theta) = \theta$
-- $\sec^{-1}(\sec\theta) = \theta$
-- $\cot^{-1}(\cot\theta) = \theta$
+| **Property 3** | |
+| --- | --- |
+| $sin^{-1}(-x) = -\sin^{-1}{x}$     | $cos^{-1}(-x) \pi -\cos^{-1}{x}$ |
+| $tan^{-1}(-x) = -\tan^{-1}{x}$     | $cot^{-1}(-x) \pi -\cot^{-1}{x}$ |
+| $cosec^{-1}(-x) = -\cosec^{-1}{x}$ | $sec^{-1}(-x) \pi -\sec^{-1}{x}$ |
 
-**Property 2**
+| **Property 4** |
+| ---  |
+| $sin^{-1}(\frac{1}{x}) = \cosec^{-1}x$ |
+| $cos^{-1}(\frac{1}{x}) = \sec^{-1}x$   |
+| $tan^{-1}(\frac{1}{x}) = \cot^{-1}x$   |
 
-- $\sin(\sin^{-1}x) = x$
-- $\cos(\cos^{-1}x) = x$
-- $\tan(\tan^{-1}x) = x$
-- $\cosec(\cosec^{-1}x) = x$
-- $\sec(\sec^{-1}x) = x$
-- $\cot(\cot^{-1}x) = x$
+| **Property 5** |
+| --- | 
+| $sin^{-1}x + \cos ^{-1}x = \frac{\pi}{2}$   |
+| $tan^{-1}x + \cot ^{-1}x = \frac{\pi}{2}$   |
+| $sec^{-1}x + \cosec ^{-1}x = \frac{\pi}{2}$ |
 
-**Property 3**
+| **Property 6** |  
+| --- | 
+| $\sin^{-1} + \sin^{-1}y = \sin^{-1} \big(x\sqrt{1-y^2} + y\sqrt{1-x^2}\big)$ | 
+| $\sin^{-1} - \sin^{-1}y = \sin^{-1} \big(x\sqrt{1-y^2} - y\sqrt{1-x^2}\big)$ | 
 
-- $sin^{-1}(-x) = -\sin^{-1}{x}$
-- $tan^{-1}(-x) = -\tan^{-1}{x}$
-- $cosec^{-1}(-x) = -\cosec^{-1}{x}$
+| **Property 7** |
+| --- |
+| $\cos^{-1} + \cos^{-1}y = \cos^{-1} \big(xy - \sqrt{1-x^2} \sqrt{1-y^2}\big)$ |
+| $\cos^{-1} - \cos^{-1}y = \cos^{-1} \big(xy + \sqrt{1-x^2} \sqrt{1-y^2}\big)$ |
 
-- $cos^{-1}(-x) \pi -\cos^{-1}{x}$
-- $cot^{-1}(-x) \pi -\cot^{-1}{x}$
-- $sec^{-1}(-x) \pi -\sec^{-1}{x}$
+| **Property 8** |
+| --- |
+| $\tan^{-1} - \tan^{-1}{y} = \tan^{-1}\Big(\frac{x+y}{1-xy}\Big)$ |
+| $\tan^{-1} + \tan^{-1}{y} = \tan^{-1}\Big(\frac{x-y}{1+xy}\Big)$ |
 
-**Property 4**
+**Property 9**
 
-- $sin^{-1}(\frac{1}{x}) = \cosec^{-1}x$
-- $cos^{-1}(\frac{1}{x}) = \sec^{-1}x$
-- $tan^{-1}(\frac{1}{x}) = \cot^{-1}x$
+$2\sin^{-1}x = 2 \sin^{-1}(\theta/2)$
 
-**Property 5**
+$3\sin^{-1}x = \sin^{-1}(3x-4x^2)$
 
-- $sin^{-1}x + \cos ^{-1}x = \frac{\pi}{2}$
-- $tan^{-1}x + \cot ^{-1}x = \frac{\pi}{2}$
-- $sec^{-1}x + \cosec ^{-1}x = \frac{\pi}{2}$
+$2\cos^{-1}x = \cos^{-1}(2x^2-1)$
 
-**Property 6**
-
-- $\sin^{-1} + \sin^{-1}y = \sin^{-1} \big(x\sqrt{1-y^2} + y\sqrt{1-x^2}\big)$
-- $\sin^{-1} - \sin^{-1}y = \sin^{-1} \big(x\sqrt{1-y^2} - y\sqrt{1-x^2}\big)$
-
-**Property 7**
-
-- $\cos^{-1} + \cos^{-1}y = \cos^{-1} \big(xy - \sqrt{1-x^2} \sqrt{1-y^2}\big)$
-- $\cos^{-1} - \cos^{-1}y = \cos^{-1} \big(xy + \sqrt{1-x^2} \sqrt{1-y^2}\big)$
-
-**Property 8**
-
-- $\tan^{-1} - \tan^{-1}{y} = \tan^{-1}\Big(\frac{x+y}{1-xy}\Big)$
-- $\tan^{-1} + \tan^{-1}{y} = \tan^{-1}\Big(\frac{x-y}{1+xy}\Big)$
-
- **Property 9**
-
-- $2\sin^{-1}x = 2 \sin^{-1}(\theta/2)$
-- $3\sin^{-1}x = \sin^{-1}(3x-4x^2)$
-
-- $2\cos^{-1}x = \cos^{-1}(2x^2-1)$
-- $3\cos^{-1}x = \cos^{-1}(4x^3 -3x)$
+$3\cos^{-1}x = \cos^{-1}(4x^3 -3x)$
 
 <div>
 $$
@@ -172,11 +161,14 @@ $$
 
 6. Point Slope form
     
-    Where $m$ is slope of line defined as $m = \frac{y_2 - y_1}{x_2 - x_1}$
+    
+    
     
 
     $$
     y = mx+ c
+    \\\\
+    \text{Where $m$ is slope of line defined as  } m = \frac{y_2 - y_1}{x_2 - x_1}
     $$
 
     {{< figure src="/images/etc/maths/Point_SLope_form.svg">}}
@@ -227,24 +219,20 @@ where   $l= \sqrt{h^2+(r_1-r_2)^2}$
 {{< figure src="/images/etc/maths/frustum.png">}}
 
 ## Adjoint and Inverse
-- $A(\text{adj} A) = |A| I_n = (\text{adj}) A $
-- $A^{-1} = \frac{1}{|A|} (\text{adj} A)$
-- $(A^\top)^{-1} = (A^{-1})^\top$
-- $|A \enspace adj A| = |A|^{n}$
-
----
-- $|\text{adj} A| = |A|^{n-1}$
-- $\text{adj} \space(adj A) = |A|^{n-2} A$
-- $|\text{adj} \space(adj A)| = |A|^{(n-1)^{2}}$
----
-- $|A^\top| = |A| $
-- $AA^{-1} = I_n$
-- $(A^{-1})^{-1} = A$
-- $(AB)^{-1} = B^{-1}A^{-1}$
-- $\text{adj}\space AB = (\text{adj} B)(\text{adj} A)$
-- $|AB| = |A| |B|$
-- $\text{adj}A^\top = (\text{adj} A)\top$
-- $|KA| = K^n |A|$
-- $AA^{-1}=I$
-- $A^{-1}I = A^{-1}$
-
+| | | 
+| --- | --- | 
+| $A(\text{adj} A) = \|A\| I_n = (\text{adj}) A$ | 
+| $A^{-1} = \frac{1}{\|A\|} (\text{adj} A)$      | $\|\text{adj} A\| = \|A\|^{n-1}$ |
+| $(A^\top)^{-1} = (A^{-1})^\top$                | $\text{adj} \space(adj A) = \|A\|^{n-2} A$ |
+| $\|A \enspace adj A\| = \|A\|^{n}$             | $\|\text{adj} \space(adj A)\| = \|A\|^{(n-1)^{2}}$ |
+| | 
+| $\|A^\top\| = \|A\| $| 
+| $AA^{-1} = I_n$| 
+| $(A^{-1})^{-1} = A$| 
+| $(AB)^{-1} = B^{-1}A^{-1}$| 
+| $\text{adj}\space AB = (\text{adj} B)(\text{adj} A)$| 
+| $\|AB\| = \|A\| \|B\|$|
+| $\text{adj}A^\top = (\text{adj} A)\top$|
+| $\|KA\| = K^n \|A\|$| 
+| $AA^{-1}=I$| 
+| $A^{-1}I = A^{-1}$| 
