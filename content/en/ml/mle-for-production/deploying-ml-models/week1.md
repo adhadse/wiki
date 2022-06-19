@@ -8,7 +8,7 @@ draft: false
 images: []
 type: docs
 menu:
-  intro_to_mlops:
+  mle-for-production:
     parent: "deploying-ml-models"
 weight: 100
 toc: true

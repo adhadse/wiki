@@ -8,7 +8,7 @@ draft: false
 images: []
 type: docs
 menu:
-  intro_to_mlops:
+  mle-for-production:
     parent: "intro-to-mle-for-production"
 weight: 300
 toc: true
