@@ -8,7 +8,7 @@ draft: false
 images: []
 type: docs
 menu:
-  intro_to_mlops:
+  mle-for-production:
     parent: "ml_modeling_pipeline_in_production"
 weight: 400
 toc: true

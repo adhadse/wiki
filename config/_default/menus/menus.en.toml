@@ -8,8 +8,8 @@
 
 [[main]]
   name = "ML"
-  weight = 20
   url = "/ml/intro-dl/neural-networks/week1"
+  weight = 20
 
 [[main]]
   name = "Etc"
@@ -19,27 +19,27 @@
 
 [[ml]]
   name = "Intro to DL"
-  weight = 10
   identifier = "intro-dl"
   url = "/ml/intro-dl/neural-networks/week1/"
+  weight = 10
 
 [[ml]]
   name = "MLE For Production"
-  weight = 20
   identifier = "mle-for-production"
   url = "/ml/mle-for-production/intro-to-mlops/week1"
+  weight = 20
 
 [[etc]]
   name = "Mathematics"
-  weight = 10
   identifier = "maths"
   url = "/etc/maths/maths-formula"
+  weight = 10
   
 [[etc]]
   name = "Regex"
-  weight = 20
   identifier = "regex"
   url = "/etc/regex/regular-expressions"
+  weight = 20
 
 [[social]]
   name = "GitHub"
