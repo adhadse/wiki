@@ -9,7 +9,7 @@ images: []
 type: docs
 menu:
   intro_to_mlops:
-    parent: "ml_data_lifecyle_in_production"
+    parent: "ml-data-lifecyle-in-production"
 weight: 200
 toc: true
 ---
