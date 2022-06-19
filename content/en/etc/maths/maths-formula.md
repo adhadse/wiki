@@ -97,7 +97,7 @@ $$
 **Property 10**
 
 $$
-2\tan^{-1}x = \begin{cases}\sin^{-1}\Big(\frac{2x}{1+x^2}\\\cos^{-1}\Big(\frac{1-x^2}{1+x^2}\Big)\Big)\end{cases}
+2\tan^{-1}x = \begin{cases}\sin^{-1}\Big(\frac{2x}{1+x^2}\Big)\\\cos^{-1}\Big(\frac{1-x^2}{1+x^2}\Big)\end{cases}
 $$
 
 $1-\cos\theta = 2 \sin^2(\theta/2)$
