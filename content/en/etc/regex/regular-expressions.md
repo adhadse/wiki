@@ -8,16 +8,14 @@ draft: false
 images: []
 type: docs
 menu:
-  etc:
+  etc: 
     parent: "regex"
 weight: 200
 toc: false
 ---
 
-## Regular Expressions
-
 | | Description |
-| --- | --- |
+| --- | --- |programming rust
 | `^` | Matches the beginning of line |
 | `$` | Matches the end of line|
 | `.` | Mathes any character |
@@ -36,7 +34,8 @@ toc: false
 | `\` | Escape character for special characters (`\t`, `\n`, `\b`) |
 | `\b` | Matches word boundary |
 | `\d` | Matches single digit; equivalent to `[0-9]` |
-| `\w` | Alphanumeric character; `[a-zA-Z0-9_]` |
+| `\w` | Alphanumeric ch[[permalinks]]
+  docs = "/:sections[1:]/:title/"aracter; `[a-zA-Z0-9_]` |
 | `\W` | NON-Alphanumeric character; `[^a-zA-Z0-9_]`|
 | `?` | Matches zero or One occurances|
 | `{n}` | **Exactly** `n` repetitions, `n>=0` |
