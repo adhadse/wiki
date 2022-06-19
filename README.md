@@ -133,6 +133,11 @@ npm run start
 
 Doks comes with [commands](https://getdoks.org/docs/prologue/commands/) for common tasks.
 
+Update theme:
+```
+git pull theme_remote master
+```
+
 ## Documentation
 
 - [Netlify](https://docs.netlify.com/)
