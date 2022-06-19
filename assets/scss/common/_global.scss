@@ -327,7 +327,11 @@ body {
 }
 
 .katex {
-  font-size: inherit;
+  font-size: $font-size-lg;
+
+  .katex-html > .newline {
+      margin-top: 1rem;
+  }
 }
 
 .card-bar {
