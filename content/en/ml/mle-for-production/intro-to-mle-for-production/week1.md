@@ -9,7 +9,7 @@ images: []
 type: docs
 menu:
   intro_to_mlops:
-    parent: "intro_to_mle_for_production"
+    parent: "intro-to-mle-for-production"
 weight: 100
 toc: true
 ---

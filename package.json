@@ -65,5 +65,8 @@
   },
   "otherDependencies": {
     "hugo": "0.92.1"
+  },
+  "dependencies": {
+    "hugo": "^0.0.3"
   }
 }
