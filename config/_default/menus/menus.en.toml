@@ -39,7 +39,7 @@
   name = "Regex"
   identifier = "regex"
   url = "/etc/regex/regular-expressions"
-  weight = 20
+  weight = 20  
 
 [[social]]
   name = "GitHub"
