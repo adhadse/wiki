@@ -125,27 +125,20 @@ Source:
   {{ $list := (where .Site.Pages "Section" "docs") -}}
   {{ $len := (len $list) -}}
 
-  {{ if eq $len 0 -}}
-    index.add();
-  {{ else -}}
+  {{ range $index, $element := $list -}}
     index.add(
-      {{ range $index, $element := $list -}}
-        {
-          id: {{ $index }},
-          href: "{{ .RelPermalink }}",
-          title: {{ .Title | jsonify }},
-          {{ with .Description -}}
-            description: {{ . | jsonify }},
-          {{ else -}}
-            description: {{ .Summary | plainify | jsonify }},
-          {{ end -}}
-          content: {{ .Plain | jsonify }}
-        })
-        {{ if ne (add $index 1) $len -}}
-          .add(
+      {
+        id: {{ $index }},
+        href: "{{ .RelPermalink }}",
+        title: {{ .Title | jsonify }},
+        {{ with .Description -}}
+          description: {{ . | jsonify }},
+        {{ else -}}
+          description: {{ .Summary | plainify | jsonify }},
         {{ end -}}
-      {{ end -}}
-          ;
+        content: {{ .Plain | jsonify }}
+      }
+    );
   {{ end -}}
 
   search.addEventListener('input', show_results, true);
