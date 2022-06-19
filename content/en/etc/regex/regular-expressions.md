@@ -15,7 +15,7 @@ toc: false
 ---
 
 | | Description |
-| --- | --- |programming rust
+| --- | --- |
 | `^` | Matches the beginning of line |
 | `$` | Matches the end of line|
 | `.` | Mathes any character |
@@ -30,12 +30,11 @@ toc: false
 | `[a-z0-9]` | A set of character or an include range|
 | `(` | Indicates where the string extraction starts |
 | `)` | Indicates where the string extraction ends |
-| `a|b` | matches either a or b, a and b are string |
+| `a\|b` | matches either a or b, a and b are string |
 | `\` | Escape character for special characters (`\t`, `\n`, `\b`) |
 | `\b` | Matches word boundary |
 | `\d` | Matches single digit; equivalent to `[0-9]` |
-| `\w` | Alphanumeric ch[[permalinks]]
-  docs = "/:sections[1:]/:title/"aracter; `[a-zA-Z0-9_]` |
+| `\w` | Alphanumeric character; `[a-zA-Z0-9_]` |
 | `\W` | NON-Alphanumeric character; `[^a-zA-Z0-9_]`|
 | `?` | Matches zero or One occurances|
 | `{n}` | **Exactly** `n` repetitions, `n>=0` |
