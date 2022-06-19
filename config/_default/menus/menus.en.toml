@@ -9,25 +9,25 @@
 [[main]]
   name = "ML"
   weight = 20
-  url = "/ml/intro_dl/neural-networks/week1"
+  url = "/ml/intro-dl/neural-networks/week1"
 
 [[main]]
   name = "Etc"
   identifier = "etc"
-  url = "/etc/maths/maths_formula"
+  url = "/etc/maths/maths-formula"
   weight = 30
 
 [[ml]]
   name = "Intro to DL"
   weight = 10
   identifier = "intro-dl"
-  url = "/ml/intro_dl/neural-networks/week1/"
+  url = "/ml/intro-dl/neural-networks/week1/"
 
 [[ml]]
   name = "MLE For Production"
   weight = 20
   identifier = "mle-for-production"
-  url = "/ml/mle_for_production/intro_to_mlops/week1"
+  url = "/ml/mle-for-production/intro-to-mlops/week1"
 
 [[social]]
   name = "GitHub"
