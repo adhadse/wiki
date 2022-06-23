@@ -248,7 +248,7 @@ where   $l= \sqrt{h^2+(r_1-r_2)^2}$
 
     When the decimal is moved in left/right:
     $$
-    \overrightarrow{\text{introduce negative powers}} \qquad \overleftarrow{\text{introduce positive powers}}
+    (-)\medspace \overrightarrow{\text{introduce negative powers}} \qquad \overleftarrow{\text{introduce positive powers}} \medspace(+)
     $$
 
 2. Look for $\textcolor{#f56c42}{15}$<sup>th</sup> row and column with label $\textcolor{#ad42f5}2$. which is $\bold{\textcolor{#07fc03}{1818}}$.
@@ -290,11 +290,7 @@ where   $l= \sqrt{h^2+(r_1-r_2)^2}$
     $$
 
 {{< alert title="Quickly write the exponential form">}}
-Since 4 digits are already there ($3919$), left $0$'s to be added becomes ($\textcolor{#07fc03}{16}-4=12$). 
-
-We want to put decimal just after 1<sup>st</sup> digit so we need to add 3 more digit places of ($919$) ($12 + 3 = \textcolor{#07fc03}{15}$).
-
-
+Since, we want to put decimal just after 1<sup>st</sup> digit. We need to move decimal from 16<sup>th</sup> position to right after 1<sup>st</sup> digit; which will introduce +ve powers. ($16 -1 = \textcolor{#07fc03}{15}$). Since we moved 15 positions left.
 
 $3.919 \times 10^{\textcolor{#07fc03}{15}}$
 {{< /alert >}}
