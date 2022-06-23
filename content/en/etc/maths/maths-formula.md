@@ -236,3 +236,65 @@ where   $l= \sqrt{h^2+(r_1-r_2)^2}$
 | $\|KA\| = K^n \|A\|$| 
 | $AA^{-1}=I$| 
 | $A^{-1}I = A^{-1}$| 
+
+## Finding Log 
+1. Given we need to find $\log$ of $\log 15.27$
+
+    - Move the decimal after 1st digit and introduce power of 10.
+    
+    $$
+    \log \textcolor{#f56c42}1.\textcolor{#f56c42}5\textcolor{#ad42f5}2\textcolor{#f542bc}7 \times 10^{\textcolor{#42f5f2}1}
+    $$
+
+    When the decimal is moved in left/right:
+    $$
+    \overrightarrow{\text{introduce negative powers}} \qquad \overleftarrow{\text{introduce positive powers}}
+    $$
+
+2. Look for $\textcolor{#f56c42}{15}$<sup>th</sup> row and column with label $\textcolor{#ad42f5}2$. which is $\bold{\textcolor{#07fc03}{1818}}$.
+
+3. Add *Mean difference* from column $\textcolor{#f542bc}7$ in the corresponding row. which is $\textcolor{#07fc03}{20}$
+
+    $$
+    1818 + 20 = \bold{\textcolor{#07fc03}{1838}}
+    $$
+
+4. Write the exponent, insert decimal and write the value calculated in Step 3.
+
+    $$
+    \textcolor{#42f5f2}1.\textcolor{#07fc03}{1838}
+    $$
+
+5. So $\log 15.27 = \bold{\textcolor{#07fc03}{1.1838}}$
+
+## Finding AntiLog
+1. Given we need to find Antilog of $15.5932$
+    $$
+    \log k = 15.5932 \\\\
+    k = Antilog (\medspace \textcolor{#42f5f2}{15}\textcolor{#f56c42}{.59}\textcolor{#ad42f5}3\textcolor{#f542bc}2\medspace)
+    $$
+
+2. Look for $0\textcolor{#f56c42}{.59}$<sup>th</sup> row and column with label $\textcolor{#ad42f5}3$. Which is $\bold{\textcolor{#07fc03}{3917}}$.
+
+3. Add *Mean difference* from column $\textcolor{#f542bc}2$ to previous result. Which is $\textcolor{#07fc03}2$
+
+    $$
+    3917 + 2 = \bold{\textcolor{#07fc03}{3919}}
+    $$
+
+4. Add $1$ to *characteristic* $\textcolor{#42f5f2}{15} = \textcolor{#07fc03}{16}$ and add  insert the decimal from left calculated in step 2. That means we need to add decimal after $\textcolor{#07fc03}{16}$<sup>th</sup> position
+
+    $$
+    3919\enspace0000\enspace0000\enspace000 .\\\\
+    \implies k = \bold{\textcolor{#07fc03}{3.919\times10^{15}}}
+    $$
+
+{{< alert title="Quickly write the exponential form">}}
+Since 4 digits are already there ($3919$), left $0$'s to be added becomes ($\textcolor{#07fc03}{16}-4=12$). 
+
+We want to put decimal just after 1<sup>st</sup> digit so we need to add 3 more digit places of ($919$) ($12 + 3 = \textcolor{#07fc03}{15}$).
+
+
+
+$3.919 \times 10^{\textcolor{#07fc03}{15}}$
+{{< /alert >}}
