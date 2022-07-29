@@ -4,7 +4,7 @@
 mainSections = ["ml", "etc", "docs"]
 
 ## Homepage
-title = "Anurag Dhadse"
+title = "adhadse"
 homeurl = ""
 titleSeparator = "—"
 titleAddition = "Wiki"
