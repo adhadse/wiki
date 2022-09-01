@@ -2,8 +2,8 @@
 title: "Week 3 — High Performance Modeling"
 description: "Knowledge Distillation, Data Parallelism, ETL Process"
 lead: ""
-date: 2022-03-26T14:41:39+01:00
-lastmod: 2022-03-26T14:41:39+01:00
+date: 2022-03-26T14:55:39+01:00
+lastmod: 2022-03-26T14:55:39+01:00
 draft: false
 images: []
 type: docs

@@ -2,8 +2,8 @@
 title: "Week 1 — Hyperparameter tuning: searching for the best architecture"
 description: ""
 lead: ""
-date: 2022-03-26T14:41:39+01:00
-lastmod: 2022-03-26T14:41:39+01:00
+date: 2022-03-26T14:53:39+01:00
+lastmod: 2022-03-26T14:53:39+01:00
 draft: false
 images: []
 type: docs
