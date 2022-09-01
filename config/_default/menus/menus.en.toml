@@ -12,10 +12,18 @@
   weight = 20
 
 [[main]]
+  name = "Notes"
+  identifier = "notes"
+  url = "/notes/rust/getting-started"
+  weight = 30
+
+[[main]]
   name = "Etc"
   identifier = "etc"
   url = "/etc/maths/maths-formula"
-  weight = 30
+  weight = 40
+
+
 
 [[ml]]
   name = "Intro to DL"
@@ -28,6 +36,14 @@
   identifier = "mle-for-production"
   url = "/ml/mle-for-production/intro-to-mlops/week1"
   weight = 20
+
+
+[[notes]]
+  name = "Notes"
+  identifier = "notes"
+  url = "/notes/rust/getting-started"
+  weight = 10
+
 
 [[etc]]
   name = "Mathematics"
