@@ -2,8 +2,8 @@
 title: "Week 1 — Intro to Model Serving and Infrastructure"
 description: "Modeling serving Infrastructure, deployment options, improving prediction latency, and reduceing cost, TensorFlow Serving"
 lead: ""
-date: 2022-03-26T14:41:39+01:00
-lastmod: 2022-03-26T14:41:39+01:00
+date: 2022-03-26T14:57:39+01:00
+lastmod: 2022-03-26T14:57:39+01:00
 draft: false
 images: []
 type: docs

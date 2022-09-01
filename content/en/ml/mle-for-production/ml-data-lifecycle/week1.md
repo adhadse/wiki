@@ -2,8 +2,8 @@
 title: "Week 1 — Collecting, labeling, and validating data"
 description: "Second course of Machine Learning Engineering for Production"
 lead: ""
-date: 2022-03-26T14:41:39+01:00
-lastmod: 2022-03-26T14:41:39+01:00
+date: 2022-03-26T14:50:39+01:00
+lastmod: 2022-03-26T14:50:39+01:00
 draft: false
 images: []
 type: docs

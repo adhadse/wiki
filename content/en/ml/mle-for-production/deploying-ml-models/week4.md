@@ -2,8 +2,8 @@
 title: "Week 4 — Model monitoring, Logging & model decay, GDPR, and Privacy"
 description: "Model Monitoring and logging, observabilit, model decay, GDPR and Privacy, Responsible AI and Right to Be Forgotten"
 lead: ""
-date: 2022-03-26T14:41:39+01:00
-lastmod: 2022-03-26T14:41:39+01:00
+date: 2022-03-26T15:00:39+01:00
+lastmod: 2022-03-26T15:00:39+01:00
 draft: false
 images: []
 type: docs

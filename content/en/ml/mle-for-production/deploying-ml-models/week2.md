@@ -2,8 +2,8 @@
 title: "Week 2 — Model Serving Architecture, Scaling Infrastructure and More."
 description: "Model servers, Scaling Infrastructure, Online Inference, Data Preprocessing, Batch Processing with ETL"
 lead: ""
-date: 2022-03-26T14:41:39+01:00
-lastmod: 2022-03-26T14:41:39+01:00
+date: 2022-03-26T14:58:39+01:00
+lastmod: 2022-03-26T14:58:39+01:00
 draft: false
 images: []
 type: docs
