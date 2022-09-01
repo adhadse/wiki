@@ -8,7 +8,7 @@ draft: false
 images: []
 type: docs
 menu: 
-  notes:
+  rust:
     parent: "rust"
 weight: 100
 toc: true

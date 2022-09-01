@@ -2,8 +2,8 @@
 title: "Week 4 — Model Performance Analysis"
 description: "TF Model Analysis, model debugging, benchmarking, fairness, residual analysis, continuous evaluation and Monitoring"
 lead: ""
-date: 2022-03-26T14:41:39+01:00
-lastmod: 2022-03-26T14:41:39+01:00
+date: 2022-03-26T14:56:39+01:00
+lastmod: 2022-03-26T14:56:39+01:00
 draft: false
 images: []
 type: docs

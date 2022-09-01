@@ -2,8 +2,8 @@
 title: "Week 2 — Key challenges in Modelling"
 description: "Before you begin modeling"
 lead: ""
-date: 2022-03-26T14:41:39+01:00
-lastmod: 2022-03-26T14:41:39+01:00
+date: 2022-03-26T14:45:39+01:00
+lastmod: 2022-03-26T14:45:39+01:00
 draft: false
 images: []
 type: docs

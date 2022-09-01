@@ -2,8 +2,8 @@
 title: "Week 2 — Feature Engineering"
 description: "How and what goes into Feature Engineering of Production ML"
 lead: ""
-date: 2022-03-26T14:41:39+01:00
-lastmod: 2022-03-26T14:41:39+01:00
+date: 2022-03-26T14:51:39+01:00
+lastmod: 2022-03-26T14:51:39+01:00
 draft: false
 images: []
 type: docs

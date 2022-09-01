@@ -2,8 +2,8 @@
 title: "Week 3 — Data"
 description: "Data, good data"
 lead: ""
-date: 2022-03-26T14:41:39+01:00
-lastmod: 2022-03-26T14:41:39+01:00
+date: 2022-03-26T14:46:39+01:00
+lastmod: 2022-03-26T14:46:39+01:00
 draft: false
 images: []
 type: docs

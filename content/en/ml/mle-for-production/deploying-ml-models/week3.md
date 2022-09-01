@@ -2,8 +2,8 @@
 title: "Week 3 — ML Experiment Management and Workflow Automation & MLOps Methodology"
 description: "Experiment Tracking, MLOps, MLOps methodology, Model Management and Deployment Infrastructure,Continuous Delivery, Progress Delivery, Blue/Green Deployment"
 lead: ""
-date: 2022-03-26T14:41:39+01:00
-lastmod: 2022-03-26T14:41:39+01:00
+date: 2022-03-26T14:59:39+01:00
+lastmod: 2022-03-26T14:59:39+01:00
 draft: false
 images: []
 type: docs
