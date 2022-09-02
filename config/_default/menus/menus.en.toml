@@ -29,33 +29,30 @@
   name = "Intro to DL"
   identifier = "intro-dl"
   url = "/ml/intro-dl/neural-networks/week1/"
-  weight = 10
 
 [[ml]]
   name = "MLE For Production"
   identifier = "mle-for-production"
-  url = "/ml/mle-for-production/intro-to-mlops/week1"
-  weight = 20
+  url = "/ml/mle-for-production/intro-to-mlops/week1/"
+
 
 
 [[notes]]
-  name = "Notes"
-  identifier = "notes"
-  url = "/notes/rust/getting-started"
-  weight = 10
+  name = "Rust"
+  identifier = "rust"
+  url = "/notes/rust/getting-started/"
+
 
 
 [[etc]]
   name = "Mathematics"
   identifier = "maths"
   url = "/etc/maths/maths-formula"
-  weight = 10
   
 [[etc]]
   name = "Regex"
   identifier = "regex"
   url = "/etc/regex/regular-expressions"
-  weight = 20  
 
 [[social]]
   name = "GitHub"
