@@ -4,13 +4,13 @@ description: "Installing Rust tools"
 lead: ""
 date: 2022-09-01T20:57:39+01:00
 lastmod: 2022-09-01T20:57:39+01:00
-draft: false
 images: []
+draft: false
 type: docs
 menu: 
-  rust:
+  notes:
     parent: "rust"
-weight: 100
+weight: 10
 toc: true
 ---
 
