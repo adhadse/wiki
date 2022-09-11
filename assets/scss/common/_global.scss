@@ -273,6 +273,10 @@ body {
 
 .docs-navigation a {
   font-size: $font-size-base * 0.9;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 @include media-breakpoint-up(lg) {
@@ -290,8 +294,28 @@ body {
   text-decoration: none;
 }
 
-::selection {
-  background: rgba(212, 53, 159, 0.2);
+::selection{
+  background: $black-original;
+  color: $white;
+  border-radius: 1em;
+  border: 1px solid;
+}
+
+::-moz-selection {
+    background: $black-original;
+    color: $white;
+    border-radius: 1em;
+    border: 1px solid;
+}
+
+.hljs ::selection, .hljs::selection {
+  background: $white!important;
+  color: $black;
+}
+
+.hljs ::-moz-selection, .hljs::-moz-selection {
+  background: $white!important;
+  color: $black;
 }
 
 .bg-dots {

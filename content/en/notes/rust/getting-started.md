@@ -10,7 +10,7 @@ type: docs
 menu: 
   notes:
     parent: "rust"
-weight: 10
+weight: 1
 toc: true
 ---
 

@@ -555,6 +555,13 @@ $navbar-dark-active-color:          $link-color-dark;
   background-size: 1.5rem;
 }
 
+[data-dark-mode] body ::selection {
+  background: $white;
+  color: $black-original;
+  border-radius: 1em;
+  border: 1px solid;
+}
+
 @include media-breakpoint-up(md) {
   [data-dark-mode] body .alert-dismissible .btn-close {
     background-size: 1.25rem;
