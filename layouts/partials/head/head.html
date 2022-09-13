@@ -8,6 +8,18 @@
   {{ block "head/seo" . }}{{ partial "head/seo.html" . }}{{ end }}
   {{ block "head/favicons" . }}{{ partial "head/favicons.html" . }}{{ end }}
 
+  <!-- Avoids setting white theme while loading -->
+  {{ if .Site.Params.options.darkMode -}}
+    {{ $darkMode := resources.Get "js/darkmode.js" -}}
+    {{ $darkMode := $darkMode | js.Build -}}
+    {{ if eq (hugo.Environment) "development" -}}
+      <script src="{{ $darkMode.RelPermalink }}"></script>
+    {{ else }}
+      <script src="{{ $darkMode.RelPermalink }}" integrity="{{ $darkMode.Data.Integrity }}" crossorigin="anonymous"></script>
+    {{ end -}}
+  {{ end -}}
+
+
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PEQP6Y2BMV"></script>
   <script>
