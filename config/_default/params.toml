@@ -17,7 +17,7 @@ description = "My personal wiki!"
 ## Open Graph
 images = ["wiki.png"]
 ogLocale = "en_US"
-domainTLD = "wiki.anuragdhadse.com"
+domainTLD = "wiki.adhadse.com"
 titleHome = "Wiki"
 
 ## Twitter Cards
@@ -29,7 +29,7 @@ twitterCreator = "@adhadse_"
 schemaType = "Organization"
 schemaName = "Wiki"
 schemaAuthor = "Anurag Dhadse"
-schemaAuthorTwitter = "https://twitter.com/adhadse"
+schemaAuthorTwitter = "https://twitter.com/adhadse_"
 schemaAuthorLinkedIn = "https://www.linkedin.com/in/adhadse/"
 schemaAuthorGitHub = "https://github.com/adhadse"
 schemaLocale = "en-US"
