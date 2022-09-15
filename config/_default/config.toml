@@ -1,4 +1,4 @@
-baseurl = "https://wiki.anuragdhadse.com/"
+baseurl = "https://wiki.adhadse.com/"
 canonifyURLs = false
 disableAliases = true
 disableHugoGeneratorInject = true

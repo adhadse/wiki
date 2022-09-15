@@ -83,7 +83,7 @@ What you can do to make improvement in that class?
 
 A skewed dataset is referred to dataset having a class imbalance problem. (few classes are outnumbered by other) 
 
-Instead of thinking just accuracy, use Confusion matrix and [precision and recall](https://anuragdhadse.com/precision-or-recall/).
+Instead of thinking just accuracy, use Confusion matrix and [precision and recall](https://adhadse.com/precision-or-recall/).
 
 {{< figure src="/images/ml/mle_for_production/intro_to_mle_for_production/confusion_matrix.png" >}}
 
