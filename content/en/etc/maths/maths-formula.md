@@ -16,6 +16,8 @@ toc: true
 
 ## Trigonometry
 
+<div style="overflow-x:auto;">
+
 | Name | $0\degree$ | $30\degree (\frac{\pi}{6})$ | $45\degree (\frac{\pi}{4})$ | $60\degree (\frac{\pi}{3})$ | $90\degree (\frac{\pi}{2})$ | $120\degree (\frac{2\pi}{3})$ | $135\degree (\frac{3\pi}{4})$ | $150\degree (\frac{5\pi}{6})$ | $180\degree (\pi)$ |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | $\sin$ | $0$ | $\frac{1}{2}$ | $\frac{1}{\sqrt{2}}$ | $\frac{\sqrt{3}}{2}$ | $1$ | $\frac{\sqrt{3}}{2}$ | $\frac{1}{\sqrt{2}}$ | $\frac{1}{2}$ | $0$ |
@@ -24,6 +26,7 @@ toc: true
 | $\cot$ | $\infin$ | $\sqrt{3}$ | $1$ | $\frac{1}{\sqrt{3}}$ |$0$ | $-\frac{1}{\sqrt{3}}$ | $-1$ | $\sqrt{3}$ | $-\infin$ |
 | $\sec$ | $1$ | $\frac{2}{\sqrt{3}}$ | $\sqrt{2}$ |$ 2 $| $\infin$ | $-2$ | $-\sqrt{2}$ | $-\frac{2}{\sqrt{3}}$ | $-1$ |
 | $\cosec$ | $\infin$ | $2$ | $\sqrt{2}$ | $\frac{2}{\sqrt{3}}$ | $1$ | $\frac{2}{\sqrt{3}}$ | $\sqrt{2}$ | $2$ | $\infin$ |
+</div>
 
 ## Inverse Trigonometry
 
@@ -65,18 +68,18 @@ toc: true
 
 | **Property 6** |  
 | --- | 
-| $\sin^{-1} + \sin^{-1}y = \sin^{-1} \big(x\sqrt{1-y^2} + y\sqrt{1-x^2}\big)$ | 
-| $\sin^{-1} - \sin^{-1}y = \sin^{-1} \big(x\sqrt{1-y^2} - y\sqrt{1-x^2}\big)$ | 
+| $\sin^{-1}x + \sin^{-1}y = \sin^{-1} \big(x\sqrt{1-y^2} + y\sqrt{1-x^2}\big)$ | 
+| $\sin^{-1}x - \sin^{-1}y = \sin^{-1} \big(x\sqrt{1-y^2} - y\sqrt{1-x^2}\big)$ | 
 
 | **Property 7** |
 | --- |
-| $\cos^{-1} + \cos^{-1}y = \cos^{-1} \big(xy - \sqrt{1-x^2} \sqrt{1-y^2}\big)$ |
-| $\cos^{-1} - \cos^{-1}y = \cos^{-1} \big(xy + \sqrt{1-x^2} \sqrt{1-y^2}\big)$ |
+| $\cos^{-1}x + \cos^{-1}y = \cos^{-1} \big(xy - \sqrt{1-x^2} \sqrt{1-y^2}\big)$ |
+| $\cos^{-1}x - \cos^{-1}y = \cos^{-1} \big(xy + \sqrt{1-x^2} \sqrt{1-y^2}\big)$ |
 
 | **Property 8** |
 | --- |
-| $\tan^{-1} - \tan^{-1}{y} = \tan^{-1}\Big(\frac{x+y}{1-xy}\Big)$ |
-| $\tan^{-1} + \tan^{-1}{y} = \tan^{-1}\Big(\frac{x-y}{1+xy}\Big)$ |
+| $\tan^{-1}x - \tan^{-1}{y} = \tan^{-1}\Big(\frac{x+y}{1-xy}\Big)$ |
+| $\tan^{-1}x + \tan^{-1}{y} = \tan^{-1}\Big(\frac{x-y}{1+xy}\Big)$ |
 
 **Property 9**
 

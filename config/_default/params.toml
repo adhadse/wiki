@@ -5,6 +5,7 @@ mainSections = ["ml", "etc", "docs", "notes"]
 
 ## Homepage
 title = "adhadse"
+siteName = "Wiki"
 homepagetabtitle = "Anurag Dhadse"
 homeurl = ""
 titleSeparator = "—"

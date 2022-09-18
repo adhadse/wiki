@@ -31,6 +31,9 @@ vbar-brand {
   background-color: rgba(255, 255, 255, 1);
   border-bottom: 1px solid $gray-200;
 
+  .nav-site-name {
+    font-weight: 400;
+  }
   /*
   margin-top: 4px;
   */
@@ -153,7 +156,7 @@ button#doks-versions {
 
 @include media-breakpoint-up(md) {
   .navbar-brand {
-    margin-right: 0.75rem !important;
+    margin-right: 0.9rem !important;
   }
 
   .main-nav .nav-item:first-child .nav-link,
