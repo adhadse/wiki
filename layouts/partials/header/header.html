@@ -10,6 +10,9 @@
   <nav class="container-{{ if .Site.Params.options.fullWidth }}fluid{{ else }}xxl{{ end }} flex-wrap flex-md-nowrap" aria-label="Main navigation">
     <a class="navbar-brand p-0 me-auto" href='{{ if .Site.Params.homeURL }} {{ .Site.Params.homeURL }} {{ else }} {{ "/" | relLangURL }}{{ end }}' aria-label="{{ .Site.Params.Title }}">
       {{ .Site.Params.Title }}
+      {{ if .Site.Params.SiteName }} 
+        <span class="nav-site-name">{{ .Site.Params.SiteName }} </span>
+      {{end}}
     </a>
 
     <button class="btn btn-menu d-block d-md-none order-5" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDoks" aria-controls="offcanvasDoks" aria-label="Open main menu">
