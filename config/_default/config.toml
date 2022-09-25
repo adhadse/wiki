@@ -1,5 +1,5 @@
 baseurl = "https://wiki.adhadse.com/"
-canonifyURLs = false
+canonifyURLs = true
 disableAliases = true
 disableHugoGeneratorInject = true
 enableEmoji = true

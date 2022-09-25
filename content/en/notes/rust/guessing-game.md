@@ -2,8 +2,8 @@
 title: "Programming a guessing game in Rust"
 description: ""
 lead: ""
-date: 2022-09-02T07:01:39+01:00
-lastmod: 2022-09-02T07:01:39+01:00
+date: 2022-09-20T07:55:56+01:00
+lastmod: 2022-09-20T07:55:56+01:00
 images: []
 type: docs
 draft: false
@@ -37,7 +37,7 @@ You IDE would probably infer the type of `guess` and annotate it with String. Yo
 let guess: String = String::new();
 ```
 
-One thing to note here is that unlike C++/C, in Rust variables are immutable by default. So our `guess` variable still ain't ready to mutate and store any input and change value from default string. Let's change that in the original code:
+<mark class="y">One thing to note here is that unlike C++/C, in Rust variables are immutable by default.</mark> So our `guess` variable still ain't ready to mutate and store any input and change value from default string. Let's change that in the original code:
 
 ```rust
 fn main() {
@@ -50,7 +50,7 @@ fn main() {
 ```
 
 ## I/O
-Standard I/O operations can be supported using by io module in `std` (standard) library. Let's import it by adding it to top of our code:
+Standard I/O operations can be supported using by io module in `std` (standard) library. Let's *use* it by adding it to top of our code:
 
 ```rust
 use std::io;
@@ -148,8 +148,63 @@ Continuing at the bottom, we'll use `cmp()` at match all possible variants of `O
 }
 ```
 
-**But**, this will giev an error since `guess` is of type `String` whereas `secret_number` is an `int`. So we'll need to convert our `guess` to `int`.
+**But**, this will give an error since `guess` is of type `String` whereas `secret_number` is an `int`. So we'll need to convert our `guess` to `int`.
 
 ```rust
+    // perform this just after read_line() 
+    // shadowing `guess` of type String
+    let guess: u32 = guess.trim().parse()
+        .expect("Please type a number");
 
+```
+
+## Game Loop
+Let's add a loop, so that user can keep guessing until they get the right number.
+
+```rust
+fn main() {
+    loop {
+        println!("Guess the number!");
+        // gen_range generates a number between 1 and 100
+        let secret_number = rand::thread_rng().gen_range(1..101);
+        println!("The secret number is: {}", secret_number);
+        
+        println!("Please input your guess.");
+    
+        // a mutable `guess`
+        let mut guess = String::new();
+        
+        io::stdin()
+            .read_line(&mut guess)
+            .expect("Failed to read line");
+        let guess: u32 = guess.trim().parse()
+            .expect("Please type a number");
+    
+        println!("You guessed: {}", guess);
+        
+        match guess.cmp(&secret_number) {
+            Ordering::Less => println!("Too small!"),
+            Ordering::Greater => println!("Too bug!"),
+            // exit loop if found the match
+            Ordering::Equal => {
+                println!("You win!");
+                brak;
+            },
+        }
+    }
+}
+```
+
+Ok, that's almost done!
+
+## Handling invalid inputs
+Currently, our program panics if we user gives String as input. We want user to keep prompting to input a number instead of panicking.
+
+We can modify our `parse()` when parsing `guess` from `String` to `u32` as it returns a `Result` enum which can be either `Ok` or `Err` with `_` to catch any err value and continue no matter what.
+
+```rust
+    let guess: u32 = match guess.trim().parse() {
+        Ok(num) => num,
+        Err(_) => continue,
+    }
 ```
