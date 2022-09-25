@@ -10,7 +10,7 @@ type: docs
 menu:
   etc:
     parent: "maths"
-weight: 100
+weight: 1
 toc: true
 ---
 

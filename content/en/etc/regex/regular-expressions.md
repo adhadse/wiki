@@ -10,7 +10,7 @@ type: docs
 menu:
   etc: 
     parent: "regex"
-weight: 200
+weight: 2
 toc: false
 ---
 

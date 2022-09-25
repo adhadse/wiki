@@ -12,7 +12,7 @@ import go from 'highlight.js/lib/languages/go';
 import python from 'highlight.js/lib/languages/python';
 import cpp from 'highlight.js/lib/languages/cpp';
 import c from 'highlight.js/lib/languages/c';
-
+import rust from 'highlight.js/lib/languages/rust';
 
 
 hljs.registerLanguage('javascript', javascript);
@@ -23,6 +23,7 @@ hljs.registerLanguage('ini', ini);
 hljs.registerLanguage('toml', ini);
 hljs.registerLanguage('yaml', yaml);
 hljs.registerLanguage('markdown', markdown);
+hljs.registerLanguage('rust', rust);
 hljs.registerLanguage('go', go);
 hljs.registerLanguage('python', python);
 hljs.registerLanguage('cpp', cpp);

@@ -2,8 +2,8 @@
 title: "Getting Started"
 description: "Installing Rust tools"
 lead: ""
-date: 2022-09-01T20:57:39+01:00
-lastmod: 2022-09-01T20:57:39+01:00
+date: 2022-09-20T07:54:56+01:00
+lastmod: 2022-09-20T07:54:56+01:00
 images: []
 draft: false
 type: docs
