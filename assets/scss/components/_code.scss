@@ -51,6 +51,7 @@ pre {
 
   button#copy {
     position: absolute;
+    visibility: hidden;
     color: lightgray;
     outline: none;
     border: none;
@@ -71,18 +72,20 @@ pre {
     &:focus,
     &:active {
       display: block;
-      box-shadow: inset 0 0 0 1px $link-color;
-      color: $link-color;
-      transition: 0s;
+      box-shadow: inset 0 0 0 1px $link-color-dark;
+      color: $link-color-dark;
+      transition: 0.5s cubic-bezier(1, 0, 0, 1);
     }
   }
 
   &:hover label#language {
+    visibility: visible;
     opacity: 1;
     right: 10%;
   }
 
   &:hover button#copy {
+    visibility: visible;
     opacity: 1;
     right: 0%;
   }
