@@ -39,6 +39,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (language === undefined) {
       language = '?'
     }
-    block.insertAdjacentHTML('afterend',`<label id="language">${language}</label>`);
+    
+    const pills = document.createElement("div");
+    pills.className = "pills";
+    pills.innerHTML = `
+      <label class="language">${language}</label>
+       <button class="copy">Copy</button>`;
+    block.parentElement.appendChild(pills);
   });
 });

@@ -64,7 +64,7 @@ pre {
 }
 
 @include media-breakpoint-up(md) {
-  pre:hover #copy {
+  pre:hover .copy {
     visibility: visible !important;
   }
 }
