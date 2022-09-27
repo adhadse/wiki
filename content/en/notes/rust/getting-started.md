@@ -17,7 +17,7 @@ toc: true
 This tutorial text series is minified version of this ebook:
 {{< link title="The Rust Programming Language" link="https://doc.rust-lang.org/stable/book/title-page.html" >}}
 
-# Installing Rust on Linux or macOS
+## Installing Rust on Linux or macOS
 
 ```bash
 curl --proto '=https' --tlsv1.3 https://sh.rustup.rs -sSf | sh
@@ -27,7 +27,7 @@ Check Rust version with: `rustc --version`
 
 Then go ahead and install official Plugin/extensions for Rust and Rust-analyzer for your faviourite IDE.
 
-# Hello, World in Rust
+## Hello, World in Rust
 
 ```bash
 mkdir ~/projects
