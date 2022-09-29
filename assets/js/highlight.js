@@ -2,6 +2,7 @@ import hljs from 'highlight.js/lib/core';
 window.hljs = hljs;
 require('highlightjs-line-numbers.js');
 import javascript from 'highlight.js/lib/languages/javascript';
+import text from 'highlight.js/lib/languages/plaintext';
 import json from 'highlight.js/lib/languages/json';
 import bash from 'highlight.js/lib/languages/bash';
 import xml from 'highlight.js/lib/languages/xml';
@@ -16,6 +17,7 @@ import rust from 'highlight.js/lib/languages/rust';
 
 
 hljs.registerLanguage('javascript', javascript);
+hljs.registerLanguage('text', text);
 hljs.registerLanguage('json', json);
 hljs.registerLanguage('bash', bash);
 hljs.registerLanguage('html', xml);

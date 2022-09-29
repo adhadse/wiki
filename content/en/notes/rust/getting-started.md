@@ -14,7 +14,7 @@ weight: 1
 toc: true
 ---
 
-This tutorial text series is minified version of this ebook:
+This tutorial series is minified version of **The Rust Book**:
 {{< link title="The Rust Programming Language" link="https://doc.rust-lang.org/stable/book/title-page.html" >}}
 
 ## Installing Rust on Linux or macOS

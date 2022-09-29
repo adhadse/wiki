@@ -27,7 +27,7 @@ fn main() {
 ```
 This will throw error, stating, cannot assign twice to immutable variable `x`.
 
-```
+```text
 error[E0384]: cannot assign twice to immutable variable `x`
  --> src/main.rs:4:5
   |
