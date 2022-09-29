@@ -7,7 +7,7 @@ mark {
   color: white;
 }
 
-.y {
+mark.y {
   background-color: #f7f2e2;
 
   &:hover {
@@ -15,7 +15,7 @@ mark {
   }
 }
 
-[data-dark-mode] .y {
+[data-dark-mode] mark.y {
   background-color: #564328;
 
   &:hover {
@@ -23,7 +23,7 @@ mark {
   }
 }
 
-.r {
+mark.r {
   background-color: #ffe9eb;
 
   &:hover {
@@ -31,7 +31,7 @@ mark {
   }
 }
 
-[data-dark-mode] .r {
+[data-dark-mode] mark.r {
   background-color: #522e2a;
 
   &:hover {
@@ -39,7 +39,7 @@ mark {
   }
 }
 
-.b {
+mark.b {
   background-color:#e5f4ff;
 
   &:hover {
@@ -47,7 +47,7 @@ mark {
   }
 }
 
-[data-dark-mode] .b {
+[data-dark-mode] mark.b {
   background-color: #143a4e;
 
   &:hover {
@@ -55,7 +55,7 @@ mark {
   }
 }
 
-.v {
+mark.v {
   background-color: #efe5f7cc;
 
   &:hover {
@@ -63,7 +63,7 @@ mark {
   }
 }
 
-[data-dark-mode] .v {
+[data-dark-mode] mark.v {
   background-color: #3c2d49;
 
   &:hover {
@@ -71,7 +71,7 @@ mark {
   }
 }
 
-.g {
+mark.g {
   background-color: #edf3ec;
 
   &:hover {
@@ -79,7 +79,7 @@ mark {
   }
 }
 
-[data-dark-mode] .g {
+[data-dark-mode] mark.g {
   background-color: #243d30;
 
   &:hover {
