@@ -114,6 +114,30 @@ enum Option<T> {
 So if you have any value that could potentially be null/not exist, then you would wrap it in `Option` Enum.
 {{< /alert >}}
 
+{{< alert title="When to use Option or Result type?" type="success">}}
+- **Options (to be, or not to be)**
+
+    Briefly stated, an Option type can either be something or nothing. For example, the value `Some(10)` is definitely something: an integer wrapped in `Some`, whereas None is a whole lot of nothing.
+
+    ```rust
+    enum Option<T> {
+        Some(T),   
+        None  
+    }
+    ```
+
+- **Results (is everything ok?)**
+
+    This may hold something, or an `error`. Whereas the `Option` type uses either `Some` to wrap successful results or `None`, the Result type uses `Ok` to wrap successful results or `Err` to wrap error information for the situations when things have gone south, e.g. `Ok(3.14159)`, and `Err("This Bad Thing Happened")`.
+
+    ```rust
+    pub enum Result<T, E> {
+        Ok(T),
+        Err(E),
+    }
+    ```
+
+{{< /alert >}}
 This allows type system to enforce that we handle the `none` case when value doesn't exist and in `some` case the value is present
 
 ```rust
