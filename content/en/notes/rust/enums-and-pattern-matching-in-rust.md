@@ -131,7 +131,7 @@ So if you have any value that could potentially be null/not exist, then you woul
     This may hold something, or an `error`. Whereas the `Option` type uses either `Some` to wrap successful results or `None`, the Result type uses `Ok` to wrap successful results or `Err` to wrap error information for the situations when things have gone south, e.g. `Ok(3.14159)`, and `Err("This Bad Thing Happened")`.
 
     ```rust
-    pub enum Result<T, E> {
+    enum Result<T, E> {
         Ok(T),
         Err(E),
     }
