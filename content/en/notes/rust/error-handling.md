@@ -2,8 +2,8 @@
 title: "Error Handling in Rust"
 description: ""
 lead: ""
-date: 2022-09-20T07:59:00+01:00
-lastmod: 2022-09-20T07:59:00+01:00
+date: 2022-09-20T07:58:01+01:00
+lastmod: 2022-09-20T07:58:01+01:00
 images: []
 type: docs
 draft: false
