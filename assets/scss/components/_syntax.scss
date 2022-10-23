@@ -40,6 +40,19 @@ table.hljs-ln {
   color: #4EADE5; // color for rust macro
 }
 
+.language-rust .hljs-symbol { // lifetimes
+  color: #20999D;
+  font-style: italic;
+}
+
+.language-rust .hljs-meta {   // Attribute: #[cfg(target_os="linux")]
+  color: #BBB529;
+
+  .hljs-string {
+    color: #6A8759;
+  }
+}
+
 .hljs-built_in {
   color: #FFC66D;  // color for functions in py
 }
