@@ -13,7 +13,6 @@ menu:
 weight: 13
 toc: true
 ---
-
 {{< alert title="What are closures?" >}}
 Closures are kind of function but anonymous (unnamed), have ability to be stored as variables and passed as input parameters to others functions.
 {{< /alert >}}
