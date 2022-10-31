@@ -2,8 +2,8 @@
 title: "Iterators in Rust"
 description: ""
 lead: ""
-date: 2022-09-20T07:58:06+01:00
-lastmod: 2022-09-20T07:58:06+01:00
+date: 2022-09-20T07:58:10+01:00
+lastmod: 2022-09-20T07:58:10+01:00
 images: []
 type: docs
 draft: false
@@ -226,3 +226,88 @@ fn using_other_iterator_trait_methods() {
     asser_eq!(18, sum);
 }
 ```
+
+# Iterators in Practice
+## Removing a clone Using an Iterator
+
+```rust
+pub struct Config {
+    pub query: String,
+    pub filename: String,
+    pub case_sensitive: bool,
+}
+
+impl Config {
+    pub fn new(args: &[String]) -> Result<Config, &str> {
+        if args.len() < 3 {
+            return Err("not enough arguments");
+        }
+
+        let query = args[1].clone();
+        let filename = args[2].clone();
+
+        let case_sensitive = env::var("CASE_INSENTITIVE").is_err();
+
+        Ok(Config {query, filename, case_senitive})
+    }
+}
+```
+
+Instead of taking ownership of array reference/slice, we can take in an iterator which means we'll have ownership over `args`, eliminating the need of `clone()`.
+
+Going back to `main.rs`, instead of calling the `collect()` method to convert it to a collection from an iterator, let's just pass the iterator itself:
+```rust
+fn main() {
+    // let args = env::args().collect();
+
+    let config = Config::new(env::args()).unwrap_or_else(|err|  {
+        // ...
+    })
+    // ...
+}
+```
+
+and update the signature of `Config::new()`:
+
+```rust
+impl Config {
+    // `mut` since we'll be iterating over iterator
+    // static lifetime because now `args` is a owned type and we're 
+    // returning a string slice, we do need to specify the lifetime
+    pub fn new(mut args: env::Args) -> Result<Config, &'static str> {
+        args.next();  // discard, the first cmd line argument is path to our program
+
+        // `query` is taking ownership of string inside `Some` 
+        // which is owned string
+        let query = match args.next() {
+            Some(arg) => arg,
+            None => return Err("Didn't get a query string"),
+        };
+
+        // filename is taking ownership of it's string
+        // no `clone()` method call required
+        let filename = match args.next() {
+            Some(arg) => arg,
+            None => return Err("Didn't get a file name"),
+        };
+
+        let case_sensitive = env::var("CASE_INSENSITIVE").is_err();
+
+        Ok(Config { query, filename, case_sensitive })
+    }
+}
+```
+
+Adapting `search()` function with iterator adaptor method
+
+```rust
+pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
+    contents
+        .lines()
+        .filter(|line|  line.contains(query))
+        .collect()
+}
+```
+
+## Loops v/s Iterators
+Rust gives ability to perform zero cost abstration whch implies using higher level abstractions like iterators over loops doesn't have meaningful impact on performance. It's about the same speed, the thing is about of abstraction.
