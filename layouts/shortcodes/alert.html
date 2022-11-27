@@ -22,7 +22,7 @@
     </div>
     <div class="content">
         {{ with .Get "title" }}      
-            <p><b>{{ . }}</b></p>
+            <p><b>{{ . | markdownify }}</b></p>
         {{ end }}
         <div class="body">
             {{ print .Inner | markdownify }}
