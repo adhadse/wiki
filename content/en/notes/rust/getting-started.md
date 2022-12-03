@@ -17,6 +17,12 @@ toc: true
 This tutorial series is minified version of **The Rust Book**:
 {{< link title="The Rust Programming Language" link="https://doc.rust-lang.org/stable/book/title-page.html" >}}
 
+and follow up of this tutorial series:
+
+{{< youtube id="OX9HJsJUDxA" >}}
+
+So, if you like watching video tutorial, do check out the above series by Bogdan Pshonyak and follow up with the notes here.
+
 ## Installing Rust on Linux or macOS
 
 ```bash
