@@ -18,7 +18,7 @@ There are some cases where a single value has multiple owners, for e.g., a graph
 
 <mark class="v">To enable multiple ownership of a value we can use a reference counting smart pointer which keeps tracks of number of references to a value and when there are no more references the value will get cleaned up.</mark>
 
-Reference counting smart pointers we'll discuss here are only useful for single threaded applications. For multi-threaded we'll discuss later on.
+<mark class="r">Reference counting smart pointers we'll discuss here are only useful for single threaded applications.</mark> For multi-threaded we'll discuss later on.
 
 ## Using Rc to Share Data
 We'll be demonstrating the use of `Rc` using Cons list as we discussed earlier.
