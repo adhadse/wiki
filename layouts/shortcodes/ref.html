@@ -1,6 +1,7 @@
 {{ $link := .Get "link"}}
 {{ $title := .Get "title" }}
 {{ $icon := .Get "icon" }}
+{{ $subsection := .Get "subsection" }}
 
 {{ if $link }}
 {{ if os.FileExists (path.Join "content/en/" $link ) }}
@@ -20,7 +21,7 @@
             <div class="ref-info">
                 {{ with .Site.GetPage $link }}{{ .RelPermalink }}{{ end }}
             </div>
-            <a href="{{ with .Site.GetPage $link }}{{ .RelPermalink }}{{ end }}"></a>
+            <a href="{{ with .Site.GetPage $link }}{{ .RelPermalink }}{{ end }}{{ if $subsection }}{{ $subsection }}{{ end }}"></a>
     </div>
     {{ else }}
         {{ errorf "%q: %q does not exist." .Page.Path $link }}
