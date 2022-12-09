@@ -55,7 +55,7 @@ We define a trait object by first specifying some sort of pointer such as a refe
 
 Why trait object need to use some sort of pointer? Here is the answer:
 
-TODO: ref shortcode
+TODO: ref shortcode; chapter 19 "Advanced Traits"
 
 <mark class="v">Now, Rust will ensure at compile time that any object in this vector implements the `Draw` trait.</mark>
 
