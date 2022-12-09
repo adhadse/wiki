@@ -380,3 +380,60 @@ impl<T: Display> ToString for T {
     // ...
 }
 ```
+
+{{< alert type="success" title="Difference between `self` and `Self`?" >}}
+<mark class="v">[Self](https://doc.rust-lang.org/reference/types.html#self-types) is the type of the current object.</mark> It may appear either in a `trait` or an `impl`, but appears most often in `trait` where it is a stand-in for whatever type will end up implementing the `trait` (which is unknown when defining the trait):
+
+```rust
+trait Clone {
+    fn clone(&self) -> Self;
+}
+```
+Implement `Clone`:
+
+```rust
+impl Clone for MyType {
+    // I can use either the concrete type (known here)
+    fn clone(&self) -> MyType;
+
+    // Or I can use Self again, it's shorter after all!
+    fn clone(&self) -> Self;
+}
+
+// or 
+impl Clone for MyType {
+    fn new(a: u32) -> Self {
+        // ...
+    }
+}
+```
+---
+
+<mark class="v">`self` is the name used in a `trait` or an `impl` for the first argument of a method.</mark> Using another name is possible, however there is a notable difference:
+
+- <mark class="y">if using self, the function introduced is a method</mark>
+- <mark class="v">if using any other name, the function introduced is an associated function</mark>
+
+In Rust, there is no implicit this argument passed to a type's methods: we have to explicitly pass the "current object" as a method parameter. This would result in:
+
+```rust
+impl MyType {
+    fn doit(this: &MyType, a: u32) { ... }
+}
+
+// but we can write the shorter way
+impl MyType {
+    fn doit(&self, a: u32) { ... }
+}
+```
+
+So, basically:
+
+```rust
+self => self: Self
+&self => self: &Self
+&mut self => self: &mut Self
+```
+
+Source:  [What's the difference between self and Self?](https://stackoverflow.com/a/32310313/8277795) (Stack Overflow)
+{{< /alert >}}
