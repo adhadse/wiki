@@ -387,8 +387,8 @@ fn main() {
 ```
 {{< /alert >}}
 
----
-**Dangling References**
+
+## Dangling References
 <mark class="y">A reference that points to invalid data.</mark>
 
 ```rust
