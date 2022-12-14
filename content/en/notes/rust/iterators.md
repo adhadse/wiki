@@ -67,6 +67,8 @@ fn iterator_demonstration() {
 }
 ```
 
+{{< ref title="Associated Types" link="/notes/rust/advanced-traits.md" subsection="#associated-types" >}}
+
 ## Methods that Consume the iterator
 Iterator trait has various methods with default implementations.
 
