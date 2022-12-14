@@ -106,6 +106,11 @@ Tweet summary: @johndoe: Hello World!
 Article summary: The Sky is Falling, by John Doe
 ```
 
+### Orphan Rule
+<mark class="v">We can implement a trait on a type as long as the trait or the type is defined within the crate.</mark>
+
+This rule ensures that other people’s code can’t break your code and vice versa. Without the rule, two crates could implement the same trait for the same type, and Rust wouldn’t know which implementation to use.
+
 ## Default Implementations
 Instead of expecting every type that implements a trait to define the body of the those functions, we can (when needed) specify the default implementation which can be overrided.
 
@@ -435,5 +440,5 @@ self => self: Self
 &mut self => self: &mut Self
 ```
 
-Source:  [What's the difference between self and Self?](https://stackoverflow.com/a/32310313/8277795) (Stack Overflow)
+Source:  [What's the difference between self and Self?](https://stackoverflow.com/a/32310313/8277795) (Stack Overflowra)
 {{< /alert >}}
