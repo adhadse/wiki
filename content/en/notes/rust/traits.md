@@ -386,6 +386,8 @@ impl<T: Display> ToString for T {
 }
 ```
 
+## Difference between self and Self
+
 {{< alert type="success" title="Difference between `self` and `Self`?" >}}
 <mark class="v">[Self](https://doc.rust-lang.org/reference/types.html#self-types) is the type of the current object.</mark> It may appear either in a `trait` or an `impl`, but appears most often in `trait` where it is a stand-in for whatever type will end up implementing the `trait` (which is unknown when defining the trait):
 
