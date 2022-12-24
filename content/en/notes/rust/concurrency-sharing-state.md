@@ -18,6 +18,8 @@ Message passing a one way to pass data between concurrent threads. Other way to 
 
 Transferring data using shared state concurrency we have some piece of data that multiple threads can read and write to.
 
+{{< link title="Shared-State Concurrency" link="https://doc.rust-lang.org/stable/book/ch16-03-shared-state.html" >}}
+
 ## The API of Mutex
 
 {{< alert title="What are mutexes?" >}}

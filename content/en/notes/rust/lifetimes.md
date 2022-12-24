@@ -14,6 +14,9 @@ weight: 12
 toc: true
 ---
 
+{{< link title="Validating References with Lifetimes" link="https://doc.rust-lang.org/stable/book/ch10-03-lifetime-syntax.html" >}}
+
+
 ## The Borrow Checker
 {{< alert title="Dangling References">}}
 A reference that points to invalid data.

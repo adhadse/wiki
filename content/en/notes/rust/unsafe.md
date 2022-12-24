@@ -14,6 +14,8 @@ weight: 31
 toc: true
 ---
 
+{{< link title="Unsafe Rust" link="https://doc.rust-lang.org/stable/book/ch19-01-unsafe-rust.html" >}}
+
 ## Unsafe Superpowers
 Up until now the code we have wrote followed Rust memory safety guidelines and checked at compile time.
 

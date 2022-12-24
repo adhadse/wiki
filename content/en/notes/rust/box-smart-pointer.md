@@ -36,6 +36,9 @@ Smart pointers are data structures that act like a pointer but have metadata and
 
 In this section, we'll covering most commonly seen smart pointers in Rust. Many third-party libraries implement their own custom smart pointers.
 
+{{< link title="Using Box<T> to Point to Data on the Heap" link="https://doc.rust-lang.org/stable/book/ch15-01-box.html" >}}
+
+
 ## Using a Box to Store Data
 
 {{< alert title="Box smart pointer" >}}

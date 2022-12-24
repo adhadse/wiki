@@ -31,6 +31,8 @@ Patterns consist of some combination of following:
 
 These components describe the shape of the data we're working with which we can then match against values to determine whether out program has the correct data to continue running or not.
 
+{{< link title="Patterns and Matching" link="https://doc.rust-lang.org/stable/book/ch18-00-patterns.html" >}}
+
 ## match Arms
 We already know to use patterns inside `match` expressions:
 

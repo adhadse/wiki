@@ -16,6 +16,8 @@ toc: true
 
 Collections allow us to store multiple values, but unlike array or tuples, they are allocated on the heap. Meaning the size of the collection could grow or shrink as needed.
 
+{{< link title="Common Collections" link="https://doc.rust-lang.org/stable/book/ch08-00-common-collections.html" >}}
+
 ## Vectors
 Vectors is a type of collection that can store only one type of data.
 ```rust

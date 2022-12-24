@@ -24,6 +24,8 @@ For most Object Oriented Programming languages out there, three things are promi
 
 So, lets revise them and learn if they are supported in Rust?
 
+{{< link title="Object-Oriented Programming Features of Rust" link="https://doc.rust-lang.org/stable/book/ch17-00-oop.html" >}}
+
 ## Objects
 <mark class="v">Objects are made out of data and methods that operate on that data.</mark>
 

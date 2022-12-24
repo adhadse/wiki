@@ -17,6 +17,8 @@ toc: true
 Closures are kind of function but anonymous (unnamed), have ability to be stored as variables and passed as input parameters to others functions.
 {{< /alert >}}
 
+{{< link title="Closures: Anonymous Functions that Capture Their Environment" link="https://doc.rust-lang.org/stable/book/ch13-01-closures.html" >}}
+
 ## Example Program
 Let's say we are creating a backend for a fitness that generates customized workouts for a user based on various health factors. Now part of this system might perform some really expensive calculation. Something like this:
 

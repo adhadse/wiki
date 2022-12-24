@@ -20,6 +20,8 @@ What happens when the program keep growing and have multiple library crates? Tha
 - Packages in a workspace share common dependency resolution, since they have only one `Cargo.lock` file.
 - Packages in a workspace also share one output directory and release profiles.
 
+{{< link title="Cargo Workspaces" link="https://doc.rust-lang.org/stable/book/ch14-03-cargo-workspaces.html" >}}
+
 ## Creating a Workspace
 We are going to create one binary that depends on one library.
 - First library having `add_one` function.

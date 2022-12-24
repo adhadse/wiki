@@ -15,6 +15,7 @@ toc: true
 ---
 
 Let's create a new project by using `Cargo` and open the dir in editor:
+{{< link title="Guessing Game" link="https://doc.rust-lang.org/stable/book/ch02-00-guessing-game-tutorial.html" >}}
 
 ```bash
 cargo new guessing-game

@@ -16,6 +16,8 @@ toc: true
 
 <mark class="y">The `Deref` trait allows you to customize the behavior of the derefernece operator (`*` before the pointer, e.g. `*y`).</mark>
 
+{{< link title="Treating Smart Pointers Like Regular References with the Deref Trait" link="https://doc.rust-lang.org/stable/book/ch15-02-deref.html" >}}
+
 ```rust
 fn main() {
     let x = 5; 

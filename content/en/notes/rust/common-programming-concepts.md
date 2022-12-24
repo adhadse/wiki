@@ -14,6 +14,8 @@ weight: 3
 toc: true
 ---
 
+{{< link title="Common Programming Concepts" link="https://doc.rust-lang.org/stable/book/ch03-00-common-programming-concepts.html" >}}
+
 ## Variables and mutability
 Variables are immutable by default. I said it.
 
