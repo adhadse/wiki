@@ -14,6 +14,8 @@ weight: 4
 toc: true
 ---
 
+{{< link title="Understanding Ownership" link="https://doc.rust-lang.org/stable/book/ch04-00-understanding-ownership.html" >}}
+
 ## Understanding ownnership
 Ownernship model is a way to manage memory in Rust. To understand why we need this model, we need to first understand the typical way programming languages manages memory:
 

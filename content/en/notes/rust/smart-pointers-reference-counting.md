@@ -20,6 +20,8 @@ There are some cases where a single value has multiple owners, for e.g., a graph
 
 <mark class="r">Reference counting smart pointers we'll discuss here are only useful for single threaded applications.</mark> For multi-threaded we'll discuss later on.
 
+{{< link title="Rc<T>, the Reference Counted Smart Pointer" link="https://doc.rust-lang.org/stable/book/ch15-04-rc.html" >}}
+
 ## Using Rc to Share Data
 We'll be demonstrating the use of `Rc` using Cons list as we discussed earlier.
 

@@ -18,6 +18,8 @@ The `Drop` trait can be implemeted on any type and allows us to customize when a
 
 In some languages, we have to manually deallocate the data stored on the heap when we're done using the smart pointer, but with `Drop` trait this clean up happens automatically when a value goes out of scope.
 
+{{< link title="Running Code on Cleanup with the Drop Trait" link="https://doc.rust-lang.org/stable/book/ch15-03-drop.html" >}}
+
 ```rust
 struct CustomSmartPointer {
     data: String

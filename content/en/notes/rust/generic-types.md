@@ -14,6 +14,8 @@ weight: 10
 toc: true
 ---
 
+{{< link title="Generic Data Types" link="https://doc.rust-lang.org/stable/book/ch10-01-syntax.html" >}}
+
 ## Extracting Functions
 Generic lifetimes anf traits are ways to reduce code duplication.
 

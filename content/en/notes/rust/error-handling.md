@@ -14,6 +14,8 @@ weight: 9
 toc: true
 ---
 
+{{< link title="Error Handling" link="https://doc.rust-lang.org/stable/book/ch09-00-error-handling.html" >}}
+
 ## Using panic!
 If your program fails in a way that's unrecoverable or there is no way to handle the error gracefully, then you can call the panic macro, which immediately quit the program.
 

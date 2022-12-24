@@ -25,6 +25,8 @@ If we wanted to create a module like Authentication, the internal function could
 
 Rust also has **workspaces** meant for very large projects and allow us to store interrelated packages inside the workspace.
 
+{{< link title="Managing Growing Projects with Packages, Crates, and Modules" link="https://doc.rust-lang.org/stable/book/ch07-00-managing-growing-projects-with-packages-crates-and-modules.html" >}}
+
 ## Packages and Crates
 Let's start with creating a new package.
 

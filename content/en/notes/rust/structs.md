@@ -18,6 +18,8 @@ Enums and Structs are the building blocks for creating new types.
 
 <mark class="y">Structs allow us to group related data together.</mark> Think about them as object attributes/class attributes in object-oriented programming.
 
+{{< link title="Using Structs to Structure Related Data" link="https://doc.rust-lang.org/stable/book/ch05-00-structs.html" >}}
+
 ## Using Structs
 Let's start with creating a struct for a user.
 

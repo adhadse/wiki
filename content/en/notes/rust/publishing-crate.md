@@ -14,6 +14,8 @@ weight: 15
 toc: true
 ---
 
+{{< link title="More About Cargo and Crates.io" link="https://doc.rust-lang.org/stable/book/ch14-00-more-about-cargo.html" >}}
+
 ## Release Profiles
 Release profiles allow us to configure how the code is compiled.
 

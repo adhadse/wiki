@@ -14,6 +14,8 @@ weight: 32
 toc: true
 ---
 
+{{< link title="Advanced Traits" link="https://doc.rust-lang.org/stable/book/ch19-03-advanced-traits.html" >}}
+
 ## Associated Types
 <mark class="v">Associated types are placeholders which we can add to your trait and then methods can use that placeholder.</mark>
 

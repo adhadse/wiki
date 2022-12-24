@@ -14,6 +14,8 @@ weight: 28
 toc: true
 ---
 
+{{< link title="Implementing an Object-Oriented Design Pattern" link="https://doc.rust-lang.org/stable/book/ch17-03-oo-design-patterns.html" >}}
+
 ## Object Oriented Design Pattern
 In the state pattern we have some value which has internal state represented by *state objects*. 
 

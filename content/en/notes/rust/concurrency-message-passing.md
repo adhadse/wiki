@@ -26,6 +26,8 @@ Rust provides **channels** via standard library to enable message passing. <mark
 
 One part of our code calls method on the transmitter passing in the data you want to send and another part of our is listening to the receiver for arriving messages. The channel is said to be closed if either the transmitter or the receiver half is dropped. 
 
+{{< link title="Using Message Passing to Transfer Data Between Threads" link="https://doc.rust-lang.org/stable/book/ch16-02-message-passing.html" >}}
+
 ## Transfer Data Between Threads
 We'll bring in `mpsc` module from the standard library into scope. `mpsc` stands for Multi-produce, single-consumer FIFO queue.
 

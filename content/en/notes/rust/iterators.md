@@ -18,6 +18,8 @@ toc: true
 Iterator pattern allows us to iterate over a sequence of elements regardless of how the elements are stored.
 {{< /alert >}}
 
+{{< link title="Processing a Series of Items with Iterators" link="https://doc.rust-lang.org/stable/book/ch13-02-iterators.html" >}}
+
 ## Processing items with Iterators
 Iterators can be implemented for any data structure.
 

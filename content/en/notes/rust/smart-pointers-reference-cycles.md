@@ -14,11 +14,14 @@ weight: 22
 toc: true
 ---
 
+
 {{< alert type="danger" >}}
 Rust is known for memory safety so it guarantees you can't have data races, but it doesn't provide you the same guarantee for memory leaks.
 {{< /alert >}}
 
 We can have memory leak issues with `Rc<T>` smart pointer or `RefCell<T>` smart pointer. **In both we can have items that reference each other in a cycle which leads to memory leaks.**
+
+{{< link title="Reference Cycles Can Leak Memory" link="https://doc.rust-lang.org/stable/book/ch15-06-reference-cycles.html" >}}
 
 Let's learn by an example:
 

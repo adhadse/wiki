@@ -16,6 +16,8 @@ toc: true
 
 Although Rust doesn't support classical inheritance, it does support polymorphism through generics and Trait Objects. 
 
+{{< link title="Using Trait Objects That Allow for Values of Different Types" link="https://doc.rust-lang.org/stable/book/ch17-02-trait-objects.html" >}}
+
 ## Trait for Common Behavior
 Imagine we're building a GUI library to take a list of visual components (buttons, checkbox, etc) and draw them to screen. In addition to that we'd like our users to extend that library, i.e., they could create their own visual components and draw them on screen.
 

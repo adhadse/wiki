@@ -22,6 +22,8 @@ This pattern uses unsafe code inside a data structure to bypass the typical rule
 **Although the borrow rules are not enforced at compile time, we may enforce it at run time**.
 {{< /alert >}}
 
+{{< link title="RefCell<T> and the Interior Mutability Pattern" link="https://doc.rust-lang.org/stable/book/ch15-05-interior-mutability.html" >}}
+
 ## Enforcing Borrowing Rules at Runtime
 [Refcell](https://doc.rust-lang.org/std/cell/struct.RefCell.html) smart pointer represents single ownership over the data it holds kind of like `Box` smart pointer. The difference being the `Box` smart pointer enforces borrowing rules at compile time wheread `RefCell` enforces these rules at run time.
 

@@ -14,6 +14,8 @@ weight: 6
 toc: true
 ---
 
+{{< link title="Enums and Pattern Matching in Rust" link="https://doc.rust-lang.org/stable/book/ch06-00-enums.html" >}}
+
 ## Defining Enums
 Enums allow us to enumerate a list of variants.
 

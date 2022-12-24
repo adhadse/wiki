@@ -16,6 +16,8 @@ toc: true
 
 All valid syntax to use with pattern matching.
 
+{{< link title="Pattern Syntax" link="https://doc.rust-lang.org/stable/book/ch18-03-pattern-syntax.html" >}}
+
 ## Matching Literals
 This pattern is useful when we want our code to take action when it receives a concrete value.
 

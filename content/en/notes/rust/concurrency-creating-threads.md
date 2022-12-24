@@ -22,6 +22,8 @@ Parallel programming is when different parts of your program <mark class="v">exe
 
 Because of Rust's type system and powerful ownership model, we can write concurrent programs with lots of errors being caught at compile time. Meaning we can write code that is free of subtle bugs and easy to refactor, thus we call it *fearless concurrency*.
 
+{{< link title="Fearless Concurrency" link="https://doc.rust-lang.org/stable/book/ch16-00-concurrency.html" >}}
+
 ## Using Threads
 An executed program's code is ran within a process and the operating system manages multiple processes at once.
 

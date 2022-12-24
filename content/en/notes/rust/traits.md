@@ -16,6 +16,8 @@ toc: true
 
 <mark class="v">Traits define shared behavior for structs.</mark>
 
+{{< link title="Traits: Defining Shared Behavior" link="https://doc.rust-lang.org/stable/book/ch10-02-traits.html" >}}
+
 ## Defining Traits
 Let's look at the below code:
 
