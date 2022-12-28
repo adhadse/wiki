@@ -30,7 +30,7 @@ toc: false
 | `[a-z0-9]` | A set of character or an include range|
 | `(` | Indicates where the string extraction starts |
 | `)` | Indicates where the string extraction ends |
-| `a\|b` | matches either a or b, a and b are string |
+| `a\|b` | matches either a or b, a and b are string matching pattern |
 | `\` | Escape character for special characters (`\t`, `\n`, `\b`) |
 | `\b` | Matches word boundary |
 | `\d` | Matches single digit; equivalent to `[0-9]` |
