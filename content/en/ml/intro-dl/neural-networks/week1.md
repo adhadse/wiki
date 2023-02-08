@@ -39,7 +39,32 @@ May 1, 2021
   * Natural Language Processing: Building sequence models
 
 ### Introduction to Deep Learning
+{{< alert title="What Deep Learning/ML is good for" type="success" >}}
+1. **Problems with long lists of rules**
 
+    When the traditional approach fails, machine learning/deep leanring may help
+2. **Continually changing environments**
+
+    Deep Learning can adapt ('lear') to new scenarios
+3. **Discovering insights withing large collections of data**
+
+   Imaging trying to hand-craft rules for what 101 different kinds of food look like?
+{{< /alert >}}
+
+{{< alert title="Where Deep Learning is (typically) not good?" type="warning" >}}
+1. **When you need explainability**
+
+   the patterns learned by a deep learnign model are *typically* uninterpretable by human
+2. **When the traditional approach is a better option**
+
+   if you can accomplish what you need with a simple rule-based system.
+3. **When errors are unacceptable**
+
+   since the outputs of deep learning aren't always predictable.<mark class="v"> The outputs are probabilistic and not deterministic.</mark>
+4. **When you don't have much data**
+
+   deep learning models usually require a fairly large amount of data to produce great results.
+{{< /alert >}}
 ### What is neural networks?
 
 Neural networks are created by structuring layers, with each layer consisting of "neurons" which get activated depending on its activation function and the input.
