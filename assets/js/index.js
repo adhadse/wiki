@@ -163,7 +163,7 @@ Source:
             id: {{ add ($last_index.Get "value") $idx }},
             href: "{{ $RelPermalink }}{{ $section_id }}",
             title: {{ $title }},
-            description: "{{ $section_title | plainify }}",
+            description: "{{ $section_title | htmlUnescape | plainify }}",
           });
     {{ end -}}
     {{ $last_index.Add "value" (len $sections) -}}
