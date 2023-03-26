@@ -17,7 +17,7 @@ $(function () {
             if(scrollPosition < containerBottom - 20 && scrollPosition >= containerOffset - 20){
               for (var j = i; j >= 0; j--) {
                 $(sectionIds[j]).removeClass('active');
-              }  
+              }
               $(sectionIds[i]).addClass('active');
             } else{
                 $(sectionIds[i]).removeClass('active');
@@ -105,33 +105,69 @@ Source:
 
 
   // Not yet supported: https://github.com/nextapps-de/flexsearch#complex-documents
-  
+
+  /*
+  var docs = [
+    {{ range $index, $page := (where .Site.Pages "Section" "docs") -}}
+      {
+        id: {{ $index }},
+        href: "{{ .Permalink }}",
+        title: {{ .Title | jsonify }},
+        description: {{ .Params.description | jsonify }},
+        content: {{ .Content | jsonify }}
+      },
+    {{ end -}}
+  ];
+  */
+
   // https://discourse.gohugo.io/t/range-length-or-last-element/3803/2
 
-  {{ $list :=  where site.RegularPages "Type" "in" "docs" -}}
-  {{ $len := (len $list) -}}
+  {{ $list := slice }}
+  {{- if and (isset .Site.Params.options "searchsectionsindex") (not (eq (len .Site.Params.options.searchSectionsIndex) 0)) }}
+  {{- if eq .Site.Params.options.searchSectionsIndex "ALL" }}
+  {{- $list = .Site.Pages }}
+  {{- else }}
+  {{- $list = (where .Site.Pages "Type" "in" .Site.Params.options.searchSectionsIndex) }}
+  {{- if (in .Site.Params.options.searchSectionsIndex "HomePage") }}
+  {{ $list = $list | append .Site.Home }}
+  {{- end }}
+  {{- end }}
+  {{- else }}
+  {{- $list = (where .Site.Pages "Section" "docs") }}
+  {{- end }}
 
-  {{ if eq $len 0 -}}
-    index.add();
-  {{ else -}}
-    index.add(
-      {{ range $index, $element := $list -}}
-        {
-          id: {{ $index }},
-          href: "{{ .RelPermalink }}",
-          title: {{ .Title | jsonify }},
-          {{ with .Description -}}
-            description: {{ . | jsonify }},
-          {{ else -}}
-            description: {{ .Summary | plainify | jsonify }},
-          {{ end -}}
-        })
-        {{ if ne (add $index 1) $len -}}
-        .add(
-          {{ end -}}
-        {{ end -}}
-            ;
+  {{ $len := (len $list) -}}
+  {{ $last_index := newScratch -}}
+  {{ $last_index.Set "value" $len -}}
+
+  {{ range $index, $element := $list -}}
+    {{ $RelPermalink := .RelPermalink -}}
+    {{ $title := .Title | jsonify -}}
+    index.add({
+      id: {{ $index }},
+      href: "{{ $RelPermalink }}",
+      title: {{ $title }},
+      {{ with .Description -}}
+      description: {{ . | truncate 35 | jsonify }},
+      {{ else -}}
+      description: {{ .Summary | plainify | truncate 35 |jsonify  }},
+      {{ end -}}
+    });
+
+    {{ $sections := findRE `(?s)<h[1-3].*?>.*?</h[1-3]>` .Content }}
+
+    {{ range $idx, $section := $sections -}}
+      {{ $section_id := replaceRE `\"` "" (index (findRE `\"#([\S]+)\"` $section) 0) }}
+      {{ $section_title := replaceRE `>|.<.` "" (index (findRE `>[\S\s]+<a` $section) 0) }}
+        index.add({
+            id: {{ add ($last_index.Get "value") $idx }},
+            href: "{{ $RelPermalink }}{{ $section_id }}",
+            title: {{ $title }},
+            description: "{{ $section_title | plainify }}",
+          });
     {{ end -}}
+    {{ $last_index.Add "value" (len $sections) -}}
+  {{ end -}}
 
   search.addEventListener('input', show_results, true);
 

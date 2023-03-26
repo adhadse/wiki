@@ -8,9 +8,9 @@
 
 <header class="navbar navbar-expand-md navbar-light doks-navbar sticky-lg-top">
   <nav class="container-{{ if .Site.Params.options.fullWidth }}fluid{{ else }}xxl{{ end }} flex-wrap flex-md-nowrap" aria-label="Main navigation">
-    <a class="navbar-brand p-0 me-auto" href='{{ if .Site.Params.homeURL }} {{ .Site.Params.homeURL }} {{ else }} {{ "/" | relLangURL }}{{ end }}' aria-label="{{ .Site.Params.Title }}">
+    <a class="navbar-brand p-0 me-auto" href='{{ if .Site.Params.homeurl }} {{ .Site.Params.homeurl }} {{ else }} {{ "/" | relLangURL }}{{ end }}' aria-label="{{ .Site.Params.Title }}">
       {{ .Site.Params.Title }}
-      {{ if .Site.Params.SiteName }} 
+      {{ if .Site.Params.SiteName }}
         <span class="nav-site-name">{{ .Site.Params.SiteName }} </span>
       {{end}}
     </a>
@@ -60,11 +60,11 @@
         <hr class="text-black-50 my-4 d-md-none">
         <h3 class="h6 text-uppercase mb-3 d-md-none">Socials</h3>
         <ul class="nav flex-column flex-md-row ms-md-auto me-md-n5 pe-md-2">
-          
-          
+
+
         {{ if .Site.Params.options.flexSearch -}}
           <form class="doks-search position-relative flex-grow-1">
-            <input id="search" class="form-control is-search" type="search" placeholder='Search wiki...' aria-label="Search docs..." autocomplete="off">
+            <input id="search" class="form-control is-search" type="search" placeholder='Search wiki...' aria-label="Search wiki..." autocomplete="off">
             <div id="suggestions" class="shadow bg-white rounded d-none"></div>
           </form>
         {{ end -}}
@@ -96,7 +96,7 @@
       </button>
 
       <ul class="dropdown-menu dropdown-menu-end shadow rounded border-0" aria-labelledby="doks-languages">
-        
+
         <li><a class="dropdown-item current" aria-current="true" href="{{ .RelPermalink }}">{{ .Site.Language.LanguageName }}</a></li>
 
         <li><hr class="dropdown-divider"></li>

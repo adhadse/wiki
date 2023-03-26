@@ -30,16 +30,16 @@ We'll use superscript square bracket one to refer to quantities associated with 
 
 The term _hidden layer_ refers to the fact that in the training set, for these nodes in the middle (the hidden layer neurons) are not observed.
 
-{{< figure src="/images/ml/intro_dl/neural_networks/Untitled 10.png" caption="Source: Wikipedia. Used for representation only." width="300rem">}}
+{{< figure src="/images/ml/intro_dl/neural_networks/Untitled 10.png" caption="Source: Wikipedia. Used for representation only." >}}
 
 <mark class="y">The term $a$ also stands for the activations, we will use it for denoting the outputs/activations of a layer that the layer is passing on to the subsequent layers.</mark>
 
-- *Input layer* is passing activations $a^{\[0]}$ to the hidden layer (which we previously denoting by $X$.       
+- *Input layer* is passing activations $a^{\[0]}$ to the hidden layer (which we previously denoting by $X$.
 
 - The hidden layer will in turn generate its own activations $a^{\[1]}$
 
   - Which is a four dimensional vector b/c the hidden layer has four neurons
-    
+
     <div>
     $$
     a^{[1]} = \begin{bmatrix}a^{[1]}_1\\[5pt] a^{[1]}_2\\[5pt]a^{[1]}_3\\[5pt]a^{[1]}_4\end{bmatrix}
@@ -142,11 +142,11 @@ If we have defined a neural network like this:
   <div>$z^{[1](i)} = W^{[1]}a^{[0](i)} + b^{[1]}$</div>
 
   <div>$a^{[1](i)} =  \sigma(z^{[1](i)})$</div>
-  
+
   <div>$z^{[2](i)} = W^{[2]}a^{[1](i)} + b ^{[2]}$</div>
-  
+
   <div>$a^{[2](i)} = \sigma(z^{[2](i)})$</div>
-  
+
 
 then for $m$ training examples we need,
 

@@ -16,9 +16,9 @@ toc: true
 
 **Notations** ([source](https://d3c33hcgiwev3.cloudfront.net/\_106ac679d8102f2bee614cc67e9e5212\_deep-learning-notation.pdf?Expires=1620000000\&Signature=fe\~qRZvLw6SimSF12-T5HtrkfXkSimV5guX598PhKSOqjhkoGAKMFHrbJThtMzFJl0ZzDITzj43relXQnxoGzWr-Y2r\~4otSFE2hCJv8xPwUaQEovPt4Fk2p\~mS9ff5SZ2iaZFnbwaH4p9guk1sID82Pcs691QWZrx0EIezXYrM\_\&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A)) :
 
-{{< figure src="/images/ml/intro_dl/neural_networks/0001.jpg" >}}
+![](/images/ml/intro_dl/neural_networks/0001.jpg)
 
-{{< figure src="/images/ml/intro_dl/neural_networks/0002.jpg" >}}
+![](/images/ml/intro_dl/neural_networks/0002.jpg)
 
 {{< youtube id="CS4cs9xVecg" >}}
 

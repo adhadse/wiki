@@ -21,7 +21,7 @@ May 1, 2021
 
 Consider we have an image we want to classify as cat or not of 64x64 dimension
 
-{{< figure src="/images/ml/intro_dl/neural_networks/0003.png">}}
+![](/images/ml/intro_dl/neural_networks/0003.png)
 
 *   The images are stored as matrix pixel intensity value for different color channels. (one matrix per color channel and with each layer dimension being the dimension of image).
 
@@ -39,7 +39,7 @@ $$
 
 Notations:
 
-{{< figure src="/images//ml/intro_dl/neural_networks/0004.png" >}}
+![](/images/ml/intro_dl/neural_networks/0004.png)
 
 ## Logistic Regression
 
@@ -80,7 +80,7 @@ $$
 \sigma(z) \approx \frac{1}{1+bigno} \approx 0
 $$
 
-{{< figure src="/images/ml/intro_dl/neural_networks/sigmoid.png">}}
+![](/images/ml/intro_dl/neural_networks/sigmoid.png)
 
 {{< alert type="warning">}}
 In a alternate notation you might see (like in Hands-on machine learning book) $\hat{y} = \sigma(x^{\intercal}\theta)$ instead of $\sigma(w^\intercal x + b)$. In this notation $\theta_0$ represent bias vector and rest of the $\theta$ vector contains the weights.
@@ -96,7 +96,7 @@ $$
 J(w, b)=J(\theta) = -\frac{1}{m}\sum^m_{i=1}\bigg[y^{(i)}\log\Big(\hat{y}^{(i)}\Big)+ \Big(1-y^{(i)}\Big)\log\Big(1-\hat{y}^{(i)}\Big)\bigg]
 $$
 
-{{< figure src="/images/ml/intro_dl/neural_networks/Logarithm_plots.png" >}}
+![](/images/ml/intro_dl/neural_networks/Logarithm_plots.png)
 
 * The cost function for single training example, we want:
 
@@ -129,7 +129,7 @@ Where.
 * On the left side the derivative (slope) will be negative making us increasing the weights.
 * On the right side the derivative (slope) will be positive which will result in decreasing the weights.
 
-{{< figure src="/images/ml/intro_dl/neural_networks/Untitled 3.png">}}
+![](/images/ml/intro_dl/neural_networks/Untitled 3.png)
 
 * So we will update the weights and bias like this:
 

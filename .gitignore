@@ -1,5 +1,8 @@
+functions
 node_modules
 public
 resources
+.idea/
+.fuse_*
 .netlify
 .hugo_build.lock

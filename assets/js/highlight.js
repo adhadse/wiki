@@ -41,9 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (language === undefined) {
       language = '?'
     }
-    
-    const pills = document.createElement("div");
-    pills.className = "pills";
+
+    const pills = document.createElement('div');
+    pills.className = 'pills';
     pills.innerHTML = `
       <label class="language">${language}</label>
        <button class="copy">Copy</button>`;

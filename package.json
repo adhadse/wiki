@@ -1,10 +1,10 @@
 {
   "name": "@hyas/doks",
   "description": "Doks theme",
-  "version": "0.4.3",
+  "version": "0.5.0",
   "engines": {
-		"node": ">=16.15.0"
-	},
+    "node": ">=16.16.0"
+  },
   "browserslist": [
     "defaults"
   ],
@@ -17,8 +17,8 @@
     "init": "shx rm -rf .git && git init -b master",
     "create": "exec-bin node_modules/.bin/hugo/hugo new",
     "prestart": "npm run clean",
-    "start": "exec-bin node_modules/.bin/hugo/hugo server --bind=0.0.0.0 --disableFastRender --noHTTPCache --ignoreCache",
-    "debug": "exec-bin node_modules/.bin/hugo/hugo server -v --debug --bind=0.0.0.0 --disableFastRender --noHTTPCache --ignoreCache",
+    "start": "exec-bin node_modules/.bin/hugo/hugo server --bind=0.0.0.0 --disableFastRender",
+    "debug": "exec-bin node_modules/.bin/hugo/hugo server -v --debug --bind=0.0.0.0 --disableFastRender --noHTTPCache --verbose",
     "prebuild": "npm run clean",
     "build": "exec-bin node_modules/.bin/hugo/hugo --gc --minify",
     "build:preview": "npm run build -D -F",
@@ -39,36 +39,35 @@
     "version": "auto-changelog -p && git add CHANGELOG.md"
   },
   "devDependencies": {
-    "@babel/cli": "^7.17",
-    "@babel/core": "^7.17",
-    "@babel/preset-env": "^7.17",
+    "@babel/cli": "^7.18",
+    "@babel/core": "^7.18",
+    "@babel/preset-env": "^7.18",
     "@fullhuman/postcss-purgecss": "^4.1",
+    "@hyas/images": "^0.3.2",
     "auto-changelog": "^2.4",
     "autoprefixer": "^10.4",
-    "bootstrap": "^5.1",
+    "bootstrap": "^5.2.0-beta1",
     "clipboard": "^2.0",
-    "eslint": "^8.15",
+    "eslint": "^8.19",
     "exec-bin": "^1.0.0",
     "flexsearch": "^0.7.21",
     "highlight.js": "^11.5",
     "highlightjs-line-numbers.js": "^2.8.0",
-    "hugo-installer": "^3.1",
+    "hugo-installer": ">=4.0.1",
     "instant.page": "^5.1",
-    "katex": "^0.15",
+    "katex": "^0.16",
     "lazysizes": "^5.3",
     "markdownlint-cli2": "^0.4.0",
-    "netlify-plugin-submit-sitemap": "^0.3.0",
+    "netlify-plugin-submit-sitemap": "^0.4.0",
     "node-fetch": "^3.2",
     "postcss": "^8.4",
-    "postcss-cli": "^9.1",
+    "postcss-cli": "^10.0",
     "purgecss-whitelister": "^2.4",
     "shx": "^0.3.4",
-    "stylelint": "^14.8",
-    "stylelint-config-standard-scss": "^3.0",
-    "three": "^0.138.3",
-    "hugo": "^0.0.3"
+    "stylelint": "^14.9",
+    "stylelint-config-standard-scss": "^4.0"
   },
   "otherDependencies": {
-    "hugo": "0.104.0"
+    "hugo": "0.110.0"
   }
 }

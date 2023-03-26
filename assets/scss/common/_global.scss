@@ -4,7 +4,9 @@
 .error404 .content,
 .docs.list .content,
 .tutorial.list .content,
-.showcase.list .content {
+.showcase.list .content,
+.categories.list .content,
+.tags.list .content {
   padding-top: 1rem;
   padding-bottom: 3rem;
 }
@@ -305,7 +307,7 @@ body {
   text-decoration: none;
 }
 
-::selection{
+::selection {
   background: $black-original;
   color: $white;
   border-radius: 1em;
@@ -319,13 +321,15 @@ body {
     border: 1px solid;
 }
 
-.hljs ::selection, .hljs::selection {
-  background: $white!important;
+.hljs ::selection,
+.hljs::selection {
+  background: $white !important;
   color: $black;
 }
 
-.hljs ::-moz-selection, .hljs::-moz-selection {
-  background: $white!important;
+.hljs ::selection,
+.hljs::selection {
+  background: $white !important;
   color: $black;
 }
 
