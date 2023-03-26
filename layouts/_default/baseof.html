@@ -14,7 +14,7 @@
   {{ end -}}
   <body class="{{ .Scratch.Get "class" }}">
     {{ partial "header/header.html" . }}
-    <div id="home_wave" style="z-index:-100;position:absolute;">,</div>
+    <div id="home_wave" style="z-index:-100;position:absolute;"></div>
     <div class="wrap container-{{ if .Site.Params.options.fullWidth }}fluid{{ else }}xxl{{ end }}" role="document">
       <div class="content">
         {{ block "main" . }}{{ end }}
