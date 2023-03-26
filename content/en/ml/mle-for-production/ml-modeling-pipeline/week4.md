@@ -224,7 +224,7 @@ If you wish to dive more deeply into TensorFlow Model Analysis (TFMA) capabiliti
     Model performance decays with time as the distribution of incoming data changes.
     
 
-### <mark class="v">Model Debugging Techniques</mark>
+### Model Debugging Techniques
 
 1. <mark class="v">Benchmark models</mark>
 2. <mark class="v">Sensitivity analysis</mark>
