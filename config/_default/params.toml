@@ -1,12 +1,9 @@
 # Meta Data for SEO
 
-# Search
-mainSections = ["ml", "etc", "docs", "notes"]
-
 ## Homepage
 title = "adhadse"
 siteName = "Wiki"
-homepagetabtitle = "Anurag Dhadse"
+homePageTabTitle = "Anurag Dhadse"
 homeurl = ""
 titleSeparator = "—"
 titleAddition = "Wiki"
@@ -52,12 +49,27 @@ siteLinksSearchBox = false
 themeColor = "#fff"
 
 # Images
-quality = 85
-bgColor = "#fff"
-landscapePhotoWidths = [900, 800, 700, 600, 500]
-portraitPhotoWidths = [800, 700, 600, 500]
-lqipWidth = "20x"
-smallLimit = "300"
+# lazyimg
+[lazyimg]
+  resizer = "auto"
+  renderer = "lqip-webp"
+
+  # Resizer options:
+  lqipSize = "120x Gaussian"
+  maxSize = "1920x"
+  responsiveSizes = [ "320x", "640x", "768x", "1024x", "1366x", "1600x", "1920x" ]
+  resizeOptions = "Lanczos q95"
+
+  # Renderer options:
+  class = "img-fluid"
+  # alt = ""
+  noscript = true
+
+  errorHandler = "warning"
+
+### Image template
+defaultImage = "default-image.png" # put in `./assets/images/`
+fillImage = "1270x740 Center" # normalize image size
 
 # Footer
 footer = "Powered by <a class=\"text-muted\" href=\"https://www.netlify.com/\">Netlify</a>, <a class=\"text-muted\" href=\"https://gohugo.io/\">Hugo</a>, and <a class=\"text-muted\" href=\"https://getdoks.org/\">Doks</a>"
@@ -80,11 +92,16 @@ docsRepoSubPath = ""
 editPage = false
 lastMod = false
 
+[sections]
+  sectionNav = ["ml", "notes", "etc"]
+
 [options]
   lazySizes = true
   clipBoard = true
   instantPage = true
   flexSearch = true
+  searchSectionsShow = []
+  searchSectionsIndex = "ALL"
   darkMode = true
   bootStrapJs = true
   breadCrumb = false
@@ -93,10 +110,10 @@ lastMod = false
   multilingualMode = false
   docsVersioning = false
   fullWidth = false
+  navbarSticky = true
+  toTopButton = false
 
 [menu]
   [menu.section]
     auto = true
     collapsibleSidebar = true
-
-

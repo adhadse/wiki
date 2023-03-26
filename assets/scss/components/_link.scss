@@ -32,7 +32,7 @@
   .link-info {
     margin-left: auto;
     padding-right: 0.5em;
-    color: lighten($gray-600, 10)!important;
+    color: lighten($gray-600, 10) !important;
     font-size: $font-size-sm;
   }
 
@@ -63,5 +63,5 @@
 }
 
 [data-dark-mode] .link .link-info {
-  color: $gray-600!important;
+  color: $gray-600 !important;
 }

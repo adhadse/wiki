@@ -23,6 +23,9 @@ and follow up of this tutorial series:
 
 So, if you like watching video tutorial, do check out the above series by Bogdan Pshonyak and follow up with the notes here.
 
+If you do give this quick read and test yourself while diving deep, then checkout this :
+{{< link title="The Rust Programming Language" link="https://rust-book.cs.brown.edu/" >}}
+
 ## Installing Rust on Linux or macOS
 
 ```bash

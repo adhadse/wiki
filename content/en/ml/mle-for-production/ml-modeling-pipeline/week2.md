@@ -17,7 +17,7 @@ toc: true
 ## Dimensionality Effect on Performance
 {{< figure src="/images/ml/mle_for_production/ml_modeling_pipeline_in_production/high_dimensional_data.png" >}}
 
-{{< alert title="A note about neural networks">}} 
+{{< alert title="A note about neural networks">}}
 
 - Yes, neural networks will perform a kind of automatic feature selection
 - However, that's not as efficient as a well-designed dataset and model
@@ -40,7 +40,7 @@ from keras.preprocessing import sequence
 
 NUM_WORDS = 1_000 # Least repeated words are considered unknown
 
-(reuters_train_x, reuters_train_y), (reuters_test_x, reuters_test_y) = 
+(reuters_train_x, reuters_train_y), (reuters_test_x, reuters_test_y) =
   tf.keras.dataset.reuters.load_data(num_words=NUM_WORDS)
 n_laberls = np.unique(reuters_train_y).shape[0]
 
@@ -58,7 +58,7 @@ reuters_test_x = keras.preprocessing.sequence.pad_sequence(
 from tensorflow.keras import layers
 model = keras.Sequential([
 	# The embedding is projected to 1000 dimesions here (2nd parameter)
-	layers.Embedding(NUM_WORDS, 1000, input_length=20), 
+	layers.Embedding(NUM_WORDS, 1000, input_length=20),
 	layers.Flatten(),
 	layers.Dense(256),
 	layers.Dropout(0.25),
@@ -69,7 +69,7 @@ model = keras.Sequential([
 
 # Model compilation and training
 model.compile(loss='categorical_crossentropy',
-              optimizer='rmsprop', 
+              optimizer='rmsprop',
               metrics=['accuracy'])
 
 model_1 = model.fit(reuters_train_x, reuters_train_y,
@@ -85,7 +85,7 @@ model_1 = model.fit(reuters_train_x, reuters_train_y,
 ```python
  model = keras.Sequential([
 	# The embedding is projected to 1000 dimesions here (2nd parameter)
-	layers.Embedding(NUM_WORDS, 6, input_length=20), 
+	layers.Embedding(NUM_WORDS, 6, input_length=20),
 	layers.Flatten(),
 	layers.Dense(256),
 	layers.Dropout(0.25),
@@ -204,7 +204,7 @@ h2 = layers.Dense(8, activation='relu', name='h2')(h1)
 output = layers.Dense(1, actiation='linear', name='fare')(h2)
 
 model = keras.models.Model(inputs, output)
-model.compile(optimizer='adam', loss='mse', 
+model.compile(optimizer='adam', loss='mse',
               metrics=[RMSE(name='rmse'), 'mse'])
 ```
 
@@ -233,7 +233,7 @@ def dayofweek(ts_in):
   return tf.map_fn(
     lambda s: tf.py_function(get_dayofweek, inp=[s],
               Tout=tf.string),
-    ts_in)				
+    ts_in)
 ```
 
 ### Geological features
@@ -338,9 +338,9 @@ Feature_columns['pickup_and_dropoff'] = fc.embedding_column(pd_pair, 100)
 PCA performs dimensionality reduction in two steps:
 
 1. PCA rotates the samples so that they are aligned with the coordinate axis.
-    
+
     PCA also shifts the samples so that they have a mean of zero
-    
+
 
 ### Principal components (PCs)
 
@@ -353,7 +353,7 @@ PCA performs dimensionality reduction in two steps:
 
 {{< figure src="/images/ml/mle_for_production/ml_modeling_pipeline_in_production/pca_second_component.png" >}}
 
-{{< figure src="/images/ml/mle_for_production/ml_modeling_pipeline_in_production/pca_animation.gif" caption="Repeat until we a have k orthogonal lines" >}}
+{{< figure src="/images/ml/mle_for_production/ml_modeling_pipeline_in_production/pca_animation.gif" fillImage="778x360" caption="Repeat until we a have k orthogonal lines" >}}
 
 ```python
 from sklearn.decomposition import PCA
@@ -511,7 +511,7 @@ MobileNets are family of small, low-latency, low-power models parameterized to m
 
 ### The quantization process
 
-The weights and activations for a particular layer often tend to lie in a small range, which can be estimated beforehand. That's why we don't need to store the range in the same data type. Therefore we can concentrate the fewer bits within a smaller range. 
+The weights and activations for a particular layer often tend to lie in a small range, which can be estimated beforehand. That's why we don't need to store the range in the same data type. Therefore we can concentrate the fewer bits within a smaller range.
 
 <mark class="y">Find the maximum absolute weight value, $m$, then maps the floating point range $-m$ to $+m$ to the fixed-point range $-127$ to $+127$.</mark>
 
@@ -536,7 +536,7 @@ The weights and activations for a particular layer often tend to lie in a small 
 
 ## Post Training Quantization
 
-In this technique an already trained TensorFlow model size is reduced by using TensorFlow Lite converter to save into TensorFlow Lite format. 
+In this technique an already trained TensorFlow model size is reduced by using TensorFlow Lite converter to save into TensorFlow Lite format.
 
 - Reduced precision representation
 - Incur small loss in model accuracy
@@ -622,7 +622,7 @@ model = quantize_annotate_model(tf.keras.Sequential([
 	tf.keras.layers.Flatten()
 ]))
 
-# `quantize_apply` requires mentioning `DefaultDenseQuantizeConfig` with 
+# `quantize_apply` requires mentioning `DefaultDenseQuantizeConfig` with
 # `quantize_scope`
 with quantize_scope(
 	{'DefaultDenseQuantizeConfig': DefaultDenseQuantizeConfig,
@@ -668,7 +668,7 @@ As the network size increases, the number of possible subnetworks and the probab
 ### Finding Sparse Neural Networks
 
 > "A randomly-initialized, dense neural network contains a subnetwork that is initialized such that — when trained in isolation — it can match the test accuracy of the original network after training for at most the same number of iterations"                                           - Jonathan Frankle and Michael Carbin
-> 
+>
 
 <mark class="y">Basically instead of fine-tuning weights, just reset the weight to original value and retain.</mark>
 
@@ -708,7 +708,7 @@ pruning_schedule = tfmot.sparsity.keras.PolynomialDecay(
 											begin_Step=2000, end_step=4000)
 
 model_for_pruning = tfmot.sparsity.keras.prune_low_magnitude(
-											model, 
+											model,
 											pruning_scehdule=pruning_schedule)
 
 ...

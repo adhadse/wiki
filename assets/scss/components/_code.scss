@@ -1,3 +1,10 @@
+/*
+.highlight {
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+}
+*/
+
 pre,
 code,
 kbd,
@@ -47,12 +54,12 @@ pre {
       background: rgba(69, 68, 68, 1);
       padding: 0 1em;
       margin: 0.3em;
-  
+
       &:hover {
         background: #555;
       }
     }
-  
+
     button.copy {
       color: lightgray;
       outline: none;
@@ -66,7 +73,7 @@ pre {
       &:hover {
         background: #555;
       }
-  
+
       &:focus,
       &:active {
         display: block;
@@ -76,7 +83,7 @@ pre {
       }
     }
   }
-  
+
   &:hover .pills {
     visibility: visible;
     opacity: 1;

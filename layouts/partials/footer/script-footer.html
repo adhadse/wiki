@@ -4,6 +4,9 @@
 {{ $bs := resources.Get "js/bootstrap.js" -}}
 {{ $bs := $bs | js.Build -}}
 
+{{ $highlight := resources.Get "js/highlight.js" -}}
+{{ $highlight := $highlight | js.Build -}}
+
 {{ $katex := resources.Get "js/vendor/katex/dist/katex.js" -}}
 {{ $katexAutoRender := resources.Get "js/vendor/katex/dist/contrib/auto-render.js" -}}
 
@@ -33,9 +36,14 @@
   {{ $slice = $slice | append $instantPage -}}
 {{ end -}}
 
-{{ if .Site.Params.options.flexSearch -}}
+{{ $showFlexSearch := .Site.Params.options.flexSearch }}
+
+{{ if $showFlexSearch -}}
   {{ $flexSearch := resources.Get "js/vendor/flexsearch/dist/flexsearch.bundle.js" -}}
   {{ $slice = $slice | append $flexSearch -}}
+  {{ if and (isset .Site.Params.options "searchsectionsshow") (not (eq .Site.Params.options.searchSectionsShow "ALL")) -}}
+    {{ $showFlexSearch = or (eq (len .Site.Params.options.searchSectionsShow) 0) (in .Site.Params.options.searchSectionsShow .Section) (and .IsHome (in .Site.Params.options.searchSectionsShow "HomePage")) -}}
+  {{ end -}}
 {{ end -}}
 
 {{ if and (.Site.Params.alert) (.Site.Params.alertDismissable) -}}
@@ -53,8 +61,11 @@
 {{ $scrollLock := resources.Get "js/scroll-lock.js" | js.Build -}}
 {{ $slice = $slice | append $scrollLock -}}
 
-{{ $highlight := resources.Get "js/highlight.js" -}}
-{{ $highlight := $highlight | js.Build -}} 
+{{ if .Site.Params.options.toTopButton -}}
+  {{ $toTopButton := resources.Get "js/to-top.js" -}}
+  {{ $toTopButton := $toTopButton | js.Build -}}
+  {{ $slice = $slice | append $toTopButton -}}
+{{ end -}}
 
 {{ $js := $slice | resources.Concat "main.js" -}}
 
@@ -73,10 +84,10 @@
   {{ with .Params.mermaid -}}
     <script src="{{ $mermaid.RelPermalink }}" defer></script>
   {{ end -}}
-  {{ if and (.Site.Params.options.flexSearch) (in site.Params.mainSections .Section) -}}
+  {{ if $showFlexSearch -}}
     <script src="{{ $index.RelPermalink }}" defer></script>
   {{ end -}}
-  {{ if eq (.Scratch.Get "class") "home" }} 
+  {{ if eq (.Scratch.Get "class") "home" }}
     <script src="{{ $dotwave.Permalink }}" defer></script>
   {{ end -}}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -84,13 +95,16 @@
   {{ $js := $js | minify | fingerprint "sha512" -}}
   {{ $index := $index | minify | fingerprint "sha512" -}}
   {{ $bs := $bs | minify | fingerprint "sha512" -}}
-  {{ $katex := $katex | minify | fingerprint "sha512" -}}
   {{ $highlight := $highlight | minify | fingerprint "sha512" -}}
+  {{ $katex := $katex | minify | fingerprint "sha512" -}}
   {{ $katexAutoRender := $katexAutoRender | minify | fingerprint "sha512" -}}
   {{ $mermaid := $mermaid | minify | fingerprint "sha512" -}}
   {{ $dotwave := $dotwave | minify | fingerprint "sha512" -}}
   {{ if .Site.Params.options.bootStrapJs -}}
     <script src="{{ $bs.RelPermalink }}" integrity="{{ $bs.Data.Integrity }}" crossorigin="anonymous" defer></script>
+  {{ end -}}
+  {{ if .Site.Params.options.highLight -}}
+    <script src="{{ $highlight.RelPermalink }}" integrity="{{ $highlight.Data.Integrity }}" crossorigin="anonymous" defer></script>
   {{ end -}}
   {{ if .Site.Params.options.kaTex -}}
     <script src="{{ $katex.RelPermalink }}" integrity="{{ $katex.Data.Integrity }}" crossorigin="anonymous" defer></script>
@@ -103,7 +117,7 @@
   {{ if .Site.Params.options.highLight -}}
     <script src="{{ $highlight.RelPermalink }}" integrity="{{ $highlight.Data.Integrity }}" crossorigin="anonymous" defer></script>
   {{ end -}}
-  {{ if and (.Site.Params.options.flexSearch) (in site.Params.mainSections .Section) -}}
+  {{ if $showFlexSearch -}}
     <script src="{{ $index.Permalink }}" integrity="{{ $index.Data.Integrity }}" crossorigin="anonymous" defer></script>
   {{ end -}}
   {{ if eq (.Scratch.Get "class") "home"}}

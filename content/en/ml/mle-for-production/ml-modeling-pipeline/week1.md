@@ -42,9 +42,9 @@ This course is focuses on tools and techniques to effectively manage modeling re
 - Hyperparameters
     - Set before launching the learning process
     - not updated in each training step
-    
+
     Hyperparameters are of two types:
-    
+
     1. ***Model hyperparameters*** which influence model selection such as the number and width of hidden layers
     2. ***Algorithm hyperparameters*** which influence the speed and quality of the learning algorithm such as the learning rate for Stochastic Gradient Descent (SGD) and the number of nearest neighbors for a k Nearest Neighbors (KNN) classifier.
     - e.g., learning rate or the number of units in a dense layer
@@ -104,7 +104,7 @@ def model_builder(hp):
   model.add(keras.layer.Dense(10))
 
   model.compile(
-    optimizer='adam', 
+    optimizer='adam',
     loss='sparse_categorical_crossentropy',
     metrics=['accuracy']
   return model
@@ -114,7 +114,7 @@ def model_builder(hp):
 tuner = kt.Hyperband(
   model_builder,
   objective='val_accuracy',
-  max_epochs=10, 
+  max_epochs=10,
   factor=3,
   directory='my_dir',
   project_name='intro_to_kt')
@@ -170,7 +170,7 @@ Three main parts:
 - Macro
 - Micro
 
-Node: A node is a layer in a neural network. 
+Node: A node is a layer in a neural network.
 
 An arrow from layer $\text{L}_i$ to $\text{L}_j$ indicates the layer $\text{L}_j$receives the output of $\text{L}_i$as input.
 
@@ -196,7 +196,7 @@ In a chain-structured Neural Network Architecture (NNA), space is parametrized a
 
 - Cells are stacked to produce the final network.
 
-{{< figure src="/images/ml/mle_for_production/ml_modeling_pipeline_in_production/micro_architecture_search_space.png.png" >}}
+{{< figure src="/images/ml/mle_for_production/ml_modeling_pipeline_in_production/micro_architecture_search_space.png" >}}
 
 ## Search Strategies
 

@@ -14,11 +14,11 @@ Based on Ascetic by (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
     border-color: transparent;
     border-style: none!important;
     border-width: 0;
-  } 
+  }
   .table, table {
     color: $code-white!important;
     font-family: $font-family-monospace!important;
-  } 
+  }
 }
 
 table.hljs-ln {
@@ -34,8 +34,8 @@ table.hljs-ln {
   background: none;
 }
 
-// no support for Rust macros; 
-// only few built-in macros are built-in 
+// no support for Rust macros;
+// only few built-in macros are built-in
 .language-rust .hljs-built_in {
   color: #4EADE5; // color for rust macro
 }
