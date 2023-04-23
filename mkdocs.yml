@@ -1,0 +1,188 @@
+site_name: Wiki
+docs_dir: content
+site_dir: generated
+site_url: https://wiki.adhadse.com/
+site_description: Here, you'll find everything you need to know about my note space.
+theme:
+  name: material
+  custom_dir: overrides
+  font:
+    text: Inter
+    code: JetBrains Mono
+  logo: assets/adhadse.png
+  favicon: assets/logo-wiki.png
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.indexes
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.top
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotation
+    - content.code.copy
+    - navigation.footer
+  icon:
+    admonition:
+      info: material/alert-circle
+      success: material/check-circle
+      warning: material/alert
+      danger: material/alert-octagon
+      quote: material/alert-circle
+
+  palette:
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: black
+      accent: blue
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: blue
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+
+extra_css:
+  - assets/css/extra.css
+  - assets/css/hl.css
+  - assets/css/hljs.css
+
+extra_javascript:
+  - assets/js/katex.js
+  - assets/js/highlight.js
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/adhadse/
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/adhadse/
+
+  analytics:
+    provider: google
+    property: G-PEQP6Y2BMV
+
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - admonition
+  - footnotes
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.mark
+  - attr_list
+  - tables
+
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+plugins:
+  - search
+  - social:
+      cards_color:
+        fill: "#000000"
+        text: "#FFFFFF"
+        cards_font: Poppins
+
+nav:
+  - Blog: 'https://adhadse.com'
+  - ML:
+    - Introduction To Deep Learning:
+        - Neural Networks:
+          - 'ml/intro-dl/neural-networks/week1.md'
+          - 'ml/intro-dl/neural-networks/week2.md'
+          - 'ml/intro-dl/neural-networks/week3.md'
+          - 'ml/intro-dl/neural-networks/week4.md'
+    - Machine Learning Engineering for Production:
+        - Introduction to Machine Learning Engineering for production:
+          - 'ml/mle-for-production/intro-to-mle-for-production/week1.md'
+          - 'ml/mle-for-production/intro-to-mle-for-production/week2.md'
+          - 'ml/mle-for-production/intro-to-mle-for-production/week3.md'
+        - ML Data Lifecycle:
+          - 'ml/mle-for-production/ml-data-lifecycle/week1.md'
+          - 'ml/mle-for-production/ml-data-lifecycle/week2.md'
+          - 'ml/mle-for-production/ml-data-lifecycle/week3.md'
+        - ML Modeling Pipeline:
+            - 'ml/mle-for-production/ml-modeling-pipeline/week1.md'
+            - 'ml/mle-for-production/ml-modeling-pipeline/week2.md'
+            - 'ml/mle-for-production/ml-modeling-pipeline/week3.md'
+            - 'ml/mle-for-production/ml-modeling-pipeline/week4.md'
+        - Deloying ML models:
+          - 'ml/mle-for-production/deploying-ml-models/week1.md'
+          - 'ml/mle-for-production/deploying-ml-models/week2.md'
+          - 'ml/mle-for-production/deploying-ml-models/week3.md'
+          - 'ml/mle-for-production/deploying-ml-models/week4.md'
+  - Notes:
+    - Rust:
+        - 'notes/rust/getting-started.md'
+        - 'notes/rust/index.md'
+        - 'notes/rust/guessing-game.md'
+        - 'notes/rust/ownership.md'
+        - 'notes/rust/structs.md'
+        - 'notes/rust/enums-and-pattern-matching.md'
+        - 'notes/rust/module-system.md'
+        - 'notes/rust/common-collections.md'
+        - 'notes/rust/error-handling.md'
+        - 'notes/rust/generic-types.md'
+        - 'notes/rust/traits.md'
+        - 'notes/rust/lifetimes.md'
+        - Testing:
+          - 'notes/rust/testing/testing-in-rust.md'
+          - 'notes/rust/testing/testing-in-rust-2.md'
+        - CLI App:
+          - 'notes/rust/cli-app/cli-app-in-rust.md'
+          - 'notes/rust/cli-app/cli-app-in-rust-2.md'
+        - Functional:
+          - 'notes/rust/functional/closures.md'
+          - 'notes/rust/functional/iterators.md'
+        - Cargo:
+          - 'notes/rust/cargo/cargo-workspaces.md'
+          - 'notes/rust/cargo/publishing-crate.md'
+        - Smart Pointers:
+          - 'notes/rust/smart-pointers/deref-trait.md'
+          - 'notes/rust/smart-pointers/drop-trait.md'
+          - 'notes/rust/smart-pointers/reference-counting.md'
+          - 'notes/rust/smart-pointers/interior-mutability.md'
+          - 'notes/rust/smart-pointers/reference-cycles.md'
+          - 'notes/rust/smart-pointers/box-smart-pointer.md'
+        - Concurrency:
+          - 'notes/rust/concurrency/creating-threads.md'
+          - 'notes/rust/concurrency/message-passing.md'
+          - 'notes/rust/concurrency/sharing-state.md'
+        - OOPS:
+          - 'notes/rust/oops/object-oriented-programming.md'
+          - 'notes/rust/oops/trait-objects.md'
+          - 'notes/rust/oops/state-design-pattern.md'
+        - Patterns:
+          - 'notes/rust/patterns/patterns-and-matching.md'
+          - 'notes/rust/patterns/pattern-syntax.md'
+        - Advanced Rust:
+          - 'notes/rust/advanced/unsafe.md'
+          - 'notes/rust/advanced/advanced-traits.md'
+          - 'notes/rust/advanced/advanced-types.md'
+          - 'notes/rust/advanced/advanced-functions-and-closures.md'
+          - 'notes/rust/advanced/macros.md'
+  - etc:
+      - Mathematics: 'etc/maths-formula.md'
+      - Regex: 'etc/regular-expressions.md'
+
+watch:
+  - overrides
+
+copyright: Copyright © 2023, <a href="https://adhadse.com" target="_blank" rel="noopener">Anurag Dhadse</a>. All Rights Reserved.
