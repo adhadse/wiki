@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+.md-ellipsis {
+  font-family: "Poppins", "Inter", --apple-system, sans-serif;
+  font-weight: 400;
+}
+/*bring site name closer to logo*/
+[dir=ltr] .md-header__title {
+     margin-left: 0;
+}
+
+:root {
+
+  font-variant-ligatures: normal !important;
+}
+
+.highlight,
+[data-md-color-scheme=default],
+.highlight [data-md-color-scheme=slate],
+[data-md-color-scheme=slate] {
+  --md-footer-bg-color: #000;
+  --md-footer-bg-color--dark: #000; /* color for bottom most footer in dark mode */
+
+  /* code color */
+  --md-code-fg-color: #ffffff;
+  --md-code-hl-punctuation-color: #fff;
+  --md-code-hl-operator-color: #fff;
+  --md-code-bg-color: #222;
+  --md-code-hl-keyword-color: #cc7832;
+  --md-code-hl-number-color: #689757;
+  --md-code-hl-function-color: #ffc66d;
+  --md-code-hl-string-color: #6a8759;
+  --md-code-hl-comment-color: #606366;
+  --md-code-hl-special-color: #bbb529;
+  --md-code-hl-color: #c5c5c521;
+}
+
+.highlight .nb, .highlight .bp {
+  color: var(--md-code-hl-keyword-color);
+}
+.md-clipboard {
+  color: #7e7979;
+}
+
+[data-md-color-scheme=slate] {
+  --md-default-bg-color: #1e1e1e;
+}
+
+/* increase logo size */
+/*.md-header__button.md-logo img, .md-header__button.md-logo svg {*/
+/*    height: 1.5rem;*/
+/*}*/
+
+/*aligning images*/
+.center {
+    display: block;
+    margin: 0 auto;
+}
+
+.right {
+    float: right;
+}
+
+/* classic admonition/alerts */
+.md-typeset .admonition,
+.md-typeset details {
+  border-width: 0;
+  border-left-width: 4px;
+}
+
+.md-typeset .admonition, .md-typeset details {
+    background-color: var(--md-admonition-bg-color);
+    font-size: .8rem;
+}
+
+/* Scrollbar style */
+
+/* width */
+::-webkit-scrollbar {
+  width: 0.6rem;
+}
+
+html {
+  overflow-y: overlay;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  display: none;
+  background: none;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  width: 70%;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  /* Handle on hover */
+  background: #555;
+}
+
+.MathJax {
+  overflow: scroll hidden;
+}
+
+.md-typeset figcaption {
+  margin: 0.5em auto;
+  max-width: max-content;
+}
+
+/* selection */
+::selection {
+  background: #000;
+  color: #fff;
+  border-radius: 1em;
+  border: 1px solid;
+}
+
+::-moz-selection {
+    background: $black-original;
+    color: #fff;
+    border-radius: 1em;
+    border: 1px solid;
+}
+
+.hljs ::selection,
+.hljs::selection {
+  background: #fff !important;
+  color: #000;
+}

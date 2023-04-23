@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block styles %}
+  <style>
+    .hero-container h1 {
+      font-family: Poppins, Inter, sans-serif;
+      font-weight: 500 !important;
+      color: inherit !important;
+      font-size: 3rem !important;
+    }
+
+    .hero-container p {
+      font-size: 1rem;
+      margin-top: 2rem;
+    }
+
+    .hero-container h1 span {
+      color: white;
+    }
+
+    .hero-container .bg {
+      position: absolute;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+      width: 100vw;
+      height: 100vw;
+      z-index: -1;
+      background: conic-gradient(
+        from 180deg at 50% 50%,
+        #1f363d 0deg,
+        #ffffff 360deg
+      );
+      animation: rotate-gradient 7s linear infinite;
+    }
+
+    .hero-container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100vw;
+      height: 80vh;
+      padding: 0;
+      box-sizing: border-box;
+      overflow: hidden;
+      color: #1f363d;
+      margin-top: 0 !important;
+    }
+
+    .hero-content {
+      margin-left: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    @keyframes rotate-gradient {
+      from {
+        transform: rotate(0deg) scale(3);
+      }
+      to {
+        transform: rotate(360deg) scale(3);
+      }
+    }
+  </style>
+ {{ super() }}
+{% endblock %}
+
+{% block hero %}
+  <div class="hero-container">
+    <div class="bg"></div>
+    <div class="hero-content">
+      <div class="md-grid">
+        <h1>Welcome to <br>my <span>wiki</span>!</h1>
+        <p>Here, you'll find everything you need to know about my note space.</p>
+      </div>
+    </div>
+  </div>
+  {{ super() }}
+{% endblock %}
+
+{% block container %}
+<style>
+  .md-main {
+    display: none;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+{% block htmltitle %}
+<title>adhadse — Wiki</title>
+{% endblock %}
