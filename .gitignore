@@ -6,3 +6,4 @@ resources
 .fuse_*
 .netlify
 .hugo_build.lock
+.cache/
