@@ -1,20 +1,7 @@
----
-title: "Common Programming Concepts in Rust"
-description: ""
-lead: ""
-date: 2022-09-20T07:56:56+01:00
-lastmod: 2022-09-20T07:56:56+01:00
-images: []
-type: docs
-draft: false
-menu: 
-  notes:
-    parent: "rust"
-weight: 3
-toc: true
----
+# Common Programming Concepts in Rust
 
-{{< link title="Common Programming Concepts" link="https://doc.rust-lang.org/stable/book/ch03-00-common-programming-concepts.html" >}}
+
+[Common Programming Concepts](https://doc.rust-lang.org/stable/book/ch03-00-common-programming-concepts.html){ .md-button }
 
 ## Variables and mutability
 Variables are immutable by default. I said it.
@@ -60,11 +47,11 @@ const MINUTES_IN_YEAR: i32 = 5_25_600;
 
 So, **why do we require constants, when we already have immutable variables?**
 
-{{< alert title="Constants v/s variables">}}
-1. We cannot mutate a constant. `mut` keyword is invalid with `const`.
-2. `const`s must also be type annotated.
-3. `const` can also be set to constant expressions. We cannot assign return value of functions to them.
-{{< /alert >}}
+!!! info Constants v/s variables"
+
+      1. We cannot mutate a constant. `mut` keyword is invalid with `const`.
+      2. `const`s must also be type annotated.
+      3. `const` can also be set to constant expressions. We cannot assign return value of functions to them.
 
 ### Shadowing
 Shadowing allows us to create new variables using an existing name.
@@ -75,21 +62,22 @@ The below code is valid:
 let x = 5; // This gets shadowed by second `x`
 let x = 42;
 ```
-{{< alert title="Advantages of shadowing">}}
-1. We can preserve immutability.
+!!! "Advantages of shadowing"
 
-    Both `x` in above example remains immutable.
-2. We can change type.
+    1. We can preserve immutability.
 
-    ```rust
-    let x = 5;
-    let x = "six";
-    ```
-{{< /alert >}}
+        Both `x` in above example remains immutable.
+
+    2. We can change type.
+
+       ```rust
+       let x = 5;
+       let x = "six";
+       ```
 
 ## Data Types
 We have two types of Data Types:
-1. **Sclar data types**: represent a single value
+1. **Scalar data types**: represent a single value
 2. **Compound data types**: represent a group of values
 
 ### Scalar data types:

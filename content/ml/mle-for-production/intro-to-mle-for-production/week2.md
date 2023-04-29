@@ -48,7 +48,7 @@ Useful metrics for each tag:
 
 ## Prioritizing what to work on
 
-![](/assets/images/ml/mle_for_production/intro_to_mle_for_production//prioritizing_what_to_work_on.png)ption="" attr="" attrlink="" >}}
+![](/assets/images/ml/mle_for_production/intro_to_mle_for_production//prioritizing_what_to_work_on.png)
 
 Only using "Gap to HLP" might not be good idea to work upon. Instead by measuring % of data with that tag and then estimating the decrease in error rate might give a better route for what to work upon.
 
@@ -142,7 +142,7 @@ Then, **adding data rarely hurts accuracy**.
 
 ## Adding Features if data-augmentation is not possible
 
-![](/assets/images/ml/mle_for_production/intro_to_mle_for_production/data_iteration.png)}
+![](/assets/images/ml/mle_for_production/intro_to_mle_for_production/data_iteration.png)
 
 ## Experiment Tracking
 
