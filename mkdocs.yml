@@ -131,8 +131,8 @@ nav:
   - Notes:
     - Rust:
         - 'notes/rust/getting-started.md'
-        - 'notes/rust/index.md'
         - 'notes/rust/guessing-game.md'
+        - 'notes/rust/common-programming-concepts.md'
         - 'notes/rust/ownership.md'
         - 'notes/rust/structs.md'
         - 'notes/rust/enums-and-pattern-matching.md'

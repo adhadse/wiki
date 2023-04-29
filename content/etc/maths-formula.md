@@ -101,16 +101,15 @@ $$
 $$
 </div>
 
-{{< panel title="Expression and Substitution" >}}
-
-| Expression | Substitution | Substitution |
-| --- | --- | --- |
-| $a^2 + x^2$ | $x = a\tan\theta$ | $x = a\cot\theta$ |
-|$a^2-x^2$ | $x=a\sin\theta$ | $x=a\cos\theta$ |
-|$x^2-a^2$ | $x=a\sec\theta$ | $x=a\cosec\theta$ |
-|$\frac{a-x}{a+x}$ | $x=a\cos2\theta$ | |
-|$\frac{a^2+x^2}{a^2-x^2}$ | $x=a^2\cos2\theta$ |  |
-{{< /panel >}}
+??? note "Expression and Substitution"
+        
+    | Expression | Substitution | Substitution |
+    | --- | --- | --- |
+    | $a^2 + x^2$ | $x = a\tan\theta$ | $x = a\cot\theta$ |
+    |$a^2-x^2$ | $x=a\sin\theta$ | $x=a\cos\theta$ |
+    |$x^2-a^2$ | $x=a\sec\theta$ | $x=a\cosec\theta$ |
+    |$\frac{a-x}{a+x}$ | $x=a\cos2\theta$ | |
+    |$\frac{a^2+x^2}{a^2-x^2}$ | $x=a^2\cos2\theta$ |  |
 
 ## Line Equations
 
@@ -158,7 +157,7 @@ $$
     \text{Where $m$ is slope of line defined as  } m = \frac{y_2 - y_1}{x_2 - x_1}
     $$
 
-![](/assets/images/etc/maths/Point_SLope_form.svg)
+![](/assets/images/etc/maths/Point_SLope_form.svg){: .center }
 
 ### Distance of a point from a line
 
@@ -276,8 +275,8 @@ where   $l= \sqrt{h^2+(r_1-r_2)^2}$
     \implies k = \bold{\textcolor{#07fc03}{3.919\times10^{15}}}
     $$
 
-{{< alert title="Quickly write the exponential form">}}
-Since, we want to put decimal just after 1<sup>st</sup> digit. We need to move decimal from 16<sup>th</sup> position to right after 1<sup>st</sup> digit; which will introduce +ve powers. ($16 -1 = \textcolor{#07fc03}{15}$). Since we moved 15 positions left.
+!!! info "Quickly write the exponential form"
+    
+    Since, we want to put decimal just after 1<sup>st</sup> digit. We need to move decimal from 16<sup>th</sup> position to right after 1<sup>st</sup> digit; which will introduce +ve powers. ($16 -1 = \textcolor{#07fc03}{15}$). Since we moved 15 positions left.
 
-$3.919 \times 10^{\textcolor{#07fc03}{15}}$
-{{< /alert >}}
+    $3.919 \times 10^{\textcolor{#07fc03}{15}}$

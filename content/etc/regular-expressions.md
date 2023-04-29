@@ -36,15 +36,19 @@ Use either of these to formulate your regex expression. Both are Open Source.
 | `{m,n}` | Atleast `m` times and atmost `n` repeatitions|
 
 ## Regex Lookaround
-{{< link title="Regex Lookaround" link="https://stackoverflow.com/questions/2973436/regex-lookahead-lookbehind-and-atomic-groups" >}}
+[Regex Lookaround](https://stackoverflow.com/questions/2973436/regex-lookahead-lookbehind-and-atomic-groups){ .md-button }
+
 - Look ahead positive `(?=)`
 
-   `A(?=B)` find expression A where expression B follows)
+    `A(?=B)` find expression A where expression B follows)
+
 - Look ahead negative `(?!)`
 
-  `A(?!B) find expression A where expression B does not follow
+    `A(?!B) find expression A where expression B does not follow
+
 - Look behind positive `(?<=)`
 
-  `(?<=B)A` find expression A where expression B precesed
+    `(?<=B)A` find expression A where expression B precesed
+
 - Look behind negative `(?<!)
-  `(?<!B)A find expression A where expression B does not precede
+    `(?<!B)A find expression A where expression B does not precede
