@@ -13,9 +13,10 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: 3.x
-      - uses: actions/cache@v2
-        with:
-          key: ${{ github.ref }}
-          path: .cache
+      # disable for social plugin to give KeyError: 'Regular'
+      # - uses: actions/cache@v2
+      #   with:
+      #     key: ${{ github.ref }}
+      #     path: .cache
       - run: pip install -r requirements.txt
       - run: mkdocs gh-deploy --remote-branch gh-pages --force
