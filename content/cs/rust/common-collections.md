@@ -47,7 +47,7 @@ If we had used array and tried to access index that was out of bounds, we'd get 
 
 !!! success
 
-    Insead use the `get` method to gracefully handle the out-of-bound index which returns an [`Option`](/notes/rust/enums-and-pattern-matching-in-rust/#the-option-enum) Enum.
+    Insead use the `get` method to gracefully handle the out-of-bound index which returns an [`Option`](/cs/rust/enums-and-pattern-matching-in-rust/#the-option-enum) Enum.
 
 ```rust
 match v.get(2) {

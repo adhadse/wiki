@@ -80,13 +80,13 @@ a rc count after changing a = 2
 
 **We just created a Reference cycle.**
 
-![](/assets/images/notes/rust/reference_cycles_0.png)
+![](/assets/images/cs/rust/reference_cycles_0.png)
 
 On stack there are two pointers `a` and `b` which points to some memory stored on Heap called `'a` & `'b`. `'a` holds integer 5 and value `Nil`. Similarly `'b` stores integer 10 and then a reference to `'a`. So, the reference count for `a` is 2.
 
 Then we modified list `a` to store a reference of `b` (line number 40):
 
-![](/assets/images/notes/rust/reference_cycles_1.png)
+![](/assets/images/cs/rust/reference_cycles_1.png)
 
 That means for `b` as well we'll have reference count of 2.
 
@@ -94,7 +94,7 @@ If we uncomment the last `println!()` line (line 49) we'll get stack overflow. I
 
 <mark class="v">This circular dependency causes memory leaks, because at the end of `main()`, `a` and `b` should be cleaned up</mark>. First `b` will be cleaned up (remember, variables goes out of scope in reverse order) from stack, but the memory location it point to on heap will still exist because that is still being referenced inside `a`. Then `a` will be cleaned up from stack but memory on heap will not be cleaned for the same reason.
 
-![](/assets/images/notes/rust/reference_cycles_2.png)
+![](/assets/images/cs/rust/reference_cycles_2.png)
 
 So, to list exists on heap but no variables on stack references them on stack. Leading to memory leak.
 

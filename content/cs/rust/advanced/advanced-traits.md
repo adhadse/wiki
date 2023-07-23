@@ -361,7 +361,7 @@ impl Dfmt::Display for Point {
 ## Newtype Pattern
 We learned about Orphan rule in traits section (Rustlang book, Ch 10).
 
-[Orphan Rule](/notes/rust/traits/#orphan-rule){ .md-button }
+[Orphan Rule](/cs/rust/traits/#orphan-rule){ .md-button }
 
 <mark class="y">The *Newtype pattern* allows us to get around this restriction.</mark>
 

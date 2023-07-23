@@ -42,7 +42,7 @@ We define a trait object by first specifying some sort of pointer such as a refe
 
 Why trait object need to use some sort of pointer? Here is the answer:
 
-[Dynamically sized types](/notes/rust/advanced/advanced-types/#traits-and-dynamically-sized-types){ .md-button }
+[Dynamically sized types](/cs/rust/advanced/advanced-types/#traits-and-dynamically-sized-types){ .md-button }
 
 <mark class="v">Now, Rust will ensure at compile time that any object in this vector implements the `Draw` trait.</mark>
 

@@ -56,7 +56,7 @@ fn iterator_demonstration() {
 }
 ```
 
-[Associated Types](/notes/rust/advanced/advanced-traits/#associated-types){ .md-button }
+[Associated Types](/cs/rust/advanced/advanced-traits/#associated-types){ .md-button }
 
 ## Methods that Consume the iterator
 Iterator trait has various methods with default implementations.

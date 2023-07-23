@@ -81,6 +81,6 @@ There are two main uses of Inheritance:
 
     Rust uses different approach. <mark class="b">You can use generics to abstract away concrete type and use trait bounds to restrict the characteristics of those types.</mark>
 
-    [Trait Bounds](/notes/rust/traits/#trait-bounds){ .md-button }
+    [Trait Bounds](/cs/rust/traits/#trait-bounds){ .md-button }
 
     In addition to that Rust also provides <mark class="b">Trait objects</mark> similar to generics except they use dynamic dispatch whereas generics use static dispatch.

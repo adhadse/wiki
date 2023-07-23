@@ -37,7 +37,7 @@ fn main() {
 }
 ```
 
-![](/assets/images/notes/rust/stack_heap.png)
+![](/assets/images/cs/rust/stack_heap.png)
 
 When `a()` get executed it's stack frame is created, which calls `b()` which creates it's own stack frame. When `b()` finished it's execution, it's get popped off, all of the variables get's dropped. Then finally `a()` finishes and it's variables are dropped.
 
@@ -97,7 +97,7 @@ The `String` is made up of three parts:
 2. length of string.
 3. Capacity, actual amount of memory allocated for String.
 
-![](/assets/images/notes/rust/string_stack.png)
+![](/assets/images/cs/rust/string_stack.png)
 
 ```rust
 s1 = s2;

@@ -5,7 +5,7 @@
 ## Newtype Pattern
 In previous section we learned about *Newtype Pattern* in the context of implementing a trait on a given type.
 
-[Newtype Pattern :material-arrow-right:](/notes/rust/advanced/advanced-traits/#newtype-pattern){ .md-button }
+[Newtype Pattern :material-arrow-right:](/cs/rust/advanced/advanced-traits/#newtype-pattern){ .md-button }
 
 In this example we want to implement `Display` trait on a `Vector` type, however both are defined outisde of our trait. We get around this by defining a new Wrapper type, which a tuple struct containing a vector.
 
@@ -110,7 +110,7 @@ fn bar() -> ! {
 
 Why this might be useful?
 
-Recall that in [Chapter 2](/notes/rust/guessing-game/), we built a guessing game and we had some code which parsed user input into an integer, something like this:
+Recall that in [Chapter 2](/cs/rust/guessing-game/), we built a guessing game and we had some code which parsed user input into an integer, something like this:
 
 ```rust
 fn main() {

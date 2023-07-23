@@ -273,7 +273,7 @@ Let's fix this by:
 
 We'll use `unwrap_or_else()` to handle our `Err` case passing in a closure.
 
-[Closures](/notes/rust/functional/closures/){ .md-button }
+[Closures](/cs/rust/functional/closures/){ .md-button }
 
 ```rust
 use std::env;
