@@ -207,7 +207,7 @@ mod back_of_house {
 
 Privacy rules with Structs.
 
-In this example we have module called `back_of_house` storing a Struct `Breakfast` and an [`impl`](/notes/rust/structs-in-rust/#method-syntax) block implementing as associated function `summer()`.
+In this example we have module called `back_of_house` storing a Struct `Breakfast` and an [`impl`](/cs/rust/structs-in-rust/#method-syntax) block implementing as associated function `summer()`.
 
 ```rust
 mod back_of_house {

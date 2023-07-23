@@ -141,7 +141,7 @@ Then we'll define a new method on `State` trait called `request_review() which t
 
 Remember why we want to return a trait object:
 
-[Trait for common behavior](/notes/rust/oops/trait-objects/#trait-for-common-behavior){ .md-button }
+[Trait for common behavior](/cs/rust/oops/trait-objects/#trait-for-common-behavior){ .md-button }
 
 ```rust
 trait State {

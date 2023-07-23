@@ -31,7 +31,7 @@ It's upto developer to make sure that memory inside `unsafe` is handled appropri
 ## Dereferncing a Raw Pointer
 The compiler ensures references are valid.
 
-[Dandling References](/notes/rust/ownership/#dangling-references){ .md-button }
+[Dandling References](/cs/rust/ownership/#dangling-references){ .md-button }
 
 Unsafe Rust has two types of raw pointers similar to references.   T
 1. Immutable raw pointer (`*const <T>`)
@@ -184,7 +184,7 @@ fn split_at_mut(slice: &mut [i32], mid: usize) -> (&mut [i32], &mut [i32]) {
 ```
 We know that slices are a pointer to some data and the length of that data.
 
-[The Slice Type](/notes/rust/ownership/#the-slice-type){ .md-button }
+[The Slice Type](/cs/rust/ownership/#the-slice-type){ .md-button }
 
 `ptr.add()` and `slice::from_raw_parts_mut()` are unsafe because it expects the poiter passed in to be valid. The function `split_at_mut()` itself is safe and can be called from safe Rust code.
 

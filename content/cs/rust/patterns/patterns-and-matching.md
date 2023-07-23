@@ -62,7 +62,7 @@ lang => println!("Unsupported language! {:?}", lang)
 ## Conditional if-let Expressions
 You use `if-let` expressions if you want to match on some variable but you only care about one case.
 
-[Using if let Syntax](/notes/rust/enums-and-pattern-matching/#using-if-let-syntax){ .md-button }
+[Using if let Syntax](/cs/rust/enums-and-pattern-matching/#using-if-let-syntax){ .md-button }
 
 This piece code determines users's authorization status.
 

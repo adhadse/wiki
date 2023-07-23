@@ -30,7 +30,7 @@ fn main() {
 
 If we recall from Closures section:
 
-[fn traits :material-arrow-right:](/notes/rust/functional/closures/#generic-parameters-and-fn-traits){ .md-button }
+[fn traits :material-arrow-right:](/cs/rust/functional/closures/#generic-parameters-and-fn-traits){ .md-button }
 
 there are three closure traits:
 
