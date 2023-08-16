@@ -135,7 +135,7 @@ html {
 /* home page */
 .hero-container h1 {
   font-family: Poppins, Inter, sans-serif;
-  font-weight: 500 !important;
+  font-weight: 600 !important;
   color: inherit !important;
   font-size: 3rem !important;
 }
@@ -176,7 +176,8 @@ html {
   padding: 0;
   box-sizing: border-box;
   overflow: hidden;
-  color: #1f363d;
+  color: #ffffff;
+  background: #000;
   margin-top: 0 !important;
 }
 
