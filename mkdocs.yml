@@ -2,7 +2,7 @@ site_name: Wiki
 docs_dir: content
 site_dir: generated
 site_url: https://wiki.adhadse.com/
-site_description: Here, you'll find everything you need to know about my note space.
+site_description: Discover all about my note space.
 theme:
   name: material
   custom_dir: overrides
