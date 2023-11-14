@@ -44,11 +44,12 @@ Use either of these to formulate your regex expression. Both are Open Source.
 
 - Look ahead negative `(?!)`
 
-    `A(?!B) find expression A where expression B does not follow
+    `A(?!B)` find expression A where expression B does not follow
 
 - Look behind positive `(?<=)`
 
     `(?<=B)A` find expression A where expression B precesed
 
-- Look behind negative `(?<!)
-    `(?<!B)A find expression A where expression B does not precede
+- Look behind negative `(?<!)`
+    
+    `(?<!B)A` find expression A where expression B does not precede
