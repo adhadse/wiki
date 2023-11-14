@@ -14,8 +14,8 @@
   font-variant-ligatures: normal !important;
 }
 
-[data-md-color-scheme="slate"] {
-  --md-default-bg-color--dark: #0f0f0f;; 
+[data-md-color-scheme=slate] {
+  --md-default-bg-color: #0f0f0f; 
 }
 
 .highlight,
@@ -44,10 +44,6 @@
 }
 .md-clipboard {
   color: #7e7979;
-}
-
-[data-md-color-scheme=slate] {
-  --md-default-bg-color: #1e1e1e;
 }
 
 /* increase logo size */
