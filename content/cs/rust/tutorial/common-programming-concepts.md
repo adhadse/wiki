@@ -47,7 +47,7 @@ const MINUTES_IN_YEAR: i32 = 5_25_600;
 
 So, **why do we require constants, when we already have immutable variables?**
 
-!!! info Constants v/s variables"
+!!! info "Constants v/s variables"
 
       1. We cannot mutate a constant. `mut` keyword is invalid with `const`.
       2. `const`s must also be type annotated.
