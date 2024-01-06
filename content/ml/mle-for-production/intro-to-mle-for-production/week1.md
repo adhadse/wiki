@@ -28,12 +28,14 @@ The whole specialization is divided into 4 courses:
 
     At last comes the production, where we are ready to serve customers. This will be about how to built deployment pipelines and variety of infrastructure to better serve the needs and keep the production environment up in top condition.
 
-![](/assets/images/ml/mle_for_production/intro_to_mle_for_production/mlops_infrastructure.png) ption="Image by Daniel Bourke | [Source](https://www.mrdbourke.com/how-the-biggest-companies-in-the-world-design-machine-learning-systems/)" >}}
+![](/assets/images/ml/mle_for_production/intro_to_mle_for_production/mlops_infrastructure.png) 
+Image by Daniel Bourke | [Source](https://www.mrdbourke.com/how-the-biggest-companies-in-the-world-design-machine-learning-systems/)
 
 ML code is just a very small component in a machine learning project. The other non-ML code makes up for what is said to be a useful product.
 
 ## The ML Project Lifecycle
-![](/assets/images/ml/mle_for_production/intro_to_mle_for_production/ml_project_lifecycle.png) ption="Image by Steven Layett and Daniel Pipryata from landing.ai">}}
+![](/assets/images/ml/mle_for_production/intro_to_mle_for_production/ml_project_lifecycle.png) 
+Image by Steven Layett and Daniel Pipryata from landing.ai
 
 The first stage is **Scoping**:
 

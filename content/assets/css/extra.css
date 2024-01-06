@@ -12,10 +12,16 @@
 
 :root {
   font-variant-ligatures: normal !important;
+  /* --md-primary-bg-color: #000; */
 }
 
 [data-md-color-scheme=slate] {
   --md-default-bg-color: #0f0f0f; 
+}
+[data-md-color-primary=black] .md-header,
+[data-md-color-primary=black] .md-tabs,
+html [data-md-color-primary=black] .md-nav--primary .md-nav__title[for=__drawer] {
+  background-color: #000;
 }
 
 .highlight,
@@ -166,13 +172,11 @@ html {
 }
 
 .hero-container {
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100vw;
-  height: 80vh;
-  padding: 0;
+  height: 90vh;
   box-sizing: border-box;
   overflow: hidden;
   color: #ffffff;
@@ -183,6 +187,10 @@ html {
 .hero-content {
   margin-left: 1.5rem;
   margin-bottom: 4rem;
+}
+
+.md-footer {
+  z-index: 100;
 }
 
 @keyframes rotate-gradient {
