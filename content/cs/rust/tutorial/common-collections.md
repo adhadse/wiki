@@ -4,9 +4,10 @@ Collections allow us to store multiple values, but unlike array or tuples, they 
 
 [Common Collections](https://doc.rust-lang.org/stable/book/ch08-00-common-collections.html){ .md-button }
 
-
 ## Vectors
+
 Vectors is a type of collection that can store only one type of data.
+
 ```rust
 fn main() {
     let a = [1, 2, 3]; // array
@@ -23,6 +24,7 @@ fn main() {
 ```
 
 ### Access elements
+
 ```rust
 fn main() {
     let v = vec![1, 2, 3, 4, 5];
@@ -31,6 +33,7 @@ fn main() {
     println!("The third element is {}", third);
 }
 ```
+
 If we try to access out-of-bound element, the program panics and we get a run time error.
 
 ```rust
@@ -68,7 +71,9 @@ println!("The third element is {}", third);
 This is because when we need to add element to a vector, we might need to allocate more memory if the vector is full. In that case `third` will go invalid pointing to unknown memory address.
 
 ---
+
 ### Iterating over elements
+
 Let's iterate over all elements and print them.
 
 ```rust
@@ -90,7 +95,9 @@ fn main() {
 ---
 
 ### Storing Enum varients inside of a vector
+
 A `row` stores `SpreadsheetCell` type with different varients.
+
 ```rust
 fn main() {
     enum SpreadsheetCell {
@@ -118,13 +125,16 @@ fn main() {
 ```
 
 ## Strings
+
 <mark class="y">Strings are stored as a collection of UTF-8 encoded bytes.</mark>
+
 - In memory a string is just a list or a collection 1s and 0s. Now a program needs to be able to interpret 1s and 0s and print out the correct characters, that's were encoding comes into play.
 - ASCII or American Standard code for Information Interchange is a character encoding and decoding (1s and 0s to string and back). Although it can only represent 128 characters which includes english alphabet, some special characters
 
-    - Since ASCII can't represent other language characters, others countries created their own encoding standards for their own languages.
-    - <mark class="r">This becomes problematic since how a program will know which encoding standards to use to parsing a collection of bytes</mark>
-    - <mark class="g">To solve this Unicode was created which represent a wider array of characters from all well-known languages, emojis and is also backwards compatible with ASCII.</mark>
+  - Since ASCII can't represent other language characters, others countries created their own encoding standards for their own languages.
+  - <mark class="r">This becomes problematic since how a program will know which encoding standards to use to parsing a collection of bytes</mark>
+  - <mark class="g">To solve this Unicode was created which represent a wider array of characters from all well-known languages, emojis and is also backwards compatible with ASCII.</mark>
+
 - UTF-8 is a variable-width character encoding. Variable because it can be represented as one bytes, two bytes, three bytes or four bytes.<mark class="v">UTF-8 is a very popular encoding of Unicode.</mark>
 
 ```rust
@@ -137,6 +147,7 @@ fn main() {
 ```
 
 Strings are UTF-8 encoded, so you can represent other languages as well.
+
 ```rust
 fn main() {
     let hello = String::from("안녕하세요");
@@ -150,6 +161,7 @@ fn main() {
 ```
 
 ### Appending to a String
+
 ```rust
 fn main() {
     let mut s = String::from("foo");
@@ -181,6 +193,7 @@ fn main() {
 ```
 
 ### Indexing into string
+
 ```rust
 fn main() {
     let hello = String::from("hello");
@@ -204,11 +217,13 @@ Or in this case:
 ```rust
 let hello = String::from("안녕하세요");
 ```
+
 12? Nope, 15.
 
 In UTF-8 strings could be 1 to 4 bytes long. So getting the first character in the string using `[]` syntax would not work because `hello[0]` only specifies the first byte in our collection of bytes
 
 ### Representation of word in Unicode
+
 Let's understand the three Relevant ways a word in represented in unicode.
 
 Rust doens't know what we want to receive; Byes, scalar values or grpheme clusters. For that we need special methods.
@@ -256,11 +271,13 @@ fn main() {
 ```
 
 ## Hashmaps
+
 Stores keys, values pair.
 
 We need to bring in `HashMap` from Rust standard library
 
 ### Inserting and extracting values from HashMap
+
 ```rust
 use std::collections::HashMap;
 
@@ -285,6 +302,7 @@ fn main() {
 ```
 
 ### Iterating
+
 ```rust
 use std::collections::HashMap;
 
@@ -297,6 +315,7 @@ fn main() {
 ```
 
 ### Updating hashmap
+
 ```rust
 use std::collections::HashMap;
 
@@ -316,7 +335,9 @@ fn main() {
 ```
 
 ### Updating value based on old value
+
 Here we're are populating `map` with word count
+
 ```rust
 use std::collections::HashMap;
 
@@ -333,6 +354,7 @@ fn main() {
     println!("{:?}", map);
 }
 ```
+
 Output:
 
 ```text

@@ -179,6 +179,9 @@ nav:
                   - "cs/rust/tutorial/advanced/advanced-types.md"
                   - "cs/rust/tutorial/advanced/advanced-functions-and-closures.md"
                   - "cs/rust/tutorial/advanced/macros.md"
+      - Curriculum:
+          - SQL:
+              - "cs/curriculum/sql/common-queries.md" 
   - etc:
       - Mathematics: "etc/maths-formula.md"
       - Regex: "etc/regular-expressions.md"
