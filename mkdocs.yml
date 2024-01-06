@@ -35,7 +35,6 @@ theme:
       quote: material/alert-circle
 
   palette:
-
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -75,7 +74,6 @@ extra:
     provider: google
     property: G-PEQP6Y2BMV
 
-
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
@@ -95,6 +93,7 @@ markdown_extensions:
 
 plugins:
   - search
+  - glightbox
   - social:
       cards_color:
         fill: "#000000"
@@ -102,87 +101,87 @@ plugins:
         cards_font: Poppins
 
 nav:
-  - Blog: 'https://adhadse.com'
+  - Blog: "https://adhadse.com"
   - ML:
-    - Introduction To Deep Learning:
-        - Neural Networks:
-          - 'ml/intro-dl/neural-networks/week1.md'
-          - 'ml/intro-dl/neural-networks/week2.md'
-          - 'ml/intro-dl/neural-networks/week3.md'
-          - 'ml/intro-dl/neural-networks/week4.md'
-    - Machine Learning Engineering for Production:
-        - Introduction to Machine Learning Engineering for production:
-          - 'ml/mle-for-production/intro-to-mle-for-production/week1.md'
-          - 'ml/mle-for-production/intro-to-mle-for-production/week2.md'
-          - 'ml/mle-for-production/intro-to-mle-for-production/week3.md'
-        - ML Data Lifecycle:
-          - 'ml/mle-for-production/ml-data-lifecycle/week1.md'
-          - 'ml/mle-for-production/ml-data-lifecycle/week2.md'
-          - 'ml/mle-for-production/ml-data-lifecycle/week3.md'
-        - ML Modeling Pipeline:
-            - 'ml/mle-for-production/ml-modeling-pipeline/week1.md'
-            - 'ml/mle-for-production/ml-modeling-pipeline/week2.md'
-            - 'ml/mle-for-production/ml-modeling-pipeline/week3.md'
-            - 'ml/mle-for-production/ml-modeling-pipeline/week4.md'
-        - Deloying ML models:
-          - 'ml/mle-for-production/deploying-ml-models/week1.md'
-          - 'ml/mle-for-production/deploying-ml-models/week2.md'
-          - 'ml/mle-for-production/deploying-ml-models/week3.md'
-          - 'ml/mle-for-production/deploying-ml-models/week4.md'
+      - Introduction To Deep Learning:
+          - Neural Networks:
+              - "ml/intro-dl/neural-networks/week1.md"
+              - "ml/intro-dl/neural-networks/week2.md"
+              - "ml/intro-dl/neural-networks/week3.md"
+              - "ml/intro-dl/neural-networks/week4.md"
+      - Machine Learning Engineering for Production:
+          - Introduction to Machine Learning Engineering for production:
+              - "ml/mle-for-production/intro-to-mle-for-production/week1.md"
+              - "ml/mle-for-production/intro-to-mle-for-production/week2.md"
+              - "ml/mle-for-production/intro-to-mle-for-production/week3.md"
+          - ML Data Lifecycle:
+              - "ml/mle-for-production/ml-data-lifecycle/week1.md"
+              - "ml/mle-for-production/ml-data-lifecycle/week2.md"
+              - "ml/mle-for-production/ml-data-lifecycle/week3.md"
+          - ML Modeling Pipeline:
+              - "ml/mle-for-production/ml-modeling-pipeline/week1.md"
+              - "ml/mle-for-production/ml-modeling-pipeline/week2.md"
+              - "ml/mle-for-production/ml-modeling-pipeline/week3.md"
+              - "ml/mle-for-production/ml-modeling-pipeline/week4.md"
+          - Deloying ML models:
+              - "ml/mle-for-production/deploying-ml-models/week1.md"
+              - "ml/mle-for-production/deploying-ml-models/week2.md"
+              - "ml/mle-for-production/deploying-ml-models/week3.md"
+              - "ml/mle-for-production/deploying-ml-models/week4.md"
   - CS:
-    - Rust:
-      - Tutorial:
-        - 'cs/rust/tutorial/getting-started.md'
-        - 'cs/rust/tutorial/guessing-game.md'
-        - 'cs/rust/tutorial/common-programming-concepts.md'
-        - 'cs/rust/tutorial/ownership.md'
-        - 'cs/rust/tutorial/structs.md'
-        - 'cs/rust/tutorial/enums-and-pattern-matching.md'
-        - 'cs/rust/tutorial/module-system.md'
-        - 'cs/rust/tutorial/common-collections.md'
-        - 'cs/rust/tutorial/error-handling.md'
-        - 'cs/rust/tutorial/generic-types.md'
-        - 'cs/rust/tutorial/traits.md'
-        - 'cs/rust/tutorial/lifetimes.md'
-        - Testing:
-          - 'cs/rust/tutorial/testing/testing-in-rust.md'
-          - 'cs/rust/tutorial/testing/testing-in-rust-2.md'
-        - CLI App:
-          - 'cs/rust/tutorial/cli-app/cli-app-in-rust.md'
-          - 'cs/rust/tutorial/cli-app/cli-app-in-rust-2.md'
-        - Functional:
-          - 'cs/rust/tutorial/functional/closures.md'
-          - 'cs/rust/tutorial/functional/iterators.md'
-        - Cargo:
-          - 'cs/rust/tutorial/cargo/cargo-workspaces.md'
-          - 'cs/rust/tutorial/cargo/publishing-crate.md'
-        - Smart Pointers:
-          - 'cs/rust/tutorial/smart-pointers/deref-trait.md'
-          - 'cs/rust/tutorial/smart-pointers/drop-trait.md'
-          - 'cs/rust/tutorial/smart-pointers/reference-counting.md'
-          - 'cs/rust/tutorial/smart-pointers/interior-mutability.md'
-          - 'cs/rust/tutorial/smart-pointers/reference-cycles.md'
-          - 'cs/rust/tutorial/smart-pointers/box-smart-pointer.md'
-        - Concurrency:
-          - 'cs/rust/tutorial/concurrency/creating-threads.md'
-          - 'cs/rust/tutorial/concurrency/message-passing.md'
-          - 'cs/rust/tutorial/concurrency/sharing-state.md'
-        - OOPS:
-          - 'cs/rust/tutorial/oops/object-oriented-programming.md'
-          - 'cs/rust/tutorial/oops/trait-objects.md'
-          - 'cs/rust/tutorial/oops/state-design-pattern.md'
-        - Patterns:
-          - 'cs/rust/tutorial/patterns/patterns-and-matching.md'
-          - 'cs/rust/tutorial/patterns/pattern-syntax.md'
-        - Advanced Rust:
-          - 'cs/rust/tutorial/advanced/unsafe.md'
-          - 'cs/rust/tutorial/advanced/advanced-traits.md'
-          - 'cs/rust/tutorial/advanced/advanced-types.md'
-          - 'cs/rust/tutorial/advanced/advanced-functions-and-closures.md'
-          - 'cs/rust/tutorial/advanced/macros.md'
+      - Rust:
+          - Tutorial:
+              - "cs/rust/tutorial/getting-started.md"
+              - "cs/rust/tutorial/guessing-game.md"
+              - "cs/rust/tutorial/common-programming-concepts.md"
+              - "cs/rust/tutorial/ownership.md"
+              - "cs/rust/tutorial/structs.md"
+              - "cs/rust/tutorial/enums-and-pattern-matching.md"
+              - "cs/rust/tutorial/module-system.md"
+              - "cs/rust/tutorial/common-collections.md"
+              - "cs/rust/tutorial/error-handling.md"
+              - "cs/rust/tutorial/generic-types.md"
+              - "cs/rust/tutorial/traits.md"
+              - "cs/rust/tutorial/lifetimes.md"
+              - Testing:
+                  - "cs/rust/tutorial/testing/testing-in-rust.md"
+                  - "cs/rust/tutorial/testing/testing-in-rust-2.md"
+              - CLI App:
+                  - "cs/rust/tutorial/cli-app/cli-app-in-rust.md"
+                  - "cs/rust/tutorial/cli-app/cli-app-in-rust-2.md"
+              - Functional:
+                  - "cs/rust/tutorial/functional/closures.md"
+                  - "cs/rust/tutorial/functional/iterators.md"
+              - Cargo:
+                  - "cs/rust/tutorial/cargo/cargo-workspaces.md"
+                  - "cs/rust/tutorial/cargo/publishing-crate.md"
+              - Smart Pointers:
+                  - "cs/rust/tutorial/smart-pointers/deref-trait.md"
+                  - "cs/rust/tutorial/smart-pointers/drop-trait.md"
+                  - "cs/rust/tutorial/smart-pointers/reference-counting.md"
+                  - "cs/rust/tutorial/smart-pointers/interior-mutability.md"
+                  - "cs/rust/tutorial/smart-pointers/reference-cycles.md"
+                  - "cs/rust/tutorial/smart-pointers/box-smart-pointer.md"
+              - Concurrency:
+                  - "cs/rust/tutorial/concurrency/creating-threads.md"
+                  - "cs/rust/tutorial/concurrency/message-passing.md"
+                  - "cs/rust/tutorial/concurrency/sharing-state.md"
+              - OOPS:
+                  - "cs/rust/tutorial/oops/object-oriented-programming.md"
+                  - "cs/rust/tutorial/oops/trait-objects.md"
+                  - "cs/rust/tutorial/oops/state-design-pattern.md"
+              - Patterns:
+                  - "cs/rust/tutorial/patterns/patterns-and-matching.md"
+                  - "cs/rust/tutorial/patterns/pattern-syntax.md"
+              - Advanced Rust:
+                  - "cs/rust/tutorial/advanced/unsafe.md"
+                  - "cs/rust/tutorial/advanced/advanced-traits.md"
+                  - "cs/rust/tutorial/advanced/advanced-types.md"
+                  - "cs/rust/tutorial/advanced/advanced-functions-and-closures.md"
+                  - "cs/rust/tutorial/advanced/macros.md"
   - etc:
-      - Mathematics: 'etc/maths-formula.md'
-      - Regex: 'etc/regular-expressions.md'
+      - Mathematics: "etc/maths-formula.md"
+      - Regex: "etc/regular-expressions.md"
 
 watch:
   - overrides
