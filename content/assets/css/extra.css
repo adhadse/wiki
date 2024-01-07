@@ -67,6 +67,10 @@ html [data-md-color-primary=black] .md-nav--primary .md-nav__title[for=__drawer]
     float: right;
 }
 
+.md-header__title>.md-header__ellipsis {
+  margin-top: 0.05rem; /* The website/page title to be little aligned to logo */
+}
+
 /* classic admonition/alerts */
 .md-typeset .admonition,
 .md-typeset details {
