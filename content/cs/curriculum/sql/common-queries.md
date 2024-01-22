@@ -1,7 +1,7 @@
 # Common SQL queries
 
 ```sql
-CREATE ROLE <user_name> WITH CREATEDB LOGIN ENCRYPTED PASSWORD '<your_pasword>'; 
+CREATE ROLE <user_name> WITH CREATEDB LOGIN ENCRYPTED PASSWORD '<your_pasword>';
 CREATE DATABASE <db_name> WITH OWNER '<user_name>' ENCODING 'utf8';
 
 psql -h localhost -p <port_number> -U <user_name> <db_name>
