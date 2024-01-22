@@ -5,6 +5,17 @@ Notes from freeCodeCamp course[^1].
 
 <iframe width="999" height="400" src="https://www.youtube.com/embed/SLB_c_ayRMo" title="Terraform Course - Automate your AWS cloud infrastructure" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
+## What is Terraform?
+Terraform is an infrastructure as code tool that lets you build, change and version cloud and on-premise resources.
+
+It's built by HashiCorp.
+
+!!!info Version Changes
+
+    The Terraform file will have different structure depending on the version, Terraform `0.12` and earlier, & `0.13` and later.
+
+    The following code will use `0.13` and later syntax and was tested with Terraform `v1.7.0`. The code demonstrated in the video and this wiki *might* not be same due to version updates!
+
 ## Installation
 - You can follow the instructions mentioned on their developers page: [Install Terraform](https://developer.hashicorp.com/terraform/install).
 - Installation on Windows:
@@ -44,12 +55,6 @@ Create a new file, naming it whatever you want, but make sure it's extension is 
 - On a per-user basis, per-project basis, Terraform will figure out which plugins need to be installed based off of the provider configuration in your Terraform file.
 
 We'll try creating an AWS infrastructure in Terraform file. For that we can check the [AWS provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs) in Terraform registry.
-
-!!!info Version Changes
-
-    The Terraform file will have different structure depending on the version, Terraform `0.12` and earlier, & `0.13` and later.
-
-    The following code will use `0.13` and later syntax and was tested with Terraform `v1.7.0`. The code demonstrated in the video and this wiki *might* not be same due to version updates!
 
 ```terraform
 terraform {
@@ -722,4 +727,4 @@ resource "aws_subnet" "subnet-2" {
     Name = var.subnet_prefix[1].name
   }
 }
-```
+```AKIA3HFXV3NBTRFZRZOI
