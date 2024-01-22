@@ -23,7 +23,7 @@ theme:
     - search.suggest
     - search.highlight
     - content.tabs.link
-    - content.code.annotation
+    - content.code.annotate
     - content.code.copy
     - navigation.footer
   icon:
@@ -77,13 +77,15 @@ extra:
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
-  - admonition
-  - footnotes
-  - pymdownx.details
   - pymdownx.superfences
   - pymdownx.mark
+  - pymdownx.details
+  - admonition
+  - footnotes
   - attr_list
   - tables
   - md_in_html
@@ -95,6 +97,7 @@ markdown_extensions:
 plugins:
   - search
   - glightbox
+  - privacy
   - social:
       cards_color:
         fill: "#000000"
@@ -183,11 +186,16 @@ nav:
       - Curriculum:
           - SQL:
               - "cs/curriculum/sql/common-queries.md"
+      - DevOps:
+          - Terraform:
+              - "cs/devops/terraform/terraform-freecodecamp-course.md"
   - etc:
       - Mathematics: "etc/maths-formula.md"
       - Regex: "etc/regular-expressions.md"
 
 watch:
   - overrides
+validation:
+  absolute_links: ignore
 
 copyright: Copyright © 2024, <a href="https://adhadse.com" target="_blank" rel="noopener">Anurag Dhadse</a>. All Rights Reserved.

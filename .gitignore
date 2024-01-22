@@ -7,3 +7,5 @@ resources
 .netlify
 .hugo_build.lock
 .cache/
+.vscode/
+venv/
