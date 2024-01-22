@@ -1,0 +1,86 @@
+.md-typeset mark {
+  cursor: pointer;
+  padding: 0 0.1rem;
+}
+
+[data-md-color-scheme="slate"] mark {
+  color: white;
+}
+
+mark.y {
+  background-color: #fff6da;
+}
+
+mark.y:hover {
+  background-color: #fff2c8;
+}
+
+[data-md-color-scheme="slate"] mark.y {
+  background-color: #564328;
+}
+
+[data-md-color-scheme="slate"] mark.y:hover {
+  background-color: #9b6f32;
+}
+
+mark.r {
+  background-color: #ffe9eb;
+}
+
+mark.r:hover {
+  background-color: #f9d5d8;
+}
+
+[data-md-color-scheme="slate"] mark.r {
+  background-color: #522e2a;
+}
+[data-md-color-scheme="slate"] mark.r:hover {
+  background-color: #933f35;
+}
+
+mark.b {
+  background-color: #e5f4ff;
+}
+
+mark.b:hover {
+  background-color: #d2e8f7;
+}
+
+[data-md-color-scheme="slate"] mark.b {
+  background-color: #143a4e;
+}
+[data-md-color-scheme="slate"] mark.b:hover {
+  background-color: #245671;
+}
+
+mark.v {
+  background-color: #efe5f7cc;
+}
+
+mark.v:hover {
+  background-color: #e6d6f2cc;
+}
+
+[data-md-color-scheme="slate"] mark.v {
+  background-color: #3c2d49;
+}
+
+[data-md-color-scheme="slate"] mark.v:hover {
+  background-color: #42215f;
+}
+
+mark.g {
+  background-color: #edf3ec;
+}
+
+mark.g:hover {
+  background-color: #d6f2d1;
+}
+
+[data-md-color-scheme="slate"] mark.g {
+  background-color: #243d30;
+}
+
+[data-md-color-scheme="slate"] mark.g:hover {
+  background-color: #25573d;
+}
