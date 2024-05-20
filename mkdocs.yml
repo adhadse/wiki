@@ -190,8 +190,11 @@ nav:
           - Terraform:
               - "cs/devops/terraform/terraform-freecodecamp-course.md"
   - etc:
-      - Mathematics: "etc/maths-formula.md"
       - Regex: "etc/regular-expressions.md"
+      - Mathematics:
+          - "etc/mathematics/maths-formula.md"
+          - Discrete Mathematics:
+            - "etc/mathematics/discrete-mathematics/propositional-logic.md"
 
 watch:
   - overrides
