@@ -1,7 +1,11 @@
+---
+description: Unlike other languages, Rust str types comes in many flavours offering Safety, Efficiency & Flexibility.
+---
+
 # All Rust String Types explained
 Unlike other languages, Rust str types comes in many flavours[^1]:
 
-[^1]: Content from *Let's Get Rusty*'s Video:https://www.youtube.com/watch?v=CpvzeyzgQd
+[^1]: Content from *Let's Get Rusty*'s Video: [https://www.youtube.com/watch?v=CpvzeyzgQdw](https://www.youtube.com/watch?v=CpvzeyzgQdw)
 
 
 1. `&Str`
