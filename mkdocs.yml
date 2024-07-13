@@ -103,10 +103,10 @@ plugins:
   - glightbox
   - privacy
   - social:
-      cards_color:
-        fill: "#000000"
-        text: "#FFFFFF"
-        cards_font: Poppins
+      cards_layout_options:
+        background_color: "#000000"
+        color: "#FFFFFF"
+        font_family: Poppins
 
 nav:
   - Blog: "https://adhadse.com"
