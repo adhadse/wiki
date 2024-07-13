@@ -1,70 +1,74 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block styles %} {{ super() }} {% endblock %} {%
+block libs %}
+<!--katex scripts-->
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css"
+    integrity="sha512-t2ALGTyUR6g1HJiHCmSTge2yGseGofdO88Q+zOWQx/N0ikecVw0YuyOet9xZDV8+Vx0Y0n1a3f3Qx3V9CcnsKA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+/>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"
+    integrity="sha512-EKW5YvKU3hpyyOcN6jQnAxO/L8gts+YdYV6Yymtl8pk9YlYFtqJgihORuRoBXK8/cOIlappdU6Ms8KdK6yBCgA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+></script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"
+    integrity="sha512-iWiuBS5nt6r60fCz26Nd0Zqe0nbk1ZTIQbl3Kv7kYsX+yKMUFHzjaH2+AnM6vp2Xs+gNmaBAVWJjSmuPw76Efg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+></script>
 
-{% block styles %}
- {{ super() }}
-{% endblock %}
+{{ super() }}
+<!-- Add scripts that need to run afterwards here -->
 
-{% block libs %}
-  <!--katex scripts-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css" integrity="sha512-t2ALGTyUR6g1HJiHCmSTge2yGseGofdO88Q+zOWQx/N0ikecVw0YuyOet9xZDV8+Vx0Y0n1a3f3Qx3V9CcnsKA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js" integrity="sha512-EKW5YvKU3hpyyOcN6jQnAxO/L8gts+YdYV6Yymtl8pk9YlYFtqJgihORuRoBXK8/cOIlappdU6Ms8KdK6yBCgA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js" integrity="sha512-iWiuBS5nt6r60fCz26Nd0Zqe0nbk1ZTIQbl3Kv7kYsX+yKMUFHzjaH2+AnM6vp2Xs+gNmaBAVWJjSmuPw76Efg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- Highligh.js -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" integrity="sha512-bgHRAiTjGrzHzLyKOnpFvaEpGzJet3z4tZnXGjpsCcqOnAH6VGUx9frc5bcIhKTVLEiCO6vEhNAgx5jtLUYrfA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/darkula.css" integrity="sha256-Mnoy1/a+4vhQ8P0UqXtjDrRWwJs5gMrolbe2VBmKmiM=" crossorigin="anonymous"> -->
 
-  {{ super() }}
-  <!-- Add scripts that need to run afterwards here -->
-
-  <!-- Highligh.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" integrity="sha512-bgHRAiTjGrzHzLyKOnpFvaEpGzJet3z4tZnXGjpsCcqOnAH6VGUx9frc5bcIhKTVLEiCO6vEhNAgx5jtLUYrfA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/darkula.css" integrity="sha256-Mnoy1/a+4vhQ8P0UqXtjDrRWwJs5gMrolbe2VBmKmiM=" crossorigin="anonymous">
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.halo.min.js" defer></script>
-{% endblock %}
-
-{% block hero %}
-  <div class="hero-container">
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"
+    defer
+></script>
+<script
+    src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.halo.min.js"
+    defer
+></script>
+{% endblock %} {% block hero %}
+<div class="hero-container">
     <div id="hero-bg"></div>
     <div class="hero-content">
-      <div class="md-grid">
-        <h1>Welcome to <br>my <span>wiki</span>!</h1>
-        <p>Discover all about my note space.</p>
-      </div>
+        <div class="md-grid">
+            <h1>Welcome to <br />my <span>wiki</span>!</h1>
+            <p>Discover all about my note space.</p>
+        </div>
     </div>
-  </div>
-  {{ super() }}
-{% endblock %}
-
-{% block container %}
+</div>
+{{ super() }} {% endblock %} {% block container %}
 <style>
-  .md-main {
-    /* background-color: #000; */
-    height: 0;
-  }
+    .md-main {
+        /* background-color: #000; */
+        height: 0;
+    }
 </style>
-{% endblock %}
-
-{% block content %}
-{% endblock %}
-
-{% block htmltitle %}
+{% endblock %} {% block content %} {% endblock %} {% block htmltitle %}
 <title>adhadse — Wiki</title>
-{% endblock %}
-
-{% block scripts %}
-  {{ super() }}
-  <script defer>
+{% endblock %} {% block scripts %} {{ super() }}
+<script defer>
     VANTA.HALO({
-      el: ".hero-container",
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: false,
-      minHeight: 200.00,
-      minWidth: 200.00,
-      baseColor: 0x0,
-      backgroundColor: 0x0,
-      xOffset: 0.09,
-      amplitudeFactor: 0.20,
-      size: 0.90
-    })
-  </script>
+        el: ".hero-container",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.0,
+        minWidth: 200.0,
+        baseColor: 0x0,
+        backgroundColor: 0x0,
+        xOffset: 0.09,
+        amplitudeFactor: 0.2,
+        size: 0.9,
+    });
+</script>
 {% endblock %}
