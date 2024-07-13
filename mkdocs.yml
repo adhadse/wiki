@@ -79,6 +79,10 @@ markdown_extensions:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
+      # linenums: true
+      linenums_style: pymdownx-inline
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
@@ -183,6 +187,8 @@ nav:
                   - "cs/rust/tutorial/advanced/advanced-types.md"
                   - "cs/rust/tutorial/advanced/advanced-functions-and-closures.md"
                   - "cs/rust/tutorial/advanced/macros.md"
+          - Advanced Rust Concepts:
+              - "cs/rust/advanced/rust_str_types.md"
       - Curriculum:
           - SQL:
               - "cs/curriculum/sql/common-queries.md"
@@ -194,7 +200,7 @@ nav:
       - Mathematics:
           - "etc/mathematics/maths-formula.md"
           - Discrete Mathematics:
-            - "etc/mathematics/discrete-mathematics/propositional-logic.md"
+              - "etc/mathematics/discrete-mathematics/propositional-logic.md"
 
 watch:
   - overrides
