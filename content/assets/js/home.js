@@ -1,14 +1,17 @@
 document$.subscribe(() => {
-  VANTA.HALO({
+  VANTA.WAVES({
     el: ".hero-container",
     mouseControls: true,
     touchControls: true,
     gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    baseColor: 0x0,
-    backgroundColor: 0x0,
-    xOffset: 0.09,
-    size: 0.90
-  })
-})
+    minHeight: 200.0,
+    minWidth: 200.0,
+    scale: 1.0,
+    scaleMobile: 1.0,
+    color: 0x0,
+    shininess: 60.0,
+    waveHeight: 39.5,
+    waveSpeed: 0.95,
+    zoom: 0.65,
+  });
+});
