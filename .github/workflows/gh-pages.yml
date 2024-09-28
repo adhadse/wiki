@@ -9,14 +9,35 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Check out repository code
+        uses: actions/checkout@v3
       - uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: '3.12'
+      - name: Load cached dependencies
+        id: cached-deps
+        uses: actions/cache@v3
+        with:
+          path: /home/runner/.cache
+          key: ${{ runner.os }}-deps-${{ hashFiles('**/poetry.lock', '**/requirements*.txt', '**/apt-packages.txt') }}
+          restore-keys: ${{ runner.os }}-deps-
+      - name: Install dependencies
+        run: |
+          if [ -f apt-packages.txt ]; then
+            mkdir -p /home/runner/.cache/apt/archives
+            apt-get update
+            apt-get upgrade -y
+            apt-get -o dir::cache::archives="/home/runner/.cache/apt/archives" install -y --no-install-recommends $(cat apt-packages.txt)
+            apt-get clean
+          fi
+          python -m pip install --upgrade pip
+          pip install poetry
+          poetry config virtualenvs.path /home/runner/.cache/pypoetry/virtualenvs
+          poetry install --no-root --no-interaction --no-ansi
       # disable for social plugin to give KeyError: 'Regular'
       # - uses: actions/cache@v2
       #   with:
       #     key: ${{ github.ref }}
       #     path: .cache
-      - run: pip install -r requirements.txt
-      - run: mkdocs gh-deploy --remote-branch gh-pages --force
+      - name: Deploy
+        run: poetry run mkdocs gh-deploy --remote-branch gh-pages --force
