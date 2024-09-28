@@ -404,7 +404,6 @@ impl<T: Display> ToString for T {
         }
     }
     ```
-    ---
 
     <mark class="v">`self` is the name used in a `trait` or an `impl` for the first argument of a method.</mark> Using another name is possible, however there is a notable difference:
 
@@ -432,4 +431,4 @@ impl<T: Display> ToString for T {
     &mut self => self: &mut Self
     ```
 
-    Source:  [What's the difference between self and Self?](https://stackoverflow.com/a/32310313/8277795) (Stack Overflowra)
+    Source:  [What's the difference between self and Self?](https://stackoverflow.com/a/32310313/8277795) (Stack Overflowr)
