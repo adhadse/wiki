@@ -20,10 +20,7 @@
 }
 [data-md-color-primary="black"] .md-header,
 [data-md-color-primary="black"] .md-tabs,
-html
-    [data-md-color-primary="black"]
-    .md-nav--primary
-    .md-nav__title[for="__drawer"] {
+html [data-md-color-primary="black"] .md-nav--primary .md-nav__title[for="__drawer"] {
     background-color: #000;
 }
 
@@ -173,11 +170,7 @@ html {
     width: 100vw;
     height: 100vw;
     z-index: -1;
-    background: conic-gradient(
-        from 180deg at 50% 50%,
-        #1f363d 0deg,
-        #ffffff 360deg
-    );
+    background: conic-gradient(from 180deg at 50% 50%, #1f363d 0deg, #ffffff 360deg);
     animation: rotate-gradient 7s linear infinite;
 }
 
@@ -210,4 +203,9 @@ html {
     to {
         transform: rotate(360deg) scale(3);
     }
+}
+
+.katex-display {
+    overflow-x: auto;
+    overflow-y: hidden;
 }

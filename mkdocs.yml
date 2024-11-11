@@ -192,6 +192,8 @@ nav:
       - Curriculum:
           - SQL:
               - "cs/curriculum/sql/common-queries.md"
+          - Networking:
+              - "cs/curriculum/networking/ipv6.md"
       - DevOps:
           - Terraform:
               - "cs/devops/terraform/terraform-freecodecamp-course.md"
