@@ -12,6 +12,175 @@
 | $\cosec$ | $\infin$   | $2$                         | $\sqrt{2}$                  | $\frac{2}{\sqrt{3}}$        | $1$                         | $\frac{2}{\sqrt{3}}$          | $\sqrt{2}$                    | $2$                           | $\infin$           |
 
 
+### Trigonometric Identities
+<div class="grid-container">
+  <div class="grid-column left-column">
+    <div class="grid-item">
+        $\sin(A + B) = \sin A \cos B + \cos A \sin B$
+    </div>
+    <div class="grid-item">
+        $\sin(A - B) = \sin A \cos B - \cos A \sin B$
+    </div>
+    <div class="grid-item">
+        $\cos(A + B) = \cos A \cos B - \sin A \sin B$
+    </div>
+    <div class="grid-item">
+        $\cos(A - B) = \cos A \cos B + \sin A \sin B$
+    </div>
+  </div>
+  <div class="grid-column right-column">
+    <div class="grid-item">
+        $\sin C + \sin D = 2 \sin \frac{C + D}{2} \cos \frac{C - D}{2}$
+    </div>
+    <div class="grid-item">
+        $\sin C - \sin D = 2 \cos \frac{C + D}{2} \sin \frac{C - D}{2}$
+    </div>
+    <div class="grid-item">
+        $\cos C + \cos D = 2 \cos \frac{C + D}{2} \cos \frac{C - D}{2}$
+    </div>
+    <div class="grid-item">
+        $\cos C - \cos D = -2 \sin \frac{C + D}{2} \sin \frac{C - D}{2}$
+    </div>
+  </div>
+</div>
+
+<div class="grid-container">
+  <div class="grid-column left-column">
+    <div class="grid-item">
+        $\sin(A + B) \sin(A - B) = \sin^2 A - \sin^2 B$
+    </div>
+    <div class="grid-item">
+        $\cos(A + B) \cos(A - B) = \cos^2 A - \sin^2 B$
+    </div>
+  </div>
+  <div class="grid-column right-column">
+    <div class="grid-item">
+        $\tan A - \tan B = \frac{\sin(A - B)}{\cos A \cos B}$
+    </div>
+    <div class="grid-item">
+        $\cot A - \cot B = \frac{-\sin(A - B)}{\sin A \sin B}$
+    </div>
+  </div>
+</div>
+
+$$
+\sin(A + B + C) = \sin A \cos B \cos C + \cos A \sin B \cos C + \cos A \cos B \sin C - \sin A \sin B \sin C
+$$
+
+$$
+\cos(A + B + C) = \cos A \cos B \cos C - \cos A \sin B \sin C - \sin A \cos B \sin C - \sin A \sin B \cos C
+$$
+
+$$
+\tan(A + B + C) = \frac{\tan A + \tan B + \tan C - \tan A \tan B \tan C}{1 - \tan A \tan B - \tan B \tan C - \tan C \tan A}
+$$
+
+#### Double Angle Formulas
+
+<div>
+$$
+\begin{split}
+\sin 2A &= 2 \sin A \cos A \\ &= \frac{2 \tan x}{1 + \tan^2 x} \\ &= \frac{1 - \tan^2 A}{1 + \tan^2 A}
+\end{split}
+
+\newline\quad
+
+\begin{split}\cos 2A &= \cos^2 A - \sin^2 A \\& = 2\cos^2 A - 1 \\ &= 1 - 2\sin^2 \end{split}
+$$
+</div>
+
+
+<div>
+$$
+\sin 3A = 3 \sin A - 4 \sin^3 A
+
+\newline\quad
+
+\cos 3A = 4 \cos^3 A - 3 \cos A
+$$
+</div>
+
+
+<div>
+$$
+\tan 2A = \frac{2 \tan A}{1 - \tan^2 A}
+
+\newline\quad
+
+\tan 3A = \frac{3 \tan A - \tan^3 A}{1 - 3 \tan^2 A}
+$$
+</div>
+
+#### Product-to-Sum Formulas
+- $2 \sin x \sin y = \cos(x - y) - \cos(x + y)$
+- $2 \cos x \cos y = \cos(x + y) + \cos(x - y)$
+- $2 \sin x \cos y = \sin(x + y) + \sin(x - y)$
+- $2 \cos x \sin y = \sin(x + y) - \sin(x - y)$
+
+#### Pythagorean Identities
+- $\sin^2 \theta + \cos^2 \theta = 1$
+- $1 + \tan^2 \theta = \sec^2 \theta$
+- $1 + \cot^2 \theta = \csc^2 \theta$
+
+
+<div class="grid-container">
+  <div class="grid-column left-column">
+    <div class="grid-item">
+        $\tan(x + y) = \frac{\tan x + \tan y}{1 - \tan x \tan y}$
+    </div>
+    <div class="grid-item">
+        $\tan(x - y) = \frac{\tan x - \tan y}{1 + \tan x \tan y}$
+    </div>
+  </div>
+  <div class="grid-column right-column">
+    <div class="grid-item">
+        $\cot(x + y) = \frac{\cot x \cot y - 1}{\cot x + \cot y}$
+    </div>
+    <div class="grid-item">
+        $\cot(x - y) = \frac{\cot x \cot y + 1}{\cot y - \cot x}$
+    </div>
+  </div>
+</div>
+
+
+- $a^3 + b^3 = (a + b)(a^2 - ab + b^2)$
+- $a^3 - b^3 = (a - b)(a^2 + ab + b^2)$
+
+### General Solutions
+
+#### Basic Cases
+- $\sin \theta = 0 \implies \theta = n\pi$
+- $\cos \theta = 0 \implies \theta = (2n + 1)\frac{\pi}{2}$
+- $\tan \theta = 0 \implies \theta = n\pi$
+
+#### Equality Cases
+- $\sin \theta = \sin \beta \implies \theta = n\pi + (-1)^n \beta$
+- $\cos \theta = \cos \beta \implies \theta = 2n\pi \pm \beta$
+- $\tan \theta = \tan \beta \implies \theta = n\pi + \beta$
+
+#### Derived Cases
+- $\sin^2 \theta = \sin^2 \beta \implies \theta = n\pi \pm \beta$
+- $\cos^2 \theta = \cos^2 \beta \implies \theta = 2n\pi \pm \beta$
+- $\tan^2 \theta = \tan^2 \beta \implies \theta = n\pi \pm \beta$
+
+#### Secant and Cosine Properties
+- $-\cos \theta = \cos(\pi - \theta)$
+- $-\sec \theta = \sec(\pi - \theta)$
+- $\cos(- \theta) = \cos\theta$
+- $\sec(-\theta) = \sec\theta$
+
+
+### Transformation Rule (TR)
+$(\frac{n\pi}{2} + \theta)$
+
+  - If $n$ is odd $\Rightarrow$ TR will change.
+
+$(n\pi + \theta)$
+
+  - If $n$ is odd/even $\Rightarrow$ TR will not change.
+
+
+
 ## Inverse Trigonometry
 
 |                | Domain (value) ($x$) | Range (Angle) ($\theta$)  |
@@ -34,9 +203,9 @@
 
 | **Property 3**                     |                                  |
 |------------------------------------|----------------------------------|
-| $sin^{-1}(-x) = -\sin^{-1}{x}$     | $cos^{-1}(-x) \pi -\cos^{-1}{x}$ |
-| $tan^{-1}(-x) = -\tan^{-1}{x}$     | $cot^{-1}(-x) \pi -\cot^{-1}{x}$ |
-| $cosec^{-1}(-x) = -\cosec^{-1}{x}$ | $sec^{-1}(-x) \pi -\sec^{-1}{x}$ |
+| $sin^{-1}(-x) = -\sin^{-1}{x}$     | $cos^{-1}(-x) = \pi -\cos^{-1}{x}$ |
+| $tan^{-1}(-x) = -\tan^{-1}{x}$     | $cot^{-1}(-x) = \pi -\cot^{-1}{x}$ |
+| $cosec^{-1}(-x) = -\cosec^{-1}{x}$ | $sec^{-1}(-x) = \pi -\sec^{-1}{x}$ |
 
 | **Property 4** |
 | ---  |
@@ -67,17 +236,30 @@
 
 **Property 9**
 
-$2\sin^{-1}x = 2 \sin^{-1}(\theta/2)$
-
-$3\sin^{-1}x = \sin^{-1}(3x-4x^2)$
-
-$2\cos^{-1}x = \cos^{-1}(2x^2-1)$
-
-$3\cos^{-1}x = \cos^{-1}(4x^3 -3x)$
+<div class="grid-container">
+  <div class="grid-column left-column">
+    <div class="grid-item">
+        $2\sin^{-1}x = 2 \sin^{-1}(\theta/2)$
+    </div>
+    <div class="grid-item">
+        $3\sin^{-1}x = \sin^{-1}(3x-4x^2)$
+    </div>
+  </div>
+  <div class="grid-column right-column">
+    <div class="grid-item">
+        $2\cos^{-1}x = \cos^{-1}(2x^2-1)$
+    </div>
+    <div class="grid-item">
+        $3\cos^{-1}x = \cos^{-1}(4x^3-3x)$
+    </div>
+  </div>
+</div>
 
 <div>
 $$
-2 \tan^{-1}x = \tan^{-1}\Big(\frac{2x}{1-x^2}\Big) \\ 3\tan^{-1}x = \tan^{-1}\Big(\frac{3x-x^2}{1-3x^2}\Big)
+2 \tan^{-1}x = \tan^{-1}\Big(\frac{2x}{1-x^2}\Big)
+\\
+3\tan^{-1}x = \tan^{-1}\Big(\frac{3x-x^2}{1-3x^2}\Big)
 $$
 </div>
 
@@ -87,13 +269,15 @@ $$
 2\tan^{-1}x = \begin{cases}\sin^{-1}\Big(\frac{2x}{1+x^2}\Big)\\\cos^{-1}\Big(\frac{1-x^2}{1+x^2}\Big)\end{cases}
 $$
 
+---
+
 $1-\cos\theta = 2 \sin^2(\theta/2)$
 
 $1+ \cos\theta = 2\,\cos^2(\theta/2)$
 
 $\sin\theta = 2\sin(\theta/2)\cos(\theta/2)$
 
-$2\sin^{-1}x + \sin^{-1}(-x) = \cos^{1}x$
+$2\sin^{-1}x + \sin^{-1}(-x) = \cos^{-1}x$
 
 <div>
 $$
@@ -102,20 +286,144 @@ $$
 </div>
 
 ??? note "Expression and Substitution"
-        
+
     | Expression | Substitution | Substitution |
     | --- | --- | --- |
     | $a^2 + x^2$ | $x = a\tan\theta$ | $x = a\cot\theta$ |
     |$a^2-x^2$ | $x=a\sin\theta$ | $x=a\cos\theta$ |
     |$x^2-a^2$ | $x=a\sec\theta$ | $x=a\cosec\theta$ |
-    |$\frac{a-x}{a+x}$ | $x=a\cos2\theta$ | |
-    |$\frac{a^2+x^2}{a^2-x^2}$ | $x=a^2\cos2\theta$ |  |
+    |$\sqrt{\frac{a-x}{a+x}}$ | $x=a\cos2\theta$ | |
+    |$\sqrt{\frac{a^2+x^2}{a^2-x^2}}$ | $x=a^2\cos2\theta$ |  |
+
+## Differentiation
+
+<div class="grid-container">
+  <div class="grid-column left-column">
+    <div class="grid-item">
+        $\frac{d}{dx} x^n = n x^{n-1}$
+    </div>
+    <div class="grid-item">
+        $\frac{d}{dx} a^x = a^x \ln a$
+    </div>
+    <div class="grid-item">
+        $\frac{d}{dx} \log_e x = \frac{1}{x}$
+    </div>
+    <div class="grid-item">
+        $\frac{d}{dx} \log_a x = \frac{1}{x \ln a}$
+    </div>
+    <div class="grid-item">
+        $\frac{d}{dx} e^x = e^x$
+    </div>
+    <div class="grid-item">
+        $\frac{d}{dx} \sin x = \cos x$
+    </div>
+    <div class="grid-item">
+        $\frac{d}{dx} \cos x = -\sin x$
+    </div>
+    <div class="grid-item">
+        $\frac{d}{dx} \tan x = \sec^2 x$
+    </div>
+    <div class="grid-item">
+        $\frac{d}{dx} \sec x = \sec x \tan x$
+    </div>
+    <div class="grid-item">
+        $\frac{d}{dx} \cot x = -\csc^2 x$
+    </div>
+    <div class="grid-item">
+        $\frac{d}{dx} \cosec x = -\cosec x \cot x$
+    </div>
+  </div>
+  <div class="grid-column right-column">
+    <div class="grid-item">
+        $\log m^n = n \log m$
+    </div>
+    <div class="grid-item">
+        $\log m + \log n = \log (mn)$
+    </div>
+    <div class="grid-item">
+        $\log m - \log n = \log \left(\frac{m}{n}\right)$
+    </div>
+    <div class="grid-item">
+        $\log e = 1$, $\log_a a = 1$
+    </div>
+    <div class="grid-item">
+        $\log_a b = \frac{1}{\log_b a}$
+    </div>
+    <div class="grid-item">
+        $\frac{d}{dx} \sin^{-1} x = \frac{1}{\sqrt{1 - x^2}}$
+    </div>
+    <div class="grid-item">
+        $\frac{d}{dx} \cos^{-1} x = \frac{-1}{\sqrt{1 - x^2}}$
+    </div>
+    <div class="grid-item">
+        $\frac{d}{dx} \tan^{-1} x = \frac{1}{1 + x^2}$
+    </div>
+    <div class="grid-item">
+        $\frac{d}{dx} \cot^{-1} x = \frac{-1}{1 + x^2}$
+    </div>
+    <div class="grid-item">
+        $\frac{d}{dx} \sec^{-1} x = \frac{1}{x \sqrt{x^2 - 1}}$
+    </div>
+    <div class="grid-item">
+        $\frac{d}{dx} \cosec^{-1} x = \frac{-1}{x \sqrt{x^2 - 1}}$
+    </div>
+  </div>
+</div>
+
+- $a^{\log_a x} = x$
+- $x^{\log_a y} = y^{\log_a x}$
+
+## Integration Formulas
+
+### Basic Integration Rules
+1. $\int x^n \, dx = \frac{x^{n+1}}{n+1} + C$
+2. $\int \frac{1}{x} \, dx = \ln x + C$
+3. $\int e^x \, dx = e^x + C$
+4. $\int a^x \, dx = \frac{a^x}{\ln a} + C$
+5. $\int \sin x \, dx = -\cos x + C$
+6. $\int \cos x \, dx = \sin x + C$
+7. $\int \sec^2 x \, dx = \tan x + C$
+8. $\int \csc^2 x \, dx = -\cot x + C$
+9. $\int \sec x \tan x \, dx = \sec x + C$
+10. $\int \csc x \cot x \, dx = -\csc x + C$
+11. $\int \cot x \, dx = \ln |\sin x| + C$
+12. $\int \tan x \, dx = -\ln |\cos x| + C = \ln |\sec x| + C$
+13. $\int \sec x \, dx = \ln |\sec x + \tan x| + C$
+14. $\int \csc x \, dx = \ln |\csc x - \cot x| + C$
+
+---
+
+### Inverse Trigonometric Integrals
+15. $\int \frac{1}{\sqrt{a^2 - x^2}} \, dx = \sin^{-1} \left(\frac{x}{a}\right) + C$
+16. $\int \frac{-1}{\sqrt{a^2 - x^2}} \, dx = \cos^{-1} \left(\frac{x}{a}\right) + C$
+17. $\int \frac{1}{x^2 + a^2} \, dx = \frac{1}{a} \tan^{-1} \left(\frac{x}{a}\right) + C$
+18. $\int \frac{-1}{x^2 + a^2} \, dx = \frac{1}{a} \cot^{-1} \left(\frac{x}{a}\right) + C$
+19. $\int \frac{1}{x \sqrt{x^2 + a^2}} \, dx = \frac{1}{a} \sec^{-1} \left|\frac{x}{a}\right| + C$
+20. $\int \frac{-1}{x \sqrt{x^2 - a^2}} \, dx = \frac{-1}{a} \csc^{-1} \left|\frac{x}{a}\right| + C$
+
+---
+
+### Logarithmic and Advanced Integrals
+21. $\int e^{x} f(x) + f'(x) \, dx = e^x f(x) + C$
+22. $\int \frac{dx}{x^2 + a^2} = \frac{1}{a} \ln |x + \sqrt{x^2 + a^2}| + C$
+23. $\int \frac{dx}{x^2 - a^2} = \frac{1}{2a} \ln \left|\frac{x - a}{x + a}\right| + C$
+24. $\int \frac{dx}{a^2 - x^2} = \frac{1}{2a} \ln \left|\frac{a + x}{a - x}\right| + C$
+25. $\int \frac{dx}{a^2 - x^2} = \frac{1}{2a} \ln \left|\frac{a + x}{x - a}\right| + C$
+
+---
+
+### Additional Properties
+- $\int k f(x) \, dx = k \int f(x) \, dx$
+- $\int [f(x) \pm g(x)] \, dx = \int f(x) \, dx \pm \int g(x) \, dx$
+- $\int c \, dx = c x + C$
+
+
 
 ## Line Equations
 
 1. $ax + by + c=0$
 
-    $m = -a/b$
+    $m = -a/b$ (Slope of line)
 
 2. One Point form of line
 
@@ -205,23 +513,145 @@ where   $l= \sqrt{h^2+(r_1-r_2)^2}$
 ![](/assets/images/etc/maths/frustum.png){: .center}
 
 ## Adjoint and Inverse
-| | |
-| --- | --- |
-| $A(\text{adj} A) = \|A\| I_n = (\text{adj}) A$ |
-| $A^{-1} = \frac{1}{\|A\|} (\text{adj} A)$      | $\|\text{adj} A\| = \|A\|^{n-1}$ |
-| $(A^\top)^{-1} = (A^{-1})^\top$                | $\text{adj} \space(adj A) = \|A\|^{n-2} A$ |
-| $\|A \enspace adj A\| = \|A\|^{n}$             | $\|\text{adj} \space(adj A)\| = \|A\|^{(n-1)^{2}}$ |
-| |
-| $\|A^\top\| = \|A\| $|
-| $AA^{-1} = I_n$|
-| $(A^{-1})^{-1} = A$|
-| $(AB)^{-1} = B^{-1}A^{-1}$|
-| $\text{adj}\space AB = (\text{adj} B)(\text{adj} A)$|
-| $\|AB\| = \|A\| \|B\|$|
-| $\text{adj}A^\top = (\text{adj} A)\top$|
-| $\|KA\| = K^n \|A\|$|
-| $AA^{-1}=I$|
-| $A^{-1}I = A^{-1}$|
+
+<div class="grid-container">
+  <div class="grid-column left-column">
+    <div class="grid-item">
+        $A(\text{adj} A) = \|A\| I_n = (\text{adj}) A$
+    </div>
+    <div class="grid-item">
+        $A^{-1} = \frac{1}{\|A\|} (\text{adj} A)$
+    </div>
+    <div class="grid-item">
+        $(A^\top)^{-1} = (A^{-1})^\top$
+    </div>
+    <div class="grid-item">
+        $\|A \enspace adj A\| = \|A\|^{n}$
+    </div>
+    <div class="grid-item">
+        $\|A^\top\| = \|A\| $
+    </div>
+    <div class="grid-item">
+        $AA^{-1} = I_n$
+    </div>
+    <div class="grid-item">
+        $(A^{-1})^{-1} = A$
+    </div>
+    <div class="grid-item">
+        $(AB)^{-1} = B^{-1}A^{-1}$
+    </div>
+    <div class="grid-item">
+        $\text{adj}\space AB = (\text{adj} B)(\text{adj} A)$
+    </div>
+    <div class="grid-item">
+        $\|AB\| = \|A\| \|B\|$
+    </div>
+    <div class="grid-item">
+        $\text{adj}A^\top = (\text{adj} A)\top$
+    </div>
+    <div class="grid-item">
+        $\|KA\| = K^n \|A\|$
+    </div>
+    <div class="grid-item">
+        $AA^{-1}=I$
+    </div>
+    <div class="grid-item">
+        $A^{-1}I = A^{-1}$
+    </div>
+  </div>
+  <div class="grid-column right-column">
+    <div class="grid-item">
+        $\|\text{adj} A\| = \|A\|^{n-1}$
+    </div>
+    <div class="grid-item">
+        $\text{adj} \space(adj A) = \|A\|^{n-2} A$
+    </div>
+    <div class="grid-item">
+        $\|\text{adj} \space(adj A)\| = \|A\|^{(n-1)^{2}}$
+    </div>
+  </div>
+</div>
+
+
+## Binomial Theorem
+
+Initial conditions:
+
+<div class="grid-container">
+  <div class="grid-column left-column">
+    <div class="grid-item">
+        $^nc_0 = 1$
+    </div>
+    <div class="grid-item">
+        $^nc_1 = n$
+    </div>
+  </div>
+  <div class="grid-column right-column">
+    <div class="grid-item">
+        $^nc_n = 1$
+    </div>
+    <div class="grid-item">
+        $^nc_{n-1} = n$
+    </div>
+  </div>
+</div>
+
+Basic expansion:
+
+$$(x+a)^n = {^nc_0}x^na^0 + {^nc_1}x^{n-1}a^1 + {^nc_2}x^{n-2}a^2 + ... + {^nc_n}x^0a^n$$
+
+Sum and difference formulas:
+
+$$(x+a)^n + (x-a)^n = 2[{^nc_0}x^na^0 + {^nc_2}x^{n-2}a^2 + {^nc_4}x^{n-4}a^4 + ...]$$
+$$(x+a)^n - (x-a)^n = 2[{^nc_1}x^{n-1}a^1 + {^nc_3}x^{n-3}a^3 + {^nc_5}x^{n-5}a^5 + ...]$$
+
+Number of terms:
+
+| | When n is odd | When n is even |
+|---|---|---|
+|(x+a)^n + (x-a)^n |  $(\frac{n+1}{2})$ terms | $(\frac{n}{2})$ terms |
+|(x+a)^n - (x-a)^n | $(\frac{n+1}{2})$ terms | $(\frac{n}{2})$ terms |
+
+### General Term and Middle Term
+
+General term: $t_{r+1} = {^nc_r}x^{n-r}a^r$
+
+Middle term occurs at:
+
+- If n is **odd**: $(\frac{n+1}{2})$ & $(\frac{n+3}{2})$ terms
+
+- If n is **even**: $(\frac{n}{2}+1)$ terms
+
+### Coefficient Tables
+
+|Coefficient of| Expression | Binomial Coefficient |
+|---|------------|---------------------|
+|$(r+1)^{\text{th}}$| $(1+x)^n$ | ${^nc_r}$ |
+|$x^r$| $x^n$ | ${^nc_r}$ |
+|$x^r$| $(-x)^n$ | $(-1)^n{^nc_r}$ |
+|$(r+1)^{\text{th}}$| $(1-x)^n$ | $(-1)^r{^nc_r}$ |
+
+## Relations
+
+<div class="grid-container">
+  <div class="grid-column left-column">
+    <div class="grid-item">
+        $\frac{^nc_r}{^nc_{r-1}} = \frac{n-r+1}{r}$
+    </div>
+    <div class="grid-item">
+        $^nc_r = \frac{n}{r}{^{n-1}c_{r-1}}$
+    </div>
+  </div>
+  <div class="grid-column right-column">
+    <div class="grid-item">
+        $\frac{^nc_{r+1}}{^nc_r} = \frac{n-r}{r+1}$
+    </div>
+    <div class="grid-item">
+        $\frac{t_{r+1}}{t_r} = \frac{n-r+1}{r} \cdot \frac{a}{x}$
+    </div>
+  </div>
+</div>
+
 
 ## Finding Log
 1. Given we need to find $\log$ of $\log 15.27$
@@ -276,7 +706,7 @@ where   $l= \sqrt{h^2+(r_1-r_2)^2}$
     $$
 
 !!! info "Quickly write the exponential form"
-    
+
     Since, we want to put decimal just after 1<sup>st</sup> digit. We need to move decimal from 16<sup>th</sup> position to right after 1<sup>st</sup> digit; which will introduce +ve powers. ($16 -1 = \textcolor{#07fc03}{15}$). Since we moved 15 positions left.
 
     $3.919 \times 10^{\textcolor{#07fc03}{15}}$

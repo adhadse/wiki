@@ -209,3 +209,36 @@ html {
     overflow-x: auto;
     overflow-y: hidden;
 }
+
+.grid-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.grid-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.grid-item {
+    text-align: center;
+}
+
+.left-column {
+    flex: 1;
+}
+
+.right-column {
+    flex: 1;
+}
+
+/* Responsive design for mobile devices */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+}
