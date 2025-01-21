@@ -764,6 +764,103 @@ Also noting the card suit groupings shown in the image:
 - Hearts and Diamonds are grouped as Red
 - Spades and Clubs are grouped as Black
 
+## Mean Variance & Standard Deviation
+
+- $p$ means success event
+- $q$ means not a sucess event
+
+<div class="grid-container">
+  <div class="grid-column left-column">
+    <div class="grid-item">
+        $P(X = r) = {}_nC_r p^r q^{n-r}$
+    </div>
+    <div class="grid-item">
+        $Variance = npq$
+    </div>
+  </div>
+  <div class="grid-column right-column">
+    <div class="grid-item">
+        $Mean = np$
+    </div>
+  </div>
+</div>
+
+
+
+Probability Relations:
+$$P(X \leq x_i) = P(X = x_1) + P(X = x_2) + ... + P(X = x_i) = p_1 + p_2 + ... + p_i$$
+
+$$P(X < x_i) = P(X = x_1) + P(X = x_2) + ... + P(X = x_{i-1}) = p_1 + p_2 + ... + p_{i-1}$$
+
+$$P(X \geq x_i) = P(X = x_i) + P(X = x_{i+1}) + ... + P(X = x_n) = p_i + p_{i+1} + ... + p_n$$
+
+$$P(X > x_i) = P(X = x_{i+1}) + P(X = x_{i+2}) + ... + P(X = x_n) = p_{i+1} + p_{i+2} + ... + p_n$$
+
+<div class="grid-container">
+  <div class="grid-column left-column">
+    <div class="grid-item">
+        $P(X \geq x_i) = 1 - P(X < x_i)$
+    </div>
+    <div class="grid-item">
+        $P(X \leq x_i) = 1 - P(X > x_i)$
+    </div>
+  </div>
+  <div class="grid-column right-column">
+    <div class="grid-item">
+        $P(X > x_i) = 1 - P(X \leq x_i)$
+    </div>
+    <div class="grid-item">
+        $P(X < x_i) = 1 - P(X \geq x_i)$
+    </div>
+  </div>
+</div>
+
+$$P(x_i \leq X \leq x_j) = P(X = x_i) + P(X = x_{i+1}) + ... + P(X = x_j)$$
+$$P(x_i < X < x_j) = P(X = x_{i+1}) + P(X = x_{i+2}) + ... + P(X = x_{j-1})$$
+
+### Mean Formulas(Matehmatical expectation):
+
+- where $f$ = frequency
+<div>
+$$
+\begin{split}
+\overline{X} &= p_1x_1 + p_2x_2 + ... + p_nx_n
+\\ &= E(X)
+\\ &= \sum_{i=1}^n p_ix_i
+\\ &= \frac{f_1x_1}{N} + \frac{f_2x_2}{N} + ... + \frac{f_nx_n}{N}
+\end{split}
+$$
+</div>
+
+$$p_i = \frac{f_i}{N}$$
+
+### Variance Formula:
+<div>
+$$
+\begin{split}
+Var(X) &= E(X^2) - \lbrace E(X)\rbrace^2
+\\ &= \sum_{i=1}^n p_ix_i^2 - (\sum_{i=1}^n p_ix_i)^2
+\end{split}
+$$
+</div>
+
+$$\frac{\sum x^2}{n} - (\frac{\sum x}{n})^2$$
+
+Random Variable Property:
+
+If $aX + b$ is a random variable with mean $aX + B$ and variance $a^2Var(X)$
+
+### Standard Deviation:
+
+<div>
+$$
+\sigma = \sqrt{Var(X)}
+
+\newline\qquad
+
+\sigma^2 = \frac{1}{N^2} \lbrack N\sum_{i=1}^n fx_i^2 - (\sum_{i=1}^n fx_i)^2 \rbrack
+$$
+</div>
 
 ## Finding Log
 1. Given we need to find $\log$ of $\log 15.27$
