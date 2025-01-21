@@ -208,6 +208,13 @@ html {
 .katex-display {
     overflow-x: auto;
     overflow-y: hidden;
+    padding: 5px;
+}
+
+.katex-display > .katex > .katex-html > .tag {
+    position: relative;
+    right: 0;
+    padding-left: 10px;
 }
 
 .grid-container {

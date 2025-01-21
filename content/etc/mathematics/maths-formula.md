@@ -627,11 +627,11 @@ Middle term occurs at:
 |Coefficient of| Expression | Binomial Coefficient |
 |---|------------|---------------------|
 |$(r+1)^{\text{th}}$| $(1+x)^n$ | ${^nc_r}$ |
-|$x^r$| $x^n$ | ${^nc_r}$ |
+m|$x^r$| $x^n$ | ${^nc_r}$ |
 |$x^r$| $(-x)^n$ | $(-1)^n{^nc_r}$ |
 |$(r+1)^{\text{th}}$| $(1-x)^n$ | $(-1)^r{^nc_r}$ |
 
-## Relations
+### Relations
 
 <div class="grid-container">
   <div class="grid-column left-column">
@@ -639,7 +639,7 @@ Middle term occurs at:
         $\frac{^nc_r}{^nc_{r-1}} = \frac{n-r+1}{r}$
     </div>
     <div class="grid-item">
-        $^nc_r = \frac{n}{r}{^{n-1}c_{r-1}}$
+        $^nc_r = (\frac{n}{r})\enspace{^{n-1}c_{r-1}}$
     </div>
   </div>
   <div class="grid-column right-column">
@@ -651,6 +651,118 @@ Middle term occurs at:
     </div>
   </div>
 </div>
+
+## Probability
+
+<div class="grid-container">
+  <div class="grid-column left-column">
+    <div class="grid-item">
+        $P_r = \frac{n!}{(n-r)!}$
+    </div>
+  </div>
+  <div class="grid-column right-column">
+    <div class="grid-item">
+        $C_r = \frac{n!}{(n-r)!r!}$
+    </div>
+  </div>
+</div>
+
+| Operation | Notation |
+|-----------|-------------|
+| A or B | $A \cup B$ |
+| A and B | $A \cap B$ |
+| A but not B | $A \cap \bar{B}$ |
+| B but not A | $\bar{A} \cap B$ |
+| Neither A nor B | $\bar{A} \cap \bar{B}$ |
+| At least one of A,B,& C | $A \cup B \cup C$ |
+| Exactly one of A,B | $(A \cap \bar{B}) \cup (\bar{A} \cap B)$ |
+| All Three of A,B,& C | $A \cap B \cap C$ |
+| Exactly Two of A,B,& C | $(A \cap B \cap \bar{C}) \cup (A \cap \bar{B} \cap C) \cup (\bar{A} \cap B \cap C)$ |
+| Exactly One of A,B,& C | $(A \cap \bar{B} \cap \bar{C}) \cup (\bar{A} \cap B \cap \bar{C}) \cup (\bar{A} \cap \bar{B} \cap C)$ |
+
+The probability formulas:
+
+<div>
+$$
+\begin{split}
+P(A \cup B) &= P(A) + P(B) - P(A \cap B)
+\\ &= 1 - P(\overline{A \cup B})
+\\ &= 1 - P(\overline{A} \cap \overline{B})
+\\ &= 1 - P(\bar{A})P(\bar{B})
+\end{split}
+$$
+</div>
+
+<div>
+$$
+\tag{A and B\\ are mutually exclusive}
+P(A \cup B) = P(A) + P(B)
+$$
+</div>
+
+<div>
+$$
+\begin{split}
+P(A \cup B \cup C) &= P(A) + P(B) + P(C) - P(A \cap B) - P(B \cap C) - P(A \cap C) + P(A \cap B \cap C)
+\end{split}
+$$
+</div>
+
+<div>
+$$
+\tag{A,B and C\\ are mutually exclusive}
+P(A \cup B \cup C) = P(A) + P(B) + P(C)
+$$
+</div>
+
+- **Probability of occurrence of (A) only**
+  $$P(A \cap \bar{B}) = P(A) - P(A \cap B)$$
+
+- **Probability of occurrence of (B) only**
+  $$P(\bar{A} \cap B) = P(B) - P(A \cap B)$$
+
+- **P of occurrence of exactly one of A and B**
+  $$P(A \cap \bar{B}) \cup P(\bar{A} \cap B) \Rightarrow P(A \cup B) - P(A \cap B)$$
+
+- **Three Events Occurring Simultaneously**
+
+  $$P(A \cup B \cup C)$$
+
+- **At Least Two Events:**
+  $$P(A \cap B) + P(B \cap C) + P(C \cap A) - 2P(A \cap B \cap C)$$
+
+- **Exactly Two Out of Three Events:**
+  $$P(A \cap B) + P(B \cap C) + P(C \cap A) - 3P(A \cap B \cap C)$$
+
+- **Exactly One Out of Three Events:**
+  $$P(A) + P(B) + P(C) - 2P(A \cap B) - 2P(B \cap C) - 2P(C \cap A) + 3P(A \cap B \cap C)$$
+
+- **Exactly One Out of Two Events**
+$$P(A \cap \overline{B}) + P(\overline{A} \cap B)$$
+
+    - Simplified Form:
+    $$P(A) + P(B) - 2P(A \cap B) \implies P(A \cup B) - P(A \cap B)$$
+
+- **Conditional probability P of E given A is true**
+
+  <div>
+  $$
+  \begin{split}
+  P(E_i|A) &= P(E_i)P(A|E_i) \\ &= \sum_{i=1}^n P(E_i)P(A|E_i)
+  \end{split}
+  $$
+  </div>
+
+$P(A \cap B) = P(A)P(B|A) = P(B)P(A|B)$
+
+$P(A \cap B \cap C \cap D) = P(A)P(B|A)P(C|A \cap B)P(D|A \cap B \cap C)$
+
+$$P(E_i | A) = \frac{P(E_i) P(A|E_i)}{\sum^n_{i=1}P(E_i) P(A|E_i)}$$
+
+Also noting the card suit groupings shown in the image:
+
+- Hearts and Diamonds are grouped as Red
+- Spades and Clubs are grouped as Black
 
 
 ## Finding Log
