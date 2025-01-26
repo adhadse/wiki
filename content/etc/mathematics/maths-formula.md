@@ -633,12 +633,12 @@ Middle term occurs at:
 
 ### Coefficient Tables
 
-| Coefficient of      | Expression | Binomial Coefficient |
-| ------------------- | ---------- | -------------------- | --------- |
+| Coefficient of      | Binomial Expression | is |
+| ------------------- | ---------- | -------------------- | 
 | $(r+1)^{\text{th}}$ | $(1+x)^n$  | ${^nc_r}$            |
-| m                   | $x^r$      | $x^n$                | ${^nc_r}$ |
-| $x^r$               | $(-x)^n$   | $(-1)^n{^nc_r}$      |
-| $(r+1)^{\text{th}}$ | $(1-x)^n$  | $(-1)^r{^nc_r}$      |
+| $x^r$               | $(1+x)^n$  | ${^nc_r}$            |  
+| $x^r$               | $(1-x)^n$  | $(-1)^r\enspace{^nc_r}$      |  
+| $(r+1)^{\text{th}}$ | $(1-x)^n$  | $(-1)^r\enspace{^nc_r}$      | 
 
 ### Relations
 
