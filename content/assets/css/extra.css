@@ -239,8 +239,12 @@ html {
     flex: 1;
 }
 
+.mid-column-sm {
+    flex: 0.5;
+}
+
 .right-column {
-    flex: 1;
+    flex:1;
 }
 
 /* Responsive design for mobile devices */

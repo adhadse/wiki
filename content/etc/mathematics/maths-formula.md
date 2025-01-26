@@ -3,7 +3,7 @@
 ## Trigonometry
 
 | Name     | $0\degree$ | $30\degree (\frac{\pi}{6})$ | $45\degree (\frac{\pi}{4})$ | $60\degree (\frac{\pi}{3})$ | $90\degree (\frac{\pi}{2})$ | $120\degree (\frac{2\pi}{3})$ | $135\degree (\frac{3\pi}{4})$ | $150\degree (\frac{5\pi}{6})$ | $180\degree (\pi)$ |
-|----------|------------|-----------------------------|-----------------------------|-----------------------------|-----------------------------|-------------------------------|-------------------------------|-------------------------------|--------------------|
+| -------- | ---------- | --------------------------- | --------------------------- | --------------------------- | --------------------------- | ----------------------------- | ----------------------------- | ----------------------------- | ------------------ |
 | $\sin$   | $0$        | $\frac{1}{2}$               | $\frac{1}{\sqrt{2}}$        | $\frac{\sqrt{3}}{2}$        | $1$                         | $\frac{\sqrt{3}}{2}$          | $\frac{1}{\sqrt{2}}$          | $\frac{1}{2}$                 | $0$                |
 | $\cos$   | $1$        | $\frac{\sqrt{3}}{2}$        | $\frac{1}{\sqrt{2}}$        | $\frac{1}{2}$               | $0$                         | $-\frac{1}{2}$                | $-\frac{1}{\sqrt{2}}$         | $-\frac{\sqrt{3}}{2}$         | $-1$               |
 | $\tan$   | $0$        | $\frac{1}{\sqrt{3}}$        | $1$                         | $\sqrt{3}$                  | $\infin$                    | $-\sqrt{3}$                   | $-1$                          | $-\frac{1}{\sqrt{3}}$         | $0$                |
@@ -11,8 +11,8 @@
 | $\sec$   | $1$        | $\frac{2}{\sqrt{3}}$        | $\sqrt{2}$                  | $ 2 $                       | $\infin$                    | $-2$                          | $-\sqrt{2}$                   | $-\frac{2}{\sqrt{3}}$         | $-1$               |
 | $\cosec$ | $\infin$   | $2$                         | $\sqrt{2}$                  | $\frac{2}{\sqrt{3}}$        | $1$                         | $\frac{2}{\sqrt{3}}$          | $\sqrt{2}$                    | $2$                           | $\infin$           |
 
-
 ### Trigonometric Identities
+
 <div class="grid-container">
   <div class="grid-column left-column">
     <div class="grid-item">
@@ -86,28 +86,33 @@ $$
 \newline\quad
 
 \begin{split}\cos 2A &= \cos^2 A - \sin^2 A \\& = 2\cos^2 A - 1 \\ &= 1 - 2\sin^2 \end{split}
+
 $$
 </div>
 
 
 <div>
 $$
+
 \sin 3A = 3 \sin A - 4 \sin^3 A
 
 \newline\quad
 
 \cos 3A = 4 \cos^3 A - 3 \cos A
+
 $$
 </div>
 
 
 <div>
 $$
+
 \tan 2A = \frac{2 \tan A}{1 - \tan^2 A}
 
 \newline\quad
 
 \tan 3A = \frac{3 \tan A - \tan^3 A}{1 - 3 \tan^2 A}
+
 $$
 </div>
 
@@ -257,16 +262,21 @@ $(n\pi + \theta)$
 
 <div>
 $$
+
 2 \tan^{-1}x = \tan^{-1}\Big(\frac{2x}{1-x^2}\Big)
 \\
 3\tan^{-1}x = \tan^{-1}\Big(\frac{3x-x^2}{1-3x^2}\Big)
+
 $$
 </div>
 
 **Property 10**
 
+
 $$
+
 2\tan^{-1}x = \begin{cases}\sin^{-1}\Big(\frac{2x}{1+x^2}\Big)\\\cos^{-1}\Big(\frac{1-x^2}{1+x^2}\Big)\end{cases}
+
 $$
 
 ---
@@ -281,7 +291,9 @@ $2\sin^{-1}x + \sin^{-1}(-x) = \cos^{-1}x$
 
 <div>
 $$
+
 \begin{split}\cos2\theta &= \cos^2\theta - \sin^2\theta \\& = 2\cos^2\theta -1 \\ &= 1 - 2\sin^2\theta \end{split}
+
 $$
 </div>
 
@@ -427,43 +439,41 @@ $$
 
 2. One Point form of line
 
-    $$
+
+$$
+
     y - y_1 = m (x-x_1)
     $$
 
 3. Two point form of line
 
-    $$
-    y-y_1 = \frac{y_2-y_1}{x_2-x_1}{x-x_1}
-    $$
+   $$
+   y-y_1 = \frac{y_2-y_1}{x_2-x_1}{x-x_1}
+   $$
 
 4. Intercept Form of line
 
-    $$
-    \frac{x}{a} + \frac{y}{b} = 1
-    $$
+   $$
+   \frac{x}{a} + \frac{y}{b} = 1
+   $$
 
 ![](/assets/images/etc/maths/Intercept_form.svg){: .center}
 
 5. Normal form of line
 
-    $$
-    x\cos \theta + y\sin\theta = P
-    $$
+   $$
+   x\cos \theta + y\sin\theta = P
+   $$
 
 ![](/assets/images/etc/maths/Normal_Form.svg){: .center}
 
 6. Point Slope form
 
-
-
-
-
-    $$
-    y = mx+ c
-    \\\\
-    \text{Where $m$ is slope of line defined as  } m = \frac{y_2 - y_1}{x_2 - x_1}
-    $$
+   $$
+   y = mx+ c
+   \\\\
+   \text{Where $m$ is slope of line defined as  } m = \frac{y_2 - y_1}{x_2 - x_1}
+   $$
 
 ![](/assets/images/etc/maths/Point_SLope_form.svg){: .center }
 
@@ -494,7 +504,7 @@ $$
 - If line $l_1$ and $l_2$ are orthogonal to each other, then. $m_1m_2 = -1$
 - Collinearity of points
 
-    Slope of $AB$ = Slope of $AC$
+  Slope of $AB$ = Slope of $AC$
 
 ![](/assets/images/etc/maths/Collinearity.svg){: .center}
 
@@ -508,7 +518,7 @@ $\text{TSA} = \pi r_1^2 + \pi r_2^2 + \pi l(r_1+r_2)$
 
 $\text{Volume} = \frac{1}{3}\pi h (r_1^2 + r_2^2 + r_1r_2)$
 
-where   $l= \sqrt{h^2+(r_1-r_2)^2}$
+where $l= \sqrt{h^2+(r_1-r_2)^2}$
 
 ![](/assets/images/etc/maths/frustum.png){: .center}
 
@@ -572,7 +582,6 @@ where   $l= \sqrt{h^2+(r_1-r_2)^2}$
   </div>
 </div>
 
-
 ## Binomial Theorem
 
 Initial conditions:
@@ -607,10 +616,10 @@ $$(x+a)^n - (x-a)^n = 2[{^nc_1}x^{n-1}a^1 + {^nc_3}x^{n-3}a^3 + {^nc_5}x^{n-5}a^
 
 Number of terms:
 
-| | When n is odd | When n is even |
-|---|---|---|
-|(x+a)^n + (x-a)^n |  $(\frac{n+1}{2})$ terms | $(\frac{n}{2})$ terms |
-|(x+a)^n - (x-a)^n | $(\frac{n+1}{2})$ terms | $(\frac{n}{2})$ terms |
+|                   | When n is odd           | When n is even        |
+| ----------------- | ----------------------- | --------------------- |
+| (x+a)^n + (x-a)^n | $(\frac{n+1}{2})$ terms | $(\frac{n}{2})$ terms |
+| (x+a)^n - (x-a)^n | $(\frac{n+1}{2})$ terms | $(\frac{n}{2})$ terms |
 
 ### General Term and Middle Term
 
@@ -624,12 +633,12 @@ Middle term occurs at:
 
 ### Coefficient Tables
 
-|Coefficient of| Expression | Binomial Coefficient |
-|---|------------|---------------------|
-|$(r+1)^{\text{th}}$| $(1+x)^n$ | ${^nc_r}$ |
-m|$x^r$| $x^n$ | ${^nc_r}$ |
-|$x^r$| $(-x)^n$ | $(-1)^n{^nc_r}$ |
-|$(r+1)^{\text{th}}$| $(1-x)^n$ | $(-1)^r{^nc_r}$ |
+| Coefficient of      | Expression | Binomial Coefficient |
+| ------------------- | ---------- | -------------------- | --------- |
+| $(r+1)^{\text{th}}$ | $(1+x)^n$  | ${^nc_r}$            |
+| m                   | $x^r$      | $x^n$                | ${^nc_r}$ |
+| $x^r$               | $(-x)^n$   | $(-1)^n{^nc_r}$      |
+| $(r+1)^{\text{th}}$ | $(1-x)^n$  | $(-1)^r{^nc_r}$      |
 
 ### Relations
 
@@ -667,18 +676,18 @@ m|$x^r$| $x^n$ | ${^nc_r}$ |
   </div>
 </div>
 
-| Operation | Notation |
-|-----------|-------------|
-| A or B | $A \cup B$ |
-| A and B | $A \cap B$ |
-| A but not B | $A \cap \bar{B}$ |
-| B but not A | $\bar{A} \cap B$ |
-| Neither A nor B | $\bar{A} \cap \bar{B}$ |
-| At least one of A,B,& C | $A \cup B \cup C$ |
-| Exactly one of A,B | $(A \cap \bar{B}) \cup (\bar{A} \cap B)$ |
-| All Three of A,B,& C | $A \cap B \cap C$ |
-| Exactly Two of A,B,& C | $(A \cap B \cap \bar{C}) \cup (A \cap \bar{B} \cap C) \cup (\bar{A} \cap B \cap C)$ |
-| Exactly One of A,B,& C | $(A \cap \bar{B} \cap \bar{C}) \cup (\bar{A} \cap B \cap \bar{C}) \cup (\bar{A} \cap \bar{B} \cap C)$ |
+| Operation               | Notation                                                                                              |
+| ----------------------- | ----------------------------------------------------------------------------------------------------- |
+| A or B                  | $A \cup B$                                                                                            |
+| A and B                 | $A \cap B$                                                                                            |
+| A but not B             | $A \cap \bar{B}$                                                                                      |
+| B but not A             | $\bar{A} \cap B$                                                                                      |
+| Neither A nor B         | $\bar{A} \cap \bar{B}$                                                                                |
+| At least one of A,B,& C | $A \cup B \cup C$                                                                                     |
+| Exactly one of A,B      | $(A \cap \bar{B}) \cup (\bar{A} \cap B)$                                                              |
+| All Three of A,B,& C    | $A \cap B \cap C$                                                                                     |
+| Exactly Two of A,B,& C  | $(A \cap B \cap \bar{C}) \cup (A \cap \bar{B} \cap C) \cup (\bar{A} \cap B \cap C)$                   |
+| Exactly One of A,B,& C  | $(A \cap \bar{B} \cap \bar{C}) \cup (\bar{A} \cap B \cap \bar{C}) \cup (\bar{A} \cap \bar{B} \cap C)$ |
 
 The probability formulas:
 
@@ -738,10 +747,10 @@ $$
   $$P(A) + P(B) + P(C) - 2P(A \cap B) - 2P(B \cap C) - 2P(C \cap A) + 3P(A \cap B \cap C)$$
 
 - **Exactly One Out of Two Events**
-$$P(A \cap \overline{B}) + P(\overline{A} \cap B)$$
+  $$P(A \cap \overline{B}) + P(\overline{A} \cap B)$$
 
-    - Simplified Form:
-    $$P(A) + P(B) - 2P(A \cap B) \implies P(A \cup B) - P(A \cap B)$$
+      - Simplified Form:
+      $$P(A) + P(B) - 2P(A \cap B) \implies P(A \cup B) - P(A \cap B)$$
 
 - **Conditional probability P of E given A is true**
 
@@ -785,8 +794,6 @@ Also noting the card suit groupings shown in the image:
   </div>
 </div>
 
-
-
 Probability Relations:
 $$P(X \leq x_i) = P(X = x_1) + P(X = x_2) + ... + P(X = x_i) = p_1 + p_2 + ... + p_i$$
 
@@ -816,6 +823,7 @@ $$P(X > x_i) = P(X = x_{i+1}) + P(X = x_{i+2}) + ... + P(X = x_n) = p_{i+1} + p_
 </div>
 
 $$P(x_i \leq X \leq x_j) = P(X = x_i) + P(X = x_{i+1}) + ... + P(X = x_j)$$
+
 $$P(x_i < X < x_j) = P(X = x_{i+1}) + P(X = x_{i+2}) + ... + P(X = x_{j-1})$$
 
 ### Mean Formulas(Matehmatical expectation):
@@ -835,6 +843,7 @@ $$
 $$p_i = \frac{f_i}{N}$$
 
 ### Variance Formula:
+
 <div>
 $$
 \begin{split}
@@ -858,9 +867,129 @@ $$
 
 \newline\qquad
 
-\sigma^2 = \frac{1}{N^2} \lbrack N\sum_{i=1}^n fx_i^2 - (\sum_{i=1}^n fx_i)^2 \rbrack
+\sigma^2 = \frac{1}{N^2} \lbrack N\sum*{i=1}^n fx_i^2 - (\sum*{i=1}^n fx_i)^2 \rbrack
+
 $$
 </div>
+
+---
+
+## Arithmetic Progression (AP)
+- General Form: $A, B, C$
+
+  $$2B = A + C$$
+
+### Formulas:
+- $t_n = a + (n-1)d$
+- $S_n = \frac{n}{2} \left[2a + (n-1)d \right]$
+- $S_n = \frac{n}{2} [a + a_n]$
+- $t_n = S_n - S_{n-1}$
+
+### Arithmetic Mean (AM):
+$G = \frac{a+b}{2}$
+
+---
+
+## Geometric Progression (GP)
+- General Form: $A, B, C$
+
+  $$B^2 = A \cdot C$$
+
+### Formulas:
+- $t_n = a \cdot r^{n-1}$
+- $S_n = a \frac{r^n - 1}{r - 1}, \, r \neq 1$
+- $S_\infty = \frac{a}{r-1}, \, |r| < 1$
+
+- where $r$ is common ratio
+
+### Geometric Mean (GM):
+- Single Mean Between $a$ and $b$: $G = \sqrt{ab}$
+- Multiple Means:
+  - $G_1 = ar^1$
+  - $G_2 = ar^2$
+  - $G_3 = ar^3$
+  - $r = \sqrt[n+1]{\frac{b}{a}}$
+
+---
+
+### AP, GP, HP Relation:
+$$AP \geq GP \geq HP$$
+
+---
+
+### Special Sequences:
+1. **Sum of Natural Numbers:**
+
+<div>
+$$
+1 + 2 + 3 + \dots + n = \frac{n(n+1)}{2}
+$$
+</div>
+
+2. **Sum of Squares of Natural Numbers:**
+
+<div>
+$$
+1^2 + 2^2 + 3^2 + \dots + n^2 = \frac{n(n+1)(2n+1)}{6}
+$$
+</div>
+
+3. **Sum of Cubes of Natural Numbers:**
+
+<div>
+$$
+1^3 + 2^3 + 3^3 + \dots + n^3 = \left[\frac{n(n+1)}{2}\right]^2
+$$
+</div>
+
+# Homogeneous and Non homogeneous equations solutions
+
+<div class="grid-container">
+  <div class="grid-column left-column">
+    <div class="grid-item">
+        NON-HOMOGENEOUS
+    </div>
+    <div class="grid-item">
+        $AX = B$
+    </div>
+    <div class="grid-item">
+        Unique Solution
+    </div>
+    <div class="grid-item">
+        <ol>
+          <li>$\text{adj}(A)B = 0 \implies \text{Infinite Solutions}$</li>
+          <li>$\text{adj}(A)B \neq 0 \implies \text{No Solution}$</li>
+        </ol>
+    </div>
+  </div>
+  <div class="grid-column mid-column-sm">
+    <div class="grid-item">&nbsp;</div>
+    <div class="grid-item">&nbsp;</div>
+    <div class="grid-item">When $|A| \neq 0$</div>
+    <div class="grid-item">&nbsp;</div>
+    <div class="grid-item">When $|A| = 0$</div>
+  </div>
+  <div class="grid-column right-column">
+    <div class="grid-item">
+        HOMOGENEOUS
+    </div>
+    <div class="grid-item">
+        $AX = 0$
+    </div>
+    <div class="grid-item">
+        Trivial solution $x = y = z = 0 \enspace $:
+    </div>
+    <div class="grid-item">
+        <ol>
+          <li>$\text{Infinite Solutions}$ put $z = k$ and solve</li>
+        </ol>
+    </div>
+  </div>
+</div>
+---
+
+
+
 
 ## Finding Log
 1. Given we need to find $\log$ of $\log 15.27$
