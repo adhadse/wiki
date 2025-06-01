@@ -9,3 +9,5 @@ resources
 .cache/
 .vscode/
 venv/
+generated/
+__pycache__

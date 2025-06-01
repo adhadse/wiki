@@ -57,11 +57,17 @@ extra_css:
   - assets/css/extra.css
   - assets/css/hl.css
   - assets/css/hljs.css
+  - assets/css/interactive_graph.css
 
 extra_javascript:
+  - https://fastly.jsdelivr.net/npm/jquery/dist/jquery.min.js
+  - https://fastly.jsdelivr.net/npm/echarts/dist/echarts.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/fonts/KaTeX_Math-Italic.woff2
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/fonts/KaTeX_Main-Regular.woff2
   - assets/js/katex.js
   - assets/js/highlight.js
   - assets/js/home.js
+  - assets/js/interactive_graph.js
 
 extra:
   social:
@@ -99,14 +105,17 @@ markdown_extensions:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 plugins:
-  - search
   - glightbox
+  - search
   - privacy
   - social:
       cards_layout_options:
         background_color: "#000000"
         color: "#FFFFFF"
         font_family: Poppins
+
+hooks:
+  - hooks/obsidian_graph_hooks.py
 
 nav:
   - Blog: "https://adhadse.com"
