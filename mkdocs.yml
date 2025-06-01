@@ -109,10 +109,10 @@ plugins:
   - search
   - privacy
   - social:
+      cards_layout: default/only/image
       cards_layout_options:
-        background_color: "#000000"
-        color: "#FFFFFF"
-        font_family: Poppins
+        background_image: "layouts/social_bg.png"  # currently only for insiders
+        font_family: Inter
 
 hooks:
   - hooks/obsidian_graph_hooks.py
