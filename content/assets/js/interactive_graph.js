@@ -271,6 +271,15 @@ document$.subscribe(() => {
         animationDuration: 1500,
         animationEasingUpdate: "quinticInOut",
         tooltip: {},
+        color: [
+          '#3EECAC', // A bright mint green (like Valjean)
+          '#EEA236', // An orange (like Marius)  // for leaf nodes
+          '#5470C6', // A strong blue (could be used for a new category)
+          '#9A60B4', // A purple (like Thenardier/Javert)
+          '#FC8452', // A softer orange/coral
+          '#73C0DE', // A sky blue
+          '#DA70D6', // Orchid/Magenta (similar to Gavroche's cluster)
+        ],  
         series: [
           {
             name: "Interactive Graph",
@@ -278,7 +287,7 @@ document$.subscribe(() => {
             layout: "force",
             data: graph.nodes,
             links: graph.links,
-            categories: [],
+            categories: graph.categories,
             zoom: 2,
             roam: true,
             draggable: true,

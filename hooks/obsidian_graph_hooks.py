@@ -9,13 +9,17 @@ class GraphState:
         self.nodes = {}
         self.site_path = ""
         self.current_id = 0
-        self.data = {"nodes": [], "links": []}
+        self.data = {"nodes": [], "links": [], "categories": []}
+        self.categories_map = {}
+        self.next_category_id = 0
         
     def reset(self):
         """Reset state for new builds"""
         self.nodes = {}
         self.current_id = 0
-        self.data = {"nodes": [], "links": []}
+        self.data = {"nodes": [], "links": [], "categories": []}
+        self.categories_map = {}
+        self.next_category_id = 0
     
     @property
     def id(self):
@@ -38,6 +42,13 @@ class GraphState:
             if k == page:
                 return page
         return None
+
+    def _get_or_create_category_id(self, category_name: str) -> int:
+        """Gets the ID for a category name, creating it if it doesn't exist."""
+        if category_name not in self.categories_map:
+            self.categories_map[category_name] = self.next_category_id
+            self.next_category_id += 1
+        return self.categories_map[category_name]
 
     def collect_pages(self, nav, config):
         for page in nav.pages:
@@ -65,7 +76,8 @@ class GraphState:
                 "url": "", # Site root itself
                 "symbolSize": 0, # Placeholder, will be set by depth (should be largest)
                 "markdown": "",
-                "is_index": True # Conceptually the main index/root
+                "is_index": True, # Conceptually the main index/root
+                "category": self._get_or_create_category_id(site_root_key or "Root") # Assign category
             }
             print(f"Obsidian Graph: Created site root node: '{site_root_key}'")
         
@@ -278,11 +290,19 @@ class GraphState:
             if not clean_relative_path: # This should be the site root node itself
                 depth = 0
                 new_symbol_size = max(1, 20 - depth*2) 
+                category_name = self.site_path.rstrip('/') or "Root"
             else:
                 depth = clean_relative_path.count('/') + 1
                 new_symbol_size = max(1, 10 - depth*2) 
+                if depth == 1:
+                    # For top-level directories/pages, use their title as category
+                    category_name = node_data.get("title", "Default Category")
+                else:
+                    # For deeper nodes, use a generic category
+                    category_name = "Content"
             
-            print(f"Obsidian Graph DEBUG: Node='{current_node_path}': StartsWithRootLogic='{starts_with_root_text}', PathForDepth='{path_for_depth_calc}', CleanRelPath='{clean_relative_path}', Depth={depth}, NewSize={new_symbol_size}")
+            node_data["category"] = self._get_or_create_category_id(category_name)
+            print(f"Obsidian Graph DEBUG: Node='{current_node_path}': StartsWithRootLogic='{starts_with_root_text}', PathForDepth='{path_for_depth_calc}', CleanRelPath='{clean_relative_path}', Depth={depth}, NewSize={new_symbol_size}, Category='{category_name}' (ID: {node_data['category']})")
             
             if "symbolSize" not in node_data:
                  print(f"Obsidian Graph WARNING:   Node '{current_node_path}' was missing 'symbolSize' key! Initializing before update.")
@@ -296,13 +316,19 @@ class GraphState:
     def create_graph_json(self, config):
         # Reset nodes and links for fresh generation
         self.data["nodes"] = []
+        self.data["categories"] = [] # Reset categories list
         
+        # Populate categories for ECharts
+        for name, id_val in self.categories_map.items():
+            self.data["categories"].append({"name": name}) # ECharts expects categories as list of objects with 'name'
+            
         for node_path, node_data in self.nodes.items():
             node = {
                 "id": str(node_data["id"]),
                 "name": node_data["title"],
                 "symbolSize": node_data["symbolSize"],
-                "value": node_data["url"]
+                "value": node_data["url"],
+                "category": node_data.get("category", self._get_or_create_category_id("Default")) # Ensure category exists
             }
             self.data["nodes"].append(node)
 
