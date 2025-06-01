@@ -24,9 +24,39 @@ function init_graph(params) {
 
 function draw_graph(myChart, global = true) {
   var _option = $.extend(true, {}, option);
+
+  // Configure tooltip visibility
+  if (!_option.tooltip) {
+    // Ensure tooltip object exists
+    _option.tooltip = {};
+  }
+  if (global) {
+    // Modal view
+    _option.tooltip.show = true;
+  } else {
+    // Sidebar view
+    _option.tooltip.show = false;
+  }
+
   if (!global) {
     _option.series[0].data = graph_nodes();
     _option.series[0].links = graph_links();
+  } else {
+    // This is for the modal view (global = true)
+    // Modify label formatter to show labels only for nodes with an empty value
+    if (_option.series && _option.series[0] && _option.series[0].label) {
+      _option.series[0].label.formatter = function (params) {
+        // params.data corresponds to a node from graph.nodes
+        // each node has a 'value' field (which is the URL)
+        // and a 'name' field (which is the title)
+        if (params.data && params.data.value === "") {
+          return params.name; // Show label (node name)
+        }
+        return ""; // Hide label
+      };
+      // Ensure show is true, so the formatter can decide visibility for each label
+      _option.series[0].label.show = true;
+    }
   }
   // draw the graph
   myChart.setOption(_option);
@@ -239,7 +269,8 @@ document$.subscribe(() => {
         darkMode: "auto",
         backgroundColor: $("body").css("background-color"),
         animationDuration: 1500,
-        animationEasingUpdate: 'quinticInOut',
+        animationEasingUpdate: "quinticInOut",
+        tooltip: {},
         series: [
           {
             name: "Interactive Graph",
@@ -257,11 +288,11 @@ document$.subscribe(() => {
             scaleLimit: { min: 0.5, max: 5 },
             lineStyle: { color: "source", curveness: 0 },
             emphasis: {
-              focus: 'adjacency',
+              focus: "adjacency",
               lineStyle: {
-                width: 10
-              }
-            }
+                width: 10,
+              },
+            },
           },
         ],
       };

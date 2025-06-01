@@ -46,69 +46,89 @@ class GraphState:
                 "id": self.id,
                 "title": page.title,
                 "url": page.abs_url,
-                "symbolSize": 0,
+                "symbolSize": 0,  # Initialize to 0, will be updated later by depth
                 "markdown": page.markdown,
                 "is_index": page.is_index
             }
-        # After collecting pages, establish directory structure links
-        self.create_directory_links()
+        # After collecting pages, directory structure links will be handled later
+        # self.create_directory_links()
 
-    def create_directory_links(self):
-        """Create links based on directory structure - parent directories to child nodes"""
-        print("Creating directory structure links...")
-        # First, identify all directories and create nodes for them if they don't exist
-        directories = set()
-        for page_path in list(self.nodes.keys()):
-            # Get all parent directories for this page
-            dir_path = os.path.dirname(page_path)
-            if dir_path:
-                directories.add(dir_path)
-                # Also add any parent directories
-                parent = dir_path
-                while '/' in parent:
-                    parent = os.path.dirname(parent)
-                    if parent:
-                        directories.add(parent)
+    def establish_directory_graph(self):
+        """Ensure all directory nodes exist and create hierarchical links."""
+        print("Obsidian Graph: Establishing directory graph...")
+
+        site_root_key = self.site_path.rstrip('/')
+        if site_root_key and site_root_key not in self.nodes:
+            self.nodes[site_root_key] = {
+                "id": self.id,
+                "title": os.path.basename(site_root_key) or site_root_key, # e.g., "Wiki" if site_path is "Wiki"
+                "url": "", # Site root itself
+                "symbolSize": 0, # Placeholder, will be set by depth (should be largest)
+                "markdown": "",
+                "is_index": True # Conceptually the main index/root
+            }
+            print(f"Obsidian Graph: Created site root node: '{site_root_key}'")
         
-        # Create nodes for directories if they don't exist
-        for dir_path in directories:
-            if dir_path not in self.nodes:
-                self.nodes[dir_path] = {
+        # Gather all potential directory paths from existing page nodes
+        all_page_node_paths = set(k for k, v in self.nodes.items() if k != site_root_key and v.get("markdown") is not None) # Consider only page paths for deriving dirs
+        directories_to_ensure = set()
+
+        for path_key in all_page_node_paths:
+            current_parent = os.path.dirname(path_key)
+            # Traverse up to, but not including, an empty path or the site_root_key itself
+            while current_parent and current_parent != site_root_key and current_parent != '/':
+                directories_to_ensure.add(current_parent)
+                next_parent = os.path.dirname(current_parent)
+                if next_parent == current_parent: # Reached top (e.g. dirname("/") is "/"), or dirname("foo") when CWD is root.
+                    break
+                current_parent = next_parent
+        
+        # Create nodes for these sub-directories if they don't exist
+        for dir_path_key in directories_to_ensure:
+            if dir_path_key not in self.nodes:
+                self.nodes[dir_path_key] = {
                     "id": self.id,
-                    "title": os.path.basename(dir_path) or dir_path,
-                    "url": "",
-                    "symbolSize": 1,
+                    "title": os.path.basename(dir_path_key) or dir_path_key.split('/')[-1],
+                    "url": "", 
+                    "symbolSize": 0, # Placeholder
                     "markdown": "",
                     "is_index": False
                 }
-                print(f"Created directory node: {dir_path}")
-        
-        # Create links from parent directories to their immediate children
+                print(f"Obsidian Graph: Created directory node for sub-path: '{dir_path_key}'")
+
+        # Create links from parent directories/site_root to their immediate children
         links_added = 0
-        for path in list(self.nodes.keys()):
-            dir_path = os.path.dirname(path)
-            if dir_path and dir_path in self.nodes:
-                # Create link from parent directory to child
+        current_node_keys = list(self.nodes.keys())
+        for node_key in current_node_keys:
+            if node_key == site_root_key: # The root node itself doesn't have a parent in this context
+                continue
+
+            parent_key = os.path.dirname(node_key)
+            # If os.path.dirname gives an empty string (e.g. for top-level files like "page.md" if site_root is not part of key)
+            # and a site_root_key exists, assume parent is site_root_key.
+            if not parent_key and site_root_key:
+                 parent_key = site_root_key
+            elif not parent_key and not site_root_key: # No parent and no site root (e.g. flat structure)
+                 continue
+
+            if parent_key in self.nodes: # Check if the determined parent_key actually corresponds to an existing node
                 link = {
-                    "source": str(self.nodes[dir_path]["id"]),
-                    "target": str(self.nodes[path]["id"])
+                    "source": str(self.nodes[parent_key]["id"]),
+                    "target": str(self.nodes[node_key]["id"])
                 }
                 
-                # Check if this link already exists
-                link_exists = False
-                for existing_link in self.data["links"]:
-                    if existing_link["source"] == link["source"] and existing_link["target"] == link["target"]:
-                        link_exists = True
-                        break
+                link_exists = any(
+                    el["source"] == link["source"] and el["target"] == link["target"]
+                    for el in self.data["links"]
+                )
                 
                 if not link_exists:
                     self.data["links"].append(link)
                     links_added += 1
-                    # Increase symbol sizes for both nodes
-                    self.nodes[dir_path]["symbolSize"] = self.nodes[dir_path].get("symbolSize", 1) + 1
-                    self.nodes[path]["symbolSize"] = self.nodes[path].get("symbolSize", 1) + 1
+            # else:
+                # print(f"Obsidian Graph DEBUG: For node '{node_key}', parent_key '{parent_key}' not found in self.nodes. No structural link created.")
         
-        print(f"Added {links_added} directory structure links")
+        print(f"Obsidian Graph: Added {links_added} directory structure links during graph establishment.")
 
     def parse_markdown(self, markdown: str, page):        
         # Extract wiki links from markdown
@@ -158,62 +178,120 @@ class GraphState:
             # If pages are in the same directory, link them directly
             if source_dir == target_dir:
                 print(f"Pages in same directory ({source_dir}), linking directly")
-                source_node = source_page_path
-                target_node = target_page_path
+                source_node_path = source_page_path
+                target_node_path = target_page_path
             else:
                 # Otherwise, link through parent directories
-                # Ensure parent directory nodes exist
+                # Ensure parent directory nodes exist (basic creation if not)
                 if source_dir and source_dir not in self.nodes:
                     self.nodes[source_dir] = {
                         "id": self.id,
-                        "title": os.path.basename(source_dir),
+                        "title": os.path.basename(source_dir) or source_dir.split('/')[-1] or "root_dir",
                         "url": "",
-                        "symbolSize": 1,
+                        "symbolSize": 0, # Placeholder, will be set by depth
                         "markdown": "",
-                        "is_index": False
+                        "is_index": False 
                     }
-                    print(f"Created parent directory node: {source_dir}")
+                    print(f"Created missing source directory node during parsing: {source_dir}")
                 
                 if target_dir and target_dir not in self.nodes:
                     self.nodes[target_dir] = {
                         "id": self.id,
-                        "title": os.path.basename(target_dir),
+                        "title": os.path.basename(target_dir) or target_dir.split('/')[-1] or "root_dir",
                         "url": "",
-                        "symbolSize": 1,
+                        "symbolSize": 0, # Placeholder, will be set by depth
                         "markdown": "",
                         "is_index": False
                     }
-                    print(f"Created parent directory node: {target_dir}")
+                    print(f"Created missing target directory node during parsing: {target_dir}")
                 
-                # Use directories as source and target if they exist, otherwise use pages
-                source_node = source_dir if source_dir else source_page_path
-                target_node = target_dir if target_dir else target_page_path
-                print(f"Pages in different directories, linking through parents: {source_node} -> {target_node}")
+                # Use directories as source and target if they exist and are valid, otherwise use pages
+                source_node_path = source_dir if source_dir and source_dir in self.nodes else source_page_path
+                target_node_path = target_dir if target_dir and target_dir in self.nodes else target_page_path
+                print(f"Pages in different directories, linking through resolved nodes: {source_node_path} -> {target_node_path}")
             
-            # Create the link
+            # Create the link, ensuring nodes exist
+            if source_node_path not in self.nodes:
+                print(f"WARNING: Source node {source_node_path} for wikilink does not exist. Skipping link.")
+                continue
+            if target_node_path not in self.nodes:
+                print(f"WARNING: Target node {target_node_path} for wikilink does not exist. Skipping link.")
+                continue
+
             link = {
-                "source": str(self.nodes[source_node]["id"]),
-                "target": str(self.nodes[target_node]["id"])
+                "source": str(self.nodes[source_node_path]["id"]),
+                "target": str(self.nodes[target_node_path]["id"])
             }
             
             # Check if this link already exists
-            link_exists = False
-            for existing_link in self.data["links"]:
-                if existing_link["source"] == link["source"] and existing_link["target"] == link["target"]:
-                    link_exists = True
-                    break
+            link_exists = any(
+                existing_link["source"] == link["source"] and existing_link["target"] == link["target"]
+                for existing_link in self.data["links"]
+            )
             
             if not link_exists:
                 self.data["links"].append(link)
-                print(f"Added link: {source_node} (ID: {self.nodes[source_node]['id']}) -> {target_node} (ID: {self.nodes[target_node]['id']})")
+                print(f"Added link: {source_node_path} (ID: {self.nodes[source_node_path]['id']}) -> {target_node_path} (ID: {self.nodes[target_node_path]['id']})")
                 
-                # Increase symbol sizes
-                self.nodes[source_node]["symbolSize"] = self.nodes[source_node].get("symbolSize", 1) + 1
-                self.nodes[target_node]["symbolSize"] = self.nodes[target_node].get("symbolSize", 1) + 1
+                # Symbol sizes are not incremented here; they will be set by depth later.
+                # self.nodes[source_node_path]["symbolSize"] = self.nodes[source_node_path].get("symbolSize", 1) + 1
+                # self.nodes[target_node_path]["symbolSize"] = self.nodes[target_node_path].get("symbolSize", 1) + 1
             else:
-                print(f"Link already exists: {source_node} -> {target_node}")
+                print(f"Link already exists: {source_node_path} -> {target_node_path}")
         
         print(f"Finished processing markdown for {self.get_page_path(page)}. Total links: {len(self.data['links'])}")
+
+    def update_all_symbol_sizes_by_depth(self):
+        """Calculate and update symbolSize for all nodes based on their directory depth."""
+        print("Obsidian Graph: Updating symbol sizes by depth...")
+
+        normalized_site_root = self.site_path.rstrip('/') if self.site_path else ""
+        print(f"Obsidian Graph DEBUG: effective normalized_site_root for stripping = '{normalized_site_root}' (original site_path: '{self.site_path}')")
+        
+        updated_nodes_count = 0
+        if not self.nodes:
+            print("Obsidian Graph DEBUG: No nodes to update.")
+            return
+
+        for node_path_key, node_data in self.nodes.items():
+            # Ensure node_path_key is a string, though it always should be.
+            current_node_path = str(node_path_key) 
+            
+            path_for_depth_calc = current_node_path
+            
+            # If normalized_site_root is present AND the current_node_path starts with it,
+            # then strip it to get a path relative to that root.
+            # Otherwise, use current_node_path as is (assuming it's already relative to the true content root).
+            if normalized_site_root and current_node_path.startswith(normalized_site_root):
+                path_for_depth_calc = current_node_path[len(normalized_site_root):]
+                starts_with_root_text = f"True (stripped prefix '{normalized_site_root}')"
+            else:
+                # This case handles paths like "cs/page" when normalized_site_root is "Wiki",
+                # or when normalized_site_root is empty.
+                starts_with_root_text = f"False (node_path '{current_node_path}' vs root '{normalized_site_root}')"
+
+            clean_relative_path = path_for_depth_calc.lstrip('/')
+            
+            # Revised depth calculation:
+            # The root node (where clean_relative_path is "") is depth 0.
+            # Other nodes have depth based on segment count of their relative path.
+            if not clean_relative_path: # This should be the site root node itself
+                depth = 0
+                new_symbol_size = max(1, 20 - depth*2) 
+            else:
+                depth = clean_relative_path.count('/') + 1
+                new_symbol_size = max(1, 10 - depth*2) 
+            
+            print(f"Obsidian Graph DEBUG: Node='{current_node_path}': StartsWithRootLogic='{starts_with_root_text}', PathForDepth='{path_for_depth_calc}', CleanRelPath='{clean_relative_path}', Depth={depth}, NewSize={new_symbol_size}")
+            
+            if "symbolSize" not in node_data:
+                 print(f"Obsidian Graph WARNING:   Node '{current_node_path}' was missing 'symbolSize' key! Initializing before update.")
+            
+            # original_size = node_data.get("symbolSize", "MISSING") # Keep this commented unless deep debugging values
+            node_data["symbolSize"] = new_symbol_size
+            updated_nodes_count +=1
+        
+        print(f"Obsidian Graph: Symbol sizes updated for {updated_nodes_count} nodes. Total nodes in self.nodes: {len(self.nodes)}.")
 
     def create_graph_json(self, config):
         # Reset nodes and links for fresh generation
@@ -246,14 +324,14 @@ def on_startup(command, dirty, **kwargs):
 def on_config(config, **kwargs):
     """Configure the graph state"""
     print("Obsidian Graph: Configuring...")
-    graph_state.site_path = config['site_name'] + "/"
+    graph_state.site_path = config['site_name'] # Store site_name without trailing slash
     return config
 
 def on_pre_build(config, **kwargs):
     """Reset state before each build"""
     print("Obsidian Graph: Pre-build reset...")
     graph_state.reset()
-    graph_state.site_path = config['site_name'] + "/"
+    graph_state.site_path = config['site_name'] # Store site_name without trailing slash
 
 def on_nav(nav, config, files, **kwargs):
     """Collect all pages from navigation"""
@@ -268,6 +346,10 @@ def on_page_markdown(markdown, page, config, files, **kwargs):
 
 def on_env(env, config, files, **kwargs):
     """Create the graph JSON file"""
+    print("Obsidian Graph: Establishing directory graph and updating symbol sizes...")
+    graph_state.establish_directory_graph() # Ensure directory structure is fully processed
+    graph_state.update_all_symbol_sizes_by_depth() # Calculate all symbol sizes by depth
+    
     print("Obsidian Graph: Creating graph JSON...")
     graph_state.create_graph_json(config)
     return env
