@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
 .md-ellipsis {
-    font-family: "Poppins", "Inter", --apple-system, sans-serif;
+    font-family: "Inter", --apple-system, sans-serif;
     font-weight: 400;
 }
 
