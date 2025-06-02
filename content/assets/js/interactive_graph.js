@@ -282,7 +282,7 @@ document$.subscribe(() => {
         ],  
         series: [
           {
-            name: "Interactive Graph",
+            name: "",
             type: "graph",
             layout: "force",
             data: graph.nodes,
