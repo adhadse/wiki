@@ -1,0 +1,5688 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Discover all about my note space.">
+      
+      
+      
+        <link rel="canonical" href="https://wiki.adhadse.com/ml/mle-for-production/ml-modeling-pipeline/week4/">
+      
+      
+        <link rel="prev" href="../week3/">
+      
+      
+        <link rel="next" href="../../deploying-ml-models/week1/">
+      
+      
+      <link rel="icon" href="../../../../assets/logo-wiki.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Week 4 — Model Performance Analysis - Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M13%2013h-2V7h2m0%2010h-2v-2h2M12%202A10%2010%200%200%200%202%2012a10%2010%200%200%200%2010%2010%2010%2010%200%200%200%2010-10A10%2010%200%200%200%2012%202%22/%3E%3C/svg%3E');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%202C6.5%202%202%206.5%202%2012s4.5%2010%2010%2010%2010-4.5%2010-10S17.5%202%2012%202m-2%2015-5-5%201.41-1.41L10%2014.17l7.59-7.59L19%208z%22/%3E%3C/svg%3E');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M13%2014h-2V9h2m0%209h-2v-2h2M1%2021h22L12%202z%22/%3E%3C/svg%3E');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M13%2013h-2V7h2m-2%208h2v2h-2m4.73-14H8.27L3%208.27v7.46L8.27%2021h7.46L21%2015.73V8.27z%22/%3E%3C/svg%3E');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M13%2013h-2V7h2m0%2010h-2v-2h2M12%202A10%2010%200%200%200%202%2012a10%2010%200%200%200%2010%2010%2010%2010%200%200%200%2010-10A10%2010%200%200%200%2012%202%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+<!--katex scripts-->
+<link rel="stylesheet" href="../../../../assets/external/cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<script src="../../../../assets/external/cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" integrity="sha512-LQNxIMR5rXv7o+b1l8+N1EZMfhG7iFZ9HhnbJkTp4zjNr5Wvst75AqUeFDxeRUa7l5vEDyUiAip//r+EFLLCyA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="../../../../assets/external/cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js" integrity="sha512-iWiuBS5nt6r60fCz26Nd0Zqe0nbk1ZTIQbl3Kv7kYsX+yKMUFHzjaH2+AnM6vp2Xs+gNmaBAVWJjSmuPw76Efg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+      
+    
+<!-- Add scripts that need to run afterwards here -->
+
+<!-- Highligh.js -->
+<!-- <script src="../../../../assets/external/cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" integrity="sha512-bgHRAiTjGrzHzLyKOnpFvaEpGzJet3z4tZnXGjpsCcqOnAH6VGUx9frc5bcIhKTVLEiCO6vEhNAgx5jtLUYrfA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+<!-- <link rel="stylesheet" href="../../../../assets/external/cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/darkula.css" integrity="sha256-Mnoy1/a+4vhQ8P0UqXtjDrRWwJs5gMrolbe2VBmKmiM=" crossorigin="anonymous"> -->
+
+<script src="../../../../assets/external/cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" defer></script>
+<script src="../../../../assets/external/cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.waves.min.js" defer></script>
+
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../../../../assets/external/fonts.googleapis.com/css.56f7ac64.css">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/css/extra.css">
+    
+      <link rel="stylesheet" href="../../../../assets/css/hl.css">
+    
+      <link rel="stylesheet" href="../../../../assets/css/hljs.css">
+    
+      <link rel="stylesheet" href="../../../../assets/css/interactive_graph.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-PEQP6Y2BMV"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-PEQP6Y2BMV",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-PEQP6Y2BMV",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Week 4 — Model Performance Analysis - Wiki" >
+      
+        <meta  property="og:description"  content="Discover all about my note space." >
+      
+        <meta  property="og:image"  content="https://wiki.adhadse.com/assets/images/social/ml/mle-for-production/ml-modeling-pipeline/week4.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://wiki.adhadse.com/ml/mle-for-production/ml-modeling-pipeline/week4/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Week 4 — Model Performance Analysis - Wiki" >
+      
+        <meta  name="twitter:description"  content="Discover all about my note space." >
+      
+        <meta  name="twitter:image"  content="https://wiki.adhadse.com/assets/images/social/ml/mle-for-production/ml-modeling-pipeline/week4.png" >
+      
+    
+    
+   <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#week-4-model-performance-analysis" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Wiki" class="md-header__button md-logo" aria-label="Wiki" data-md-component="logo">
+      
+  <img src="../../../../assets/adhadse.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Week 4 — Model Performance Analysis
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://adhadse.com" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../intro-dl/neural-networks/week1/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  ML
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../cs/rust/tutorial/getting-started/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  CS
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../etc/regular-expressions/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  etc
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Wiki" class="md-nav__button md-logo" aria-label="Wiki" data-md-component="logo">
+      
+  <img src="../../../../assets/adhadse.png" alt="logo">
+
+    </a>
+    Wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://adhadse.com" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Blog
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    ML
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            ML
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Introduction To Deep Learning
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Introduction To Deep Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Neural Networks
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Neural Networks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro-dl/neural-networks/week1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 1 — Neural Networks and Deep Learning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro-dl/neural-networks/week2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 2 — Basics of Neural Network programming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro-dl/neural-networks/week3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 3 — One hidden layer Neural Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro-dl/neural-networks/week4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 4 — L Layers Deep Neural Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Machine Learning Engineering for Production
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Machine Learning Engineering for Production
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Introduction to Machine Learning Engineering for production
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Introduction to Machine Learning Engineering for production
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro-to-mle-for-production/week1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 1 — The ML project lifecycle
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro-to-mle-for-production/week2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 2 — Key challenges in Modelling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro-to-mle-for-production/week3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 3 — Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ML Data Lifecycle
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            ML Data Lifecycle
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ml-data-lifecycle/week1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 1 — Collecting, labeling, and validating data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ml-data-lifecycle/week2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 2 — Feature Engineering
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ml-data-lifecycle/week3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 3 — Data Journey
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ML Modeling Pipeline
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            ML Modeling Pipeline
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 1 — Hyperparameter tuning: searching for the best architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 2 — Dimensionality Reduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 3 — High Performance Modeling"
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Week 4 — Model Performance Analysis
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 4 — Model Performance Analysis
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#model-performance-anlysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model Performance Anlysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Model Performance Anlysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#whats-next-after-model-trainingdeployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's next after model training/deployment?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#black-box-evaluation-vs-model-introspection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Black box evaluation vs model introspection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-metrics-vs-optimization-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance metrics vs optimization objectives
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#top-level-aggregate-metrics-vs-slicing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Top level aggregate metrics vs slicing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tensorboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      TensorBoard
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-model-analysis-and-debugging-introduction-to-tensorflow-model-analysis-tfma" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Model Analysis and Debugging — Introduction to TensorFlow model Analysis (TFMA)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Model Analysis and Debugging — Introduction to TensorFlow model Analysis (TFMA)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-should-you-slice-your-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why should you slice your data?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tensorflow-model-analysis-tfma" class="md-nav__link">
+    <span class="md-ellipsis">
+      TensorFlow Model Analysis (TFMA)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#one-model-vs-multiple-models-over-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      One model vs multiple models over time
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aggregate-vs-sliced-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aggregate vs sliced metrics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#streaming-vs-full-pass-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Streaming vs full-pass metrics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tfma-in-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      TFMA in Practice
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="TFMA in Practice">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-export-evalsavedmodel-for-tfma" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Export EvalSavedModel for TFMA
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-evalconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Create EvalConfig
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-analyze-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Analyze model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-visualizing-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Visualizing metrics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tensorflow-model-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      TensorFlow Model Analysis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-debugging-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model Debugging Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Model Debugging Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model-robustness" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model robustness
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robustness-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Robustness metrics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model Debugging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-debugging-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model Debugging Techniques
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#benchmark-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benchmark Models
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sensitivity-analysis-and-adversarial-attacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sensitivity Analysis and Adversarial Attacks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sensitivity Analysis and Adversarial Attacks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-random-attacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Random Attacks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-partial-dependence-plots" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Partial dependence plots
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-vulnerable-to-attacks-is-your-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      How vulnerable to attacks is your model?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#informational-and-behavioral-harms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Informational and Behavioral Harms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#informational-harms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Informational Harms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#behavioral-harms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Behavioral Harms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#measuring-your-vulnerability-to-attack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Measuring your vulnerability to attack
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adversarial-example-searches" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adversarial example searches
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#residual-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Residual Analysis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-remediation-how-to-improve-robustness" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model Remediation — How to improve robustness?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Model Remediation — How to improve robustness?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reducing-or-eliminating-model-biaas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reducing or eliminating Model Biaas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remediation-in-production" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remediation in production
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fairness" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fairness
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fairness">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-does-fairness-indicators-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      What does fairness indicators do?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evaluate-at-individual-slices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Evaluate at individual slices
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aspects-to-consider" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aspects to consider
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      General guidelines
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#measuring-fairness" class="md-nav__link">
+    <span class="md-ellipsis">
+      Measuring Fairness
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Measuring Fairness">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#positive-rate-negative-rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Positive rate / Negative rate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#true-positive-rate-tpr-false-negative-rate-fnr" class="md-nav__link">
+    <span class="md-ellipsis">
+      True positive rate (TPR) / False negative rate (FNR)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#false-positive-rate-fpr-true-negative-rate-tnr" class="md-nav__link">
+    <span class="md-ellipsis">
+      False Positive rate (FPR) / True negative rate (TNR)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accuracy-area-under-the-curve-auc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accuracy &amp; Area under the curve (AUC)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#some-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Some Tips
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-remediation-and-fairness" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model Remediation and Fairness
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#continuous-evaluation-and-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Continuous Evaluation and Monitoring
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Continuous Evaluation and Monitoring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-do-models-need-to-be-monitored" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why do models need to be monitored?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-drift-and-shift" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data drift and shift
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statistical-process-control-supervised" class="md-nav__link">
+    <span class="md-ellipsis">
+      Statistical process control — supervised
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sequential-analysis-supervised" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sequential analysis — supervised
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-distribution-monitoring-unsupervised" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error distribution monitoring — unsupervised
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clusteringnovelty-detection-unsupervised" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clustering/novelty detection — unsupervised
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feature-distribution-monitoring-unsupervised" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feature distribution monitoring — unsupervised
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-dependent-monitoring-unsupervised" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model-dependent monitoring — unsupervised
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-cloud-ai-continuous-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Google Cloud AI Continuous Evaluation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-often-should-you-retrain" class="md-nav__link">
+    <span class="md-ellipsis">
+      How often should you retrain?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#continuous-evaluation-and-monitoring_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Continuous Evaluation and Monitoring
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_4" id="__nav_2_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Deloying ML models
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Deloying ML models
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploying-ml-models/week1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 1 — Intro to Model Serving and Infrastructure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploying-ml-models/week2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 2 — Model Serving Architecture, Scaling Infrastructure and More.
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploying-ml-models/week3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 3 — ML Experiment Management and Workflow Automation &amp; MLOps Methodology
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploying-ml-models/week4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 4 — Model monitoring, Logging &amp; model decay, GDPR, and Privacy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    CS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            CS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Rust
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Rust
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_1" id="__nav_3_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorial
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorial
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started with Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/guessing-game/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Guessing game
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/common-programming-concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Common Programming Concepts in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/ownership/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ownership in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/structs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Structs in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/enums-and-pattern-matching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Enums and Pattern Matching in Rust"
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/module-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rust's Module System
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/common-collections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Common Collections in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/error-handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Error Handling in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/generic-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Generic Types in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/traits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Traits in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/lifetimes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rust Lifetimes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_1_13" id="__nav_3_1_1_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Testing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_1_13">
+            <span class="md-nav__icon md-icon"></span>
+            Testing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/testing/testing-in-rust/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Testing in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/testing/testing-in-rust-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Testing in Rust - Part 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_1_14" id="__nav_3_1_1_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    CLI App
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_1_14">
+            <span class="md-nav__icon md-icon"></span>
+            CLI App
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/cli-app/cli-app-in-rust/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CLI App in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/cli-app/cli-app-in-rust-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CLI App in Rust - Part 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_1_15" id="__nav_3_1_1_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Functional
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_1_15">
+            <span class="md-nav__icon md-icon"></span>
+            Functional
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/functional/closures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Closures in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/functional/iterators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Iterators in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1_16" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_1_16" id="__nav_3_1_1_16_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Cargo
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_1_16">
+            <span class="md-nav__icon md-icon"></span>
+            Cargo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/cargo/cargo-workspaces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cargo Workspaces
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/cargo/publishing-crate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Publishing a Rust Crate
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1_17" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_1_17" id="__nav_3_1_1_17_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Smart Pointers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_1_17">
+            <span class="md-nav__icon md-icon"></span>
+            Smart Pointers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/smart-pointers/deref-trait/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Smart Pointers in Rust - The Deref Trait
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/smart-pointers/drop-trait/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Smart Pointers in Rust - The Drop Trait
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/smart-pointers/reference-counting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Smart Pointers in Rust - Reference Counting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/smart-pointers/interior-mutability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Smart Pointers in Rust - Interior Mutability
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/smart-pointers/reference-cycles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Smart Pointers in Rust - References Cycles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/smart-pointers/box-smart-pointer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Box Smart Pointer in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_1_18" id="__nav_3_1_1_18_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Concurrency
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_1_18">
+            <span class="md-nav__icon md-icon"></span>
+            Concurrency
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/concurrency/creating-threads/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Concurrency in Rust - Creating Threads
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/concurrency/message-passing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Concurrency in Rust - Message Passing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/concurrency/sharing-state/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Concurrency in Rust - Sharing State
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1_19" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_1_19" id="__nav_3_1_1_19_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    OOPS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_19_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_1_19">
+            <span class="md-nav__icon md-icon"></span>
+            OOPS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/oops/object-oriented-programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Object Oriented Programming in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/oops/trait-objects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using Trait Objects in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/oops/state-design-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    State Design Pattern in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1_20" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_1_20" id="__nav_3_1_1_20_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Patterns
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_20_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_1_20">
+            <span class="md-nav__icon md-icon"></span>
+            Patterns
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/patterns/patterns-and-matching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Patterns and Matching in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/patterns/pattern-syntax/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pattern Syntax in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1_21" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_1_21" id="__nav_3_1_1_21_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Advanced Rust
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_21_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_1_21">
+            <span class="md-nav__icon md-icon"></span>
+            Advanced Rust
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/advanced/unsafe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Writing Unsafe Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/advanced/advanced-traits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Advanced Traits Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/advanced/advanced-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Advanced Types in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/advanced/advanced-functions-and-closures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Advanced Functions and Closures in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/advanced/macros/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Macros in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_2" id="__nav_3_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Advanced Rust Concepts
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            Advanced Rust Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/advanced/rust_str_types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    All Rust String Types explained
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Curriculum
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Curriculum
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_1" id="__nav_3_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    SQL
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            SQL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/curriculum/sql/common-queries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Common SQL queries
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Networking
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Networking
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/curriculum/networking/ipv6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IPv6
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    DevOps
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            DevOps
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_1" id="__nav_3_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Terraform
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Terraform
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/devops/terraform/terraform-freecodecamp-course/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Terraform
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    etc
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            etc
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../etc/regular-expressions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Regex
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Mathematics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Mathematics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../etc/mathematics/maths-formula/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Maths Formula Compendium
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2" id="__nav_4_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Discrete Mathematics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Discrete Mathematics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../etc/mathematics/discrete-mathematics/propositional-logic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Propositional Logic
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#model-performance-anlysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model Performance Anlysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Model Performance Anlysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#whats-next-after-model-trainingdeployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's next after model training/deployment?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#black-box-evaluation-vs-model-introspection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Black box evaluation vs model introspection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-metrics-vs-optimization-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance metrics vs optimization objectives
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#top-level-aggregate-metrics-vs-slicing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Top level aggregate metrics vs slicing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tensorboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      TensorBoard
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-model-analysis-and-debugging-introduction-to-tensorflow-model-analysis-tfma" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Model Analysis and Debugging — Introduction to TensorFlow model Analysis (TFMA)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Model Analysis and Debugging — Introduction to TensorFlow model Analysis (TFMA)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-should-you-slice-your-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why should you slice your data?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tensorflow-model-analysis-tfma" class="md-nav__link">
+    <span class="md-ellipsis">
+      TensorFlow Model Analysis (TFMA)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#one-model-vs-multiple-models-over-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      One model vs multiple models over time
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aggregate-vs-sliced-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aggregate vs sliced metrics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#streaming-vs-full-pass-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Streaming vs full-pass metrics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tfma-in-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      TFMA in Practice
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="TFMA in Practice">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-export-evalsavedmodel-for-tfma" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Export EvalSavedModel for TFMA
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-evalconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Create EvalConfig
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-analyze-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Analyze model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-visualizing-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Visualizing metrics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tensorflow-model-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      TensorFlow Model Analysis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-debugging-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model Debugging Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Model Debugging Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model-robustness" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model robustness
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robustness-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Robustness metrics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model Debugging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-debugging-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model Debugging Techniques
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#benchmark-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benchmark Models
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sensitivity-analysis-and-adversarial-attacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sensitivity Analysis and Adversarial Attacks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sensitivity Analysis and Adversarial Attacks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-random-attacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Random Attacks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-partial-dependence-plots" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Partial dependence plots
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-vulnerable-to-attacks-is-your-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      How vulnerable to attacks is your model?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#informational-and-behavioral-harms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Informational and Behavioral Harms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#informational-harms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Informational Harms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#behavioral-harms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Behavioral Harms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#measuring-your-vulnerability-to-attack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Measuring your vulnerability to attack
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adversarial-example-searches" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adversarial example searches
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#residual-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Residual Analysis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-remediation-how-to-improve-robustness" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model Remediation — How to improve robustness?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Model Remediation — How to improve robustness?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reducing-or-eliminating-model-biaas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reducing or eliminating Model Biaas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remediation-in-production" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remediation in production
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fairness" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fairness
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fairness">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-does-fairness-indicators-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      What does fairness indicators do?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evaluate-at-individual-slices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Evaluate at individual slices
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aspects-to-consider" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aspects to consider
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      General guidelines
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#measuring-fairness" class="md-nav__link">
+    <span class="md-ellipsis">
+      Measuring Fairness
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Measuring Fairness">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#positive-rate-negative-rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Positive rate / Negative rate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#true-positive-rate-tpr-false-negative-rate-fnr" class="md-nav__link">
+    <span class="md-ellipsis">
+      True positive rate (TPR) / False negative rate (FNR)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#false-positive-rate-fpr-true-negative-rate-tnr" class="md-nav__link">
+    <span class="md-ellipsis">
+      False Positive rate (FPR) / True negative rate (TNR)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accuracy-area-under-the-curve-auc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accuracy &amp; Area under the curve (AUC)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#some-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Some Tips
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-remediation-and-fairness" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model Remediation and Fairness
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#continuous-evaluation-and-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Continuous Evaluation and Monitoring
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Continuous Evaluation and Monitoring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-do-models-need-to-be-monitored" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why do models need to be monitored?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-drift-and-shift" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data drift and shift
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statistical-process-control-supervised" class="md-nav__link">
+    <span class="md-ellipsis">
+      Statistical process control — supervised
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sequential-analysis-supervised" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sequential analysis — supervised
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-distribution-monitoring-unsupervised" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error distribution monitoring — unsupervised
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clusteringnovelty-detection-unsupervised" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clustering/novelty detection — unsupervised
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feature-distribution-monitoring-unsupervised" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feature distribution monitoring — unsupervised
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-dependent-monitoring-unsupervised" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model-dependent monitoring — unsupervised
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-cloud-ai-continuous-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Google Cloud AI Continuous Evaluation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-often-should-you-retrain" class="md-nav__link">
+    <span class="md-ellipsis">
+      How often should you retrain?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#continuous-evaluation-and-monitoring_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Continuous Evaluation and Monitoring
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="week-4-model-performance-analysis">Week 4 — Model Performance Analysis</h1>
+<blockquote>
+<p>TF Model Analysis, model debugging, benchmarking, fairness, residual analysis, continuous evaluation and Monitoring"</p>
+</blockquote>
+<h2 id="model-performance-anlysis">Model Performance Anlysis</h2>
+<h3 id="whats-next-after-model-trainingdeployment">What's next after model training/deployment?</h3>
+<ul>
+<li>Is model performaing well?</li>
+<li>Is there scope for improvement?</li>
+<li>Can the data change in future?</li>
+<li>Has the data changed since you created your training dataset?</li>
+</ul>
+<h3 id="black-box-evaluation-vs-model-introspection">Black box evaluation vs model introspection</h3>
+<p><strong>Black box evaluation</strong></p>
+<ul>
+<li>Don't consider the internal structure of the model</li>
+<li>Models can be tested for metrics like accuracy and losses like test error without knowing internal details.</li>
+<li>For finer evaluation, models can be inspected part by part.</li>
+<li>TensorBoard is a tool for black-box evaluation.</li>
+</ul>
+<p><strong>Model introspection</strong></p>
+<ul>
+<li>On left side, the maximally activated patches of various filters in Convolutional layer of the model are shown. Using these patterns we can inspect that at which layer the model is learning a particular structure of your data.</li>
+<li>
+<p>On the right, an example of a class activation map is shown.</p>
+<p>You might be interested in knowing which parts of the image are primarily responsible for making the desired prediction for a particular class.</p>
+</li>
+</ul>
+<h3 id="performance-metrics-vs-optimization-objectives">Performance metrics vs optimization objectives</h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/assets/images/ml/mle_for_production/ml_modeling_pipeline_in_production/performance_metrics_vs_optimization_objectives.png" /></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/assets/images/ml/mle_for_production/ml_modeling_pipeline_in_production/optimization_algorithm_animation.gif" /></a>tion="Source: https://cs231n.github.io/neural-networks-3/"&gt;}}</p>
+<p>The above gif shows different optimization function finding to optima value for loss function, on loss surface.</p>
+<h3 id="top-level-aggregate-metrics-vs-slicing">Top level aggregate metrics vs slicing</h3>
+<ul>
+<li>Most of the time, metrics are calculated on the entire dataset</li>
+<li><mark class="y">Slicing deals with understanding how the model is performing on each subset of data.</mark></li>
+</ul>
+<details>
+<summary>TensorBoard</summary>
+<h2 id="tensorboard">TensorBoard</h2>
+<p>If you wish to dive more deeply into TensorBoard usage for model analysis feel free to check out this optional reference. You won’t have to read these to complete this week’s practice quizzes.</p>
+<p><a href="https://blog.tensorflow.org/2019/12/introducing-tensorboarddev-new-way-to.html">TensorBoard</a></p>
+</details>
+<h2 id="advanced-model-analysis-and-debugging-introduction-to-tensorflow-model-analysis-tfma">Advanced Model Analysis and Debugging — Introduction to TensorFlow model Analysis (TFMA)</h2>
+<h3 id="why-should-you-slice-your-data">Why should you slice your data?</h3>
+<p>Your top-level metrics may hide problems</p>
+<ul>
+<li>Your model may not perform well for particular [customers | products | stores | days of the week | etc.]</li>
+</ul>
+<p>Each prediction request is an individual event, maybe an individual customer</p>
+<ul>
+<li>For example, customers may have a bad experience</li>
+<li>For example, some stores may perform badly</li>
+</ul>
+<h3 id="tensorflow-model-analysis-tfma">TensorFlow Model Analysis (TFMA)</h3>
+<p>TFMA is a open source, scalable, and a versatile tool for doing deep analysis of your model's performance.</p>
+<ul>
+<li>Ensure models meet required quality thresholds</li>
+<li>Used to compute and visualize evaluation metrics</li>
+<li>Inspect model's performance against different slices of data</li>
+</ul>
+<h3 id="architecture">Architecture</h3>
+<ul>
+<li>The first stage <strong>Read inputs</strong> is made up of transform that takes raw input and converts into a dictionary format , <code>tfma.Extracts</code> to be understandable by next stage 'Extraction'. Across all stages the output is kept in this dictionary format.</li>
+<li>The next stage <strong>Extraction</strong> performs distributed processing using Apache Beam. Input extractor and slice key extractor forms slices of the original dataset, which will then be utilized by predict extractor to run predictions on each slice.</li>
+<li>The next stage <strong>Evaluation</strong> also performs distributed processing using Apache Beam. We can even create custom evaluator.</li>
+<li>The final stage <strong>Write Results</strong> writes the result to disk.</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/assets/images/ml/mle_for_production/ml_modeling_pipeline_in_production/tfma_architecture.png" /></a></p>
+<h3 id="one-model-vs-multiple-models-over-time">One model vs multiple models over time</h3>
+<p>TensorBoard visualizes streaming metrics of multiple models over global training set.</p>
+<p>TFMA visualizes the metrics computes across different saved model versions</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/assets/images/ml/mle_for_production/ml_modeling_pipeline_in_production/one_model_vs_multiple_models_over_time.png" /></a></p>
+<h3 id="aggregate-vs-sliced-metrics">Aggregate vs sliced metrics</h3>
+<p>Determining which slices are important to analyze requires domain knowledge about the data and application.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/assets/images/ml/mle_for_production/ml_modeling_pipeline_in_production/aggregate_vs_sliced_metrics.png" /></a></p>
+<h3 id="streaming-vs-full-pass-metrics">Streaming vs full-pass metrics</h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/assets/images/ml/mle_for_production/ml_modeling_pipeline_in_production/streamimg_vs_full_pass_metrics.png" /></a></p>
+<h2 id="tfma-in-practice">TFMA in Practice</h2>
+<ul>
+<li>Analyze impact of different slices of data over various metrics</li>
+<li>How to track metrics over time?</li>
+<li>When you use TFMA in a TFX pipeline, the evaluator component already contains many of the steps described here.</li>
+</ul>
+<h3 id="step-1-export-evalsavedmodel-for-tfma">Step 1: Export EvalSavedModel for TFMA</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span> <span class="nn">tensorflow_transform</span> <span class="k">as</span> <span class="nn">tft</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">import</span> <span class="nn">tensorflow_model_analysis</span> <span class="k">as</span> <span class="nn">tfma</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">def</span> <span class="nf">get_serve_tf_examples_fn</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">tf_transform_output</span><span class="p">):</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="c1"># Return a function that parses a serialized tf.Example and applies TFT</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">tf_transform_output</span> <span class="o">=</span> <span class="n">tft</span><span class="o">.</span><span class="n">TFTransformOutput</span><span class="p">(</span><span class="n">transform_output_dir</span><span class="p">)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">signatures</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="s1">&#39;serving_default&#39;</span><span class="p">:</span> <span class="n">get_serve_tf_examples_fn</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">tf_transform_output</span><span class="p">)</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>                                                                                            <span class="o">.</span><span class="n">get_concreate_function</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">TensroSpec</span><span class="p">(</span><span class="o">...</span><span class="p">)),</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="p">}</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">serving_model_dir_path</span><span class="p">,</span> <span class="n">sava_format</span><span class="o">=</span><span class="s1">&#39;tf&#39;</span><span class="p">,</span> <span class="n">signatures</span><span class="o">=</span><span class="n">signatures</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="step-2-create-evalconfig">Step 2: Create EvalConfig</h3>
+<p>Create eval_config object that encapsulates the requirements for TFMA.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Specify slicing spec</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">slice_spec</span> <span class="o">=</span> <span class="p">[</span><span class="n">slicer</span><span class="o">.</span><span class="n">SingleSliceSpec</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;column_name&#39;</span><span class="p">]),</span> <span class="o">...</span><span class="p">]</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Define metrics</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">metrics</span> <span class="o">=</span> <span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">Accuracy</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;accuracy&#39;</span><span class="p">),</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>                     <span class="n">tfma</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">MeanPrediction</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;mean_prediction&#39;</span><span class="p">),</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>           <span class="o">...</span><span class="p">]</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">metrics_specs</span> <span class="o">=</span> <span class="n">tfma</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">specs_from_metrics</span><span class="p">(</span><span class="n">metrics</span><span class="p">)</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="n">eval_config</span> <span class="o">=</span> <span class="n">tfma</span><span class="o">.</span><span class="n">EvalConfig</span><span class="p">(</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>                                     <span class="n">model_specs</span><span class="o">=</span><span class="p">[</span><span class="n">tfma</span><span class="o">.</span><span class="n">ModelSpec</span><span class="p">(</span><span class="n">label_key</span><span class="o">=</span><span class="n">features</span><span class="o">.</span><span class="n">LABEL_KEY</span><span class="p">)],</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>                                     <span class="n">slicing_specs</span><span class="o">=</span><span class="n">slice_spec</span><span class="p">,</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>                                     <span class="n">metrics_specs</span><span class="o">=</span><span class="n">metrics_specs</span><span class="p">,</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>                   <span class="o">...</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="step-3-analyze-model">Step 3: Analyze model</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Specify the path to the eval graph and to where the result should be written</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">eval_model_dir</span> <span class="o">=</span> <span class="o">...</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">result_path</span> <span class="o">=</span> <span class="o">...</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">eval_shared_model</span> <span class="o">=</span> <span class="n">tfma</span><span class="o">.</span><span class="n">default_eval_shared_model</span><span class="p">(</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>                                                        <span class="n">eval_saved_model_path</span><span class="o">=</span><span class="n">eval_model_dir</span><span class="p">,</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>                                                        <span class="n">eval_config</span><span class="o">=</span><span class="n">eval_config</span><span class="p">)</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1"># RUN TensorFlow Model Analysis</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="n">eval_result</span> <span class="o">=</span> <span class="n">tfma</span><span class="o">.</span><span class="n">run_model_analysis</span><span class="p">(</span><span class="n">eval_shared_model</span><span class="o">=</span><span class="n">eval_shared_model</span><span class="p">,</span>
+</span></code></pre></div>
+<h3 id="step-4-visualizing-metrics">Step 4: Visualizing metrics</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># rendder results</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">tfma</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">render_slicing_metrics</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span></code></pre></div>
+<details>
+<summary>TensorFlow Model Analysis</summary>
+<h2 id="tensorflow-model-analysis">TensorFlow Model Analysis</h2>
+<p>If you wish to dive more deeply into TensorFlow Model Analysis (TFMA) capabilities, feel free to check out these resources. You won’t have to read these to complete this week’s practice quizzes.</p>
+<ul>
+<li><a href="https://blog.tensorflow.org/2018/03/introducing-tensorflow-model-analysis.html">TFMA</a></li>
+<li><a href="https://www.tensorflow.org/tfx/model_analysis/architecture">TFMA architecture</a></li>
+</ul>
+</details>
+<h2 id="model-debugging-overview">Model Debugging Overview</h2>
+<h3 id="model-robustness">Model robustness</h3>
+<ul>
+<li>Robustness is much more than generalization</li>
+<li>Is the model accurate even for slightly corrupted input data?</li>
+</ul>
+<h3 id="robustness-metrics">Robustness metrics</h3>
+<ul>
+<li><mark class="y">Robustness measurement shouldn't take place during training and not using training data</mark></li>
+<li>Split data into train/val/test sets</li>
+<li>Specific metrics for regression and classification problems</li>
+</ul>
+<h3 id="model-debugging">Model Debugging</h3>
+<ul>
+<li>Deals with detecting and dealing with problems in ML systems</li>
+<li>Applies mainstream software engineering practices to ML models</li>
+</ul>
+<p><strong>Objectives</strong>:</p>
+<ul>
+<li>
+<p>Opaqueness</p>
+<p>Model debugging tries to improve the transparency of models by highlighting how data is flowing inside.</p>
+</li>
+<li>
+<p>Social discrimination</p>
+<p>Model shouldn't work poorly for certain groups of people.</p>
+</li>
+<li>
+<p>Security vulnerabilities</p>
+<p>Model debugging also aims to reduce the vulnerability of your model to attacks.</p>
+</li>
+<li>
+<p>Privacy harms</p>
+<p>The data should be anonamized before training</p>
+</li>
+<li>
+<p>Model decay</p>
+<p>Model performance decays with time as the distribution of incoming data changes.</p>
+</li>
+</ul>
+<h3 id="model-debugging-techniques">Model Debugging Techniques</h3>
+<ol>
+<li><mark class="v">Benchmark models</mark></li>
+<li><mark class="v">Sensitivity analysis</mark></li>
+<li><mark class="v">Residual analysis</mark></li>
+</ol>
+<h2 id="benchmark-models">Benchmark Models</h2>
+<p><mark class="y">Benchmarking model are simple but consistence performance giving models that are used before you start development for baselining your problem.</mark></p>
+<p>Compare your model against these models to see if its performing better than the simpler benchmarking model as a sanity test.</p>
+<p>Once the model passes the benchmark test, the benchmark model become a solid debugging tool and a starting point of ML development.</p>
+<h2 id="sensitivity-analysis-and-adversarial-attacks">Sensitivity Analysis and Adversarial Attacks</h2>
+<p>Sensitivity analysis helps us understand the model by examining the impact each feature has on the model's prediction.</p>
+<p><mark class="v">In sensitivity analysis we experiment by changing a single feature's value while holding the other features constant and observe the model results.</mark></p>
+<p>If changing the features values causes the models result to be drastically different. It means that that feature has a big impact on the prediction.</p>
+<ul>
+<li>See how model reacts to data which has never been used before</li>
+<li>What-If tool developed by TensorFlow team allows to perform sensitivity analysis to understand and debug you model performance.</li>
+</ul>
+<p>Common approaches for doing sensitivity analysis:</p>
+<h3 id="1-random-attacks">1. Random Attacks</h3>
+<ul>
+<li>Expose models to high volumes of random input data.</li>
+<li>Exploits the unexpected software and math bugs</li>
+<li>Great way to start debugging</li>
+</ul>
+<h3 id="2-partial-dependence-plots">2. Partial dependence plots</h3>
+<ul>
+<li>Partial dependence plots show the marginal effect of one or two features and the effect they have on the model results.</li>
+<li>These plots can describe the relationship between outcome and a particular feature is linear, monotonic or more complex.</li>
+<li>PDPbox and PyCEbox are open source packages for creating such plots.</li>
+</ul>
+<h3 id="how-vulnerable-to-attacks-is-your-model">How vulnerable to attacks is your model?</h3>
+<p>Sensitivity can mean vulnerability</p>
+<ul>
+<li>Attacks are aimed at fooling your model by creating examples which are formed by making small but carefully designed changes to the data.</li>
+<li>Successful attacks could be catastrophic</li>
+<li>Test adversarial examples</li>
+<li>Harden your model</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/assets/images/ml/mle_for_production/ml_modeling_pipeline_in_production/a_famous_example_ostrich.png" /></a></p>
+<h3 id="informational-and-behavioral-harms">Informational and Behavioral Harms</h3>
+<ul>
+<li><strong>Informational Harm</strong>: unanticipated leakage of information</li>
+<li><strong>Behavioral Harm</strong>: manipulating the behavior of the model</li>
+</ul>
+<h3 id="informational-harms">Informational Harms</h3>
+<ul>
+<li>
+<p><strong>Membership Inference attacks</strong>: was this person's data used for training?</p>
+<p><mark class="y">These attacks are aimed at inferring whether or not an individual's data was used to
+train the model</mark> based on a sample of the model's output</p>
+</li>
+<li>
+<p><strong>Model Inversion attacks:</strong> recreate the training data</p>
+</li>
+<li><strong>Model Extraction</strong>: recreate the model</li>
+</ul>
+<h3 id="behavioral-harms">Behavioral Harms</h3>
+<ul>
+<li><strong>Poisoning attacks</strong>: <mark class="y">insert malicious data into training data in order to change the behavior of the model.</mark></li>
+<li><strong>Evasion attacks</strong>: <mark class="y">input data that causes the mode to intentionally misclassify that data</mark></li>
+</ul>
+<h3 id="measuring-your-vulnerability-to-attack">Measuring your vulnerability to attack</h3>
+<p><strong>Cleverhans:</strong> an open-source Python library to benchmark machine learning systems's vulnerability to adversarial examples.</p>
+<ul>
+<li><mark class="y">To harden your model to adversarial attacks, one approach is to include adversarial examples into the training set, this is referred to as <em>adversarial training</em>.</mark></li>
+</ul>
+<p><strong>Foolbox</strong>: an open-source Python library that lets you easily run adversarial attacks against machine learning models.</p>
+<h3 id="adversarial-example-searches">Adversarial example searches</h3>
+<p><mark class="y">Attempted defenses against adversarial examples:</mark></p>
+<ul>
+<li><strong>Defensive distillation:</strong> the main difference from the original distillation is that we use the same architecture to train both the original network as well as the distilled network.</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/assets/images/ml/mle_for_production/ml_modeling_pipeline_in_production/adversarial_example_searches.png" /></a></p>
+<details>
+<summary>Sensitivity Analysis and Residual attacks</summary>
+<p>If you wish to dive more deeply into adversarial attacks, feel free to check out this paper:</p>
+<p><a href="https://arxiv.org/abs/1412.6572">Explaining and Harnessing Adversarial Examples</a></p>
+<p>To access the Partial Dependence Plots libraries please check these resources:</p>
+<ul>
+<li><a href="https://github.com/SauceCat/PDPbox">PDPbox</a></li>
+<li><a href="https://github.com/AustinRochford/PyCEbox">PyCEbox</a></li>
+</ul>
+<p>The demo shown in the previous video is based on this <a href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/tutorials/generative/adversarial_fgsm.ipynb">Google Colab notebook.</a></p>
+</details>
+<h2 id="residual-analysis">Residual Analysis</h2>
+<ul>
+<li>Measures the differences between model's performance and ground truth</li>
+<li>Randomly distributed errors are good</li>
+<li>Correlated or systematic errors show that a model can be improved</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/assets/images/ml/mle_for_production/ml_modeling_pipeline_in_production/residual_analysis.png" /></a></p>
+<ul>
+<li>Residuals should not be correlated with another feature</li>
+<li>
+<p>Adjacent residuals should not be correlated with each other (autocorrelation)</p>
+<p>Performing a Durbin Watson test is also useful for detecting autocorrelation.</p>
+</li>
+</ul>
+<h2 id="model-remediation-how-to-improve-robustness">Model Remediation — How to improve robustness?</h2>
+<p><strong>Data augmentation</strong>:</p>
+<ul>
+<li><mark class="y">Adding synthetic data into training set</mark></li>
+<li>Helps correct for unbalanced training data</li>
+</ul>
+<p><strong>Interpretable and explainable ML:</strong></p>
+<ul>
+<li><mark class="y">Understand how data is getting transformed</mark></li>
+<li>Overcome myth of neural networks as black box</li>
+</ul>
+<p><strong>Model editing</strong>:</p>
+<ul>
+<li>Applies to decision trees</li>
+<li><mark class="y">Manual tweaks to adapt your use case</mark></li>
+</ul>
+<p><strong>Model assertions:</strong></p>
+<ul>
+<li><mark class="y">Implement business rules that override model predictions</mark></li>
+</ul>
+<h3 id="reducing-or-eliminating-model-biaas">Reducing or eliminating Model Biaas</h3>
+<p><strong>Discrimination remediation</strong></p>
+<ul>
+<li>Include people with varied backgrounds for collecting training data</li>
+<li>Conduct feature selection on training data</li>
+<li>Use fairness metrics to select hyperparameters and decision cut-off thresholds</li>
+</ul>
+<h3 id="remediation-in-production">Remediation in production</h3>
+<p><strong>Model monitoring</strong></p>
+<ul>
+<li>Conduct model debugging at regular intervals</li>
+<li>Inspect accuracy, fairness, security problems, etc.</li>
+</ul>
+<p><strong>Anomaly detection</strong></p>
+<ul>
+<li>Anomalies can be a warning of an attack</li>
+<li>Enforce data integrity constraints on incoming data</li>
+</ul>
+<h2 id="fairness">Fairness</h2>
+<p>Make sure model does not cause harm to specific group of people</p>
+<ul>
+<li><strong>Fairness indicators</strong> is an open source library to compute fairness metrics</li>
+<li>Easily scales across dataset of any size</li>
+<li>Built on top of TFMA</li>
+</ul>
+<h3 id="what-does-fairness-indicators-do">What does fairness indicators do?</h3>
+<ul>
+<li>Compute commonly-identified fairness metrics for classification models</li>
+<li>Compare model performance across subgroups to other models</li>
+<li>No remediation tools provided</li>
+</ul>
+<h3 id="evaluate-at-individual-slices">Evaluate at individual slices</h3>
+<ul>
+<li>Overall metrics can hide poor performance for certain parts of data</li>
+<li>Some metrics may fare well over others</li>
+</ul>
+<h3 id="aspects-to-consider">Aspects to consider</h3>
+<ul>
+<li>Establish context and different user types</li>
+<li>Seek domain experts help</li>
+<li>Use data slicing widely and wisely</li>
+</ul>
+<h3 id="general-guidelines">General guidelines</h3>
+<ul>
+<li>Compute performance metrics at all slices of data</li>
+<li>Evaluate your metrics across multiple thresholds</li>
+<li>If decision margin is small, report in more detail</li>
+</ul>
+<h2 id="measuring-fairness">Measuring Fairness</h2>
+<h3 id="positive-rate-negative-rate">Positive rate / Negative rate</h3>
+<ul>
+<li>Percentage data points classified as positive/negative</li>
+<li>Independent of ground truth</li>
+<li>Use case: having equal final percentages of groups is important</li>
+</ul>
+<h3 id="true-positive-rate-tpr-false-negative-rate-fnr">True positive rate (TPR) / False negative rate (FNR)</h3>
+<p><strong>TPR</strong>: <mark class="y">percentage of <em>positive</em> data points that are <em>correctly</em> labeled positive</mark></p>
+<p><strong>FNR</strong>: <mark class="y">percentage of <em>positive</em> data points that are <em>incorrectly</em> labeled <em>negative</em></mark></p>
+<ul>
+<li>Measures equality of opportunity, when the <strong>positive class</strong> should be equal across subgroups</li>
+<li><mark class="v">Use case: where it is important that same percent of qualified candidates are rated positive in each group<mark></li>
+</ul>
+<h3 id="false-positive-rate-fpr-true-negative-rate-tnr">False Positive rate (FPR) / True negative rate (TNR)</h3>
+<p><strong>FPR</strong>: <mark class="y">percentage of <em>negative</em> data points that are <em>incorrectly</em> labeled <em>negative</em>.</mark></p>
+<p><strong>TNR</strong>: <mark class="y">percentage of <em>negative</em> data points that are <em>correctly</em> labeled <em>negative</em></mark></p>
+<ul>
+<li>Measures equality of opportunity, when the <strong>negative class</strong> should be equal across subgroups</li>
+<li><mark class="v">Use case: where <em>misclassifying</em> something as positive are more concerning than classifying the positives.</mark></li>
+</ul>
+<h3 id="accuracy-area-under-the-curve-auc">Accuracy &amp; Area under the curve (AUC)</h3>
+<p><strong>Accuracy</strong>: <mark class="y">percentage of data points that are correctly labeled</mark></p>
+<p><strong>AUC</strong>: <mark class="y">percentage of data points that are correctly labeled when each class is given equal weight independent of number of samples</mark></p>
+<ul>
+<li>Metrics related to predictive parity</li>
+<li><mark class="v">Use case: when precision is critical</mark></li>
+</ul>
+<h3 id="some-tips">Some Tips</h3>
+<ul>
+<li>Unfair skews if there is a gap in a metric between two groups</li>
+<li>Good fairness indicators doesn't always mean the model is fair</li>
+<li>Continuous evaluation throughout development and deployment</li>
+<li>Conduct adversarial testing for rare, malicious examples</li>
+<li><strong>Model Remediation and Fairness</strong></li>
+</ul>
+<details>
+<summary>Model Remediation and Fairness</summary>
+<h2 id="model-remediation-and-fairness">Model Remediation and Fairness</h2>
+<p>If you wish to dive more deeply into model remediation and fairness, feel free to check out these optional resources and tools. You won’t have to read these to complete this week’s practice quizzes.</p>
+<ul>
+<li><a href="https://www.tensorflow.org/responsible_ai/fairness_indicators/guide">Fairness</a></li>
+<li><a href="https://arxiv.org/pdf/1904.13341.pdf">Learning fair representations</a></li>
+<li><a href="https://github.com/cosmicBboy/themis-ml">Fairness-aware Machine Learning library</a></li>
+<li><a href="http://aif360.mybluemix.net/">AI 360 open source model fairness library</a></li>
+<li><a href="https://www.tensorflow.org/responsible_ai/model_remediation">Model remediation</a></li>
+<li><a href="https://modelcards.withgoogle.com/about">Model cards</a></li>
+</ul>
+</details>
+<h2 id="continuous-evaluation-and-monitoring">Continuous Evaluation and Monitoring</h2>
+<h3 id="why-do-models-need-to-be-monitored">Why do models need to be monitored?</h3>
+<ul>
+<li>Training data is a snapshot of the world at a point in time</li>
+<li>many types of data change over times, some quickly</li>
+<li>ML Models do not get better with age</li>
+<li>As model performance degrades, you want an early warning</li>
+</ul>
+<h3 id="data-drift-and-shift">Data drift and shift</h3>
+<p><mark class="v"><strong>Concept drift</strong>: change in the relationship between inputs and labels.</mark></p>
+<p><mark class="v"><strong>Concept Emergence</strong>: new type of data distribution</mark></p>
+<p>Types of dataset shift:</p>
+<ul>
+<li><mark class="v"><strong>Covariate shift:</strong> The distribution of your input data changes but the conditional probability of your output over the input remains the same. Distribution of label doesn't change.</mark></li>
+<li>
+<p><mark class="v"><strong>Prior probability shift</strong>: The distribution of your labels changes but the input data remains same.</mark></p>
+<p>Concept drift can be taught of as a type of prior probability shift.</p>
+</li>
+</ul>
+<p>How do you find the shift and drift. There are both supervised and unsupervised techniques. Let's discuss them:</p>
+<h3 id="statistical-process-control-supervised">Statistical process control — supervised</h3>
+<p>Method used: <strong>drift detection method</strong></p>
+<ul>
+<li>It assumes that the stream of data will be stationary and then models the number of errors as binomial random variable</li>
+</ul>
+<p>$$
+\mu = np_t \qquad \sigma = \sqrt{\frac{p_t(1-p_t)}{n}}
+$$</p>
+<ul>
+<li>
+<p>Alert rule</p>
+<p>$$
+p_t + \sigma_t \geq p_{min} + 3\sigma_{min} \implies \text{ALERT!}
+$$</p>
+<p>Analyses the rate of errors and since it's a supervised method it requires us to have labels for incoming stream of data. It <mark class="y">triggers a drift alert if the parameters of the distributions go beyond a certain thresholds.</mark></p>
+</li>
+</ul>
+<h3 id="sequential-analysis-supervised">Sequential analysis — supervised</h3>
+<p>Method used: <strong>Linear four rates</strong></p>
+<ul>
+<li><mark class="y">The idea is if data is stationary, continency table should remain constant</mark></li>
+<li>The contingency table here corresponds to the truth table for a classifier</li>
+</ul>
+<p>We calculate four rates:</p>
+<div>
+$$
+P_{npv} = \frac{TN}{TN+FN} \quad P_{precision} =\frac{TP}{TP+ FP} \\[10pt] P_{recall / sensitivity / TPR} = \frac{TP}{TP+FN}\quad P_{specificity/ FPR} = \frac{TN}{TN+FP} \\[10pt] P_*^t \leftarrow \eta_*P_*^{t-1} + (1-\eta_*) I_{y_t=\hat{y}_t}
+$$
+</div>
+
+<p>If model is predicting correctly, these four values remain constant.</p>
+<h3 id="error-distribution-monitoring-unsupervised">Error distribution monitoring — unsupervised</h3>
+<p>Method used: <strong>Adaptive Windowing (ADWIN)</strong></p>
+<ul>
+<li>In this method you divide the incoming data into windows. <mark class="y">Calculate mean error rate at every window of data.</mark></li>
+<li>Size of window adapts, becoming shorter when data is not stationary</li>
+</ul>
+<p><mark class="y">Calculate absolute of mean error rate at every successive window and compare it with threshold based on the <em>Hoeffding bound</em>.</mark></p>
+<p>$$
+|\mu_0 -\mu_1| &gt; \Theta_\text{Hoeffding}
+$$</p>
+<p>The Hoeffding bound is used for testing the difference between the means of two populations.</p>
+<h3 id="clusteringnovelty-detection-unsupervised">Clustering/novelty detection — unsupervised</h3>
+<p><mark class="y">Assign data to known cluster or detect emerging concept</mark></p>
+<ul>
+<li>Multiple algorithms available: OLINDDA, MINAS, ECSMiner, and GC3, etc.</li>
+<li>Susceptible to curse of dimensionality</li>
+<li>Can only detect cluster based drift not detect population based changes</li>
+</ul>
+<h3 id="feature-distribution-monitoring-unsupervised">Feature distribution monitoring — unsupervised</h3>
+<p><mark class="y">Monitors individual feature separately at every window of data, comparing individual features against each window of data.</mark></p>
+<p>Algorithms to compare:</p>
+<ul>
+<li>Pearson correlation in Change of Concept</li>
+<li>Hellinger Distance in HDDDM (Hellinger Distance Drift Detection Method)</li>
+</ul>
+<p>Use PCA to reduce number of features</p>
+<ul>
+<li>Cannot detect population drift since it looks only at individual features</li>
+</ul>
+<h3 id="model-dependent-monitoring-unsupervised">Model-dependent monitoring — unsupervised</h3>
+<p>This method monitors the space near the decision boundaries or margins in the latent feature space of your model.</p>
+<ul>
+<li>one algorithm is Margin Density Drift Detection (MD3)</li>
+<li>Area in latent space where classifier have low confidence matter more<ul>
+<li>A change in the number of samples in the margin, margin density indicates drift</li>
+</ul>
+</li>
+<li>Reduce false alarm rate</li>
+</ul>
+<h3 id="google-cloud-ai-continuous-evaluation">Google Cloud AI Continuous Evaluation</h3>
+<ul>
+<li>Leverages AI Platform Prediction and Data Labeling services</li>
+<li>Deploy your model to AI Platform Prediction with model version</li>
+<li>Create evaluation job</li>
+<li>Input and output are saved in BigQuery table</li>
+<li>Run evaluation job on a few of these samples</li>
+<li>View the evaluation metrics on Google Cloud console</li>
+</ul>
+<h3 id="how-often-should-you-retrain">How often should you retrain?</h3>
+<ul>
+<li>Depends on the rate of change</li>
+<li>If possible, automate the management of detecting model drift and triggering model retraining.</li>
+</ul>
+<details>
+<summary>Continuous Evaluation and Monitoring</summary>
+<h2 id="continuous-evaluation-and-monitoring_1">Continuous Evaluation and Monitoring</h2>
+<p>If you wish to dive more deeply into continuous evaluation and model monitoring, feel free to check out these optional resources and tools. You won’t have to read these to complete this week’s practice quizzes.</p>
+<ul>
+<li><a href="https://www.infoq.com/presentations/instrumentation-observability-monitoring-ml/">Instrumentation, Observability &amp; Monitoring of Machine Learning Models</a></li>
+<li><a href="https://christophergs.com/machine%20learning/2020/03/14/how-to-monitor-machine-learning-models/">Monitoring Machine Learning Models in Production - A Comprehensive Guide</a></li>
+<li><a href="https://arxiv.org/pdf/1704.00023.pdf">Concept Drift detection for Unsupervised Learning</a></li>
+<li><a href="https://cloud.google.com/ai-platform/prediction/docs/continuous-evaluation">Google Cloud</a></li>
+<li><a href="https://aws.amazon.com/sagemaker/model-monitor/">Amazon SageMaker</a></li>
+<li><a href="https://docs.microsoft.com/en-us/azure/machine-learning/how-to-monitor-datasets?tabs=python">Microsoft Azure</a></li>
+</ul>
+</details>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../week3/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Week 3 — High Performance Modeling&#34;">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Week 3 — High Performance Modeling"
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../deploying-ml-models/week1/" class="md-footer__link md-footer__link--next" aria-label="Next: Week 1 — Intro to Model Serving and Infrastructure">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Week 1 — Intro to Model Serving and Infrastructure
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2025, <a href="https://adhadse.com" target="_blank" rel="noopener">Anurag Dhadse</a>. All Rights Reserved.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/adhadse/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/adhadse/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "toc.follow", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotate", "content.code.copy", "navigation.footer"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+     
+      <script src="../../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../../../assets/external/fastly.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+      
+        <script src="../../../../assets/external/fastly.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+      
+        <script src="../../../../assets/external/cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/fonts/KaTeX_Math-Italic.woff2"></script>
+      
+        <script src="../../../../assets/external/cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/fonts/KaTeX_Main-Regular.woff2"></script>
+      
+        <script src="../../../../assets/js/katex.js"></script>
+      
+        <script src="../../../../assets/js/highlight.js"></script>
+      
+        <script src="../../../../assets/js/home.js"></script>
+      
+        <script src="../../../../assets/js/interactive_graph.js"></script>
+      
+    
+<script defer>
+    VANTA.HALO({
+        el: ".hero-container",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.0,
+        minWidth: 200.0,
+        baseColor: 0x0,
+        backgroundColor: 0x0,
+        xOffset: 0.09,
+        amplitudeFactor: 0.2,
+        size: 0.9,
+    });
+</script>
+
+  <script id="init-glightbox">document.querySelectorAll('.glightbox').forEach(function(element) {
+    try {
+        var img = element.querySelector('img');
+        if (img && img.src) {
+            element.setAttribute('href', img.src);
+        } else {
+            console.log('No img element with src attribute found');
+        }
+    } catch (error) {
+        console.log('Error:', error);
+    }
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

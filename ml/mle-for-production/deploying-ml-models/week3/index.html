@@ -1,0 +1,5387 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Discover all about my note space.">
+      
+      
+      
+        <link rel="canonical" href="https://wiki.adhadse.com/ml/mle-for-production/deploying-ml-models/week3/">
+      
+      
+        <link rel="prev" href="../week2/">
+      
+      
+        <link rel="next" href="../week4/">
+      
+      
+      <link rel="icon" href="../../../../assets/logo-wiki.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Week 3 — ML Experiment Management and Workflow Automation & MLOps Methodology - Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M13%2013h-2V7h2m0%2010h-2v-2h2M12%202A10%2010%200%200%200%202%2012a10%2010%200%200%200%2010%2010%2010%2010%200%200%200%2010-10A10%2010%200%200%200%2012%202%22/%3E%3C/svg%3E');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%202C6.5%202%202%206.5%202%2012s4.5%2010%2010%2010%2010-4.5%2010-10S17.5%202%2012%202m-2%2015-5-5%201.41-1.41L10%2014.17l7.59-7.59L19%208z%22/%3E%3C/svg%3E');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M13%2014h-2V9h2m0%209h-2v-2h2M1%2021h22L12%202z%22/%3E%3C/svg%3E');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M13%2013h-2V7h2m-2%208h2v2h-2m4.73-14H8.27L3%208.27v7.46L8.27%2021h7.46L21%2015.73V8.27z%22/%3E%3C/svg%3E');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M13%2013h-2V7h2m0%2010h-2v-2h2M12%202A10%2010%200%200%200%202%2012a10%2010%200%200%200%2010%2010%2010%2010%200%200%200%2010-10A10%2010%200%200%200%2012%202%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+<!--katex scripts-->
+<link rel="stylesheet" href="../../../../assets/external/cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<script src="../../../../assets/external/cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" integrity="sha512-LQNxIMR5rXv7o+b1l8+N1EZMfhG7iFZ9HhnbJkTp4zjNr5Wvst75AqUeFDxeRUa7l5vEDyUiAip//r+EFLLCyA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="../../../../assets/external/cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js" integrity="sha512-iWiuBS5nt6r60fCz26Nd0Zqe0nbk1ZTIQbl3Kv7kYsX+yKMUFHzjaH2+AnM6vp2Xs+gNmaBAVWJjSmuPw76Efg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+      
+    
+<!-- Add scripts that need to run afterwards here -->
+
+<!-- Highligh.js -->
+<!-- <script src="../../../../assets/external/cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" integrity="sha512-bgHRAiTjGrzHzLyKOnpFvaEpGzJet3z4tZnXGjpsCcqOnAH6VGUx9frc5bcIhKTVLEiCO6vEhNAgx5jtLUYrfA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+<!-- <link rel="stylesheet" href="../../../../assets/external/cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/darkula.css" integrity="sha256-Mnoy1/a+4vhQ8P0UqXtjDrRWwJs5gMrolbe2VBmKmiM=" crossorigin="anonymous"> -->
+
+<script src="../../../../assets/external/cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" defer></script>
+<script src="../../../../assets/external/cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.waves.min.js" defer></script>
+
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../../../../assets/external/fonts.googleapis.com/css.56f7ac64.css">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/css/extra.css">
+    
+      <link rel="stylesheet" href="../../../../assets/css/hl.css">
+    
+      <link rel="stylesheet" href="../../../../assets/css/hljs.css">
+    
+      <link rel="stylesheet" href="../../../../assets/css/interactive_graph.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-PEQP6Y2BMV"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-PEQP6Y2BMV",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-PEQP6Y2BMV",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Week 3 — ML Experiment Management and Workflow Automation &amp; MLOps Methodology - Wiki" >
+      
+        <meta  property="og:description"  content="Discover all about my note space." >
+      
+        <meta  property="og:image"  content="https://wiki.adhadse.com/assets/images/social/ml/mle-for-production/deploying-ml-models/week3.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://wiki.adhadse.com/ml/mle-for-production/deploying-ml-models/week3/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Week 3 — ML Experiment Management and Workflow Automation &amp; MLOps Methodology - Wiki" >
+      
+        <meta  name="twitter:description"  content="Discover all about my note space." >
+      
+        <meta  name="twitter:image"  content="https://wiki.adhadse.com/assets/images/social/ml/mle-for-production/deploying-ml-models/week3.png" >
+      
+    
+    
+   <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#week-3-ml-experiment-management-and-workflow-automation-mlops-methodology" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Wiki" class="md-header__button md-logo" aria-label="Wiki" data-md-component="logo">
+      
+  <img src="../../../../assets/adhadse.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Week 3 — ML Experiment Management and Workflow Automation &amp; MLOps Methodology
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://adhadse.com" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../intro-dl/neural-networks/week1/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  ML
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../cs/rust/tutorial/getting-started/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  CS
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../etc/regular-expressions/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  etc
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Wiki" class="md-nav__button md-logo" aria-label="Wiki" data-md-component="logo">
+      
+  <img src="../../../../assets/adhadse.png" alt="logo">
+
+    </a>
+    Wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://adhadse.com" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Blog
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    ML
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            ML
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Introduction To Deep Learning
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Introduction To Deep Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Neural Networks
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Neural Networks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro-dl/neural-networks/week1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 1 — Neural Networks and Deep Learning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro-dl/neural-networks/week2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 2 — Basics of Neural Network programming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro-dl/neural-networks/week3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 3 — One hidden layer Neural Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro-dl/neural-networks/week4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 4 — L Layers Deep Neural Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Machine Learning Engineering for Production
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Machine Learning Engineering for Production
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Introduction to Machine Learning Engineering for production
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Introduction to Machine Learning Engineering for production
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro-to-mle-for-production/week1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 1 — The ML project lifecycle
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro-to-mle-for-production/week2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 2 — Key challenges in Modelling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro-to-mle-for-production/week3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 3 — Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ML Data Lifecycle
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            ML Data Lifecycle
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ml-data-lifecycle/week1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 1 — Collecting, labeling, and validating data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ml-data-lifecycle/week2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 2 — Feature Engineering
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ml-data-lifecycle/week3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 3 — Data Journey
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ML Modeling Pipeline
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            ML Modeling Pipeline
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ml-modeling-pipeline/week1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 1 — Hyperparameter tuning: searching for the best architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ml-modeling-pipeline/week2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 2 — Dimensionality Reduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ml-modeling-pipeline/week3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 3 — High Performance Modeling"
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ml-modeling-pipeline/week4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 4 — Model Performance Analysis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_4" id="__nav_2_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Deloying ML models
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Deloying ML models
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 1 — Intro to Model Serving and Infrastructure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 2 — Model Serving Architecture, Scaling Infrastructure and More.
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Week 3 — ML Experiment Management and Workflow Automation &amp; MLOps Methodology
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 3 — ML Experiment Management and Workflow Automation &amp; MLOps Methodology
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ml-experiments-management-and-workflow-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      ML Experiments Management and Workflow Automation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#experiment-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Experiment Tracking
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Experiment Tracking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-experiment-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why experiment tracking?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-does-it-mean-to-track-experiments" class="md-nav__link">
+    <span class="md-ellipsis">
+      What does it mean to track experiments?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simple-experiments-with-notebooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simple Experiments with Notebooks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smoke-testing-for-notebooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Smoke testing for Notebooks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#not-just-one-big-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Not Just One Big File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tracking-runtime-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tracking Runtime Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log-runtime-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Log Runtime Parameters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools-for-experiment-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tools for Experiment Tracking
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tools for Experiment Tracking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-versioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Versioning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tools-for-data-versioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tools for Data Versioning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experiment-tracking-to-compare-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Experiment tracking to compare results
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-logging-metrics-using-tensorboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Logging metrics using TensorBoard
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organizing-model-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Organizing model development
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tooling-for-teams" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tooling for Teams
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experiments-are-iterative-in-nature" class="md-nav__link">
+    <span class="md-ellipsis">
+      Experiments are iterative in nature
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#experiment-tracking_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Experiment Tracking
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-mlops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction to MLOps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction to MLOps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-scientists-vs-software-engineers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Scientists vs Software Engineers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#growing-need-for-ml-in-products-and-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      Growing Need for ML in products and Services
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-problems-affecting-ml-efforts-today" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key problems affecting ML efforts today
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bridging-ml-and-it-with-mlops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bridging ML and IT with MLOps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ml-solution-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      ML Solution Lifecycle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standardizing-ml-processes-with-mlops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standardizing ML processes with MLOps
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mlops-methodology" class="md-nav__link">
+    <span class="md-ellipsis">
+      MLOps Methodology
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mlops-level-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      MLOps Level 0
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MLOps Level 0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-defines-an-mlops-process-maturity" class="md-nav__link">
+    <span class="md-ellipsis">
+      What defines an MLOps process' maturity?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlops-level-0-manual-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      MLOps level 0: Manual process
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenges-for-mlops-level-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      Challenges for MLOps level 0
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mlops-levels-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      MLOps Levels 1&amp;2
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MLOps Levels 1&amp;2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mlops-level-1-ml-pipeline-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      MLOps level 1: ML pipeline automation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlops-level-2-cicd-pipeline-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      MLOps level 2: CI/CD pipeline automation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mlops-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      MLOps Resources
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#developing-components-for-an-orchestrated-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Developing Components for an Orchestrated Workflow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Developing Components for an Orchestrated Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anatomy-of-a-tfx-component" class="md-nav__link">
+    <span class="md-ellipsis">
+      Anatomy of a TFX component
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tfx-components-at-runtime" class="md-nav__link">
+    <span class="md-ellipsis">
+      TFX components at runtime
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-function-based-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python function-based components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-based-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Container-based components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fully-custom-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fully custom components
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-for-mlops-using-tfx-kubeflow-pipelines-and-cloud-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture for MLOps using TFX, Kubeflow Pipelines, and Cloud Build
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 4 — Model monitoring, Logging &amp; model decay, GDPR, and Privacy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    CS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            CS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Rust
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Rust
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_1" id="__nav_3_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorial
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorial
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started with Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/guessing-game/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Guessing game
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/common-programming-concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Common Programming Concepts in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/ownership/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ownership in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/structs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Structs in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/enums-and-pattern-matching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Enums and Pattern Matching in Rust"
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/module-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rust's Module System
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/common-collections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Common Collections in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/error-handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Error Handling in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/generic-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Generic Types in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/traits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Traits in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/lifetimes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rust Lifetimes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_1_13" id="__nav_3_1_1_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Testing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_1_13">
+            <span class="md-nav__icon md-icon"></span>
+            Testing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/testing/testing-in-rust/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Testing in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/testing/testing-in-rust-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Testing in Rust - Part 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_1_14" id="__nav_3_1_1_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    CLI App
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_1_14">
+            <span class="md-nav__icon md-icon"></span>
+            CLI App
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/cli-app/cli-app-in-rust/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CLI App in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/cli-app/cli-app-in-rust-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CLI App in Rust - Part 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_1_15" id="__nav_3_1_1_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Functional
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_1_15">
+            <span class="md-nav__icon md-icon"></span>
+            Functional
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/functional/closures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Closures in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/functional/iterators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Iterators in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1_16" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_1_16" id="__nav_3_1_1_16_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Cargo
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_1_16">
+            <span class="md-nav__icon md-icon"></span>
+            Cargo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/cargo/cargo-workspaces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cargo Workspaces
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/cargo/publishing-crate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Publishing a Rust Crate
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1_17" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_1_17" id="__nav_3_1_1_17_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Smart Pointers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_1_17">
+            <span class="md-nav__icon md-icon"></span>
+            Smart Pointers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/smart-pointers/deref-trait/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Smart Pointers in Rust - The Deref Trait
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/smart-pointers/drop-trait/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Smart Pointers in Rust - The Drop Trait
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/smart-pointers/reference-counting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Smart Pointers in Rust - Reference Counting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/smart-pointers/interior-mutability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Smart Pointers in Rust - Interior Mutability
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/smart-pointers/reference-cycles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Smart Pointers in Rust - References Cycles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/smart-pointers/box-smart-pointer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Box Smart Pointer in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_1_18" id="__nav_3_1_1_18_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Concurrency
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_1_18">
+            <span class="md-nav__icon md-icon"></span>
+            Concurrency
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/concurrency/creating-threads/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Concurrency in Rust - Creating Threads
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/concurrency/message-passing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Concurrency in Rust - Message Passing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/concurrency/sharing-state/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Concurrency in Rust - Sharing State
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1_19" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_1_19" id="__nav_3_1_1_19_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    OOPS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_19_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_1_19">
+            <span class="md-nav__icon md-icon"></span>
+            OOPS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/oops/object-oriented-programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Object Oriented Programming in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/oops/trait-objects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using Trait Objects in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/oops/state-design-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    State Design Pattern in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1_20" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_1_20" id="__nav_3_1_1_20_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Patterns
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_20_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_1_20">
+            <span class="md-nav__icon md-icon"></span>
+            Patterns
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/patterns/patterns-and-matching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Patterns and Matching in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/patterns/pattern-syntax/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pattern Syntax in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1_21" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_1_21" id="__nav_3_1_1_21_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Advanced Rust
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_21_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_1_21">
+            <span class="md-nav__icon md-icon"></span>
+            Advanced Rust
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/advanced/unsafe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Writing Unsafe Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/advanced/advanced-traits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Advanced Traits Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/advanced/advanced-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Advanced Types in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/advanced/advanced-functions-and-closures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Advanced Functions and Closures in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/tutorial/advanced/macros/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Macros in Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_2" id="__nav_3_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Advanced Rust Concepts
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            Advanced Rust Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/rust/advanced/rust_str_types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    All Rust String Types explained
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Curriculum
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Curriculum
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_1" id="__nav_3_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    SQL
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            SQL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/curriculum/sql/common-queries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Common SQL queries
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Networking
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Networking
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/curriculum/networking/ipv6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IPv6
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    DevOps
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            DevOps
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_1" id="__nav_3_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Terraform
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Terraform
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/devops/terraform/terraform-freecodecamp-course/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Terraform
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    etc
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            etc
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../etc/regular-expressions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Regex
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Mathematics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Mathematics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../etc/mathematics/maths-formula/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Maths Formula Compendium
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2" id="__nav_4_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Discrete Mathematics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Discrete Mathematics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../etc/mathematics/discrete-mathematics/propositional-logic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Propositional Logic
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ml-experiments-management-and-workflow-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      ML Experiments Management and Workflow Automation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#experiment-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Experiment Tracking
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Experiment Tracking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-experiment-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why experiment tracking?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-does-it-mean-to-track-experiments" class="md-nav__link">
+    <span class="md-ellipsis">
+      What does it mean to track experiments?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simple-experiments-with-notebooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simple Experiments with Notebooks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smoke-testing-for-notebooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Smoke testing for Notebooks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#not-just-one-big-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Not Just One Big File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tracking-runtime-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tracking Runtime Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log-runtime-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Log Runtime Parameters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools-for-experiment-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tools for Experiment Tracking
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tools for Experiment Tracking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-versioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Versioning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tools-for-data-versioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tools for Data Versioning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experiment-tracking-to-compare-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Experiment tracking to compare results
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-logging-metrics-using-tensorboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Logging metrics using TensorBoard
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organizing-model-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Organizing model development
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tooling-for-teams" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tooling for Teams
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experiments-are-iterative-in-nature" class="md-nav__link">
+    <span class="md-ellipsis">
+      Experiments are iterative in nature
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#experiment-tracking_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Experiment Tracking
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-mlops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction to MLOps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction to MLOps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-scientists-vs-software-engineers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Scientists vs Software Engineers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#growing-need-for-ml-in-products-and-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      Growing Need for ML in products and Services
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-problems-affecting-ml-efforts-today" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key problems affecting ML efforts today
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bridging-ml-and-it-with-mlops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bridging ML and IT with MLOps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ml-solution-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      ML Solution Lifecycle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standardizing-ml-processes-with-mlops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standardizing ML processes with MLOps
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mlops-methodology" class="md-nav__link">
+    <span class="md-ellipsis">
+      MLOps Methodology
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mlops-level-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      MLOps Level 0
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MLOps Level 0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-defines-an-mlops-process-maturity" class="md-nav__link">
+    <span class="md-ellipsis">
+      What defines an MLOps process' maturity?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlops-level-0-manual-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      MLOps level 0: Manual process
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenges-for-mlops-level-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      Challenges for MLOps level 0
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mlops-levels-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      MLOps Levels 1&amp;2
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MLOps Levels 1&amp;2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mlops-level-1-ml-pipeline-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      MLOps level 1: ML pipeline automation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlops-level-2-cicd-pipeline-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      MLOps level 2: CI/CD pipeline automation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mlops-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      MLOps Resources
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#developing-components-for-an-orchestrated-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Developing Components for an Orchestrated Workflow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Developing Components for an Orchestrated Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anatomy-of-a-tfx-component" class="md-nav__link">
+    <span class="md-ellipsis">
+      Anatomy of a TFX component
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tfx-components-at-runtime" class="md-nav__link">
+    <span class="md-ellipsis">
+      TFX components at runtime
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-function-based-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python function-based components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-based-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Container-based components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fully-custom-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fully custom components
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-for-mlops-using-tfx-kubeflow-pipelines-and-cloud-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture for MLOps using TFX, Kubeflow Pipelines, and Cloud Build
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="week-3-ml-experiment-management-and-workflow-automation-mlops-methodology">Week 3 — ML Experiment Management and Workflow Automation &amp; MLOps Methodology</h1>
+<h2 id="ml-experiments-management-and-workflow-automation">ML Experiments Management and Workflow Automation</h2>
+<h2 id="experiment-tracking">Experiment Tracking</h2>
+<p>The need for rigorous processes and reproducible results, creates a need for experiment tracking.</p>
+<h3 id="why-experiment-tracking">Why experiment tracking?</h3>
+<ul>
+<li>ML projects have far more branching and experimentation</li>
+<li>Debugging in ML is difficult and time consuming</li>
+<li>Small changes can lead to drastic changes in a model's performance and resource requirements.</li>
+<li>Running experiments can be time consuming and expensive</li>
+</ul>
+<h3 id="what-does-it-mean-to-track-experiments">What does it mean to track experiments?</h3>
+<ul>
+<li>Enable you to duplicate a result</li>
+<li>Enable you to meaningfully compare experiments</li>
+<li>Mange code/data versions, hyperparameters, environment, metrics</li>
+<li>Organize them in a meaningful way</li>
+<li>Make them available to access and collaborate on within your organization</li>
+</ul>
+<h3 id="simple-experiments-with-notebooks">Simple Experiments with Notebooks</h3>
+<ul>
+<li>Notebooks are great tools</li>
+<li>Notebook code is usually not promotes to production</li>
+<li>Tools for managing notebook code<ul>
+<li>nbconvert (<code>.ipynb</code> → <code>.py</code> conversion)</li>
+<li>nbdime (diffing)</li>
+<li>jupytext (conversion+versioning)</li>
+<li>neptune-notebooks (versioning+diffing+sharing)</li>
+</ul>
+</li>
+</ul>
+<h3 id="smoke-testing-for-notebooks">Smoke testing for Notebooks</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>jupyter<span class="w"> </span>nbconvert<span class="w"> </span>--to<span class="w"> </span>script<span class="w"> </span>train_model.ipynb<span class="w"> </span>python<span class="w"> </span>train_model.py<span class="p">;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>python<span class="w"> </span>train_model.py
+</span></code></pre></div>
+<h3 id="not-just-one-big-file">Not Just One Big File</h3>
+<ul>
+<li>Modular code, not monolithic</li>
+<li>Collections of independent and versioned files</li>
+<li>Directory hierarchies or monorepos</li>
+<li>Code repositories and commits</li>
+</ul>
+<h3 id="tracking-runtime-parameters">Tracking Runtime Parameters</h3>
+<p><strong>Config files</strong></p>
+<p>The parameters value can be tracked along with other code files</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">data</span><span class="p">:</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="nt">train_path</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/path/to/my/train.csv&#39;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">valid_path</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;path/to/my/vaild.csv&#39;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nt">model</span><span class="p">:</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="nt">objective</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;binary&#39;</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="nt">metric</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;auc&#39;</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="nt">learning_rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.1</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="nt">num_boost_round</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">200</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="nt">num_leaves</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">60</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="nt">feature_fraction</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.2</span>
+</span></code></pre></div>
+<p>or in <strong>Command line</strong></p>
+<p>But this requires additional code to be save these values and associate them with the experiment. This is an additional burden but it also makes those values available for analysis and visualization rather than having to parse them out of specific commit.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>python<span class="w"> </span>train_evaluate.py<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span>--train_path<span class="w"> </span><span class="s1">&#39;/path/to/my/train.csv&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span>--valid_path<span class="w"> </span><span class="s1">&#39;path/to/my/vaild.csv&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span>--objective<span class="w"> </span><span class="s1">&#39;binary&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span>--metric<span class="w"> </span><span class="s1">&#39;auc&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span>--learning_rate<span class="w"> </span><span class="m">0</span>.1<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span>--num_boost_round<span class="w"> </span><span class="m">200</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span>--num_leaves<span class="w"> </span><span class="m">60</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span>--feature_fraction<span class="w"> </span><span class="m">0</span>.2
+</span></code></pre></div>
+<h3 id="log-runtime-parameters">Log Runtime Parameters</h3>
+<p>Example of what the code to save the runtime parameters where we're setting runtime parameters from command line.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">parser</span><span class="o">.</span><span class="n">add_argumnet</span><span class="p">(</span><span class="s1">&#39;--numeber_tress&#39;</span><span class="p">)</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--learning_rate&#39;</span><span class="p">)</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">neptune</span><span class="o">.</span><span class="n">create_experiment</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="nb">vars</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="o">...</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1"># experiment logic</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="o">...</span>
+</span></code></pre></div>
+<h2 id="tools-for-experiment-tracking">Tools for Experiment Tracking</h2>
+<h3 id="data-versioning">Data Versioning</h3>
+<ul>
+<li>Data reflects the world, and the world changes</li>
+<li>Experimental changes include changes in data</li>
+<li>Tracking, understanding, comparing, and duplicating experiments includes data</li>
+</ul>
+<h3 id="tools-for-data-versioning">Tools for Data Versioning</h3>
+<ul>
+<li>Neptune</li>
+<li>Pachyderm</li>
+<li>Delta Lake</li>
+<li>
+<p>Git LFS</p>
+</li>
+<li>
+<p>Dolt</p>
+</li>
+<li>lakeFS</li>
+<li>DVC</li>
+<li>ML-Metadata</li>
+</ul>
+<h3 id="experiment-tracking-to-compare-results">Experiment tracking to compare results</h3>
+<ul>
+<li>As you gain experience with the tools, you'll get more confortable</li>
+<li>Log every metric that you might care about</li>
+<li>Tag experiments with a few consistent tags which are meaningful to you</li>
+</ul>
+<h3 id="example-logging-metrics-using-tensorboard">Example: Logging metrics using TensorBoard</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">logdir</span> <span class="o">=</span> <span class="s2">&quot;logs/image&quot;</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">-%H%M%S&quot;</span><span class="p">)</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">tensorboard_callback</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">TensorBoard</span><span class="p">(</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  <span class="n">log_dir</span><span class="o">=</span><span class="n">logdir</span><span class="p">,</span> <span class="n">historgram_freq</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">cm_callback</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">LambdaCallback</span><span class="p">(</span><span class="n">on_epoch_end</span><span class="o">=</span><span class="n">log_confusion_matrix</span><span class="p">)</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">tensorboard_callback</span><span class="p">,</span> <span class="n">cm_callback</span><span class="p">])</span>
+</span></code></pre></div>
+<h3 id="organizing-model-development">Organizing model development</h3>
+<ul>
+<li>Search through &amp; visualize all experiments</li>
+<li>Organize into something digestible</li>
+<li>Make data shareable and accessible</li>
+<li>Tag and add notes that will be more meaningful</li>
+</ul>
+<h3 id="tooling-for-teams">Tooling for Teams</h3>
+<p><strong>Vertex TensorBoard</strong></p>
+<ul>
+<li>Managed service with enterprise-grade security, privacy, and compliance</li>
+<li>Persistent, shareable link to you experiment dashboard</li>
+<li>Searchable list of all experiments in a project</li>
+</ul>
+<h3 id="experiments-are-iterative-in-nature">Experiments are iterative in nature</h3>
+<ul>
+<li>Creative iterations for ML experimentation</li>
+<li>Define a baseline approach</li>
+<li>Develop, implement, and evaluate to get metrics</li>
+<li>Asses the results, and decide on next steps</li>
+<li>Latency, cost, fairness, GDPR, etc.</li>
+<li>Experiment Tracking</li>
+</ul>
+<details class="experiment tracking">
+<summary>Experiment</summary>
+<h2 id="experiment-tracking_1">Experiment Tracking</h2>
+<p>Learn more about experiment tracking by checking this two resources out:</p>
+<ol>
+<li><a href="https://towardsdatascience.com/machine-learning-experiment-tracking-93b796e501b0">Machine Learning Experiment Tracking</a></li>
+<li><a href="https://neptune.ai/blog/experiment-management">Machine Learning Experiment Management: How to Organize Your Model Development Process</a></li>
+</ol>
+</details>
+<h2 id="introduction-to-mlops">Introduction to MLOps</h2>
+<h3 id="data-scientists-vs-software-engineers">Data Scientists vs Software Engineers</h3>
+<p><strong>Data Scientists</strong></p>
+<ul>
+<li>Often work on fixed datasets</li>
+<li>Focused on model metrics</li>
+<li>Prototyping on Jupyter notebooks</li>
+<li>Expert in modeling techniques and feature engineering</li>
+<li>Model size, cost, latency, and fairness are often ignored</li>
+</ul>
+<p><strong>Software Engineers</strong></p>
+<ul>
+<li>Build a product</li>
+<li>Concerned about cost, performance, stability, schedule</li>
+<li>Identify quality through customer satisfaction</li>
+<li>Must scale solution, handle large amounts of data</li>
+<li>Detect and handle error conditions, preferably automatically</li>
+<li>Consider requirements for security, safety, fairness</li>
+<li>Maintain, evolve, and extend the product over long periods</li>
+</ul>
+<h3 id="growing-need-for-ml-in-products-and-services">Growing Need for ML in products and Services</h3>
+<ul>
+<li>Large datasets</li>
+<li>Inexpensive on-demand compute resources</li>
+<li>Increasingly powerful accelerators for ML</li>
+<li>Rapid advances in many ML research fields (such as computer vision, natural language understanding, and recommendation systems)</li>
+<li>Business are investing in their data science teams and ML capabilities to develop predictive models that can deliver business value to their customers</li>
+</ul>
+<h3 id="key-problems-affecting-ml-efforts-today">Key problems affecting ML efforts today</h3>
+<p><strong>We've been here before</strong></p>
+<ul>
+<li>In the 90s, Software Engineering was siloed</li>
+<li>Weak version control CI/CD didn't exist</li>
+<li>Software was slow to ship; now it ships in minutes</li>
+<li>Is that ML today?</li>
+</ul>
+<p><strong>Today's perspective</strong></p>
+<ul>
+<li>Models blocked before deployment</li>
+<li>Slow to market</li>
+<li>Manual Tracking</li>
+<li>No reproducibility or provenance</li>
+<li>Inefficient collaboration</li>
+<li>unmonitored models</li>
+</ul>
+<h3 id="bridging-ml-and-it-with-mlops">Bridging ML and IT with MLOps</h3>
+<ul>
+<li><mark class="v"><strong>Continuous Integration (CI)</strong>: Testing and validating code, components, data, data schemas, and models</mark></li>
+<li><mark class="v"><strong>Continuous Delivery (CD)</strong>: Not only about deploying a single software package or a service, but a system which automatically deploys another service (model prediction service)</mark></li>
+<li><mark class="v"><strong>Continuous Training (CT)</strong>: A new process, unique to ML systems, that automatically retrains candidate models for testing and serving</mark></li>
+<li><mark class="v"><strong>Continuous Monitoring</strong> <strong>(CM)</strong>: Catching errors in production systems, and monitoring production inference data and models performance metrics tied to business outcomes.</mark></li>
+</ul>
+<h3 id="ml-solution-lifecycle">ML Solution Lifecycle</h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/assets/images/ml/mle_for_production/deploying_ml_models_in_production/ml_soltion_lifecycle.png" /></a></p>
+<h3 id="standardizing-ml-processes-with-mlops">Standardizing ML processes with MLOps</h3>
+<ul>
+<li>ML Lifecycle Management</li>
+<li>Model Versioning &amp; iteration</li>
+<li>Model Monitoring and Management</li>
+<li>Model Governance</li>
+<li>Model Security</li>
+</ul>
+<h2 id="mlops-methodology">MLOps Methodology</h2>
+<h2 id="mlops-level-0">MLOps Level 0</h2>
+<h3 id="what-defines-an-mlops-process-maturity">What defines an MLOps process' maturity?</h3>
+<ul>
+<li>The level of automation of ML pipelines determines the maturity of the MLOps process</li>
+<li>As maturity increases, the available velocity for the training and deployment of new models also increases</li>
+<li>Goal is to automate training and deployment of ML models into the core software system, and provide monitoring.</li>
+</ul>
+<h3 id="mlops-level-0-manual-process">MLOps level 0: Manual process</h3>
+<p>The process of developing and deploying the model is manual. This creates a disconnect between the ML and operations teams. It also leads to the possibility of training serving skew.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/assets/images/ml/mle_for_production/deploying_ml_models_in_production/mlops_level_0.png" /></a></p>
+<p>A new model version is probably only deployed a couple of times a year, so because of fewer code changes Continuous Integration (CI) and often even unit testing is totally ignored.</p>
+<p>A level 0 process is concerned only with deploying the trained model as a prediction service. Also we do not tracking and logging the model predictions and actions which are required for detecting model degradation and other model behavioral drifts</p>
+<h3 id="challenges-for-mlops-level-0">Challenges for MLOps level 0</h3>
+<ul>
+<li>Need for actively monitoring the quality of your model in production</li>
+<li>Retraining your production models with new data</li>
+<li>Continuously experimenting with new implementation to improve the data and model</li>
+</ul>
+<h2 id="mlops-levels-12">MLOps Levels 1&amp;2</h2>
+<h3 id="mlops-level-1-ml-pipeline-automation">MLOps level 1: ML pipeline automation</h3>
+<p>One of the main goal of level one is to perform continuous training of the model.</p>
+<p>That requires the need to introduce automated data and model validation steps to the pipeline as well as pipeline triggers and metadata management.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/assets/images/ml/mle_for_production/deploying_ml_models_in_production/mlops_level_1.png" /></a></p>
+<ul>
+<li>Notice how the transition from one step to another in the experiment orchestration is automated.</li>
+<li>Models are automatically retrained using fresh data based on live pipeline triggers.</li>
+<li>The pipeline implementation that is used in the development or experimentation is also used in the pre-production and production environment.</li>
+<li>The components need to be modularized, ideally be containerized.</li>
+<li>An ML pipeline in production continuously delivers new models that are trained on new data to prediction services</li>
+<li>Compared to level 0 where we where just deploying the model, here we are deploying the whole training pipeline, which automatically and recurrently runs to serve the trained model.</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/assets/images/ml/mle_for_production/deploying_ml_models_in_production/resusable_components.png" /></a></p>
+<ul>
+<li>When we deploy the pipeline to production, one or more of the triggers automatically executes the pipeline.</li>
+<li>The pipeline expects a new live data to produce a new model version that is trained on the new data. So automated data validation &amp; model validation steps are required in ML pipelines.</li>
+<li>
+<p>Whether you should retrain the model, or stop the execution of the pipeline:</p>
+<p>This decision is automatically made only if the data is deemed valid. Like data schema mismatch are considered anomalies, in that case the pipeline execution should be stopped and notification should be raised for the team to investigate.</p>
+</li>
+<li>
+<p>Model validation and evaluation of the model is done before promoting the model to production.</p>
+<p>The newly trained model needs to be assessed on a test data and then comparing the evaluation metric produced by newly trained model with current model in production.</p>
+<p>Also the performance needs to be consistent on different slices of data.</p>
+</li>
+<li>
+<p>In addition to offline model validation, a newly deployed model undergoes online model validation in either a canary deployment or an AB testing setup during the transition to serving prediction for the online traffic.</p>
+</li>
+<li>Feature Store: A feature store is a centralized repository where you standardize the definition, storage, and access of features for training and serving.<ul>
+<li>A feature store also lets you rediscover and reuse available feature sets instead of recreating the same or similar feature sets, avoiding having similar features that have different definition by maintaining features and their related metadata.</li>
+</ul>
+</li>
+<li>Metadata store: This is where information about each execution of the pipeline is recorded in order to help with data and artifact lineage, reproducibility, and comparisons. This can help us debug errors and anomalies. In case of an interruption, it also allows you to resume execution seamlessly.</li>
+</ul>
+<h3 id="mlops-level-2-cicd-pipeline-automation">MLOps level 2: CI/CD pipeline automation</h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/assets/images/ml/mle_for_production/deploying_ml_models_in_production/mlops_level_2.png" /></a></p>
+<p>The truth is that at the current stage of the development of MLOps best practices, level two is still somewhat speculative</p>
+<p>The diagram presents on of the current architectures, focused on enabling rapid and reliable update of the pipelines in production.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/assets/images/ml/mle_for_production/deploying_ml_models_in_production/putting_it_all_together.png" /></a></p>
+<details>
+<summary>MLOps Resources</summary>
+<h2 id="mlops-resources">MLOps Resources</h2>
+<p>If you want to learn more about MLOps check this <a href="https://neptune.ai/blog/mlops-what-it-is-why-it-matters-and-how-to-implement-it-from-a-data-scientist-perspective">blog</a> out, and visit this curated <a href="https://github.com/visenger/awesome-mlops">list</a> of references  for more information, ideas, and tools.</p>
+</details>
+<h2 id="developing-components-for-an-orchestrated-workflow">Developing Components for an Orchestrated Workflow</h2>
+<ul>
+<li>Pre-built and standard components, and 3 styles of custom components</li>
+<li>Components can also be containerized</li>
+<li>Examples of thing you can do with TFX components:<ul>
+<li>Data augmentation, upsampling, or downsampling</li>
+<li>Anomaly detection based on confidence intervals or autoencoder reproduction error</li>
+<li>Interfacing with external systems like help desks for alerting and monitoring and more...</li>
+</ul>
+</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/assets/images/ml/mle_for_production/deploying_ml_models_in_production/hello_tfx.png" /></a></p>
+<h3 id="anatomy-of-a-tfx-component">Anatomy of a TFX component</h3>
+<p>Components are essentially composed of a component specification and executor class packaged inside a component class.</p>
+<p><strong>Component specification</strong></p>
+<ul>
+<li><mark class="y">The component's input and output contract and parameters used for component execution.</mark></li>
+</ul>
+<p><strong>Executor class</strong></p>
+<ul>
+<li><mark class="y">Provides the implementation for component's processing</mark></li>
+</ul>
+<p><strong>Component Class</strong></p>
+<ul>
+<li><mark class="y">Combines the component specification with the executor to create a TFX component</mark></li>
+</ul>
+<h3 id="tfx-components-at-runtime">TFX components at runtime</h3>
+<p>When a pipeline runs a TFX component the component is executed in three phases:</p>
+<ol>
+<li>The driver uses the component specification to retrieve the required artifacts form the metadata store and pass them into the component.</li>
+<li>The executor perform the components work</li>
+<li>The publisher uses the component specification and the results from the executor to store the components, output in the metadata store.</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/assets/images/ml/mle_for_production/deploying_ml_models_in_production/tfx_components_at_runtime.png" /></a></p>
+<p>Custom components only requires modification to executor class. Modification to the driver or publisher should only be necessary if we want to change the interaction between pipeline's components and the metadata store</p>
+<p>If we want to change the inputs, outputs or parameters for your component, we only need to modify the component specification.</p>
+<p><mark class="v"><strong>Types of custom components</strong>:</mark></p>
+<ol>
+<li>
+<p><mark class="v">Python function based custom components</mark></p>
+<p><mark class="v">Only require Python function for the executor with a decorator and argument annotations.</mark></p>
+</li>
+<li>
+<p><mark class="v">Container based custom components</mark></p>
+<p><mark class="v">Provide the flexibility to integrate code written in any language into your pipeline by wrapping the components inside a Docker container.  </mark></p>
+</li>
+<li>
+<p><mark class="v">Fully custom components</mark></p>
+<p><mark class="v">Fully custom components lets us build components by defining the component specification, executor and component interface classes.</mark></p>
+</li>
+</ol>
+<h3 id="python-function-based-components">Python function-based components</h3>
+<p>In this style you write a function that is decorated and annotated with type hints.</p>
+<p>The type hints describe the <code>InputArtifacts</code> , <code>OutputArtifacts</code>, parameters of your component.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nd">@component</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">def</span> <span class="nf">MuValidationComponent</span><span class="p">(</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  <span class="n">model</span><span class="p">:</span> <span class="n">InputArtifact</span><span class="p">[</span><span class="n">Model</span><span class="p">],</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>  <span class="n">blessing</span><span class="p">:</span> <span class="n">OutputArtifact</span><span class="p">[</span><span class="n">Model</span><span class="p">],</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>  <span class="n">accuracy_threshold</span><span class="p">:</span> <span class="n">Parameter</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>  <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">OutputDict</span><span class="p">(</span><span class="n">accuracy</span><span class="o">=</span><span class="nb">float</span><span class="p">):</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="sd">&#39;&#39;&#39;My simple custom model validation component.&#39;&#39;&#39;</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>  <span class="n">accuracy</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>  <span class="k">if</span> <span class="n">accuracy</span> <span class="o">&gt;=</span> <span class="n">accuracy_threshold</span><span class="p">:</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    <span class="n">write_output_blessing</span><span class="p">(</span><span class="n">blessiing</span><span class="p">)</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>  <span class="k">return</span> <span class="p">{</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>    <span class="s1">&#39;accuracy&#39;</span><span class="p">:</span> <span class="n">accuracy</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>  <span class="p">}</span>
+</span></code></pre></div>
+<h3 id="container-based-components">Container-based components</h3>
+<p>To create one we need to specify a Docker container image that includes our component dependencies.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span> <span class="nn">tfx.dsl.component.experimental</span> <span class="kn">import</span> <span class="n">container_component</span><span class="p">,</span> <span class="n">placeholders</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kn">from</span> <span class="nn">tfx.types</span> <span class="kn">import</span> <span class="n">standard_artifacts</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">grep_component</span> <span class="o">=</span> <span class="n">container_component</span><span class="o">.</span><span class="n">create_container_component</span><span class="p">(</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>  <span class="n">name</span><span class="o">=</span><span class="s1">&#39;FilterWithGrep&#39;</span><span class="p">,</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>  <span class="n">inputs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="n">standard_artifacts</span><span class="o">.</span><span class="n">ExternalArtifact</span><span class="p">},</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>  <span class="n">outputs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;filtered_text&#39;</span><span class="p">:</span> <span class="n">standard_artifacts</span><span class="o">.</span><span class="n">ExternalArtifact</span><span class="p">},</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>  <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;pattern&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">},</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>  <span class="o">...</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>  <span class="n">image</span><span class="o">=</span><span class="s1">&#39;google/cloud-sdk:278.0.0&#39;</span><span class="p">,</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>  <span class="n">command</span><span class="o">=</span><span class="p">[</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>    <span class="s1">&#39;sh&#39;</span><span class="p">,</span> <span class="s1">&#39;-exec&#39;</span><span class="p">,</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>    <span class="o">...</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>    <span class="o">...</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>    <span class="s1">&#39;--pattern&#39;</span><span class="p">,</span> <span class="n">placeholders</span><span class="o">.</span><span class="n">InputValuePlaceholder</span><span class="p">(</span><span class="s1">&#39;pattern&#39;</span><span class="p">),</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>    <span class="s1">&#39;--text&#39;</span><span class="p">,</span> <span class="n">placeholders</span><span class="o">.</span><span class="n">InputUriPlaceholder</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">),</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>    <span class="s1">&#39;--filtered-text&#39;</span><span class="p">,</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>    <span class="n">placeholders</span><span class="o">.</span><span class="n">OutputUriPlaceholder</span><span class="p">(</span><span class="s1">&#39;filtered_text&#39;</span><span class="p">),</span>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>  <span class="p">],</span>
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>Their are other parts of the configuration like container image name and optionally the image tag. For the body of the component we can have command parameter which defines the container entry point command line. The command line can use placeholder objects that are replaced at compilation time with the input, output or parameters.</p>
+<h3 id="fully-custom-components">Fully custom components</h3>
+<ul>
+<li>Define custom component spec, executor class, and component class</li>
+<li>Component reusability<ul>
+<li>Reuse a component spec and implement a new executor that derives from an existing component</li>
+</ul>
+</li>
+</ul>
+<p><strong>Defining input and output specifications</strong></p>
+<p>These inputs and outputs are wrapped in channels, essentially dictionaries of typed parameters for input and output artifacts.</p>
+<p>The <code>PARAMETERS</code> is a dictionary of additional execution parameter items that are passed into the executor and are not metadata artifacts.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">class</span> <span class="nc">HelloComponentSepc</span><span class="p">(</span><span class="n">types</span><span class="o">.</span><span class="n">ComponentSpec</span><span class="p">):</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>  <span class="n">INPUTS</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    <span class="c1"># This will be a dictionary with input artifacts, including URIs</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    <span class="s1">&#39;input_data&#39;</span><span class="p">:</span> <span class="n">ChannelParameter</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">standard_artifacts</span><span class="o">.</span><span class="n">Examples</span><span class="p">),</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>  <span class="p">}</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>  <span class="n">OUTPUTS</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    <span class="c1"># This will be a dictionary which this component will populate</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>    <span class="s1">&#39;output_data&#39;</span><span class="p">:</span> <span class="n">ChannelParameter</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">standard_artifacts</span><span class="o">.</span><span class="n">Examples</span><span class="p">),</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>  <span class="p">}</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>  <span class="n">PARAMETERS</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>    <span class="c1"># These are parameters that will be passed in the call to create</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>    <span class="c1"># an instance of this component</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">ExecutionParameter</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">Text</span><span class="p">),</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>  <span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Implement the executor</strong></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">class</span> <span class="nc">Executor</span><span class="p">(</span><span class="n">base_executor</span><span class="o">.</span><span class="n">BaseExecutor</span><span class="p">):</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>  <span class="k">def</span> <span class="nf">Do</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Text</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">type</span><span class="o">.</span><span class="n">Artifact</span><span class="p">]],</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>          <span class="n">output_dict</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Text</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">types</span><span class="o">.</span><span class="n">Artifact</span><span class="p">]],</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>          <span class="n">exec_properties</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Text</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="o">...</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    <span class="n">split_to_instances</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    <span class="k">for</span> <span class="n">artifact</span> <span class="ow">in</span> <span class="n">input_dict</span><span class="p">[</span><span class="s1">&#39;input_data&#39;</span><span class="p">]:</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>      <span class="k">for</span> <span class="n">split</span> <span class="ow">in</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">artifacts</span><span class="o">.</span><span class="n">split_names</span><span class="p">):</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>        <span class="n">uri</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">artifact</span><span class="o">.</span><span class="n">uri</span><span class="p">,</span> <span class="n">split</span><span class="p">)</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>        <span class="n">split_to_instance</span><span class="p">[</span><span class="n">split</span><span class="p">]</span> <span class="o">=</span> <span class="n">uri</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>    <span class="k">for</span> <span class="n">split</span><span class="p">,</span> <span class="n">instance</span> <span class="ow">in</span> <span class="n">split_to_instance</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>      <span class="n">input_dir</span> <span class="o">=</span> <span class="n">instance</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>      <span class="n">output_dir</span> <span class="o">=</span> <span class="n">artifact_utils</span><span class="o">.</span><span class="n">get_split_uri</span><span class="p">(</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>                      <span class="n">output_dict</span><span class="p">[</span><span class="s1">&#39;output_data&#39;</span><span class="p">],</span> <span class="n">split</span><span class="p">)</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>    <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">tf</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">gfile</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">input_dir</span><span class="p">):</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>      <span class="n">input_uri</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">input_dir</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>      <span class="n">output_uri</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>      <span class="n">io_utils</span><span class="o">.</span><span class="n">copy_file</span><span class="p">(</span><span class="n">src</span><span class="o">=</span><span class="n">input_uri</span><span class="p">,</span> <span class="n">dst</span><span class="o">=</span><span class="n">output_uri</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Make the component pipeline-compatible</strong></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">from</span> <span class="nn">tfx.types</span> <span class="kn">import</span> <span class="n">standard_artifacts</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kn">from</span> <span class="nn">hello_component</span> <span class="kn">import</span> <span class="n">executor</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="k">class</span> <span class="nc">HelloComponent</span><span class="p">(</span><span class="n">base_component</span><span class="o">.</span><span class="n">BaseComponent</span><span class="p">):</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    <span class="n">SPEC_CLASS</span> <span class="o">=</span> <span class="n">HelloComponentSpec</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    <span class="n">EXECUTOR_SPEC</span> <span class="o">=</span> <span class="n">ExecutorClassSpec</span><span class="p">(</span><span class="n">executor</span><span class="o">.</span><span class="n">Executor</span><span class="p">)</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>      <span class="n">input_data</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">Channel</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>      <span class="n">output_data</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">Channel</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>      <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Text</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>      <span class="k">if</span> <span class="ow">not</span> <span class="n">output_data</span><span class="p">:</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>        <span class="n">examples_artifact</span> <span class="o">=</span> <span class="n">standard_artifacts</span><span class="o">.</span><span class="n">Examples</span><span class="p">()</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>        <span class="n">examples_artifact</span><span class="o">.</span><span class="n">split_names</span> <span class="o">=</span> <span class="n">input_data</span><span class="o">.</span><span class="n">get</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split_names</span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>        <span class="n">output_data</span> <span class="o">=</span> <span class="n">channel_utils</span><span class="o">.</span><span class="n">as_channel</span><span class="p">([</span><span class="n">examples_artifact</span><span class="p">])</span>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>      <span class="n">spec</span> <span class="o">=</span> <span class="n">HelloComponentSpec</span><span class="p">(</span><span class="n">input_data</span><span class="o">=</span><span class="n">input_data</span><span class="p">,</span> <span class="n">output_data</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>      <span class="nb">super</span><span class="p">(</span><span class="n">HelloComponent</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">spec</span><span class="o">=</span><span class="n">spec</span><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Assemble into a TFX pipeline</strong></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">def</span> <span class="nf">_create_pipeline</span><span class="p">():</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>  <span class="o">...</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>  <span class="n">example_gen</span> <span class="o">=</span> <span class="n">CsvExampleGen</span><span class="p">(</span><span class="n">input_base</span><span class="o">=</span><span class="n">examples</span><span class="p">)</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>  <span class="n">hello</span> <span class="o">=</span> <span class="n">component</span><span class="o">.</span><span class="n">HelloComponent</span><span class="p">(</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>    <span class="n">input_data</span><span class="o">=</span><span class="n">example_Gen</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;examples&#39;</span><span class="p">],</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;HelloWorld&#39;</span><span class="p">)</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>  <span class="n">statistics_gen</span> <span class="o">=</span> <span class="n">StatisticsGen</span><span class="p">(</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>    <span class="n">examples</span><span class="o">=</span><span class="n">hello</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;output_data&#39;</span><span class="p">])</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>  <span class="o">...</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>  <span class="k">return</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">Pipeline</span><span class="p">(</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>    <span class="o">...</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>    <span class="n">components</span><span class="o">=</span><span class="p">[</span><span class="n">example_gen</span><span class="p">,</span> <span class="n">hello</span><span class="p">,</span> <span class="n">statistics_gen</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>    <span class="o">...</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>  <span class="p">)</span>
+</span></code></pre></div>
+<details>
+<summary>Architecture for MLOps using TFX, Kubeflow Pipelines, and Cloud Build</summary>
+<h2 id="architecture-for-mlops-using-tfx-kubeflow-pipelines-and-cloud-build">Architecture for MLOps using TFX, Kubeflow Pipelines, and Cloud Build</h2>
+<p>To learn more about MLOps using TFX please check this <a href="https://cloud.google.com/architecture/architecture-for-mlops-using-tfx-kubeflow-pipelines-and-cloud-build">document</a> out.</p>
+</details>
+<h1 id="model-management-and-deployment-infrastructure">Model Management and Deployment Infrastructure</h1>
+<h2 id="managing-model-versions">Managing Model Versions</h2>
+<h3 id="why-versioning-ml-models">Why versioning ML Models?</h3>
+<p>In normal software development, teams and individual rely on version control software to help teams manage and control changes to their code. This helps them stay in sync with each other, rollback if new changes cause havoc and assess their development.</p>
+<p>Similarly in ML model development, model versioning helps teams keep track of changes to code, data and configs to properly reproduce the results and do collaboration.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/assets/images/ml/mle_for_production/deploying_ml_models_in_production/why_versioning_ml_models.png" /></a></p>
+<h3 id="how-ml-models-are-versioned">How ML Models are versioned?</h3>
+<p><strong>How software is versioned</strong></p>
+<p>Version: <code>MAJOR.MINOR.PATCH</code></p>
+<ul>
+<li><code>MAJOR</code>: Contains incompatible API changes</li>
+<li><code>MINOR</code>: Adds functionality in a backwards compatible manner</li>
+<li><code>PATCH</code>: Makes backwards compatible bug fixes.</li>
+</ul>
+<p><strong>ML models versioning</strong></p>
+<ul>
+<li>No uniform standard accepted yet</li>
+<li>Different organizations have different meanings and conventions</li>
+</ul>
+<h3 id="a-model-versioning-proposal">A Model Versioning Proposal</h3>
+<p><mark class="v">Version: <code>MAJOR.MINOR.PIPLEINE</code></mark></p>
+<ul>
+<li><mark class="v"><code>Major</code>: Incompatibility in data or target variable</mark></li>
+<li><mark class="v"><code>MINOR</code>: Model performance in improved</mark></li>
+<li><mark class="v"><code>PIPELINE</code>: Pipeline of model training is changed</mark></li>
+</ul>
+<p>TFX uses pipeline execution versioning. In this style, a new version is defined with each successfully run training pipeline. Models will be versioned regardless of changes to model architecture, input, or output.</p>
+<h3 id="retrieving-older-models">Retrieving older models</h3>
+<ul>
+<li>Can ML framework be leveraged to retrieve previously trained models?</li>
+<li>ML framework may internally be versioning models</li>
+</ul>
+<h3 id="what-is-model-lineage">What is model lineage?</h3>
+<p><mark class="y">Model lineage is a set of relationships among the artifacts that resulted in the trained model.</mark></p>
+<div class="admonition artifacts">
+<p class="admonition-title">Artifacts</p>
+<p>Artifacts are information needed to preprocess data and generate result (code, data, config, model)</p>
+</div>
+<p>To build model artifacts, you have to be able to track the code that build them and the data including pre-processing operations that the model was trained and tested upon.</p>
+<p>ML orchestration frameworks (like TFX) may store operations and data artifacts to recreate model. Model lineage usually only includes those artifacts and operations that were part of model training. Post-training artifacts and operations are usually not part of the lineage.</p>
+<h3 id="what-is-model-registry">What is model registry?</h3>
+<p><mark class="y">A model registry is a central repository for storing trained models.</mark></p>
+<ul>
+<li>Provides various operations of ML model development lifecycle</li>
+<li>Promotes model discovery, model understanding, and model reuse</li>
+<li>Integrated into OSS and commercial ML platforms</li>
+</ul>
+<h3 id="metadata-stored-by-model-registry">Metadata stored by model registry</h3>
+<p>Metadata usually includes:</p>
+<ul>
+<li>Model versions</li>
+<li>Model serialized artifacts</li>
+<li>Free text annotations and structured properties.</li>
+<li>Links to other ML artifact and metadata stores</li>
+</ul>
+<h3 id="capabilities-enabled-by-model-registries">Capabilities Enabled by Model Registries</h3>
+<ul>
+<li>Model search/discovery and understanding</li>
+<li>Approval/Governance</li>
+<li>Collaboration/Discussion</li>
+<li>Streamlined deployments</li>
+<li>Continuous evaluation and monitoring</li>
+</ul>
+<h3 id="examples-of-model-registries">Examples of Model Registries</h3>
+<ul>
+<li>Azure ML Model registry</li>
+<li>SAS model manager</li>
+<li>MLflow Model Registry</li>
+<li>Google AI platform</li>
+<li>Algorithmia</li>
+<li>
+<p>ML Model Management</p>
+<h2 id="ml-model-management">ML Model Management</h2>
+<p>Take a deeper dive into managing ML model versions by checking this <a href="https://neptune.ai/blog/machine-learning-model-management">blog</a> out.</p>
+</li>
+</ul>
+<h2 id="continuous-delivery">Continuous Delivery</h2>
+<p>Continuous Delivery helps promotes robust deployment.</p>
+<h3 id="what-is-continuous-integration-ci">What is Continuous Integration (CI)</h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/assets/images/ml/mle_for_production/deploying_ml_models_in_production/what_is_continuous_integration.png" /></a></p>
+<h3 id="what-is-continuous-delivery-cd">What is Continuous Delivery (CD)</h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/assets/images/ml/mle_for_production/deploying_ml_models_in_production/what_is_continuous_delivery.png" /></a></p>
+<h3 id="cicd-infrastructure">CI/CD Infrastructure</h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/assets/images/ml/mle_for_production/deploying_ml_models_in_production/ci_cd_infra.png" /></a></p>
+<h3 id="unit-testing-in-ci">Unit Testing in CI</h3>
+<p>In unit test we test each component in the pipeline produces the expected artifacts</p>
+<p>In addition to unit testing our code, following the standard practices of software development, there are two additional types of unit tests when doing CI for ML:</p>
+<ol>
+<li>Unit testing Data</li>
+<li>Unit testing Model performance</li>
+</ol>
+<h3 id="unit-testing-input-data">Unit Testing Input Data</h3>
+<p>Unit testing of data is not the same as performing data validation on your raw features.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/assets/images/ml/mle_for_production/deploying_ml_models_in_production/unit_testing_input_data.png" /></a></p>
+<h3 id="unit-testing-model-performance">Unit Testing Model performance</h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/assets/images/ml/mle_for_production/deploying_ml_models_in_production/unit_testing_model_performance.png" /></a></p>
+<h3 id="ml-unit-testing-considerations">ML Unit Testing Considerations</h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/assets/images/ml/mle_for_production/deploying_ml_models_in_production/ml_unit_testing_considerations.png" /></a></p>
+<h3 id="infrastructure-validation">Infrastructure validation</h3>
+<p>Infrastructure validation acts as an early warning layer before pushing a model into production to avoid issues with models that might nor run or might perform badly when actually serving requests in production.</p>
+<p><strong>When to apply infrastructure validation</strong></p>
+<ul>
+<li>Before starting CI/CD as part of model training</li>
+<li>Can also occur as part of CI/CD as a last check to check to verify that the model is deployable to the serving infrastructure.</li>
+</ul>
+<p><strong>TFX InfraValidator</strong></p>
+<ul>
+<li><mark class="y">TFX InfraValidator takes the model, launches a sand-boxed model server with the model and sees if it can be successfully loaded and optionally queried</mark></li>
+<li>InfraValidator is using the same model server binary, same resources, and same server configuration as production.</li>
+<li>InfraValidator only interacts with the model server in the user configured environment to see of it works as expected. Configuring this environment correctly will ensure that your inferred validation passing or failing will be indicative of whether the model would be survivable in the production serving environment.</li>
+</ul>
+<details>
+<summary>Continuous Delivery</summary>
+<h2 id="continuous-delivery_1">Continuous Delivery</h2>
+<p>Explore this <a href="https://continuousdelivery.com/">website</a> to learn more about continuous delivery.</p>
+</details>
+<h2 id="progressive-delivery">Progressive Delivery</h2>
+<p>Progressive Delivery is essentially an improvement over Continuous Delivery.
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/assets/images/ml/mle_for_production/deploying_ml_models_in_production/progress_delivery.png" /></a></p>
+<h3 id="complex-model-deployment-scenarios">Complex Model Deployment Scenarios</h3>
+<p>Progressive delivery usually involves having multiple versions deployed at the same time so that comparisons in performance can be made</p>
+<ul>
+<li>You can deploy multiple models performing same task</li>
+<li>Deploying competing models, as in A/B testing</li>
+<li>Deploying as shadow models, as in Canary testing</li>
+</ul>
+<h2 id="bluegreen-deployment">Blue/Green deployment</h2>
+<p>Traffic is passing through the load balancer directing it to current live environment called Blue. Meanwhile a new version is deployed to the green environment which acts as a staging setup where a series of tests are conducted to ensure performance and functionality.</p>
+<p>After passing the tests the traffic is then directed to the green deployment. If problem arises traffic can be moved back to the Blue version.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/assets/images/ml/mle_for_production/deploying_ml_models_in_production/b_g_deployment.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/assets/images/ml/mle_for_production/deploying_ml_models_in_production/b_g_deployment1.png" /></a></p>
+<ul>
+<li>No Downtime</li>
+<li>Quick rollback &amp; reliable</li>
+<li>Smoke testing in production environment</li>
+</ul>
+<h3 id="canary-deployment">Canary deployment</h3>
+<p>Similar to blue/green deployment, but instead of switching the entire incoming traffic from blue to green all at once, traffic is switched gradually.</p>
+<p>As traffic begins consuming new version, the performance of the new version is monitored. If necessary the deployment can be stopped and reversed with no downtime and minimal exposure of user to new version.</p>
+<p>Eventually all traffic is transferred to the new version.
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/assets/images/ml/mle_for_production/deploying_ml_models_in_production/canary.png" /></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/assets/images/ml/mle_for_production/deploying_ml_models_in_production/canary1.png" /></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/assets/images/ml/mle_for_production/deploying_ml_models_in_production/canary2.png" /></a></p>
+<h3 id="live-experimentation">Live Experimentation</h3>
+<ul>
+<li>Model metrics are usually not exact matches for business objectives</li>
+<li>Examples: Recommender systems<ul>
+<li>Model trained on clicks</li>
+<li>Business wants to maximise profit</li>
+<li>Example: Different products have different profit margins</li>
+</ul>
+</li>
+</ul>
+<h3 id="live-experimentaion-ab-testing">Live Experimentaion:; A/B Testing</h3>
+<p>In A/B testing we have at least two different models (or n) and we compare the business results between them to select the model that gives the best business performance.</p>
+<ul>
+<li>Users are divided into two groups</li>
+<li>Users are randomly routed to different models in environment</li>
+<li>You gather business results from each model to see which one is performing better</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/assets/images/ml/mle_for_production/deploying_ml_models_in_production/a_b_testing.png" /></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/assets/images/ml/mle_for_production/deploying_ml_models_in_production/multi_armed_bandit.png" /></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/assets/images/ml/mle_for_production/deploying_ml_models_in_production/contextual_bandit.png" /></a></p>
+<details>
+<summary>Progressive Delivery</summary>
+<h2 id="progressive-delivery_1">Progressive Delivery</h2>
+<p>Explore more about progressive delivery with Kubernetes operators allowing for minimum downtime and easy rollbacks in this <a href="https://codefresh.io/docs/docs/ci-cd-guides/progressive-delivery/">documentation</a>.</p>
+</details>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../week2/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Week 2 — Model Serving Architecture, Scaling Infrastructure and More.">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Week 2 — Model Serving Architecture, Scaling Infrastructure and More.
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../week4/" class="md-footer__link md-footer__link--next" aria-label="Next: Week 4 — Model monitoring, Logging &amp;amp; model decay, GDPR, and Privacy">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Week 4 — Model monitoring, Logging &amp; model decay, GDPR, and Privacy
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2025, <a href="https://adhadse.com" target="_blank" rel="noopener">Anurag Dhadse</a>. All Rights Reserved.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/adhadse/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/adhadse/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "toc.follow", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotate", "content.code.copy", "navigation.footer"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+     
+      <script src="../../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../../../assets/external/fastly.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+      
+        <script src="../../../../assets/external/fastly.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+      
+        <script src="../../../../assets/external/cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/fonts/KaTeX_Math-Italic.woff2"></script>
+      
+        <script src="../../../../assets/external/cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/fonts/KaTeX_Main-Regular.woff2"></script>
+      
+        <script src="../../../../assets/js/katex.js"></script>
+      
+        <script src="../../../../assets/js/highlight.js"></script>
+      
+        <script src="../../../../assets/js/home.js"></script>
+      
+        <script src="../../../../assets/js/interactive_graph.js"></script>
+      
+    
+<script defer>
+    VANTA.HALO({
+        el: ".hero-container",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.0,
+        minWidth: 200.0,
+        baseColor: 0x0,
+        backgroundColor: 0x0,
+        xOffset: 0.09,
+        amplitudeFactor: 0.2,
+        size: 0.9,
+    });
+</script>
+
+  <script id="init-glightbox">document.querySelectorAll('.glightbox').forEach(function(element) {
+    try {
+        var img = element.querySelector('img');
+        if (img && img.src) {
+            element.setAttribute('href', img.src);
+        } else {
+            console.log('No img element with src attribute found');
+        }
+    } catch (error) {
+        console.log('Error:', error);
+    }
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

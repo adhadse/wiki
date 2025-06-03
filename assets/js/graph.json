@@ -1,0 +1,1056 @@
+{
+  "nodes": [
+    {
+      "id": "0",
+      "name": "Week 1 \u2014 Neural Networks and Deep Learning",
+      "symbolSize": 2,
+      "value": "/ml/intro-dl/neural-networks/week1/",
+      "category": 1
+    },
+    {
+      "id": "1",
+      "name": "Week 2 \u2014 Basics of Neural Network programming",
+      "symbolSize": 2,
+      "value": "/ml/intro-dl/neural-networks/week2/",
+      "category": 1
+    },
+    {
+      "id": "2",
+      "name": "Week 3 \u2014 One hidden layer Neural Networks",
+      "symbolSize": 2,
+      "value": "/ml/intro-dl/neural-networks/week3/",
+      "category": 1
+    },
+    {
+      "id": "3",
+      "name": "Week 4 \u2014 L Layers Deep Neural Networks",
+      "symbolSize": 2,
+      "value": "/ml/intro-dl/neural-networks/week4/",
+      "category": 1
+    },
+    {
+      "id": "4",
+      "name": "Week 1 \u2014 The ML project lifecycle",
+      "symbolSize": 2,
+      "value": "/ml/mle-for-production/intro-to-mle-for-production/week1/",
+      "category": 1
+    },
+    {
+      "id": "5",
+      "name": "Week 2 \u2014 Key challenges in Modelling",
+      "symbolSize": 2,
+      "value": "/ml/mle-for-production/intro-to-mle-for-production/week2/",
+      "category": 1
+    },
+    {
+      "id": "6",
+      "name": "Week 3 \u2014 Data",
+      "symbolSize": 2,
+      "value": "/ml/mle-for-production/intro-to-mle-for-production/week3/",
+      "category": 1
+    },
+    {
+      "id": "7",
+      "name": "Week 1 \u2014 Collecting, labeling, and validating data",
+      "symbolSize": 2,
+      "value": "/ml/mle-for-production/ml-data-lifecycle/week1/",
+      "category": 1
+    },
+    {
+      "id": "8",
+      "name": "Week 2 \u2014 Feature Engineering",
+      "symbolSize": 2,
+      "value": "/ml/mle-for-production/ml-data-lifecycle/week2/",
+      "category": 1
+    },
+    {
+      "id": "9",
+      "name": "Week 3 \u2014 Data Journey",
+      "symbolSize": 2,
+      "value": "/ml/mle-for-production/ml-data-lifecycle/week3/",
+      "category": 1
+    },
+    {
+      "id": "10",
+      "name": "Week 1 \u2014 Hyperparameter tuning: searching for the best architecture",
+      "symbolSize": 2,
+      "value": "/ml/mle-for-production/ml-modeling-pipeline/week1/",
+      "category": 1
+    },
+    {
+      "id": "11",
+      "name": "Week 2 \u2014 Dimensionality Reduction",
+      "symbolSize": 2,
+      "value": "/ml/mle-for-production/ml-modeling-pipeline/week2/",
+      "category": 1
+    },
+    {
+      "id": "12",
+      "name": "Week 3 \u2014 High Performance Modeling\"",
+      "symbolSize": 2,
+      "value": "/ml/mle-for-production/ml-modeling-pipeline/week3/",
+      "category": 1
+    },
+    {
+      "id": "13",
+      "name": "Week 4 \u2014 Model Performance Analysis",
+      "symbolSize": 2,
+      "value": "/ml/mle-for-production/ml-modeling-pipeline/week4/",
+      "category": 1
+    },
+    {
+      "id": "14",
+      "name": "Week 1 \u2014 Intro to Model Serving and Infrastructure",
+      "symbolSize": 2,
+      "value": "/ml/mle-for-production/deploying-ml-models/week1/",
+      "category": 1
+    },
+    {
+      "id": "15",
+      "name": "Week 2 \u2014 Model Serving Architecture, Scaling Infrastructure and More.",
+      "symbolSize": 2,
+      "value": "/ml/mle-for-production/deploying-ml-models/week2/",
+      "category": 1
+    },
+    {
+      "id": "16",
+      "name": "Week 3 \u2014 ML Experiment Management and Workflow Automation & MLOps Methodology",
+      "symbolSize": 2,
+      "value": "/ml/mle-for-production/deploying-ml-models/week3/",
+      "category": 1
+    },
+    {
+      "id": "17",
+      "name": "Week 4 \u2014 Model monitoring, Logging & model decay, GDPR, and Privacy",
+      "symbolSize": 2,
+      "value": "/ml/mle-for-production/deploying-ml-models/week4/",
+      "category": 1
+    },
+    {
+      "id": "18",
+      "name": "Getting Started with Rust",
+      "symbolSize": 2,
+      "value": "/cs/rust/tutorial/getting-started/",
+      "category": 1
+    },
+    {
+      "id": "19",
+      "name": "Guessing game",
+      "symbolSize": 2,
+      "value": "/cs/rust/tutorial/guessing-game/",
+      "category": 1
+    },
+    {
+      "id": "20",
+      "name": "Common Programming Concepts in Rust",
+      "symbolSize": 2,
+      "value": "/cs/rust/tutorial/common-programming-concepts/",
+      "category": 1
+    },
+    {
+      "id": "21",
+      "name": "Ownership in Rust",
+      "symbolSize": 2,
+      "value": "/cs/rust/tutorial/ownership/",
+      "category": 1
+    },
+    {
+      "id": "22",
+      "name": "Structs in Rust",
+      "symbolSize": 2,
+      "value": "/cs/rust/tutorial/structs/",
+      "category": 1
+    },
+    {
+      "id": "23",
+      "name": "Enums and Pattern Matching in Rust\"",
+      "symbolSize": 2,
+      "value": "/cs/rust/tutorial/enums-and-pattern-matching/",
+      "category": 1
+    },
+    {
+      "id": "24",
+      "name": "Rust's Module System",
+      "symbolSize": 2,
+      "value": "/cs/rust/tutorial/module-system/",
+      "category": 1
+    },
+    {
+      "id": "25",
+      "name": "Common Collections in Rust",
+      "symbolSize": 2,
+      "value": "/cs/rust/tutorial/common-collections/",
+      "category": 1
+    },
+    {
+      "id": "26",
+      "name": "Error Handling in Rust",
+      "symbolSize": 2,
+      "value": "/cs/rust/tutorial/error-handling/",
+      "category": 1
+    },
+    {
+      "id": "27",
+      "name": "Generic Types in Rust",
+      "symbolSize": 2,
+      "value": "/cs/rust/tutorial/generic-types/",
+      "category": 1
+    },
+    {
+      "id": "28",
+      "name": "Traits in Rust",
+      "symbolSize": 2,
+      "value": "/cs/rust/tutorial/traits/",
+      "category": 1
+    },
+    {
+      "id": "29",
+      "name": "Rust Lifetimes",
+      "symbolSize": 2,
+      "value": "/cs/rust/tutorial/lifetimes/",
+      "category": 1
+    },
+    {
+      "id": "30",
+      "name": "Testing in Rust",
+      "symbolSize": 1,
+      "value": "/cs/rust/tutorial/testing/testing-in-rust/",
+      "category": 1
+    },
+    {
+      "id": "31",
+      "name": "Testing in Rust - Part 2",
+      "symbolSize": 1,
+      "value": "/cs/rust/tutorial/testing/testing-in-rust-2/",
+      "category": 1
+    },
+    {
+      "id": "32",
+      "name": "CLI App in Rust",
+      "symbolSize": 1,
+      "value": "/cs/rust/tutorial/cli-app/cli-app-in-rust/",
+      "category": 1
+    },
+    {
+      "id": "33",
+      "name": "CLI App in Rust - Part 2",
+      "symbolSize": 1,
+      "value": "/cs/rust/tutorial/cli-app/cli-app-in-rust-2/",
+      "category": 1
+    },
+    {
+      "id": "34",
+      "name": "Closures in Rust",
+      "symbolSize": 1,
+      "value": "/cs/rust/tutorial/functional/closures/",
+      "category": 1
+    },
+    {
+      "id": "35",
+      "name": "Iterators in Rust",
+      "symbolSize": 1,
+      "value": "/cs/rust/tutorial/functional/iterators/",
+      "category": 1
+    },
+    {
+      "id": "36",
+      "name": "Cargo Workspaces",
+      "symbolSize": 1,
+      "value": "/cs/rust/tutorial/cargo/cargo-workspaces/",
+      "category": 1
+    },
+    {
+      "id": "37",
+      "name": "Publishing a Rust Crate",
+      "symbolSize": 1,
+      "value": "/cs/rust/tutorial/cargo/publishing-crate/",
+      "category": 1
+    },
+    {
+      "id": "38",
+      "name": "Smart Pointers in Rust - The Deref Trait",
+      "symbolSize": 1,
+      "value": "/cs/rust/tutorial/smart-pointers/deref-trait/",
+      "category": 1
+    },
+    {
+      "id": "39",
+      "name": "Smart Pointers in Rust - The Drop Trait",
+      "symbolSize": 1,
+      "value": "/cs/rust/tutorial/smart-pointers/drop-trait/",
+      "category": 1
+    },
+    {
+      "id": "40",
+      "name": "Smart Pointers in Rust - Reference Counting",
+      "symbolSize": 1,
+      "value": "/cs/rust/tutorial/smart-pointers/reference-counting/",
+      "category": 1
+    },
+    {
+      "id": "41",
+      "name": "Smart Pointers in Rust - Interior Mutability",
+      "symbolSize": 1,
+      "value": "/cs/rust/tutorial/smart-pointers/interior-mutability/",
+      "category": 1
+    },
+    {
+      "id": "42",
+      "name": "Smart Pointers in Rust - References Cycles",
+      "symbolSize": 1,
+      "value": "/cs/rust/tutorial/smart-pointers/reference-cycles/",
+      "category": 1
+    },
+    {
+      "id": "43",
+      "name": "Box Smart Pointer in Rust",
+      "symbolSize": 1,
+      "value": "/cs/rust/tutorial/smart-pointers/box-smart-pointer/",
+      "category": 1
+    },
+    {
+      "id": "44",
+      "name": "Concurrency in Rust - Creating Threads",
+      "symbolSize": 1,
+      "value": "/cs/rust/tutorial/concurrency/creating-threads/",
+      "category": 1
+    },
+    {
+      "id": "45",
+      "name": "Concurrency in Rust - Message Passing",
+      "symbolSize": 1,
+      "value": "/cs/rust/tutorial/concurrency/message-passing/",
+      "category": 1
+    },
+    {
+      "id": "46",
+      "name": "Concurrency in Rust - Sharing State",
+      "symbolSize": 1,
+      "value": "/cs/rust/tutorial/concurrency/sharing-state/",
+      "category": 1
+    },
+    {
+      "id": "47",
+      "name": "Object Oriented Programming in Rust",
+      "symbolSize": 1,
+      "value": "/cs/rust/tutorial/oops/object-oriented-programming/",
+      "category": 1
+    },
+    {
+      "id": "48",
+      "name": "Using Trait Objects in Rust",
+      "symbolSize": 1,
+      "value": "/cs/rust/tutorial/oops/trait-objects/",
+      "category": 1
+    },
+    {
+      "id": "49",
+      "name": "State Design Pattern in Rust",
+      "symbolSize": 1,
+      "value": "/cs/rust/tutorial/oops/state-design-pattern/",
+      "category": 1
+    },
+    {
+      "id": "50",
+      "name": "Patterns and Matching in Rust",
+      "symbolSize": 1,
+      "value": "/cs/rust/tutorial/patterns/patterns-and-matching/",
+      "category": 1
+    },
+    {
+      "id": "51",
+      "name": "Pattern Syntax in Rust",
+      "symbolSize": 1,
+      "value": "/cs/rust/tutorial/patterns/pattern-syntax/",
+      "category": 1
+    },
+    {
+      "id": "52",
+      "name": "Writing Unsafe Rust",
+      "symbolSize": 1,
+      "value": "/cs/rust/tutorial/advanced/unsafe/",
+      "category": 1
+    },
+    {
+      "id": "53",
+      "name": "Advanced Traits Rust",
+      "symbolSize": 1,
+      "value": "/cs/rust/tutorial/advanced/advanced-traits/",
+      "category": 1
+    },
+    {
+      "id": "54",
+      "name": "Advanced Types in Rust",
+      "symbolSize": 1,
+      "value": "/cs/rust/tutorial/advanced/advanced-types/",
+      "category": 1
+    },
+    {
+      "id": "55",
+      "name": "Advanced Functions and Closures in Rust",
+      "symbolSize": 1,
+      "value": "/cs/rust/tutorial/advanced/advanced-functions-and-closures/",
+      "category": 1
+    },
+    {
+      "id": "56",
+      "name": "Macros in Rust",
+      "symbolSize": 1,
+      "value": "/cs/rust/tutorial/advanced/macros/",
+      "category": 1
+    },
+    {
+      "id": "57",
+      "name": "All Rust String Types explained",
+      "symbolSize": 2,
+      "value": "/cs/rust/advanced/rust_str_types/",
+      "category": 1
+    },
+    {
+      "id": "58",
+      "name": "Common SQL queries",
+      "symbolSize": 2,
+      "value": "/cs/curriculum/sql/common-queries/",
+      "category": 1
+    },
+    {
+      "id": "59",
+      "name": "IPv6",
+      "symbolSize": 2,
+      "value": "/cs/curriculum/networking/ipv6/",
+      "category": 1
+    },
+    {
+      "id": "60",
+      "name": "Terraform",
+      "symbolSize": 2,
+      "value": "/cs/devops/terraform/terraform-freecodecamp-course/",
+      "category": 1
+    },
+    {
+      "id": "61",
+      "name": "Regex",
+      "symbolSize": 6,
+      "value": "/etc/regular-expressions/",
+      "category": 1
+    },
+    {
+      "id": "62",
+      "name": "Maths Formula Compendium",
+      "symbolSize": 4,
+      "value": "/etc/mathematics/maths-formula/",
+      "category": 1
+    },
+    {
+      "id": "63",
+      "name": "Propositional Logic",
+      "symbolSize": 2,
+      "value": "/etc/mathematics/discrete-mathematics/propositional-logic/",
+      "category": 1
+    },
+    {
+      "id": "64",
+      "name": "Wiki",
+      "symbolSize": 20,
+      "value": "",
+      "category": 0
+    },
+    {
+      "id": "65",
+      "name": "neural-networks",
+      "symbolSize": 4,
+      "value": "",
+      "category": 1
+    },
+    {
+      "id": "66",
+      "name": "ml-modeling-pipeline",
+      "symbolSize": 4,
+      "value": "",
+      "category": 1
+    },
+    {
+      "id": "67",
+      "name": "testing",
+      "symbolSize": 2,
+      "value": "",
+      "category": 1
+    },
+    {
+      "id": "68",
+      "name": "devops",
+      "symbolSize": 6,
+      "value": "",
+      "category": 1
+    },
+    {
+      "id": "69",
+      "name": "mathematics",
+      "symbolSize": 6,
+      "value": "",
+      "category": 1
+    },
+    {
+      "id": "70",
+      "name": "etc",
+      "symbolSize": 8,
+      "value": "",
+      "category": 2
+    },
+    {
+      "id": "71",
+      "name": "cargo",
+      "symbolSize": 2,
+      "value": "",
+      "category": 1
+    },
+    {
+      "id": "72",
+      "name": "advanced",
+      "symbolSize": 2,
+      "value": "",
+      "category": 1
+    },
+    {
+      "id": "73",
+      "name": "advanced",
+      "symbolSize": 4,
+      "value": "",
+      "category": 1
+    },
+    {
+      "id": "74",
+      "name": "networking",
+      "symbolSize": 4,
+      "value": "",
+      "category": 1
+    },
+    {
+      "id": "75",
+      "name": "concurrency",
+      "symbolSize": 2,
+      "value": "",
+      "category": 1
+    },
+    {
+      "id": "76",
+      "name": "ml-data-lifecycle",
+      "symbolSize": 4,
+      "value": "",
+      "category": 1
+    },
+    {
+      "id": "77",
+      "name": "cs",
+      "symbolSize": 8,
+      "value": "",
+      "category": 3
+    },
+    {
+      "id": "78",
+      "name": "intro-to-mle-for-production",
+      "symbolSize": 4,
+      "value": "",
+      "category": 1
+    },
+    {
+      "id": "79",
+      "name": "oops",
+      "symbolSize": 2,
+      "value": "",
+      "category": 1
+    },
+    {
+      "id": "80",
+      "name": "patterns",
+      "symbolSize": 2,
+      "value": "",
+      "category": 1
+    },
+    {
+      "id": "81",
+      "name": "smart-pointers",
+      "symbolSize": 2,
+      "value": "",
+      "category": 1
+    },
+    {
+      "id": "82",
+      "name": "mle-for-production",
+      "symbolSize": 6,
+      "value": "",
+      "category": 1
+    },
+    {
+      "id": "83",
+      "name": "tutorial",
+      "symbolSize": 4,
+      "value": "",
+      "category": 1
+    },
+    {
+      "id": "84",
+      "name": "cli-app",
+      "symbolSize": 2,
+      "value": "",
+      "category": 1
+    },
+    {
+      "id": "85",
+      "name": "terraform",
+      "symbolSize": 4,
+      "value": "",
+      "category": 1
+    },
+    {
+      "id": "86",
+      "name": "discrete-mathematics",
+      "symbolSize": 4,
+      "value": "",
+      "category": 1
+    },
+    {
+      "id": "87",
+      "name": "intro-dl",
+      "symbolSize": 6,
+      "value": "",
+      "category": 1
+    },
+    {
+      "id": "88",
+      "name": "functional",
+      "symbolSize": 2,
+      "value": "",
+      "category": 1
+    },
+    {
+      "id": "89",
+      "name": "curriculum",
+      "symbolSize": 6,
+      "value": "",
+      "category": 1
+    },
+    {
+      "id": "90",
+      "name": "rust",
+      "symbolSize": 6,
+      "value": "",
+      "category": 1
+    },
+    {
+      "id": "91",
+      "name": "ml",
+      "symbolSize": 8,
+      "value": "",
+      "category": 4
+    },
+    {
+      "id": "92",
+      "name": "sql",
+      "symbolSize": 4,
+      "value": "",
+      "category": 1
+    },
+    {
+      "id": "93",
+      "name": "deploying-ml-models",
+      "symbolSize": 4,
+      "value": "",
+      "category": 1
+    }
+  ],
+  "links": [
+    {
+      "source": "65",
+      "target": "0"
+    },
+    {
+      "source": "65",
+      "target": "1"
+    },
+    {
+      "source": "65",
+      "target": "2"
+    },
+    {
+      "source": "65",
+      "target": "3"
+    },
+    {
+      "source": "78",
+      "target": "4"
+    },
+    {
+      "source": "78",
+      "target": "5"
+    },
+    {
+      "source": "78",
+      "target": "6"
+    },
+    {
+      "source": "76",
+      "target": "7"
+    },
+    {
+      "source": "76",
+      "target": "8"
+    },
+    {
+      "source": "76",
+      "target": "9"
+    },
+    {
+      "source": "66",
+      "target": "10"
+    },
+    {
+      "source": "66",
+      "target": "11"
+    },
+    {
+      "source": "66",
+      "target": "12"
+    },
+    {
+      "source": "66",
+      "target": "13"
+    },
+    {
+      "source": "93",
+      "target": "14"
+    },
+    {
+      "source": "93",
+      "target": "15"
+    },
+    {
+      "source": "93",
+      "target": "16"
+    },
+    {
+      "source": "93",
+      "target": "17"
+    },
+    {
+      "source": "83",
+      "target": "18"
+    },
+    {
+      "source": "83",
+      "target": "19"
+    },
+    {
+      "source": "83",
+      "target": "20"
+    },
+    {
+      "source": "83",
+      "target": "21"
+    },
+    {
+      "source": "83",
+      "target": "22"
+    },
+    {
+      "source": "83",
+      "target": "23"
+    },
+    {
+      "source": "83",
+      "target": "24"
+    },
+    {
+      "source": "83",
+      "target": "25"
+    },
+    {
+      "source": "83",
+      "target": "26"
+    },
+    {
+      "source": "83",
+      "target": "27"
+    },
+    {
+      "source": "83",
+      "target": "28"
+    },
+    {
+      "source": "83",
+      "target": "29"
+    },
+    {
+      "source": "67",
+      "target": "30"
+    },
+    {
+      "source": "67",
+      "target": "31"
+    },
+    {
+      "source": "84",
+      "target": "32"
+    },
+    {
+      "source": "84",
+      "target": "33"
+    },
+    {
+      "source": "88",
+      "target": "34"
+    },
+    {
+      "source": "88",
+      "target": "35"
+    },
+    {
+      "source": "71",
+      "target": "36"
+    },
+    {
+      "source": "71",
+      "target": "37"
+    },
+    {
+      "source": "81",
+      "target": "38"
+    },
+    {
+      "source": "81",
+      "target": "39"
+    },
+    {
+      "source": "81",
+      "target": "40"
+    },
+    {
+      "source": "81",
+      "target": "41"
+    },
+    {
+      "source": "81",
+      "target": "42"
+    },
+    {
+      "source": "81",
+      "target": "43"
+    },
+    {
+      "source": "75",
+      "target": "44"
+    },
+    {
+      "source": "75",
+      "target": "45"
+    },
+    {
+      "source": "75",
+      "target": "46"
+    },
+    {
+      "source": "79",
+      "target": "47"
+    },
+    {
+      "source": "79",
+      "target": "48"
+    },
+    {
+      "source": "79",
+      "target": "49"
+    },
+    {
+      "source": "80",
+      "target": "50"
+    },
+    {
+      "source": "80",
+      "target": "51"
+    },
+    {
+      "source": "72",
+      "target": "52"
+    },
+    {
+      "source": "72",
+      "target": "53"
+    },
+    {
+      "source": "72",
+      "target": "54"
+    },
+    {
+      "source": "72",
+      "target": "55"
+    },
+    {
+      "source": "72",
+      "target": "56"
+    },
+    {
+      "source": "73",
+      "target": "57"
+    },
+    {
+      "source": "92",
+      "target": "58"
+    },
+    {
+      "source": "74",
+      "target": "59"
+    },
+    {
+      "source": "85",
+      "target": "60"
+    },
+    {
+      "source": "70",
+      "target": "61"
+    },
+    {
+      "source": "69",
+      "target": "62"
+    },
+    {
+      "source": "86",
+      "target": "63"
+    },
+    {
+      "source": "87",
+      "target": "65"
+    },
+    {
+      "source": "82",
+      "target": "66"
+    },
+    {
+      "source": "83",
+      "target": "67"
+    },
+    {
+      "source": "77",
+      "target": "68"
+    },
+    {
+      "source": "70",
+      "target": "69"
+    },
+    {
+      "source": "64",
+      "target": "70"
+    },
+    {
+      "source": "83",
+      "target": "71"
+    },
+    {
+      "source": "83",
+      "target": "72"
+    },
+    {
+      "source": "90",
+      "target": "73"
+    },
+    {
+      "source": "89",
+      "target": "74"
+    },
+    {
+      "source": "83",
+      "target": "75"
+    },
+    {
+      "source": "82",
+      "target": "76"
+    },
+    {
+      "source": "64",
+      "target": "77"
+    },
+    {
+      "source": "82",
+      "target": "78"
+    },
+    {
+      "source": "83",
+      "target": "79"
+    },
+    {
+      "source": "83",
+      "target": "80"
+    },
+    {
+      "source": "83",
+      "target": "81"
+    },
+    {
+      "source": "91",
+      "target": "82"
+    },
+    {
+      "source": "90",
+      "target": "83"
+    },
+    {
+      "source": "83",
+      "target": "84"
+    },
+    {
+      "source": "68",
+      "target": "85"
+    },
+    {
+      "source": "69",
+      "target": "86"
+    },
+    {
+      "source": "91",
+      "target": "87"
+    },
+    {
+      "source": "83",
+      "target": "88"
+    },
+    {
+      "source": "77",
+      "target": "89"
+    },
+    {
+      "source": "77",
+      "target": "90"
+    },
+    {
+      "source": "64",
+      "target": "91"
+    },
+    {
+      "source": "89",
+      "target": "92"
+    },
+    {
+      "source": "82",
+      "target": "93"
+    }
+  ],
+  "categories": [
+    {
+      "name": "Wiki"
+    },
+    {
+      "name": "Content"
+    },
+    {
+      "name": "etc"
+    },
+    {
+      "name": "cs"
+    },
+    {
+      "name": "ml"
+    },
+    {
+      "name": "Default"
+    }
+  ]
+}
