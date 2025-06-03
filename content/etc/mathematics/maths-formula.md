@@ -385,6 +385,13 @@ $$
 - $a^{\log_a x} = x$
 - $x^{\log_a y} = y^{\log_a x}$
 
+### Chain Rule
+If a variable $z$ depends on the variable $y$, which itself depends on the variable $x$ (that is, $y$ and $z$ are dependent variables), then $z$ depends on $x$ as well, via the intermediate variable $y$. In this case, the chain rule is expressed as:
+
+  $$
+  \frac{dz}{dx} = \frac{dz}{dy} \cdot \frac{dy}{dz}
+  $$
+
 ## Integration Formulas
 
 ### Basic Integration Rules
@@ -440,8 +447,7 @@ $$
 2. One Point form of line
 
 
-$$
-
+    $$
     y - y_1 = m (x-x_1)
     $$
 
