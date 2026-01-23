@@ -111,7 +111,7 @@ plugins:
   - social:
       cards_layout: default/only/image
       cards_layout_options:
-        background_image: "layouts/social_bg.png"  # currently only for insiders
+        background_image: "layouts/social_bg.png" # currently only for insiders
         font_family: Inter
 
 hooks:
@@ -218,4 +218,4 @@ watch:
 validation:
   absolute_links: ignore
 
-copyright: Copyright © 2025, <a href="https://adhadse.com" target="_blank" rel="noopener">Anurag Dhadse</a>. All Rights Reserved.
+copyright: Copyright © 2026, <a href="https://adhadse.com" target="_blank" rel="noopener">Anurag Dhadse</a>. All Rights Reserved.
