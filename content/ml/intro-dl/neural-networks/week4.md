@@ -34,7 +34,7 @@ $a^{[4]} = \hat{y} = g^{[4]}(z^{[4]})$
 
 #### Generally equation for the forward propagation of any layer l
 
-<mark class="v">$z^{[l]} = W^{[l]}a^{[l-1]} + b^{[l]}$<mark>
+<mark class="v">$z^{[l]} = W^{[l]}a^{[l-1]} + b^{[l]}$</mark>
 
 <mark class="v">$ a^{[l]} = g^{[l]}(z^{[l]})$</mark>
 
@@ -51,7 +51,7 @@ Here $A^{[0]}$ is going to be $X$.
 
     In the this video, at time **6:35**, the correct formula should be:
 
-    $a^{\[l]} = g^{\[l]}(z^{\[l]})$
+    $a^{[l]} = g^{[l]}(z^{[l]})$
 
 
 Note that "a" and "z have dimensions $(n^{[l]},1)$.
@@ -83,25 +83,25 @@ The the backward step would be like to calculate $dA^{[l-1]},\enspace dZ^{[l]},\
 ## Forward and Backward Propagation
 !!! warning
 
-    Note that in the next video at 2:30, the text that's written should be $dw^{\[l]} = dz^{\[l]} \* a^{\[l-1]\bold{\top}}$
+    Note that in the next video at 2:30, the text that's written should be $dW^{[l]} = dZ^{[l]}(A^{[l-1]})^{\top}$.
 
 <figure>
-  <img src="/assets/images/ml/intro_dl/neural_networks/Untitled 21.png"></img>
+  <img src="/assets/images/ml/intro_dl/neural_networks/Untitled 21.png">
   <figcaption>Forward and backward propagation. Source: Coursera Assignment</figcaption>
 </figure>
 
 
 To output $dA^{[l-1]},\enspace dZ^{[l]},\enspace dW^{[l]}.\enspace db^{[l]}$; we do:
 
-<mark class="v">$dZ^{[l]} = dA^{[l]}\* g'^{\[l]}(Z^{\[l]})$</mark>
+<mark class="v">$dZ^{[l]} = dA^{[l]} \cdot g'^{[l]}(Z^{[l]})$</mark>
 
 <mark class="v">$dW^{[l]}=\frac{1}{m}dZ^{[l]}.A^{[l-1]\bold{\top}}$</mark>
 
-<mark class="v">$db^{[l]}=\frac{1}{m}\text{np.sum($dZ^{[l]}$, axis=1, keepdims=True)}$</mark>
+<mark class="v">$db^{[l]}=\frac{1}{m}\sum_{i=1}^{m}dZ^{[l](i)}$</mark> (NumPy: `np.sum(dZ, axis=1, keepdims=True) / m`.)
 
 <mark class="v">$dA^{[l-1]}=W^{[l]\bold{\top}}dZ^{[l]}$</mark>
 
-<mark class="v">$dAL = -(\text{np.divide($Y, AL$)} - \text{np.divide($1-Y$, $1-AL$)}$</mark>
+<mark class="v">$dA^{[L]} = -\frac{Y}{A^{[L]}} + \frac{1-Y}{1-A^{[L]}}$</mark> (For binary cross-entropy, this is `-(Y / AL) + (1 - Y) / (1 - AL)`.)
 
 ## Parameters VS Hyperparameters
 

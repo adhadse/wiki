@@ -1,340 +1,453 @@
-// function definitions
-function draw_graph_sidebar(myChart, global = false) {
-  draw_graph(myChart, global);
+const graphColors = [
+  "#3eecac",
+  "#eea236",
+  "#5470c6",
+  "#9a60b4",
+  "#fc8452",
+  "#73c0de",
+  "#da70d6",
+];
+
+let graphDataPromise;
+let graphData;
+let sidebarChart;
+let modalChart;
+let modalElement;
+let focusBeforeModal;
+let oldBodyOverflow = "";
+let sidebarRenderId = 0;
+const chartObservers = new WeakMap();
+const chartResizeHandlers = new WeakMap();
+
+function normalizeRoute(value) {
+  try {
+    let pathname = new URL(value, window.location.origin).pathname;
+    pathname = pathname.replace(/\/index\.html$/, "/");
+    return pathname.endsWith("/") ? pathname : `${pathname}/`;
+  } catch {
+    return value;
+  }
 }
 
-function draw_graph_modal(myChart, global = true) {
-  draw_graph(myChart, global);
+function activePageId(data = graphData) {
+  if (!data) return null;
+  const route = normalizeRoute(window.location.pathname);
+  return data.nodes.find(
+    (node) => node.kind === "page" && normalizeRoute(node.value) === route,
+  )?.id;
 }
 
-function add_graph_div(params) {
-  $(".md-sidebar--secondary").each(function () {
-    $(this).find("#graph.graph").remove();
-    $(this).contents().append('<div id="graph" class="graph"></div>');
+function pageForNode(node, data) {
+  if (!node) return null;
+  if (node.kind === "page") return node.value ? node : null;
+  if (node.kind !== "directory") return null;
+
+  const directoryRoute = node.id.replace(/^directory:/, "");
+  return data.nodes.find(
+    (candidate) =>
+      candidate.kind === "page" &&
+      normalizeRoute(candidate.value) === normalizeRoute(directoryRoute),
+  ) || null;
+}
+
+function graphJsonUrl() {
+  const script = [...document.scripts].find((item) =>
+    item.src.includes("interactive_graph.js"),
+  );
+  if (script) return new URL("../js/graph.json", script.src).toString();
+
+  const base = document.body.getAttribute("data-md-base-url") || "/";
+  return new URL(`${base}assets/js/graph.json`, window.location.href).toString();
+}
+
+function loadGraphData() {
+  if (!graphDataPromise) {
+    graphDataPromise = fetch(graphJsonUrl())
+      .then((response) => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json();
+      })
+      .then((data) => {
+        graphData = data;
+        return data;
+      })
+      .catch((error) => {
+        graphDataPromise = null;
+        throw error;
+      });
+  }
+  return graphDataPromise;
+}
+
+function ensureGraphButton() {
+  if (document.getElementById("graph_button")) return;
+  const search = document.querySelector(".md-search");
+  const header = document.querySelector(".md-header__inner");
+  const button = document.createElement("button");
+  button.type = "button";
+  button.id = "graph_button";
+  button.className = "md-header__button md-icon graph-button";
+  button.setAttribute("aria-label", "Open site graph");
+  button.setAttribute("aria-haspopup", "dialog");
+  button.title = "Open site graph";
+  button.innerHTML = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 3a3 3 0 0 0-2.83 2H7a3 3 0 0 0-3 3v1.17a3 3 0 1 0 2 0V8a1 1 0 0 1 1-1h2.17a3 3 0 0 0 5.66 0H17a1 1 0 0 1 1 1v1.17a3 3 0 1 0 2 0V8a3 3 0 0 0-3-3h-2.17A3 3 0 0 0 12 3Zm0 2a1 1 0 1 1 0 2 1 1 0 0 1 0-2ZM5 11a1 1 0 1 1 0 2 1 1 0 0 1 0-2Zm14 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2ZM11 10v3.17a3 3 0 1 0 2 0V10h-2Zm1 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/>
+    </svg>`;
+  button.addEventListener("click", openGraphModal);
+
+  if (search) search.before(button);
+  else header?.append(button);
+}
+
+function ensureSidebarGraph() {
+  const sidebar = document.querySelector(".md-sidebar--secondary");
+  if (!sidebar) return null;
+
+  const host = sidebar.querySelector(".md-sidebar__inner") || sidebar;
+  let container = host.querySelector("[data-wiki-graph-sidebar]");
+  if (!container) container = sidebar.querySelector("[data-wiki-graph-sidebar]");
+  if (!container) {
+    container = document.createElement("div");
+    container.id = "graph";
+    container.className = "graph";
+    container.dataset.wikiGraphSidebar = "true";
+    container.setAttribute("role", "img");
+    container.setAttribute("aria-label", "Pages linked to this page");
+  }
+  const toc = host.querySelector(".md-nav--secondary");
+  if (container.parentElement !== host || (toc && container.nextElementSibling !== toc)) {
+    host.insertBefore(container, toc || host.firstChild);
+  }
+  return container;
+}
+
+function disposeChart(chart) {
+  if (!chart || chart.isDisposed()) return;
+  chart.off("click");
+  chartObservers.get(chart)?.disconnect();
+  chartObservers.delete(chart);
+  const resizeHandler = chartResizeHandlers.get(chart);
+  if (resizeHandler) window.removeEventListener("resize", resizeHandler);
+  chartResizeHandlers.delete(chart);
+  chart.dispose();
+}
+
+function observeChartResize(chart) {
+  const element = chart.getDom();
+  if (window.ResizeObserver) {
+    const observer = new ResizeObserver(() => {
+      if (!chart.isDisposed()) chart.resize();
+    });
+    observer.observe(element);
+    chartObservers.set(chart, observer);
+    return;
+  }
+
+  const resizeHandler = () => {
+    if (!chart.isDisposed()) chart.resize();
+  };
+  window.addEventListener("resize", resizeHandler);
+  chartResizeHandlers.set(chart, resizeHandler);
+}
+
+function currentNeighborhood(data) {
+  const selectedId = activePageId(data);
+  if (!selectedId) return {nodes: [], links: [], selectedId: null};
+
+  const links = data.links.filter(
+    (edge) => edge.source === selectedId || edge.target === selectedId,
+  );
+  const ids = new Set([selectedId]);
+  for (const edge of links) {
+    ids.add(edge.source);
+    ids.add(edge.target);
+  }
+  return {
+    nodes: data.nodes.filter((node) => ids.has(node.id)),
+    links,
+    selectedId,
+  };
+}
+
+function visibleGlobalGraph(data) {
+  const showHierarchy =
+    modalElement?.querySelector("#graph-filter-hierarchy")?.checked ?? true;
+  const showPageLinks =
+    modalElement?.querySelector("#graph-filter-page-links")?.checked ?? true;
+  const links = data.links.filter((edge) =>
+    edge.kind === "hierarchy" ? showHierarchy : showPageLinks,
+  );
+
+  if (showHierarchy && showPageLinks) {
+    return {nodes: data.nodes, links, selectedId: activePageId(data)};
+  }
+
+  const ids = new Set();
+  for (const edge of links) {
+    ids.add(edge.source);
+    ids.add(edge.target);
+  }
+  const selectedId = activePageId(data);
+  if (selectedId) ids.add(selectedId);
+  return {
+    nodes: data.nodes.filter((node) => ids.has(node.id)),
+    links,
+    selectedId,
+  };
+}
+
+function edgeStyle(kind) {
+  if (kind === "hierarchy") {
+    return {color: "rgba(150, 160, 175, 0.42)", width: 1, type: "dashed"};
+  }
+  if (kind === "wikilink") {
+    return {color: "#3eecac", width: 1.8, type: "solid"};
+  }
+  return {color: "#73a2ff", width: 1.6, type: "solid"};
+}
+
+function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, (char) => {
+    const entities = {"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"};
+    return entities[char];
   });
 }
 
-function init_graph(params) {
-  var myChart = echarts.init(document.getElementById("graph"), null, {
-    renderer: "canvas",
-    useDirtyRect: false,
-  });
-  return myChart;
-}
+function makeChartOptions(data, global) {
+  const {nodes, links, selectedId} = global
+    ? visibleGlobalGraph(data)
+    : currentNeighborhood(data);
+  const visibleIds = new Set(nodes.map((node) => node.id));
+  const seriesData = nodes.map((node) => ({
+    ...node,
+    symbol: node.kind === "directory" ? "roundRect" : "circle",
+    itemStyle: node.id === selectedId ? {borderColor: "#fff", borderWidth: 2} : undefined,
+  }));
+  const seriesLinks = links
+    .filter((edge) => visibleIds.has(edge.source) && visibleIds.has(edge.target))
+    .map((edge) => ({...edge, lineStyle: edgeStyle(edge.kind)}));
 
-function draw_graph(myChart, global = true) {
-  var _option = $.extend(true, {}, option);
-
-  // Configure tooltip visibility
-  if (!_option.tooltip) {
-    // Ensure tooltip object exists
-    _option.tooltip = {};
-  }
-  if (global) {
-    // Modal view
-    _option.tooltip.show = true;
-  } else {
-    // Sidebar view
-    _option.tooltip.show = false;
-  }
-
-  if (!global) {
-    _option.series[0].data = graph_nodes();
-    _option.series[0].links = graph_links();
-  } else {
-    // This is for the modal view (global = true)
-    // Modify label formatter to show labels only for nodes with an empty value
-    if (_option.series && _option.series[0] && _option.series[0].label) {
-      _option.series[0].label.formatter = function (params) {
-        // params.data corresponds to a node from graph.nodes
-        // each node has a 'value' field (which is the URL)
-        // and a 'name' field (which is the title)
-        if (params.data && params.data.value === "") {
-          return params.name; // Show label (node name)
+  return {
+    backgroundColor: getComputedStyle(document.body).backgroundColor,
+    animationDuration: global ? 900 : 400,
+    animationEasingUpdate: "cubicOut",
+    color: graphColors,
+    tooltip: {
+      show: global,
+      formatter(params) {
+        if (params.dataType === "edge") {
+          const label = params.data.kind === "hierarchy" ? "Folder hierarchy" : "Page link";
+          return `<strong>${escapeHtml(label)}</strong>`;
         }
-        return ""; // Hide label
-      };
-      // Ensure show is true, so the formatter can decide visibility for each label
-      _option.series[0].label.show = true;
+        const node = params.data;
+        const kind = node.kind === "directory" ? "Section" : "Page";
+        return `<strong>${escapeHtml(kind)}:</strong> ${escapeHtml(node.name)}`;
+      },
+    },
+    series: [
+      {
+        type: "graph",
+        layout: "force",
+        data: seriesData,
+        links: seriesLinks,
+        categories: data.categories,
+        force: {
+          repulsion: global ? 260 : 110,
+          edgeLength: global ? [70, 125] : [45, 75],
+          gravity: 0.08,
+          friction: 0.6,
+        },
+        zoom: global ? 1 : 1.6,
+        roam: true,
+        draggable: true,
+        scaleLimit: {min: 0.35, max: 5},
+        label: {
+          show: true,
+          position: "right",
+          formatter(params) {
+            const node = params.data;
+            return !global || node.kind === "directory" || node.id === selectedId
+              ? node.name
+              : "";
+          },
+        },
+        emphasis: {
+          focus: "adjacency",
+          label: {show: true, fontWeight: "bold"},
+          lineStyle: {width: 2.5, opacity: 1},
+        },
+        labelLayout: {hideOverlap: global},
+        lineStyle: {opacity: 0.8, curveness: 0.08},
+      },
+    ],
+  };
+}
+
+function createChart(container, data, global) {
+  if (!container || !window.echarts) return null;
+  const chart = window.echarts.init(container, null, {
+    renderer: "canvas",
+    useDirtyRect: true,
+  });
+  chart.setOption(makeChartOptions(data, global), true);
+  chart.on("click", (params) => {
+    if (params.dataType !== "node") return;
+    const page = pageForNode(params.data, data);
+    if (page) window.location.assign(new URL(page.value, window.location.origin).href);
+  });
+  chart.on("mouseover", (params) => {
+    chart.getDom().style.cursor =
+      params.dataType === "node" && pageForNode(params.data, data)
+        ? "pointer"
+        : "default";
+  });
+  chart.on("mouseout", () => {
+    chart.getDom().style.cursor = "default";
+  });
+  observeChartResize(chart);
+  return chart;
+}
+
+async function renderSidebar() {
+  const renderId = ++sidebarRenderId;
+  disposeChart(sidebarChart);
+  sidebarChart = null;
+
+  const container = ensureSidebarGraph();
+  if (!container) return;
+  container.replaceChildren();
+
+  try {
+    const data = await loadGraphData();
+    if (renderId !== sidebarRenderId || !container.isConnected) return;
+    if (!activePageId(data)) {
+      container.hidden = true;
+      return;
+    }
+    container.hidden = false;
+    sidebarChart = createChart(container, data, false);
+  } catch (error) {
+    if (renderId === sidebarRenderId && container.isConnected) {
+      container.textContent = "Graph data is unavailable.";
+      console.error("Failed to load page graph:", error);
     }
   }
-  // draw the graph
-  myChart.setOption(_option);
+}
 
-  // add click event for nodes
-  myChart.on("click", function (params) {
-    if (params.dataType == "node") {
-      window.location = params.value;
+function handleModalKeydown(event) {
+  if (event.key === "Escape") closeGraphModal();
+}
+
+function closeGraphModal() {
+  if (!modalElement) return;
+  disposeChart(modalChart);
+  modalChart = null;
+  modalElement.remove();
+  modalElement = null;
+  document.body.style.overflow = oldBodyOverflow;
+  document.removeEventListener("keydown", handleModalKeydown);
+  focusBeforeModal?.focus();
+  focusBeforeModal = null;
+  renderSidebar();
+}
+
+async function renderModalGraph() {
+  if (!modalElement) return;
+  const container = modalElement.querySelector("#graph");
+  try {
+    const data = await loadGraphData();
+    if (!modalElement || !container?.isConnected) return;
+    disposeChart(modalChart);
+    modalChart = createChart(container, data, true);
+  } catch (error) {
+    if (container?.isConnected) {
+      container.textContent = "Graph data is unavailable.";
+      console.error("Failed to load site graph:", error);
     }
+  }
+}
+
+function openGraphModal() {
+  if (modalElement) return;
+  focusBeforeModal = document.activeElement;
+  oldBodyOverflow = document.body.style.overflow;
+  document.body.style.overflow = "hidden";
+  disposeChart(sidebarChart);
+  sidebarChart = null;
+  document.getElementById("graph")?.remove();
+
+  modalElement = document.createElement("div");
+  modalElement.id = "modal_background";
+  modalElement.className = "graph-modal-overlay";
+  modalElement.setAttribute("role", "presentation");
+  modalElement.innerHTML = `
+    <section class="graph-modal" role="dialog" aria-modal="true" aria-labelledby="graph-modal-title">
+      <header class="graph-modal__toolbar">
+        <h2 id="graph-modal-title">Site graph</h2>
+        <div class="graph-modal__legend" aria-label="Graph relationship legend">
+          <span><i class="graph-legend__line graph-legend__line--page"></i> Page links</span>
+          <span><i class="graph-legend__line graph-legend__line--folder"></i> Folder hierarchy</span>
+        </div>
+        <label class="graph-modal__filter"><input id="graph-filter-page-links" type="checkbox" checked> Page links</label>
+        <label class="graph-modal__filter"><input id="graph-filter-hierarchy" type="checkbox" checked> Folders</label>
+        <button type="button" class="graph-modal__close" aria-label="Close site graph" title="Close site graph">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M18.3 5.71 17 4.4l-5 5-5-5-1.3 1.31 5 5-5 5L7 17l5-5 5 5 1.3-1.29-5-5z"/>
+          </svg>
+        </button>
+      </header>
+      <div id="graph" class="modal_graph" role="application" aria-label="Interactive site graph"></div>
+    </section>`;
+  modalElement.addEventListener("click", (event) => {
+    if (event.target === modalElement) closeGraphModal();
   });
-
-  // redraw on resize
-  window.addEventListener("resize", myChart.resize);
+  modalElement.querySelector(".graph-modal__close").addEventListener("click", closeGraphModal);
+  for (const filter of modalElement.querySelectorAll(".graph-modal__filter input")) {
+    filter.addEventListener("change", renderModalGraph);
+  }
+  document.addEventListener("keydown", handleModalKeydown);
+  document.body.append(modalElement);
+  modalElement.querySelector(".graph-modal__close").focus();
+  renderModalGraph();
 }
 
-function graph_links() {
-  // Ensure option and option.series[0].data are loaded before calling this
-  if (!option || !option.series || !option.series[0] || !option.series[0].data)
-    return [];
-  const currentPathNode = option.series[0].data.find(
-    (it) => it.value === window.location.pathname
-  );
-  if (!currentPathNode) return [];
-  const id = currentPathNode.id;
-  return option.series[0].links.filter(
-    (it) => it.source === id || it.target === id
-  );
+function updateChartBackgrounds() {
+  const backgroundColor = getComputedStyle(document.body).backgroundColor;
+  for (const chart of [sidebarChart, modalChart]) {
+    if (chart && !chart.isDisposed()) chart.setOption({backgroundColor});
+  }
 }
 
-function graph_nodes() {
-  // Ensure option and option.series[0].data are loaded before calling this
-  if (!option || !option.series || !option.series[0] || !option.series[0].data)
-    return [];
-  const currentPathNode = option.series[0].data.find(
-    (it) => it.value === window.location.pathname
-  );
-  if (!currentPathNode) return [];
-  const id = currentPathNode.id;
-  const links = option.series[0].links.filter(
-    (it) => it.source === id || it.target === id
-  );
-  const ids = [];
-  links.forEach(function (link) {
-    ids.push(link.source, link.target);
-  });
-  return option.series[0].data.filter((it) =>
-    [...new Set(ids)].includes(it.id)
-  );
+function installGraphButton() {
+  if (document.getElementById("graph_button")) return;
+  const button = document.createElement("button");
+  button.type = "button";
+  button.id = "graph_button";
+  button.className = "md-header__button md-icon graph-button";
+  button.setAttribute("aria-label", "Open site graph");
+  button.setAttribute("aria-haspopup", "dialog");
+  button.title = "Open site graph";
+  button.innerHTML = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 3a3 3 0 0 0-2.83 2H7a3 3 0 0 0-3 3v1.17a3 3 0 1 0 2 0V8a1 1 0 0 1 1-1h2.17a3 3 0 0 0 5.66 0H17a1 1 0 0 1 1 1v1.17a3 3 0 1 0 2 0V8a3 3 0 0 0-3-3h-2.17A3 3 0 0 0 12 3Zm0 2a1 1 0 1 1 0 2 1 1 0 0 1 0-2ZM5 11a1 1 0 1 1 0 2 1 1 0 0 1 0-2Zm14 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2ZM11 10v3.17a3 3 0 1 0 2 0V10h-2Zm1 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/>
+    </svg>`;
+  button.addEventListener("click", openGraphModal);
+  const search = document.querySelector(".md-search");
+  const header = document.querySelector(".md-header__inner");
+  if (search) search.before(button);
+  else header?.append(button);
 }
-
-// global variables for chart instance and options
-var myChart;
-var option;
 
 document$.subscribe(() => {
-  // Dispose previous sidebar chart instance if it exists (e.g., due to page navigation)
-  if (
-    myChart &&
-    typeof myChart.dispose === "function" &&
-    !myChart.isDisposed()
-  ) {
-    myChart.dispose();
-  }
+  if (modalElement) closeGraphModal();
+  installGraphButton();
+  renderSidebar();
+  updateChartBackgrounds();
+});
 
-  // One-time setup for graph button and its primary listeners
-  if ($("#graph_button").length === 0) {
-    // Add graph button next to light/dark mode switch if activated, but before search
-    $(".md-search").before(
-      '<form class="md-header__option"> \
-                            <label id="graph_button" class="md-header__button md-icon"> \
-                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 171 146"> \
-                                <path d="M171,100 C171,106.075 166.075,111 160,111 C154.016,111 149.158,106.219 149.014,100.27 L114.105,83.503 C111.564,86.693 108.179,89.18 104.282,90.616 L108.698,124.651 C112.951,126.172 116,130.225 116,135 C116,141.075 111.075,146 105,146 C98.925,146 94,141.075 94,135 C94,131.233 95.896,127.912 98.781,125.93 L94.364,91.896 C82.94,90.82 74,81.206 74,69.5 C74,69.479 74.001,69.46 74.001,69.439 L53.719,64.759 C50.642,70.269 44.76,74 38,74 C36.07,74 34.215,73.689 32.472,73.127 L20.624,90.679 C21.499,92.256 22,94.068 22,96 C22,102.075 17.075,107 11,107 C4.925,107 0,102.075 0,96 C0,89.925 4.925,85 11,85 C11.452,85 11.895,85.035 12.332,85.089 L24.184,67.531 C21.574,64.407 20,60.389 20,56 C20,48.496 24.594,42.07 31.121,39.368 L29.111,21.279 C24.958,19.707 22,15.704 22,11 C22,4.925 26.925,0 33,0 C39.075,0 44,4.925 44,11 C44,14.838 42.031,18.214 39.051,20.182 L41.061,38.279 C49.223,39.681 55.49,46.564 55.95,55.011 L76.245,59.694 C79.889,52.181 87.589,47 96.5,47 C100.902,47 105.006,48.269 108.475,50.455 L131.538,27.391 C131.192,26.322 131,25.184 131,24 C131,17.925 135.925,13 142,13 C148.075,13 153,17.925 153,24 C153,30.075 148.075,35 142,35 C140.816,35 139.678,34.808 138.609,34.461 L115.546,57.525 C117.73,60.994 119,65.098 119,69.5 C119,71.216 118.802,72.884 118.438,74.49 L153.345,91.257 C155.193,89.847 157.495,89 160,89 C166.075,89 171,93.925 171,100"> \
-                                </path> \
-                              </svg> \
-                            </label> \
-                          </form>'
-    );
-
-    // Palette change listener
-    $("#__palette_0, #__palette_1").change(function () {
-      if (
-        option &&
-        myChart &&
-        typeof myChart.setOption === "function" &&
-        !myChart.isDisposed()
-      ) {
-        option.backgroundColor = $("body").css("background-color");
-        myChart.setOption(option);
-      }
-    });
-
-    // Graph button click listener (for modal)
-    $("#graph_button").on("click", function (e) {
-      $("body").css({ overflow: "hidden", position: "fixed" });
-      // Dispose current sidebar chart instance before removing its div
-      if (
-        myChart &&
-        typeof myChart.dispose === "function" &&
-        !myChart.isDisposed()
-      ) {
-        myChart.dispose();
-      }
-      $("#graph").remove(); // Remove previous graph instance (sidebar)
-      $(
-        '<div id="modal_background"><div id="graph" class="modal_graph"></div></div>'
-      ).appendTo("body");
-
-      var modalChart = echarts.init(document.getElementById("graph"), null, {
-        renderer: "canvas",
-        useDirtyRect: false,
-      });
-
-      if (option) {
-        draw_graph_modal(modalChart, true); // Draw with all data
-      } else {
-        $("#graph").html(
-          '<p style="text-align:center;">Graph data loading...</p>'
-        );
-      }
-
-      $("#modal_background").on("click", function (ev) {
-        if (ev.target === this) {
-          $("body").css({ overflow: "", position: "" });
-          // Dispose modal chart instance before removing its elements
-          if (
-            typeof modalChart !== "undefined" &&
-            modalChart &&
-            typeof modalChart.dispose === "function" &&
-            !modalChart.isDisposed()
-          ) {
-            modalChart.dispose();
-          }
-          $("#graph").remove(); // remove the modal graph div
-          $("#modal_background").remove();
-
-          // Re-setup sidebar graph
-          add_graph_div();
-          myChart = init_graph();
-          if (option) {
-            draw_graph_sidebar(myChart);
-          }
-        }
-      });
-    });
-  } // End of one-time setup block
-
-  // Sidebar graph setup (runs on each relevant document$.subscribe trigger)
-  add_graph_div(); // Idempotent: ensures a clean #graph div in the sidebar
-  myChart = init_graph(); // Initializes sidebar chart on the #graph div
-
-  // Load graph data if not already loaded, then draw sidebar graph
-  if (!option) {
-    myChart.showLoading();
-    var scriptSrc = $('script[src*="interactive_graph.js"]').attr("src");
-    var graphJsonUrl = "../js/graph.json"; // Default if scriptSrc is not found or parsing fails
-    if (scriptSrc) {
-      try {
-        var scriptUrl = new URL(scriptSrc, window.location.href);
-        var jsonUrl = new URL("../js/graph.json", scriptUrl);
-        graphJsonUrl = jsonUrl.pathname;
-        if (graphJsonUrl.startsWith("./"))
-          graphJsonUrl = graphJsonUrl.substring(2);
-        if (
-          graphJsonUrl.startsWith("/") &&
-          graphJsonUrl.length > 1 &&
-          graphJsonUrl[1] === "/"
-        ) {
-          graphJsonUrl = graphJsonUrl.substring(1);
-        }
-      } catch (e) {
-        console.error("Error constructing graph.json URL from script src:", e);
-        graphJsonUrl =
-          (document.body.getAttribute("data-md-base-url") || "") +
-          "assets/js/graph.json";
-        if (graphJsonUrl.startsWith("./"))
-          graphJsonUrl = graphJsonUrl.substring(2);
-        if (
-          graphJsonUrl.startsWith("/") &&
-          graphJsonUrl.length > 1 &&
-          graphJsonUrl[1] === "/"
-        ) {
-          graphJsonUrl = graphJsonUrl.substring(1);
-        }
-      }
-    }
-
-    $.getJSON(graphJsonUrl, function (graph) {
-      if (
-        myChart &&
-        typeof myChart.hideLoading === "function" &&
-        !myChart.isDisposed()
-      ) {
-        myChart.hideLoading();
-      }
-
-      graph.nodes.forEach(function (node) {
-        node.symbolSize += 5;
-        node.name = node.name.split(" •")[0];
-      });
-      graph.links.forEach(function (link) {
-        link.source = link.source.split(" •")[0];
-        link.target = link.target.split(" •")[0];
-      });
-
-      option = {
-        tooltip: { show: false },
-        legend: [
-          /* categories not supported yet */
-        ],
-        darkMode: "auto",
-        backgroundColor: $("body").css("background-color"),
-        animationDuration: 1500,
-        animationEasingUpdate: "quinticInOut",
-        tooltip: {},
-        color: [
-          '#3EECAC', // A bright mint green (like Valjean)
-          '#EEA236', // An orange (like Marius)  // for leaf nodes
-          '#5470C6', // A strong blue (could be used for a new category)
-          '#9A60B4', // A purple (like Thenardier/Javert)
-          '#FC8452', // A softer orange/coral
-          '#73C0DE', // A sky blue
-          '#DA70D6', // Orchid/Magenta (similar to Gavroche's cluster)
-        ],  
-        series: [
-          {
-            name: "",
-            type: "graph",
-            layout: "force",
-            data: graph.nodes,
-            links: graph.links,
-            categories: graph.categories,
-            zoom: 2,
-            roam: true,
-            draggable: true,
-            label: { show: true, position: "right", formatter: "{b}" },
-            emphasis: { focus: "adjacency", label: { fontWeight: "bold" } },
-            labelLayout: { hideOverlap: false },
-            scaleLimit: { min: 0.5, max: 5 },
-            lineStyle: { color: "source", curveness: 0 },
-            emphasis: {
-              focus: "adjacency",
-              lineStyle: {
-                width: 10,
-              },
-            },
-          },
-        ],
-      };
-      // Draw sidebar graph with newly loaded options
-      if (
-        myChart &&
-        typeof myChart.setOption === "function" &&
-        !myChart.isDisposed()
-      ) {
-        draw_graph_sidebar(myChart);
-      }
-    }).fail(function (jqXHR, textStatus, errorThrown) {
-      console.error("Failed to load graph.json:", textStatus, errorThrown);
-      console.error("Attempted URL:", graphJsonUrl);
-      if (
-        myChart &&
-        typeof myChart.hideLoading === "function" &&
-        !myChart.isDisposed()
-      ) {
-        myChart.hideLoading();
-      }
-      $("#graph").html(
-        '<p style="color:red;text-align:center;">Error loading graph data. Check console.</p>'
-      );
-    });
-  } else {
-    // If options are already loaded (e.g., page navigation), draw sidebar graph for current page
-    if (
-      myChart &&
-      typeof myChart.setOption === "function" &&
-      !myChart.isDisposed()
-    ) {
-      draw_graph_sidebar(myChart);
-    }
-  }
+const themeObserver = new MutationObserver(updateChartBackgrounds);
+themeObserver.observe(document.body, {
+  attributes: true,
+  attributeFilter: ["data-md-color-scheme", "data-md-color-primary", "data-md-color-accent"],
 });

@@ -36,7 +36,7 @@ There are two common encodings you probably already heard of:
     ASCII's simplicity is also it's limiting factor, and can only represent 256 characters. And as such, can only represent english alphabet symbols and control characters and has no support for other languages or emoji/emoticons.
 
     <figure>
-      <img src="/assets/images/cs/rust/ASCII-Table.png"></img>
+      <img src="/assets/images/cs/rust/ASCII-Table.png">
       <figcaption>(source: Wikipedia)</figcaption>
     </figure>
 
@@ -128,7 +128,7 @@ let my_string: String = String::from("Hello!");
 <mark class="y">String slices (`&str`) on the other hand is a view into a string it represents.</mark> It represents a cotiguous sequence of UTF-8 encoded bytes.
 
 - It's called a borrow type, as it doesn't own the underlying data. Instead it simply has access to it.
-- <mark class="v">It's only holds the pointer to the starting byte of the data and the length.<mark>
+- <mark class="v">It only holds the pointer to the starting byte of the data and the length.</mark>
 - They also doesn't have a `capacity`, since they are not growable.
 - They can reference data on the heap or in the data section of the compiled binary (which is the case for string literals) or strings stored on stack.
 

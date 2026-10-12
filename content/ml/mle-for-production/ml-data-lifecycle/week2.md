@@ -64,14 +64,16 @@ Images - clipping, resizing, cropping, blur, canny filters, soble filters, photo
     - e.g., grayscale image pixel intensity scale is $[0, 255]$ usually rescaled to $[-1, 1]$
 
 $$
-x_\text{scaled} = \frac{(b-a)(x - x_{\min})}{x_{\max} - x_{\min}} + a \tag{$x$ $\isin$ [a, b]}
+x_\text{scaled} = \frac{(b-a)(x - x_{\min})}{x_{\max} - x_{\min}} + a
 $$
+where $x \in [x_{\min}, x_{\max}]$ and the result lies in $[a,b]$.
 
 **Normalization**:
 
 $$
-x_\text{scaled} = \frac{x - x_{\min}}{x_{\max} - x_{\min}} \tag{$x$ $\isin$ [0, 1]}
+x_\text{scaled} = \frac{x - x_{\min}}{x_{\max} - x_{\min}}
 $$
+This maps the input range to $[0,1]$.
 
 - Benefits
     - Helps NN converge faster

@@ -1,6 +1,12 @@
 document$.subscribe(() => {
-  VANTA.WAVES({
-    el: ".hero-container",
+  const hero = document.querySelector(".hero-container");
+  if (!hero || !window.VANTA?.WAVES || hero.dataset.vantaInitialized === "true") {
+    return;
+  }
+
+  hero.dataset.vantaInitialized = "true";
+  window.VANTA.WAVES({
+    el: hero,
     mouseControls: true,
     touchControls: true,
     gyroControls: false,

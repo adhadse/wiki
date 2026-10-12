@@ -6,10 +6,10 @@
 | -------- | ---------- | --------------------------- | --------------------------- | --------------------------- | --------------------------- | ----------------------------- | ----------------------------- | ----------------------------- | ------------------ |
 | $\sin$   | $0$        | $\frac{1}{2}$               | $\frac{1}{\sqrt{2}}$        | $\frac{\sqrt{3}}{2}$        | $1$                         | $\frac{\sqrt{3}}{2}$          | $\frac{1}{\sqrt{2}}$          | $\frac{1}{2}$                 | $0$                |
 | $\cos$   | $1$        | $\frac{\sqrt{3}}{2}$        | $\frac{1}{\sqrt{2}}$        | $\frac{1}{2}$               | $0$                         | $-\frac{1}{2}$                | $-\frac{1}{\sqrt{2}}$         | $-\frac{\sqrt{3}}{2}$         | $-1$               |
-| $\tan$   | $0$        | $\frac{1}{\sqrt{3}}$        | $1$                         | $\sqrt{3}$                  | $\infin$                    | $-\sqrt{3}$                   | $-1$                          | $-\frac{1}{\sqrt{3}}$         | $0$                |
-| $\cot$   | $\infin$   | $\sqrt{3}$                  | $1$                         | $\frac{1}{\sqrt{3}}$        | $0$                         | $-\frac{1}{\sqrt{3}}$         | $-1$                          | $\sqrt{3}$                    | $-\infin$          |
-| $\sec$   | $1$        | $\frac{2}{\sqrt{3}}$        | $\sqrt{2}$                  | $ 2 $                       | $\infin$                    | $-2$                          | $-\sqrt{2}$                   | $-\frac{2}{\sqrt{3}}$         | $-1$               |
-| $\cosec$ | $\infin$   | $2$                         | $\sqrt{2}$                  | $\frac{2}{\sqrt{3}}$        | $1$                         | $\frac{2}{\sqrt{3}}$          | $\sqrt{2}$                    | $2$                           | $\infin$           |
+| $\tan$   | $0$        | $\frac{1}{\sqrt{3}}$        | $1$                         | $\sqrt{3}$                  | $\infty$                    | $-\sqrt{3}$                   | $-1$                          | $-\frac{1}{\sqrt{3}}$         | $0$                |
+| $\cot$   | $\infty$   | $\sqrt{3}$                  | $1$                         | $\frac{1}{\sqrt{3}}$        | $0$                         | $-\frac{1}{\sqrt{3}}$         | $-1$                          | $-\sqrt{3}$                   | $-\infty$          |
+| $\sec$   | $1$        | $\frac{2}{\sqrt{3}}$        | $\sqrt{2}$                  | $ 2 $                       | $\infty$                    | $-2$                          | $-\sqrt{2}$                   | $-\frac{2}{\sqrt{3}}$         | $-1$               |
+| $\cosec$ | $\infty$   | $2$                         | $\sqrt{2}$                  | $\frac{2}{\sqrt{3}}$        | $1$                         | $\frac{2}{\sqrt{3}}$          | $\sqrt{2}$                    | $2$                           | $\infty$           |
 
 ### Trigonometric Identities
 
@@ -79,26 +79,14 @@ $$
 
 <div>
 $$
-\begin{split}
-\sin 2A &= 2 \sin A \cos A \\ &= \frac{2 \tan x}{1 + \tan^2 x} \\ &= \frac{1 - \tan^2 A}{1 + \tan^2 A}
-\end{split}
-
-\newline\quad
-
-\begin{split}\cos 2A &= \cos^2 A - \sin^2 A \\& = 2\cos^2 A - 1 \\ &= 1 - 2\sin^2 \end{split}
-
-$$
-</div>
-
-
-<div>
-$$
-
-\sin 3A = 3 \sin A - 4 \sin^3 A
-
-\newline\quad
-
-\cos 3A = 4 \cos^3 A - 3 \cos A
+\begin{aligned}
+\sin 2A &= 2 \sin A \cos A
+         = \frac{2 \tan A}{1 + \tan^2 A} \\
+\cos 2A &= \cos^2 A - \sin^2 A
+         = 2\cos^2 A - 1
+         = 1 - 2\sin^2 A
+         = \frac{1 - \tan^2 A}{1 + \tan^2 A}
+\end{aligned}
 
 $$
 </div>
@@ -107,11 +95,22 @@ $$
 <div>
 $$
 
-\tan 2A = \frac{2 \tan A}{1 - \tan^2 A}
+\begin{aligned}
+\sin 3A &= 3 \sin A - 4 \sin^3 A \\
+\cos 3A &= 4 \cos^3 A - 3 \cos A
+\end{aligned}
 
-\newline\quad
+$$
+</div>
 
-\tan 3A = \frac{3 \tan A - \tan^3 A}{1 - 3 \tan^2 A}
+
+<div>
+$$
+
+\begin{aligned}
+\tan 2A &= \frac{2 \tan A}{1 - \tan^2 A} \\
+\tan 3A &= \frac{3 \tan A - \tan^3 A}{1 - 3 \tan^2 A}
+\end{aligned}
 
 $$
 </div>
@@ -165,7 +164,7 @@ $$
 
 #### Derived Cases
 - $\sin^2 \theta = \sin^2 \beta \implies \theta = n\pi \pm \beta$
-- $\cos^2 \theta = \cos^2 \beta \implies \theta = 2n\pi \pm \beta$
+- $\cos^2 \theta = \cos^2 \beta \implies \theta = n\pi \pm \beta$
 - $\tan^2 \theta = \tan^2 \beta \implies \theta = n\pi \pm \beta$
 
 #### Secant and Cosine Properties
@@ -190,12 +189,12 @@ $(n\pi + \theta)$
 
 |                | Domain (value) ($x$) | Range (Angle) ($\theta$)  |
 |----------------|----------------------|---------------------------|
-| $sin^{-1}x$    | $[-1,1]$             | $[-\pi/2, \pi/2]$         |
-| $\cos^{-1}x$   | $[-1. 1]$            | $[0, \pi]$                |
-| $\tan^{-1}x$   | $R$                  | $(-\pi/2, \pi/2)$         |
-| $\cot^{-1}x$   | $R$                  | $(0, \pi)$                |
-| $\sec^{-1}x$   | $R- (-1, 1)$         | $[0, \pi-\{\pi/2\}$       |
-| $\cosec^{-1}x$ | $R-(-1, 1)$          | $[-\pi/2, \pi/2] - \{0\}$ |
+| $\sin^{-1}x$   | $[-1,1]$             | $[-\pi/2, \pi/2]$         |
+| $\cos^{-1}x$   | $[-1,1]$             | $[0, \pi]$                |
+| $\tan^{-1}x$   | $\mathbb{R}$         | $(-\pi/2, \pi/2)$         |
+| $\cot^{-1}x$   | $\mathbb{R}$         | $(0, \pi)$                |
+| $\sec^{-1}x$   | $(-\infty,-1] \cup [1,\infty)$ | $[0,\pi] \setminus \{\pi/2\}$ |
+| $\cosec^{-1}x$ | $(-\infty,-1] \cup [1,\infty)$ | $[-\pi/2,0) \cup (0,\pi/2]$ |
 
 | **Property 1**                       | **Property 2**             |
 |--------------------------------------|----------------------------|
@@ -206,23 +205,29 @@ $(n\pi + \theta)$
 | $\sec^{-1}(\sec\theta) = \theta$     | $\sec(\sec^{-1}x) = x$     |
 | $\cot^{-1}(\cot\theta) = \theta$     | $\cot(\cot^{-1}x) = x$     |
 
+These compositions use the principal ranges in the table: for example, $\sin^{-1}(\sin\theta)=\theta$ only when $\theta\in[-\pi/2,\pi/2]$, and $\cos^{-1}(\cos\theta)=\theta$ only when $\theta\in[0,\pi]$.
+
 | **Property 3**                     |                                  |
 |------------------------------------|----------------------------------|
-| $sin^{-1}(-x) = -\sin^{-1}{x}$     | $cos^{-1}(-x) = \pi -\cos^{-1}{x}$ |
-| $tan^{-1}(-x) = -\tan^{-1}{x}$     | $cot^{-1}(-x) = \pi -\cot^{-1}{x}$ |
-| $cosec^{-1}(-x) = -\cosec^{-1}{x}$ | $sec^{-1}(-x) = \pi -\sec^{-1}{x}$ |
+| $\sin^{-1}(-x) = -\sin^{-1}(x)$     | $\cos^{-1}(-x) = \pi -\cos^{-1}(x)$ |
+| $\tan^{-1}(-x) = -\tan^{-1}(x)$     | $\cot^{-1}(-x) = \pi -\cot^{-1}(x)$ |
+| $\cosec^{-1}(-x) = -\cosec^{-1}(x)$ | $\sec^{-1}(-x) = \pi -\sec^{-1}(x)$ |
 
 | **Property 4** |
 | ---  |
-| $sin^{-1}(\frac{1}{x}) = \cosec^{-1}x$ |
-| $cos^{-1}(\frac{1}{x}) = \sec^{-1}x$   |
-| $tan^{-1}(\frac{1}{x}) = \cot^{-1}x$   |
+| $\sin^{-1}(\frac{1}{x}) = \cosec^{-1}(x)$ |
+| $\cos^{-1}(\frac{1}{x}) = \sec^{-1}(x)$   |
+| $\tan^{-1}(\frac{1}{x}) = \cot^{-1}(x),\quad x>0$ |
+
+The reciprocal identities for inverse sine and inverse cosine require $|x|\geq1$.
+
+For $x<0$, $\tan^{-1}(1/x)=\cot^{-1}(x)-\pi$ with the stated principal range for $\cot^{-1}$.
 
 | **Property 5** |
 | --- |
-| $sin^{-1}x + \cos ^{-1}x = \frac{\pi}{2}$   |
-| $tan^{-1}x + \cot ^{-1}x = \frac{\pi}{2}$   |
-| $sec^{-1}x + \cosec ^{-1}x = \frac{\pi}{2}$ |
+| $\sin^{-1}x + \cos^{-1}x = \frac{\pi}{2}$   |
+| $\tan^{-1}x + \cot^{-1}x = \frac{\pi}{2}$   |
+| $\sec^{-1}x + \cosec^{-1}x = \frac{\pi}{2}$ |
 
 | **Property 6** |
 | --- |
@@ -234,39 +239,42 @@ $(n\pi + \theta)$
 | $\cos^{-1}x + \cos^{-1}y = \cos^{-1} \big(xy - \sqrt{1-x^2} \sqrt{1-y^2}\big)$ |
 | $\cos^{-1}x - \cos^{-1}y = \cos^{-1} \big(xy + \sqrt{1-x^2} \sqrt{1-y^2}\big)$ |
 
+For Properties 6 and 7, use these identities only when the resulting angle is in the principal inverse-trigonometric range; otherwise apply the appropriate branch adjustment.
+
 | **Property 8** |
 | --- |
-| $\tan^{-1}x - \tan^{-1}{y} = \tan^{-1}\Big(\frac{x+y}{1-xy}\Big)$ |
-| $\tan^{-1}x + \tan^{-1}{y} = \tan^{-1}\Big(\frac{x-y}{1+xy}\Big)$ |
+| $\tan^{-1}x - \tan^{-1}y \equiv \tan^{-1}\Big(\frac{x-y}{1+xy}\Big) \pmod{\pi}$ |
+| $\tan^{-1}x + \tan^{-1}y \equiv \tan^{-1}\Big(\frac{x+y}{1-xy}\Big) \pmod{\pi}$ |
+
+These sum-and-difference identities assume the denominators are nonzero. Inverse-trigonometric results use the principal ranges above; adjust by a multiple of $\pi$ when needed.
 
 **Property 9**
 
 <div class="grid-container">
   <div class="grid-column left-column">
     <div class="grid-item">
-        $2\sin^{-1}x = 2 \sin^{-1}(\theta/2)$
+        $\sin\big(2\sin^{-1}x\big) = 2x\sqrt{1-x^2}$
     </div>
     <div class="grid-item">
-        $3\sin^{-1}x = \sin^{-1}(3x-4x^2)$
+        $\sin\big(3\sin^{-1}x\big) = 3x-4x^3$
     </div>
   </div>
   <div class="grid-column right-column">
     <div class="grid-item">
-        $2\cos^{-1}x = \cos^{-1}(2x^2-1)$
+        $\cos\big(2\cos^{-1}x\big) = 2x^2-1$
     </div>
     <div class="grid-item">
-        $3\cos^{-1}x = \cos^{-1}(4x^3-3x)$
+        $\cos\big(3\cos^{-1}x\big) = 4x^3-3x$
     </div>
   </div>
 </div>
 
 <div>
 $$
-
-2 \tan^{-1}x = \tan^{-1}\Big(\frac{2x}{1-x^2}\Big)
-\\
-3\tan^{-1}x = \tan^{-1}\Big(\frac{3x-x^2}{1-3x^2}\Big)
-
+\begin{aligned}
+2\tan^{-1}x &\equiv \tan^{-1}\Big(\frac{2x}{1-x^2}\Big) \pmod{\pi} \\
+3\tan^{-1}x &\equiv \tan^{-1}\Big(\frac{3x-x^3}{1-3x^2}\Big) \pmod{\pi}
+\end{aligned}
 $$
 </div>
 
@@ -274,9 +282,10 @@ $$
 
 
 $$
-
-2\tan^{-1}x = \begin{cases}\sin^{-1}\Big(\frac{2x}{1+x^2}\Big)\\\cos^{-1}\Big(\frac{1-x^2}{1+x^2}\Big)\end{cases}
-
+\begin{aligned}
+\sin\big(2\tan^{-1}x\big) &= \frac{2x}{1+x^2} \\
+\cos\big(2\tan^{-1}x\big) &= \frac{1-x^2}{1+x^2}
+\end{aligned}
 $$
 
 ---
@@ -389,14 +398,14 @@ $$
 If a variable $z$ depends on the variable $y$, which itself depends on the variable $x$ (that is, $y$ and $z$ are dependent variables), then $z$ depends on $x$ as well, via the intermediate variable $y$. In this case, the chain rule is expressed as:
 
   $$
-  \frac{dz}{dx} = \frac{dz}{dy} \cdot \frac{dy}{dz}
+  \frac{dz}{dx} = \frac{dz}{dy} \cdot \frac{dy}{dx}
   $$
 
 ## Integration Formulas
 
 ### Basic Integration Rules
 1. $\int x^n \, dx = \frac{x^{n+1}}{n+1} + C$
-2. $\int \frac{1}{x} \, dx = \ln x + C$
+2. $\int \frac{1}{x} \, dx = \ln |x| + C$
 3. $\int e^x \, dx = e^x + C$
 4. $\int a^x \, dx = \frac{a^x}{\ln a} + C$
 5. $\int \sin x \, dx = -\cos x + C$
@@ -417,14 +426,14 @@ If a variable $z$ depends on the variable $y$, which itself depends on the varia
 16. $\int \frac{-1}{\sqrt{a^2 - x^2}} \, dx = \cos^{-1} \left(\frac{x}{a}\right) + C$
 17. $\int \frac{1}{x^2 + a^2} \, dx = \frac{1}{a} \tan^{-1} \left(\frac{x}{a}\right) + C$
 18. $\int \frac{-1}{x^2 + a^2} \, dx = \frac{1}{a} \cot^{-1} \left(\frac{x}{a}\right) + C$
-19. $\int \frac{1}{x \sqrt{x^2 + a^2}} \, dx = \frac{1}{a} \sec^{-1} \left|\frac{x}{a}\right| + C$
-20. $\int \frac{-1}{x \sqrt{x^2 - a^2}} \, dx = \frac{-1}{a} \csc^{-1} \left|\frac{x}{a}\right| + C$
+19. $\int \frac{1}{x \sqrt{x^2 - a^2}} \, dx = \frac{1}{a} \sec^{-1} \left|\frac{x}{a}\right| + C$
+20. $\int \frac{-1}{x \sqrt{x^2 - a^2}} \, dx = \frac{1}{a} \csc^{-1} \left|\frac{x}{a}\right| + C$
 
 ---
 
 ### Logarithmic and Advanced Integrals
-21. $\int e^{x} f(x) + f'(x) \, dx = e^x f(x) + C$
-22. $\int \frac{dx}{x^2 + a^2} = \frac{1}{a} \ln |x + \sqrt{x^2 + a^2}| + C$
+21. $\int e^{x} \big(f(x) + f'(x)\big) \, dx = e^x f(x) + C$
+22. $\int \frac{dx}{\sqrt{x^2 + a^2}} = \ln |x + \sqrt{x^2 + a^2}| + C$
 23. $\int \frac{dx}{x^2 - a^2} = \frac{1}{2a} \ln \left|\frac{x - a}{x + a}\right| + C$
 24. $\int \frac{dx}{a^2 - x^2} = \frac{1}{2a} \ln \left|\frac{a + x}{a - x}\right| + C$
 25. $\int \frac{dx}{a^2 - x^2} = \frac{1}{2a} \ln \left|\frac{a + x}{x - a}\right| + C$
@@ -454,7 +463,7 @@ If a variable $z$ depends on the variable $y$, which itself depends on the varia
 3. Two point form of line
 
    $$
-   y-y_1 = \frac{y_2-y_1}{x_2-x_1}{x-x_1}
+   y-y_1 = \frac{y_2-y_1}{x_2-x_1}(x-x_1)
    $$
 
 4. Intercept Form of line
@@ -476,9 +485,10 @@ If a variable $z$ depends on the variable $y$, which itself depends on the varia
 6. Point Slope form
 
    $$
-   y = mx+ c
-   \\\\
-   \text{Where $m$ is slope of line defined as  } m = \frac{y_2 - y_1}{x_2 - x_1}
+   \begin{aligned}
+   y &= mx+c \\
+   m &= \frac{y_2-y_1}{x_2-x_1}
+   \end{aligned}
    $$
 
 ![](/assets/images/etc/maths/Point_SLope_form.svg){: .center }
@@ -617,8 +627,13 @@ $$(x+a)^n = {^nc_0}x^na^0 + {^nc_1}x^{n-1}a^1 + {^nc_2}x^{n-2}a^2 + ... + {^nc_n
 
 Sum and difference formulas:
 
-$$(x+a)^n + (x-a)^n = 2[{^nc_0}x^na^0 + {^nc_2}x^{n-2}a^2 + {^nc_4}x^{n-4}a^4 + ...]$$
-$$(x+a)^n - (x-a)^n = 2[{^nc_1}x^{n-1}a^1 + {^nc_3}x^{n-3}a^3 + {^nc_5}x^{n-5}a^5 + ...]$$
+$$
+(x+a)^n + (x-a)^n = 2\left[{^nc_0}x^na^0 + {^nc_2}x^{n-2}a^2 + {^nc_4}x^{n-4}a^4 + \cdots\right]
+$$
+
+$$
+(x+a)^n - (x-a)^n = 2\left[{^nc_1}x^{n-1}a^1 + {^nc_3}x^{n-3}a^3 + {^nc_5}x^{n-5}a^5 + \cdots\right]
+$$
 
 Number of terms:
 
@@ -710,7 +725,7 @@ $$
 
 <div>
 $$
-\tag{A and B\\ are mutually exclusive}
+\tag{\text{A and B are mutually exclusive}}
 P(A \cup B) = P(A) + P(B)
 $$
 </div>
@@ -725,7 +740,7 @@ $$
 
 <div>
 $$
-\tag{A,B and C\\ are mutually exclusive}
+\tag{\text{A, B, and C are mutually exclusive}}
 P(A \cup B \cup C) = P(A) + P(B) + P(C)
 $$
 </div>
@@ -737,11 +752,11 @@ $$
   $$P(\bar{A} \cap B) = P(B) - P(A \cap B)$$
 
 - **P of occurrence of exactly one of A and B**
-  $$P(A \cap \bar{B}) \cup P(\bar{A} \cap B) \Rightarrow P(A \cup B) - P(A \cap B)$$
+  $$P(A \cap \bar{B}) + P(\bar{A} \cap B) = P(A \cup B) - P(A \cap B)$$
 
 - **Three Events Occurring Simultaneously**
 
-  $$P(A \cup B \cup C)$$
+  $$P(A \cap B \cap C)$$
 
 - **At Least Two Events:**
   $$P(A \cap B) + P(B \cap C) + P(C \cap A) - 2P(A \cap B \cap C)$$
@@ -863,17 +878,16 @@ $$\frac{\sum x^2}{n} - (\frac{\sum x}{n})^2$$
 
 Random Variable Property:
 
-If $aX + b$ is a random variable with mean $aX + B$ and variance $a^2Var(X)$
+If $X$ has mean $E(X)$ and variance $Var(X)$, then $aX + b$ has mean $aE(X) + b$ and variance $a^2Var(X)$.
 
 ### Standard Deviation:
 
 <div>
 $$
-\sigma = \sqrt{Var(X)}
-
-\newline\qquad
-
-\sigma^2 = \frac{1}{N^2} \lbrack N\sum*{i=1}^n fx_i^2 - (\sum*{i=1}^n fx_i)^2 \rbrack
+\begin{aligned}
+\sigma &= \sqrt{Var(X)} \\
+\sigma^2 &= \frac{1}{N^2} \left[N\sum_{i=1}^n f_i x_i^2 - \left(\sum_{i=1}^n f_i x_i\right)^2\right]
+\end{aligned}
 
 $$
 </div>
@@ -904,7 +918,7 @@ $G = \frac{a+b}{2}$
 ### Formulas:
 - $t_n = a \cdot r^{n-1}$
 - $S_n = a \frac{r^n - 1}{r - 1}, \, r \neq 1$
-- $S_\infty = \frac{a}{r-1}, \, |r| < 1$
+- $S_\infty = \frac{a}{1-r}, \, |r| < 1$
 
 - where $r$ is common ratio
 
@@ -1030,8 +1044,10 @@ $$
 ## Finding AntiLog
 1. Given we need to find Antilog of $15.5932$
     $$
-    \log k = 15.5932 \\\\
-    k = Antilog (\medspace \textcolor{#42f5f2}{15}\textcolor{#f56c42}{.59}\textcolor{#ad42f5}3\textcolor{#f542bc}2\medspace)
+    \begin{aligned}
+    \log k &= 15.5932 \\
+    k &= \operatorname{Antilog}(\medspace \textcolor{#42f5f2}{15}\textcolor{#f56c42}{.59}\textcolor{#ad42f5}3\textcolor{#f542bc}2\medspace)
+    \end{aligned}
     $$
 
 2. Look for $0\textcolor{#f56c42}{.59}$<sup>th</sup> row and column with label $\textcolor{#ad42f5}3$. Which is $\bold{\textcolor{#07fc03}{3917}}$.
@@ -1045,8 +1061,10 @@ $$
 4. Add $1$ to *characteristic* $\textcolor{#42f5f2}{15} = \textcolor{#07fc03}{16}$ and add  insert the decimal from left calculated in step 2. That means we need to add decimal after $\textcolor{#07fc03}{16}$<sup>th</sup> position
 
     $$
-    3919\enspace0000\enspace0000\enspace000 .\\\\
+    \begin{aligned}
+    3919\enspace0000\enspace0000\enspace000 .\\
     \implies k = \bold{\textcolor{#07fc03}{3.919\times10^{15}}}
+    \end{aligned}
     $$
 
 !!! info "Quickly write the exponential form"

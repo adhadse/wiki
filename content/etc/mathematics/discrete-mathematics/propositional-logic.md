@@ -5,7 +5,7 @@ Content inspired from:
 
 Computer Scientists use formal logical systems for expressing ideas about statements and whether they are true.
 
-Propositional logic stems from the word "propositions", <mark class="y"> sentences that can be either true or false.</mark >
+Propositional logic stems from the word "propositions", <mark class="y">sentences that can be either true or false.</mark>
 
 We'll often use a variable to stand for the proposition, like:
 
@@ -37,8 +37,10 @@ $$
 This expresses, **both** statement holds true.
 
 $$
-P: \text{The robot is blue}\newline
-Q: \text{The robot has antenna}
+\begin{aligned}
+P &: \text{The robot is blue} \\
+Q &: \text{The robot has antenna}
+\end{aligned}
 $$
 
 Then conjunction ($P \land Q$) holds true <mark class="y">when the robot is **both** blue and has antenna as well.</mark>
@@ -83,12 +85,14 @@ $P \oplus Q$ expresses, <mark class="y">$P$ is true **or** $Q$ is true **but not
 If propositions are:
 
 $$
-P: \text{The robot is blue}\newline
-Q: \text{The robot has antenna}
+\begin{aligned}
+P &: \text{The robot is blue} \\
+Q &: \text{The robot has antenna}
+\end{aligned}
 $$
 
 <div class="annotate" markdown>
-then, $P \implies Q$ (1), tells </mark class="y">if the robot is blue, then it also must be true that the robot has antenna</mark>. 
+then, $P \implies Q$ (1), tells <mark class="y">if the robot is blue, then it also must be true that the robot has antenna</mark>.
 </div>
 
 1. Read as *$P$ implies $Q$ or *if $P$ then $Q$\*.
@@ -130,4 +134,3 @@ This expresses, read as _"if and only if"_.
 | $\textcolor{#f56c42}{\text{false}}$ | $\textcolor{#07fc03}{\text{true}}$  | $\textcolor{#f56c42}{\text{false}}$ |
 | $\textcolor{#07fc03}{\text{true}}$  | $\textcolor{#f56c42}{\text{false}}$ | $\textcolor{#f56c42}{\text{false}}$ |
 | $\textcolor{#07fc03}{\text{true}}$  | $\textcolor{#07fc03}{\text{true}}$  | $\textcolor{#07fc03}{\text{true}}$  |
-

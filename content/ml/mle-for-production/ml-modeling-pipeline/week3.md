@@ -261,7 +261,7 @@ Communication stalls also become inevitable in data parallelism making the commu
 
 ### Pipeline parallelism using GPipe
 <figure>
-  <img src="/assets/images/ml/mle_for_production/ml_modeling_pipeline_in_production/pipeline_parallelism.png"></img>
+  <img src="/assets/images/ml/mle_for_production/ml_modeling_pipeline_in_production/pipeline_parallelism.png">
   <figcaption>In this diagram, F refers to the forward pass while B refers to the backward pass distributed among the accelerators</figcaption>
 </figure>
 

@@ -33,20 +33,4 @@
     src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.waves.min.js"
     defer
 ></script>
-{% endblock %} {% block scripts %} {{ super() }}
-<script defer>
-    VANTA.HALO({
-        el: ".hero-container",
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 200.0,
-        minWidth: 200.0,
-        baseColor: 0x0,
-        backgroundColor: 0x0,
-        xOffset: 0.09,
-        amplitudeFactor: 0.2,
-        size: 0.9,
-    });
-</script>
 {% endblock %}

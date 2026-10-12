@@ -1,24 +1,52 @@
-name: GitHub Pages Deploy
+name: Publish Zensical site
+
 on:
   push:
-    branches:
-      - master
+    branches: [master]
+  workflow_dispatch:
+
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
 jobs:
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v4
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v6
+      - name: Check out repository
+        uses: actions/checkout@v7
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version-file: ".python-version"
       - name: Install uv
         uses: astral-sh/setup-uv@v4
         with:
-          version: "0.5.7"
           enable-cache: true
-      - name: "Set up Python"
-        uses: actions/setup-python@v5
+      - name: Install locked dependencies
+        run: uv sync --locked
+      - name: Generate page graph
+        run: uv run python scripts/build_graph.py
+      - name: Prepare Zensical content
+        run: uv run python scripts/prepare_zensical_content.py
+      - name: Build site with Zensical
+        run: uv run zensical build --config-file zensical.toml --clean
+      - name: Validate generated site
+        run: uv run python scripts/validate_site.py generated
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
         with:
-          python-version-file: ".python-version"
-      - name: Deploy
-        run: uv run mkdocs gh-deploy --remote-branch gh-pages --force
+          path: generated
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

@@ -18,15 +18,15 @@ May 4, 2021
 The term _hidden layer_ refers to the fact that in the training set, for these nodes in the middle (the hidden layer neurons) are not observed.
 
 <figure>
-  <img src="/assets/images/ml/intro_dl/neural_networks/Untitled 10.png"></img>
+  <img src="/assets/images/ml/intro_dl/neural_networks/Untitled 10.png">
   <figcaption>Source: Wikipedia. Used for representation only.</figcaption>
 </figure>
 
 <mark class="y">The term $a$ also stands for the activations, we will use it for denoting the outputs/activations of a layer that the layer is passing on to the subsequent layers.</mark>
 
-- *Input layer* is passing activations $a^{\[0]}$ to the hidden layer (which we previously denoting by $X$.
+- *Input layer* passes activations $a^{[0]}$ to the hidden layer (which we previously denoted by $X$).
 
-- The hidden layer will in turn generate its own activations $a^{\[1]}$
+- The hidden layer will in turn generate its own activations $a^{[1]}$.
 
 - Which is a four dimensional vector b/c the hidden layer has four neurons
 
@@ -39,18 +39,18 @@ $$
 - The output layer generates some value $a^{[2]}$ which is just a real number $\hat{y}$.
 
 <figure>
-  <img src="/assets/images/ml/intro_dl/neural_networks/Untitled 11.png"></img>
+  <img src="/assets/images/ml/intro_dl/neural_networks/Untitled 11.png">
   <figcaption>2 layer NN: We don't count the 'input layer'</figcaption>
 </figure>
 
 - The parameter associated with the layers will also be denoted with Superscript notations like $W^{[1]}$, $b^{[1]}$. Here,
-  - $W^{[1]}$ will be $(4. 3)$ dimensional vector for <mark class="y">$(\text{noOfNeuronsInCurrentLayer},\text{ noOfNeuronsInPreviviousLayer})$</mark> with each value associated with the connection weights.
+  - $W^{[1]}$ is a $(4, 3)$ matrix with shape $(\text{neurons in current layer},\text{neurons in previous layer})$; each entry is a connection weight.
   * $b^{[1]}$ will be $(4, 1)$ dimensional vector, only stores biases for number of neurons in current layer.
 
 ## Computing a Neural Network's Output
 
 <figure>
-  <img src="/assets/images/ml/intro_dl/neural_networks/Untitled 12.png"></img>
+  <img src="/assets/images/ml/intro_dl/neural_networks/Untitled 12.png">
   <figcaption>This is what logistic regression does. A NN is composed bunch of neurons which performs the same operation (With the activation function different if required other than sigmoid, most popular being ReLU)</figcaption>
 </figure>
 
@@ -61,7 +61,10 @@ Let's go a little deeper:
 
 <div>
 $$
-z^{[1]}_1 = w^{[1]}_1 X + b_1^{[1]}\\[10pt] a^{[1]}_1 = \sigma(z^{[1]}_1)
+\begin{aligned}
+z^{[1]}_1 &= w^{[1]}_1 X + b_1^{[1]} \\
+a^{[1]}_1 &= \sigma(z^{[1]}_1)
+\end{aligned}
 $$
 </div>
 
@@ -69,7 +72,7 @@ where,
 
 <div>
 $$
-a^{[1](m)\rightarrow \text{ 1st neuron and m$^{th}$ training example}}_{l\rightarrow \text{node in layer l}}
+a^{[1](m)\rightarrow \text{first neuron and }m^{\text{th}}\text{ training example}}_{l\rightarrow \text{node in layer }l}
 $$
 </div>
 
@@ -77,7 +80,10 @@ $$
 -   The second neuron computes,
 <div>
 $$
-z^{[1]}_2 = w^{[1]}_2 X + b^{[1]}_2\\[10pt] a^{[1]}_2 = \sigma(z^{[1]}_2)
+\begin{aligned}
+z^{[1]}_2 &= w^{[1]}_2 X + b^{[1]}_2 \\
+a^{[1]}_2 &= \sigma(z^{[1]}_2)
+\end{aligned}
 $$
 </div>
 - and so does other neurons in the layer.
@@ -116,17 +122,17 @@ $$
 $$
 </div>
 
-Give input $X = a^{\[0]}$, then
+Give input $X = a^{[0]}$, then
 
   $z^{[1]} = W^{[1]}a^{[0]} + b^{[1]}$
 
   $a^{[1]} =  \sigma(z^{[1]})$
 
-  $z^{[1]} = W^{[2]}a^{[1]} + b ^{[2]}$
+  $z^{[2]} = W^{[2]}a^{[1]} + b ^{[2]}$
 
   $a^{[2]} = \sigma(z^{[2]})$
 
-Where $W^{\[2]}$ is $(1, 4)$ and $a^{\[1]}$ is $(4, 1)$ dimensional matrices.
+Where $W^{[2]}$ has dimensions $(1, 4)$ and $a^{[1]}$ has dimensions $(4, 1)$.
 
 ## Vectorizing across multiple examples
 
@@ -149,7 +155,13 @@ then for $m$ training examples we need,
 
 <div>
 $$
-X \rightarrow a^{[2]} = \hat{y}\\X^{(1)} \rightarrow a^{[2](1)} = \hat{y}^{(1)}\\X^{(2)} \rightarrow a^{[2](2)} = \hat{y}^{(2)}\\...\\X^{(1)} \rightarrow a^{[2](m)} = \hat{y}^{m)}
+\begin{aligned}
+X &\rightarrow a^{[2]} = \hat{y} \\
+X^{(1)} &\rightarrow a^{[2](1)} = \hat{y}^{(1)} \\
+X^{(2)} &\rightarrow a^{[2](2)} = \hat{y}^{(2)} \\
+&\vdots \\
+X^{(m)} &\rightarrow a^{[2](m)} = \hat{y}^{(m)}
+\end{aligned}
 $$
 </div>
 
@@ -157,12 +169,17 @@ $$
 
 <div>
 $$
-Z^{[1]} = W^{[1]}X + b^{[1]}\\A^{[1]} =  \sigma(Z^{[1]})\\Z^{[2]} = W^{[2]}A^{[1]} + b ^{[2]}\\A^{[2]} = \sigma(Z^{[2]})
+\begin{aligned}
+Z^{[1]} &= W^{[1]}X + b^{[1]} \\
+A^{[1]} &= \sigma(Z^{[1]}) \\
+Z^{[2]} &= W^{[2]}A^{[1]} + b^{[2]} \\
+A^{[2]} &= \sigma(Z^{[2]})
+\end{aligned}
 $$
 </div>
 
 <figure>
-  <img src="/assets/images/ml/intro_dl/neural_networks/Untitled 16.png"></img>
+  <img src="/assets/images/ml/intro_dl/neural_networks/Untitled 16.png">
   <figcaption>The blue arrows represent the forward pass and Red arrows the Backward pass</figcaption>
 </figure>
 
@@ -204,7 +221,7 @@ $$
 $\alpha$ defines the slope of the function for $z<0$, that is how much it should "leak.
 
 <figure>
-  <img src="/assets/images/ml/intro_dl/neural_networks/Untitled 18.png"></img>
+  <img src="/assets/images/ml/intro_dl/neural_networks/Untitled 18.png">
   <figcaption>Source: Wikipedia</figcaption>
 </figure>
 
@@ -249,7 +266,7 @@ for $z=0$, $g(z)=0$ | $g'(z)=1$
 <div>
 $$
 g'(x) = \begin{cases}0&\text{if } z<0 \\
-                     1&\text{if }z\geqslant0\\
+                     1&\text{if }z>0\\
                      \text{undefined} &\text{if } z=0\end{cases}
 $$
 </div>
@@ -260,7 +277,7 @@ if $z=0$, It might be undefined but will still work when implementing, you could
 
 <div>
 $$
-g'(z)=\begin{cases}\alpha &\text{if } z>0\\1 &\text{if }z\geqslant0\end{cases}
+g'(z)=\begin{cases}\alpha &\text{if } z<0\\1 &\text{if }z\geqslant0\end{cases}
 $$
 </div>
 
@@ -287,7 +304,7 @@ $$
 
 Where,
 
-- $\hat{y}$ is $a^{\[2]}$
+- $\hat{y}$ is $a^{[2]}$.
 
 **Gradient Descent**
 
@@ -295,19 +312,19 @@ When training a neural network it is important to initialize the parameters rand
 
 <mark class="v">$\text{Repeat}\lbrace$</mark>
 
-  <mark class="v">$\newline\qquad\text{Compute the prediction} (\hat{y}^{[i]}, i=1...m)$</mark>
+  <mark class="v">$\qquad\text{Compute the predictions }\hat{y}^{(i)}\text{ for }i=1,\ldots,m$</mark>
 
   <mark class="v">$\qquad dW^{[1]}=\frac{dJ}{dW^{[1]}}$, $db^{[1]} = \frac{dJ}{db^{[1]}}$, $...$</mark>
 
-  <mark class="v">$\qquad W^{[1]} =W^{[1]} - \alpha dW^{[1]}$</mark>
+  <mark class="v">$\qquad W^{[1]} = W^{[1]} - \alpha dW^{[1]}$</mark>
 
   <mark class="v">$\qquad b^{[1]} = b^{[1]} - \alpha db^{[1]}$</mark>
 
-  <mark class="v">$\qquad W^{[1]} = W^{[2]} - \alpha dW^{[2]}$</mark>
+  <mark class="v">$\qquad W^{[2]} = W^{[2]} - \alpha dW^{[2]}$</mark>
 
   <mark class="v">$\qquad b^{[2]} = b^{[2]} - \alpha db^{[2]}$</mark>
 
-<mark class="v">$\\}$</mark>
+<mark class="v">$\text{End Repeat}$</mark>
 
 #### Formulas for computing derivatives (assuming for binary classification)
 
@@ -324,21 +341,21 @@ When training a neural network it is important to initialize the parameters rand
 
 **Back Propagation**
 
-<mark class="v">$dZ^{[2]} = A^{\[2]} - Y$</mark>
+<mark class="v">$dZ^{[2]} = A^{[2]} - Y$</mark>
 
 <mark class="v">$dW^{[2]} = \frac{1}{m}dZ^{[2]}A^{[1]\bold{\top}}$</mark>
 
-<mark class="v">$db^{[2]} = \frac{1}{m}\text{ np.sum($dZ^{[2]}$, axis=1, keepdims=True)}\\;\fcolorbox{red}{white}{avoids  1 rank matrix}$</mark>
+<mark class="v">$db^{[2]} = \frac{1}{m}\sum_{i=1}^{m}dZ^{[2](i)}$</mark> (NumPy: `np.sum(dZ[2], axis=1, keepdims=True) / m`.)
 
-<mark class="v">$dZ^{[1]} = W^{[2]\bold{\top}} dZ^{[2]} \* g'^{[1]}(Z^{[1]})$</mark>
+<mark class="v">$dZ^{[1]} = W^{[2]\bold{\top}} dZ^{[2]} \cdot g'^{[1]}(Z^{[1]})$</mark>
 
 <mark class="v">$dW^{[1]} = \frac{1}{m} dZ^{[1]}X^\bold{\top}$</mark>
 
-<mark class="v">$db^{[1]} = \frac{1}{m}\text{np.sum($dZ^{[1]}$, axis=1, keepdims=True})$</mark>
+<mark class="v">$db^{[1]} = \frac{1}{m}\sum_{i=1}^{m}dZ^{[1](i)}$</mark> (NumPy: `np.sum(dZ[1], axis=1, keepdims=True) / m`.)
 
 Where,
 
-* $g'^{[1]}(Z^{[1]})$ is $(1-\text{np.power($A^{\[1]}$},\, 2)$
+* For a tanh activation, $g'^{[1]}(Z^{[1]}) = 1 - (A^{[1]})^2$.
 
 ## Backpropagation intuition (optional)
 
@@ -353,7 +370,7 @@ If two hidden units with the same activation function are connected to the same 
 
 <mark class="y">This helps in breaking symmetry and every neuron is no longer performing the same computation.</mark>
 
-$W^{[1]} = \text{np.random.randn((2, 2)) \* 0.01}$
+Initialize small random weights, for example: `W = np.random.randn((2, 2)) * 0.01`.
 
 $b^{[1]} = \text{np.zero((2, 1))}$
 
@@ -364,4 +381,3 @@ We need to initialize the weights to a very small value, as when
 If we don't have these functions throughout our NN, it's less of an issue.
 
 But for binary classification this might be required for output layer.
-

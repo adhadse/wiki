@@ -46,12 +46,15 @@ where,
 where,
 <div>
 $$
-\sigma(Z) = \frac{1}{1+ e^{-z}} \\[10pt] z = w^\intercal + b
+\begin{aligned}
+\sigma(z) &= \frac{1}{1+ e^{-z}} \\
+z &= w^\intercal x + b
+\end{aligned}
 $$
 </div>
 
 <figure>
-  <img src="/assets/images/ml/intro_dl/neural_networks/0005.svg"></img>
+  <img src="/assets/images/ml/intro_dl/neural_networks/0005.svg">
   <figcaption>Exponential function $y = e^x$ (source: Wikipedia</figcaption>
 </figure>
 
@@ -161,7 +164,7 @@ $$
   $J = 3v$
 
 <figure>
-  <img src="/assets/images/ml/intro_dl/neural_networks/0009.png"></img>
+  <img src="/assets/images/ml/intro_dl/neural_networks/0009.png">
   <figcaption>The blue arrows represent the forward pass and Red arrows the Backward pass</figcaption>
 </figure>
 
@@ -182,7 +185,10 @@ $$
   If $a$ affects $v$ affects $J$ ($a \rightarrow v \rightarrow J$) then the amounts that $J$ changes when you nudge $a$ is the product of how much $v$ changes when you nudge $a$ times how much $J$ changes when you nudge $v$.
 
 $$
-\frac{dv}{da} = \bold{1} \\ [10pt] \frac{dJ}{da} = \frac{dJ}{dv}\frac{dv}{da} = 3 \times 1 = \bold{3}
+\begin{aligned}
+\frac{dv}{da} &= 1 \\
+\frac{dJ}{da} &= \frac{dJ}{dv}\frac{dv}{da} = 3 \times 1 = 3
+\end{aligned}
 $$
 
 - This illustrates how computing $$\frac{dJ}{dv}$$ let's us compute $$\frac{dJ}{da}$$.
@@ -216,11 +222,11 @@ $$
 
 - Logistic regression recap
 
-  $z = w^\intercal +b$
+  $z = w^\intercal x + b$
 
   $\hat{y} = \hat{p} = \sigma(z)$
 
-  $L(\hat{y}, y) = - \Big\[y\log (a) + (1-y)\log(1-\hat{y})\Big]$
+  $L(\hat{y}, y) = - \Big[y\log (\hat{y}) + (1-y)\log(1-\hat{y})\Big]$
 
 - Let's say we have only two features, then we will have two weight and a bias.
 
@@ -231,20 +237,20 @@ $$
 ![](/assets/images/ml/intro_dl/neural_networks/20210502_170324.jpg)
 
 <figure>
-  <img src="/assets/images/ml/intro_dl/neural_networks/RBJQM5T.jpg"></img>
+  <img src="/assets/images/ml/intro_dl/neural_networks/RBJQM5T.jpg">
   <figcaption>The photo above uses $a$ for prediction $\hat{y}$</figcaption>
 </figure>
 
-Hence, we use $dz = (a-y)$ for calculating Loss function for single instance with respect to $w\_1$ by calulating:
+Hence, we use $dz = (a-y)$ for calculating Loss function for single instance with respect to $w_1$ by calulating:
 
 $$
-\frac{dL}{dw\_1} = \frac{dL}{da}\frac{da}{dz}\frac{dz}{dw\_1} = (a-y)(x\_1) = \bold{x\_1\frac{dL}{dz}}
+\frac{dL}{dw_1} = \frac{dL}{da}\frac{da}{dz}\frac{dz}{dw_1} = (a-y)(x_1) = \bold{x_1\frac{dL}{dz}}
 $$
 
-and with respect to $w\_2$
+and with respect to $w_2$
 
 $$
-\frac{dL}{dw\_2} = \frac{dL}{da}\frac{da}{dz}\frac{dz}{dw\_2} = (a-y)(x\_2) = \bold{x\_2\frac{dL}{dz}}
+\frac{dL}{dw_2} = \frac{dL}{da}\frac{da}{dz}\frac{dz}{dw_2} = (a-y)(x_2) = \bold{x_2\frac{dL}{dz}}
 $$
 
 for bias it remains same:
@@ -256,17 +262,21 @@ $$
 This makes the updates like this:
 
 $$
-w\_1 = w\_1 - \alpha dw\_1\\\ w\_2 = w\_2 = \alpha dw\_2\\\b = b -\alpha db
+\begin{aligned}
+w_1 &\leftarrow w_1 - \alpha dw_1 \\
+w_2 &\leftarrow w_2 - \alpha dw_2 \\
+b &\leftarrow b - \alpha db
+\end{aligned}
 $$
 
-- <mark class="y">where $dw\_1, dw\_2, db$ as said earlier represents the derivative of the final output variable (Loss function) with respect to respective variable.</mark>
+- <mark class="y">where $dw_1, dw_2, db$ as said earlier represents the derivative of the final output variable (Loss function) with respect to respective variable.</mark>
 
 ## Gradient Descent on $m$ Examples
 
 This Loss function is for $m$ training examples computed over $(i)^\text{th}$ instances.
 
 $$
-J(w, b)=J(\theta) = -\frac{1}{m}\sum^m\_{i=1}\bigg\[y^{(i)}\log\Big(\hat{y}^{(i)}\Big)+ \Big(1-y^{(i)}\Big)\log\Big(1-\hat{y}^{(i)}\Big)\bigg]
+J(w, b)=J(\theta) = -\frac{1}{m}\sum_{i=1}^{m}\bigg[y^{(i)}\log\Big(\hat{y}^{(i)}\Big)+ \Big(1-y^{(i)}\Big)\log\Big(1-\hat{y}^{(i)}\Big)\bigg]
 $$
 
 * where $$\hat{y} = \sigma(z^{(i)}) = \sigma(w^\intercal x^{(i)} + b)$$ is the prediction over one training example.
@@ -274,27 +284,40 @@ $$
 So for **calculating Cost function derivative with respect to first weight becomes:**
 
 $$
-\frac{\partial J}{\partial w\_1} = \frac{1}{m}\sum^m\_{i=1} \frac{\partial}{\partial w\_1}L(\hat{y}^{(i)}, y^{(i)})
+\frac{\partial J}{\partial w_1} = \frac{1}{m}\sum_{i=1}^{m} \frac{\partial}{\partial w_1}L(\hat{y}^{(i)}, y^{(i)})
 $$
 
 Which as we have seen will then be:
 
 $$
-\frac{\partial J}{\partial w\_1} = \frac{1}{m}\sum^m\_{i=1} dw\_1^{(i)}
+\frac{\partial J}{\partial w_1} = \frac{1}{m}\sum_{i=1}^{m} dw_1^{(i)}
 \qquad\qquad
-\frac{\partial J}{\partial w\_2} = \frac{1}{m}\sum^m\_{i=1} dw\_2^{(i)}
+\frac{\partial J}{\partial w_2} = \frac{1}{m}\sum_{i=1}^{m} dw_2^{(i)}
 $$
 
 ### Wrap up in algorithm (what we can do)
 
 Assuming we have only two features. The single step of gradient descent will look like:
 
-$j=0,\\; dw\_1=0,\\; dw\_2=0,\\; db=0\\\\\text{For} \enspace i=1\enspace\text{to}\enspace m:$
+```python
+J = dw1 = dw2 = db = 0.0
+for i in range(m):
+    z = w1 * x1[i] + w2 * x2[i] + b
+    y_hat = 1 / (1 + np.exp(-z))
+    J += -(y[i] * np.log(y_hat) + (1 - y[i]) * np.log(1 - y_hat))
+    dz = y_hat - y[i]
+    dw1 += x1[i] * dz
+    dw2 += x2[i] * dz
+    db += dz
 
-$\qquad z^{(i)} = w^\intercal x^{(i)} + b\\\\\qquad \hat{y}^{(i)} = \sigma(z^{(i)})\\\\\qquad J \enspace+= -\Big\[y^{(i)}\log\hat{y}^{(i)}+ \big(1-y^{(i)}\big)\log\big(1-\hat{y}^{(i)}\big)]\\\\\qquad dz^{(i)} = \hat{y}^{(i)} - y^{(i)}\\\\\qquad dw\_1\enspace += x\_1^{(i)}dz^{(i)}\enspace\fcolorbox{red}{white}{here $dw\_1$ is used as accumulator}\\\\\qquad dw\_2 \enspace += x\_2^{(i)}dz^{(i)}\enspace\fcolorbox{red}{white}{h
-ere $dw\_2$ is used as accumulator}\\\\\qquad db\enspace+= dz^{(i)}$
-
-$J \enspace/=m \qquad\fcolorbox{red}{white}{averaging cost function over $m$ training examples}\\\dw\_1\enspace /=m; \\; dw\_2\enspace/=m\\; db\enspace/=m\\\w\_1 = w\_1 - \alpha dw\_1\\\ w\_2 = w\_2 = \alpha dw\_2\\\b = b -\alpha db$
+J /= m
+dw1 /= m
+dw2 /= m
+db /= m
+w1 -= alpha * dw1
+w2 -= alpha * dw2
+b -= alpha * db
+```
 
 - We have a problem here in which we require two for loops:
   - One for iterating over $m$ training example.
@@ -311,7 +334,7 @@ z = np.dot(w, x) + b
 Vectorization relies on parallelization instructions called **SIMD (Single Instruction Multiple Data),** which can be be found in both CPU and GPU but GPUs are better at that.
 
 <figure>
-  <img src="/assets/images/ml/intro_dl/neural_networks/Untitled 7.png"></img>
+  <img src="/assets/images/ml/intro_dl/neural_networks/Untitled 7.png">
   <figcaption>And that's how we eliminate one for loop which was iterating over the features for calculating derivative and updating derivatives..</figcaption>
 </figure>
 
@@ -333,13 +356,13 @@ We can make the prediction or the forward propagation step like this:
 #### Step 1
 
 $$
-Z = [z^{(i)}, z^{(2)}, ..., z^{(m)}]= w^\intercal X + [b, b, b, ....b]
+Z = [z^{(1)}, z^{(2)}, \ldots, z^{(m)}]= w^\intercal X + [b, b, b, \ldots,b]
 $$
 
 where,
 
-- $X$ represent the $(n\_x, m)$ dimensional feature matrix.
-- $\[b, b, b, ....b]$ is bias matrix with $(1, m)$ dimension.
+- $X$ represent the $(n_x, m)$ dimensional feature matrix.
+- $[b, b, b, \ldots,b]$ is the bias row with dimensions $(1, m)$.
 
 ![](/assets/images/ml/intro_dl/neural_networks/Untitled 8.png)
 
@@ -352,20 +375,20 @@ Z = np.dot(w.T, X) + b # here b is a real number which is broadcasted
 #### Step 2
 
 $$
-\hat{Y} = \[\hat{y}^{(1)}, \hat{y}^{(2)}, ..., \hat{y}^{(m)}] = \sigma(Z)
+\hat{Y} = [\hat{y}^{(1)}, \hat{y}^{(2)}, \ldots, \hat{y}^{(m)}] = \sigma(Z)
 $$
 
 ## Vectorizing Logistic Regression's Gradient Output
 
 ### vectorizing calculation of "dz" ($\frac{dL}{dz}$)
 
-We want: $dz^{(1)} = \[\hat{y}^{(1)} - y^{(1)}]$, $dz^{(2)}= \[\hat{y}^{(2)} - y^{(2)}]$,...
+We want: $dz^{(1)} = \hat{y}^{(1)} - y^{(1)}$, $dz^{(2)} = \hat{y}^{(2)} - y^{(2)}$, ...
 
-$dZ = \[dz^{(1)}, dz^{(2)}, ..., dz^{(m)}]$
+$dZ = [dz^{(1)}, dz^{(2)}, \ldots, dz^{(m)}]$
 
 Then:
 
-$\hat{Y} = \[\hat{y}^{(1)}, ..., \hat{(m)}]$ $Y = \[y^{(1)},..., y^{(m)}]$
+$\hat{Y} = [\hat{y}^{(1)}, \ldots, \hat{y}^{(m)}]$, $Y = [y^{(1)},\ldots, y^{(m)}]$
 
 <mark class="b">$dZ = \hat{Y} - Y$</mark>
 
@@ -373,13 +396,13 @@ $\hat{Y} = \[\hat{y}^{(1)}, ..., \hat{(m)}]$ $Y = \[y^{(1)},..., y^{(m)}]$
 
 <mark class="b">$dw = \frac{1}{m}X{dZ}^\intercal$</mark>
 
-Which creates as ($n, 1$) dimensional vector with each element being from $dz\_{(i)}$ to $dz\_{(n)}$ where <mark class="y">$n$ is the number of features.</mark>
+Which creates as ($n, 1$) dimensional vector with each element being from $dz_{(i)}$ to $dz_{(n)}$ where <mark class="y">$n$ is the number of features.</mark>
 
 ```python
 dw = (1/m)*np.dot(X, dZ.T)
 ```
 
-<mark class="b">$db = \frac{1}{m} \sum^m\_{i=1} dz^{(i)}$</mark>
+<mark class="b">$db = \frac{1}{m} \sum_{i=1}^{m} dz^{(i)}$</mark>
 
 which in python is done using
 
@@ -396,7 +419,9 @@ db = (1/m)*np.sum(dZ)
 
 <mark class="v">$dw= \frac{1}{m}XdZ^\intercal$</mark>
 
-<mark class="v">$db = \frac{1}{m}\text{ \* np.sum($dZ$)}$</mark>
+<mark class="v">$db = \frac{1}{m}\sum_{i=1}^{m} dZ^{(i)}$</mark>
+
+In NumPy, this is `db = np.sum(dZ) / m`.
 
 <mark class="v">$w = w -\alpha dw$</mark>
 
@@ -454,28 +479,30 @@ If you get a rank 1 array, just `reshape` it.
 * Softmax function
 
 $$
-\text{for a matrix } x \in \mathbb{R}^{m \times n} \text{, $x\_{ij}$ maps to the element in the $i^{th}$ row and $j^{th}$ column of $x$, thus we have: }
+\text{For a matrix } X \in \mathbb{R}^{m \times n}, \text{entry } x_{ij} \text{ is in row } i \text{ and column } j.
 $$
 
 <div>
 $$
-softmax(x) = softmax\begin{bmatrix} x\_{11} & x\_{12} & x\_{13} & \dots & x\_{1n} \\\ x\_{21} & x\_{22} & x\_{23} & \dots & x\_{2n} \\\ \vdots & \vdots & \vdots & \ddots & \vdots \\\ x\_{m1} & x\_{m2} & x\_{m3} & \dots & x\_{mn}\end{bmatrix} \\[10pt]= \begin{bmatrix} \frac{e^{x\_{11}}}{\sum\_{j}e^{x\_{1j}}} & \frac{e^{x\_{12}}}{\sum\_{j}e^{x\_{1j}}} & \frac{e^{x\_{13}}}{\sum\_{j}e^{x\_{1j}}} & \dots & \frac{e^{x\_{1n}}}{\sum\_{j}e^{x\_{1j}}} \\\ \frac{e^{x\_{21}}}{\sum\_{j}e^{x\_{2j}}} & \frac{e^{x\_{22}}}{\sum\_{j}e^{x\_{2j}}} & \frac{e^{x\_{23}}}{\sum\_{j}e^{x\_{2j}}} & \dots & \frac{e^{x\_{2n}}}{\sum\_{j}e^{x\_{2j}}} \\\ \vdots & \vdots & \vdots & \ddots & \vdots \\\ \frac{e^{x\_{m1}}}{\sum\_{j}e^{x\_{mj}}} & \frac{e^{x\_{m2}}}{\sum\_{j}e^{x\_{mj}}} & \frac{e^{x\_{m3}}}{\sum\_{j}e^{x\_{mj}}} & \dots & \frac{e^{x\_{mn}}}{\sum\_{j}e^{x\_{mj}}}\end{bmatrix} \\[10pt]= \begin{pmatrix} softmax\text{(first row of x)} \\\ softmax\text{(second row of x)} \\\ ... \\\ softmax\text{(last row of x)} \\\\\end{pmatrix}
+\operatorname{softmax}(X)_{ij} = \frac{e^{x_{ij}}}{\sum_{k=1}^{n} e^{x_{ik}}}
 $$
 </div>
+
+This normalizes each row independently.
 
 * L1 loss is defined as:
 
 $$
-\begin{align\*} & L\_1(\hat{y}, y) = \sum\_{i=0}^m|y^{(i)} - \hat{y}^{(i)}| \end{align\*}\tag{1}
+L_1(\hat{y}, y) = \sum_{i=1}^{m}\left|y^{(i)} - \hat{y}^{(i)}\right| \tag{1}
 $$
 
 * L2 loss is defined as:
 
 $$
-\begin{align\*} & L\_2(\hat{y},y) = \sum\_{i=0}^m(y^{(i)} - \hat{y}^{(i)})^2 \end{align\*}\tag{2}
+L_2(\hat{y},y) = \sum_{i=1}^{m}\left(y^{(i)} - \hat{y}^{(i)}\right)^2 \tag{2}
 $$
 
-A trick when you want to flatten a matrix $X$ of shape $(a,b,c,d)$ to a matrix $X\_flatten$ of shape $(b∗c∗d, a)$ is to use:
+A trick when you want to flatten a matrix $X$ of shape $(a,b,c,d)$ to a matrix $X_flatten$ of shape $(b∗c∗d, a)$ is to use:
 
 ```python
 X_flatten = X.reshape(X.shape[0],-1).T

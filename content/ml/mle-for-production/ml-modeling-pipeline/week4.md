@@ -411,7 +411,7 @@ Make sure model does not cause harm to specific group of people
 **FNR**: <mark class="y">percentage of *positive* data points that are *incorrectly* labeled *negative*</mark>
 
 - Measures equality of opportunity, when the **positive class** should be equal across subgroups
-- <mark class="v">Use case: where it is important that same percent of qualified candidates are rated positive in each group<mark>
+- <mark class="v">Use case: where it is important that the same percentage of qualified candidates are rated positive in each group.</mark>
 
 ### False Positive rate (FPR) / True negative rate (TNR)
 

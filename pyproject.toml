@@ -5,7 +5,5 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "mkdocs-glightbox>=0.4.0",
-    "mkdocs-material-extensions>=1.3.1",
-    "mkdocs-material[imaging]==9.6.14",
+    "zensical==0.0.69",
 ]

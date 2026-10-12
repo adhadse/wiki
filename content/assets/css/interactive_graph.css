@@ -1,32 +1,158 @@
 .graph {
-    height:300px; 
+  width: 100%;
+  height: 190px;
+  min-height: 160px;
+}
+
+.md-sidebar--secondary {
+  padding-top: 0.5rem;
+}
+
+.graph-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.graph-button svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: currentColor;
+}
+
+.graph-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3vh 3vw;
+  background: rgba(0, 0, 0, 0.72);
+}
+
+.graph-modal {
+  display: flex;
+  flex-direction: column;
+  width: min(1200px, 100%);
+  height: min(860px, 94vh);
+  overflow: hidden;
+  color: var(--md-default-fg-color);
+  background: var(--md-default-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.6rem;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.35);
+}
+
+.graph-modal__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+  min-height: 3.5rem;
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.graph-modal__toolbar h2 {
+  margin: 0 auto 0 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.graph-modal__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.72rem;
+}
+
+.graph-modal__legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.graph-legend__line {
+  display: inline-block;
+  width: 1.35rem;
+  border-top: 2px solid #73a2ff;
+}
+
+.graph-legend__line--folder {
+  border-top-color: #9aa3b2;
+  border-top-style: dashed;
+}
+
+.graph-modal__filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.graph-modal__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 2.4rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0;
+  color: var(--md-default-fg-color);
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 150ms ease;
+}
+
+.graph-modal__close svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: currentColor;
+}
+
+.graph-modal__close:hover,
+.graph-modal__close:focus-visible {
+  background-color: var(--md-default-fg-color--lightest);
+}
+
+.modal_graph {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+}
+
+.graph-error {
+  padding: 1rem;
+  color: var(--md-default-fg-color--light);
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .graph-modal-overlay {
+    padding: 0;
+  }
+
+  .graph-modal {
     width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 0;
   }
-  
-  #modal_background {
-    background-color: var(--md-default-fg-color--lightest); 
-    overflow: hidden; 
-    display: flex; 
-    position: fixed; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%; 
-    z-index: 99;
+
+  .graph-modal__toolbar {
+    gap: 0.5rem;
+    padding: 0.65rem;
   }
-  
-  .modal_graph {
-    border: 1px solid var(--md-default-fg-color--lightest); 
-    box-shadow: 0px 0px 10px var(--md-default-fg-color--lightest); 
-    border-radius: 8px; 
-    overflow: hidden; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    position: absolute; 
-    top: 10%; 
-    left: 15%; 
-    width: 70%; 
-    height: 80%; 
-    z-index: 100;
+
+  .graph-modal__toolbar h2 {
+    flex-basis: 100%;
   }
+}

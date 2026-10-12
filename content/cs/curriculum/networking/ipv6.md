@@ -6,7 +6,7 @@ The Internet Engineering Task Force ([IETF](https://en.wikipedia.org/wiki/Intern
 
 ## What is IPv6?
 
-IPv6 is newer and better version of Internet Protocol bringing about 3.4\*10^38 total addresses and many provides other technical benefits such as hierarchical address allocation methods & multicast addressing is expanded and simplified. Do note that IPv4 and IPv6 are not interoperable.
+IPv6 is a newer version of the Internet Protocol with about $3.4\times10^{38}$ possible addresses. It also provides other technical benefits, such as hierarchical address allocation and expanded, simplified multicast addressing. IPv4 and IPv6 are not interoperable.
 
 ## The IPv6 Address
 
@@ -63,36 +63,32 @@ We then add up all of the columns that have a 1 and this gives us our number or 
 
 <div>
 $$
+\begin{gathered}
 \underbrace{
   \textcolor{#07fc03}{2}
 }_{\text{0010}}
-\text{001:0db8:0000:0000:a111:b222:c333:abcd}
-
-\newline
-
-\def\arraystretch{1.5}
+\text{001:0db8:0000:0000:a111:b222:c333:abcd} \\
 \begin{array}{c:c:c:c}
 8 & 4 & 2 & 1 \\ \hline
 0 & 0 & \textcolor{#f56c42}{1} & 0 \\
 \end{array}
+\end{gathered}
 $$
 </div>
 
 <div>
 $$
+\begin{gathered}
 \text{2}
 \underbrace{
   \textcolor{#07fc03}{0}
 }_{\text{0000}}
-\text{01:0db8:0000:0000:a111:b222:c333:abcd}
-
-\newline
-
-\def\arraystretch{1.5}
+\text{01:0db8:0000:0000:a111:b222:c333:abcd} \\
 \begin{array}{c:c:c:c}
 8 & 4 & 2 & 1 \\ \hline
 0 & 0 & 0 & 0 \\
 \end{array}
+\end{gathered}
 $$
 </div>
 
@@ -116,21 +112,17 @@ So, to achieve `13` or `d`, we'll try representing `13` in binary like this:
 
 <div>
 $$
-
+\begin{gathered}
 \text{2001:0000:0}
 \underbrace{
 \textcolor{#07fc03}{d}
 }_{\text{1101}}
-\text{b8:0000:0000:a111:b222:c333:abcd}
-
-\newline
-
-\def\arraystretch{1.5}
+\text{b8:0000:0000:a111:b222:c333:abcd} \\
 \begin{array}{c:c:c:c}
 8 & 4 & 2 & 1 \\ \hline
 1 & 1 & 0 & 1 \\
 \end{array}
-
+\end{gathered}
 $$
 </div>
 
@@ -160,25 +152,28 @@ In above example $\textcolor{#ecf549}{64}$ is half of our 128 bit address. `/64`
     - <mark class="r">The rule to this is it can only appear once.</mark>
 
     $$
-    \text{2001:0db8:\underline{0000:0000}:a111:b222:c333:abcd}
-    \newline
+    \begin{gathered}
+    \text{2001:0db8:\underline{0000:0000}:a111:b222:c333:abcd} \\
     \text{2001:0db8\textcolor{#ecf549}{::}a111:b222:c333:abcd}
+    \end{gathered}
     $$
 
     So, this **we cannot do!**
 
     $$
-    \text{2001:0db8:\underline{0000:0000}:a111:b222:0000:abcd}
-    \newline
+    \begin{gathered}
+    \text{2001:0db8:\underline{0000:0000}:a111:b222:0000:abcd} \\
     \text{2001:0db8\textcolor{#ecf549}{::}a111:b222\textcolor{#ecf549}{::}abcd}
+    \end{gathered}
     $$
 
 2. Second trick, <mark class="y">we can all leading zeroes from each hextets and remove them</mark>:
 
     $$
-    \text{2001:\textcolor{#ecf549}{0}db8\textcolor{#ecf549}{::}a111:b222:\textcolor{#ecf549}{000}0:abcd}
-    \newline
+    \begin{gathered}
+    \text{2001:\textcolor{#ecf549}{0}db8\textcolor{#ecf549}{::}a111:b222:\textcolor{#ecf549}{000}0:abcd} \\
     \text{2001:db8\textcolor{#ecf549}{::}a111:b222:0:abcd}
+    \end{gathered}
     $$
 
     - We need to leave last `0` is second last hextet since we already placed `::`.

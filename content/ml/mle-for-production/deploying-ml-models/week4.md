@@ -6,7 +6,7 @@
 
 Monitoring not only include monitoring of our ML models, but also the monitoring of the systems and infrastructure which are included in our entire product or service such as Databases and web servers
 
-![](/images/ml/mle_for_production/deploying_ml_models_in_production/ml_lifecycle_revisited.png)
+![](/assets/images/ml/mle_for_production/deploying_ml_models_in_production/ml_lifecycle_revisited.png)
 
 > "An ounce of prevention is worth a pound of cure" — Benjamin Franklin
 
@@ -18,7 +18,7 @@ Monitoring not only include monitoring of our ML models, but also the monitoring
     - Adversarial scenarios
 - Negative Feedback Loops: when you train your models on data collected in production. If that data is biased/corrupted in any way, then the model trained on that data will also perform poorlly.
 
-![](/images/ml/mle_for_production/deploying_ml_models_in_production/monitoring_in_ml_systems.png)
+![](/assets/images/ml/mle_for_production/deploying_ml_models_in_production/monitoring_in_ml_systems.png)
 
 ### Why is ML monitoring different?
 
@@ -78,9 +78,9 @@ Observations need to provide alert when a failure happens and ideally provide re
 - Model versions
 - Input/prediction correlation
 
-![](/images/ml/mle_for_production/deploying_ml_models_in_production/input_monitoring.png)
-![](/images/ml/mle_for_production/deploying_ml_models_in_production/prediction_monitoring.png)
-![](/images/ml/mle_for_production/deploying_ml_models_in_production/operational_monitoring.png)
+![](/assets/images/ml/mle_for_production/deploying_ml_models_in_production/input_monitoring.png)
+![](/assets/images/ml/mle_for_production/deploying_ml_models_in_production/prediction_monitoring.png)
+![](/assets/images/ml/mle_for_production/deploying_ml_models_in_production/operational_monitoring.png)
 
 Collecting all the context information is often not practical, as the amount of data to process and store could be very large, so it's important the most relevant context and try to gather that information.
 
@@ -147,11 +147,11 @@ Tracing focuses on monitoring and understanding system performance, especially f
 
 In monolithic systems, it's relatively easy to collect diagnostic data form different parts of a system. All modules might even run within one process and share common resources for logging.
 
-![](/images/ml/mle_for_production/deploying_ml_models_in_production/distributed_tracing.png)
+![](/assets/images/ml/mle_for_production/deploying_ml_models_in_production/distributed_tracing.png)
 
 Solving this problem becomes even more difficult if your services are running as separate processes in a distributed system. We can't depend on the traditional approaches that help diagnose monolithic systems. We somehow need to know the fine grain information of what's going on inside each service.
 
-![](/images/ml/mle_for_production/deploying_ml_models_in_production/distributed_tracing1.png)
+![](/assets/images/ml/mle_for_production/deploying_ml_models_in_production/distributed_tracing1.png)
 
 ### Tools for building observability
 
@@ -171,7 +171,7 @@ Services are responsible for uploading their traces to a tracing back-end. The t
 
 Each trace is a call tree, beginning with the entry point of a request and ending with the server's response including all of the RPCs along the way. Each trace consists of small units called spans.
 
-![](/images/ml/mle_for_production/deploying_ml_models_in_production/dapper_style_tracing.png)
+![](/assets/images/ml/mle_for_production/deploying_ml_models_in_production/dapper_style_tracing.png)
 
 ??? "Monitoring Machine Learning Models in Production"
 
@@ -266,10 +266,10 @@ Each trace is a call tree, beginning with the entry point of a request and endin
 
 It's usually a good idea to establish policies around when you're going to retrain your model, well it depends.
 
-![](/images/ml/mle_for_production/deploying_ml_models_in_production/model_retraining_policy.png)
+![](/assets/images/ml/mle_for_production/deploying_ml_models_in_production/model_retraining_policy.png)
 
 ### Automated Model Retraining
-![](/images/ml/mle_for_production/deploying_ml_models_in_production/automated_model_retraining.png)
+![](/assets/images/ml/mle_for_production/deploying_ml_models_in_production/automated_model_retraining.png)
 
 ### Redesign Data Processing Steps and Model Architecture
 
@@ -355,10 +355,10 @@ In California, with **CCPA, California Consumer Privacy Act**
 - User can access the personal data, block the sale of their data, and request a business to delete their data.
 
 ### Security and Privacy Harms from ML Models
-![](/images/ml/mle_for_production/deploying_ml_models_in_production/security_and_privacy_harms_from_ml_models.png)
+![](/assets/images/ml/mle_for_production/deploying_ml_models_in_production/security_and_privacy_harms_from_ml_models.png)
 
 ### Defenses
-![](/images/ml/mle_for_production/deploying_ml_models_in_production/defenses.png)
+![](/assets/images/ml/mle_for_production/deploying_ml_models_in_production/defenses.png)
 
 ### Cryptography
 
@@ -396,7 +396,7 @@ DP-SGD eliminates that possibility by applying differential privacy during model
 - For deployment, we will create a student model. To train the student model, we'll take unlabeled public data and feed it to aggregate teacher model, outputting a labeled data, which maintains privacy. This data is then used as the training set for the student model.
 - Discard everything on left side of diagram and deploy student model.
 
-- ![](/images/ml/mle_for_production/deploying_ml_models_in_production/private_aggregations_of_teacher_ensembles.png)
+- ![](/assets/images/ml/mle_for_production/deploying_ml_models_in_production/private_aggregations_of_teacher_ensembles.png)
 
 ### Confidential and Private Collaborative Learning (CaPC)
 
@@ -442,10 +442,10 @@ GDPR does not apply to data that has been anonymized
 
 - The data is anonymized by switching the identifiers (like email or name) with an alias or pseudonym.
 
-- ![](/images/ml/mle_for_production/deploying_ml_models_in_production/anonymization_vs_pseudonymization.png)
+- ![](/assets/images/ml/mle_for_production/deploying_ml_models_in_production/anonymization_vs_pseudonymization.png)
 
 ### Spectrum of Privary prevention
-![](/images/ml/mle_for_production/deploying_ml_models_in_production/spectrum_of_privacy_prevention.png)
+![](/assets/images/ml/mle_for_production/deploying_ml_models_in_production/spectrum_of_privacy_prevention.png)
 
 ### What data should be Anonymized?
 
@@ -486,7 +486,7 @@ For a valid erasure claim
     - e.g., Derived data, logs etc.
 
 ### Forgetting Digital Memories
-![](/images/ml/mle_for_production/deploying_ml_models_in_production/forgetting_digital_memories.png)
+![](/assets/images/ml/mle_for_production/deploying_ml_models_in_production/forgetting_digital_memories.png)
 
 ### Issues with Hard Delete
 

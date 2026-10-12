@@ -20,8 +20,8 @@ Since with concurrency, we don't have control over which part run at which time,
 Another such problem is **Deadlocks** where we can have two threads that are both waiting for a resource that the other thread has thus making both threads wait indefinitely.
 
 <figure>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Process_deadlock.svg"></img>
-  <figcaption>Source: <a href="https://en.wikipedia.org/wiki/Deadlock">Wikipedia</a></figcaption>
+  <img src="/assets/images/cs/rust/process_deadlock.svg" alt="Deadlock cycle involving processes P1 and P2 and resources R1 and R2">
+  <figcaption>Sources: <a href="https://commons.wikimedia.org/wiki/File:Process_deadlock.svg">Wikimedia Commons</a> and <a href="https://en.wikipedia.org/wiki/Deadlock">Wikipedia</a></figcaption>
 </figure>
 
 Also, because execution order is non-deterministic bugs can appear that can only happen in certain situation, hard to be caught during testing.
@@ -214,5 +214,3 @@ Instead we need to take ownership using the `move` keyword. <mark class="v">`mov
     handle.join().unwrap();
 }
 ```
-
-

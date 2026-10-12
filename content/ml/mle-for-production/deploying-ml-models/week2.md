@@ -339,7 +339,7 @@ From there data can be consumed for training or making predictions using ML mode
 
 ### Distributed Processing
 <figure>
-  <img src="/assets/images/ml/mle_for_production/deploying_ml_models_in_production/distributed_processing.png"></img>
+  <img src="/assets/images/ml/mle_for_production/deploying_ml_models_in_production/distributed_processing.png">
   <figcaption>Image by DeepLearning.ai</figcaption>
 </figure>
 
