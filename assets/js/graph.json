@@ -1,1036 +1,1419 @@
 {
   "nodes": [
     {
-      "id": "0",
-      "name": "Week 1 \u2014 Neural Networks and Deep Learning",
-      "symbolSize": 2,
-      "value": "/ml/intro-dl/neural-networks/week1/",
-      "category": 1
-    },
-    {
-      "id": "1",
-      "name": "Week 2 \u2014 Basics of Neural Network programming",
-      "symbolSize": 2,
-      "value": "/ml/intro-dl/neural-networks/week2/",
-      "category": 1
-    },
-    {
-      "id": "2",
-      "name": "Week 3 \u2014 One hidden layer Neural Networks",
-      "symbolSize": 2,
-      "value": "/ml/intro-dl/neural-networks/week3/",
-      "category": 1
-    },
-    {
-      "id": "3",
-      "name": "Week 4 \u2014 L Layers Deep Neural Networks",
-      "symbolSize": 2,
-      "value": "/ml/intro-dl/neural-networks/week4/",
-      "category": 1
-    },
-    {
-      "id": "4",
-      "name": "Week 1 \u2014 The ML project lifecycle",
-      "symbolSize": 2,
-      "value": "/ml/mle-for-production/intro-to-mle-for-production/week1/",
-      "category": 1
-    },
-    {
-      "id": "5",
-      "name": "Week 2 \u2014 Key challenges in Modelling",
-      "symbolSize": 2,
-      "value": "/ml/mle-for-production/intro-to-mle-for-production/week2/",
-      "category": 1
-    },
-    {
-      "id": "6",
-      "name": "Week 3 \u2014 Data",
-      "symbolSize": 2,
-      "value": "/ml/mle-for-production/intro-to-mle-for-production/week3/",
-      "category": 1
-    },
-    {
-      "id": "7",
-      "name": "Week 1 \u2014 Collecting, labeling, and validating data",
-      "symbolSize": 2,
-      "value": "/ml/mle-for-production/ml-data-lifecycle/week1/",
-      "category": 1
-    },
-    {
-      "id": "8",
-      "name": "Week 2 \u2014 Feature Engineering",
-      "symbolSize": 2,
-      "value": "/ml/mle-for-production/ml-data-lifecycle/week2/",
-      "category": 1
-    },
-    {
-      "id": "9",
-      "name": "Week 3 \u2014 Data Journey",
-      "symbolSize": 2,
-      "value": "/ml/mle-for-production/ml-data-lifecycle/week3/",
-      "category": 1
-    },
-    {
-      "id": "10",
-      "name": "Week 1 \u2014 Hyperparameter tuning: searching for the best architecture",
-      "symbolSize": 2,
-      "value": "/ml/mle-for-production/ml-modeling-pipeline/week1/",
-      "category": 1
-    },
-    {
-      "id": "11",
-      "name": "Week 2 \u2014 Dimensionality Reduction",
-      "symbolSize": 2,
-      "value": "/ml/mle-for-production/ml-modeling-pipeline/week2/",
-      "category": 1
-    },
-    {
-      "id": "12",
-      "name": "Week 3 \u2014 High Performance Modeling\"",
-      "symbolSize": 2,
-      "value": "/ml/mle-for-production/ml-modeling-pipeline/week3/",
-      "category": 1
-    },
-    {
-      "id": "13",
-      "name": "Week 4 \u2014 Model Performance Analysis",
-      "symbolSize": 2,
-      "value": "/ml/mle-for-production/ml-modeling-pipeline/week4/",
-      "category": 1
-    },
-    {
-      "id": "14",
-      "name": "Week 1 \u2014 Intro to Model Serving and Infrastructure",
-      "symbolSize": 2,
-      "value": "/ml/mle-for-production/deploying-ml-models/week1/",
-      "category": 1
-    },
-    {
-      "id": "15",
-      "name": "Week 2 \u2014 Model Serving Architecture, Scaling Infrastructure and More.",
-      "symbolSize": 2,
-      "value": "/ml/mle-for-production/deploying-ml-models/week2/",
-      "category": 1
-    },
-    {
-      "id": "16",
-      "name": "Week 3 \u2014 ML Experiment Management and Workflow Automation & MLOps Methodology",
-      "symbolSize": 2,
-      "value": "/ml/mle-for-production/deploying-ml-models/week3/",
-      "category": 1
-    },
-    {
-      "id": "17",
-      "name": "Week 4 \u2014 Model monitoring, Logging & model decay, GDPR, and Privacy",
-      "symbolSize": 2,
-      "value": "/ml/mle-for-production/deploying-ml-models/week4/",
-      "category": 1
-    },
-    {
-      "id": "18",
-      "name": "Getting Started with Rust",
-      "symbolSize": 2,
-      "value": "/cs/rust/tutorial/getting-started/",
-      "category": 1
-    },
-    {
-      "id": "19",
-      "name": "Guessing game",
-      "symbolSize": 2,
-      "value": "/cs/rust/tutorial/guessing-game/",
-      "category": 1
-    },
-    {
-      "id": "20",
-      "name": "Common Programming Concepts in Rust",
-      "symbolSize": 2,
-      "value": "/cs/rust/tutorial/common-programming-concepts/",
-      "category": 1
-    },
-    {
-      "id": "21",
-      "name": "Ownership in Rust",
-      "symbolSize": 2,
-      "value": "/cs/rust/tutorial/ownership/",
-      "category": 1
-    },
-    {
-      "id": "22",
-      "name": "Structs in Rust",
-      "symbolSize": 2,
-      "value": "/cs/rust/tutorial/structs/",
-      "category": 1
-    },
-    {
-      "id": "23",
-      "name": "Enums and Pattern Matching in Rust\"",
-      "symbolSize": 2,
-      "value": "/cs/rust/tutorial/enums-and-pattern-matching/",
-      "category": 1
-    },
-    {
-      "id": "24",
-      "name": "Rust's Module System",
-      "symbolSize": 2,
-      "value": "/cs/rust/tutorial/module-system/",
-      "category": 1
-    },
-    {
-      "id": "25",
-      "name": "Common Collections in Rust",
-      "symbolSize": 2,
-      "value": "/cs/rust/tutorial/common-collections/",
-      "category": 1
-    },
-    {
-      "id": "26",
-      "name": "Error Handling in Rust",
-      "symbolSize": 2,
-      "value": "/cs/rust/tutorial/error-handling/",
-      "category": 1
-    },
-    {
-      "id": "27",
-      "name": "Generic Types in Rust",
-      "symbolSize": 2,
-      "value": "/cs/rust/tutorial/generic-types/",
-      "category": 1
-    },
-    {
-      "id": "28",
-      "name": "Traits in Rust",
-      "symbolSize": 2,
-      "value": "/cs/rust/tutorial/traits/",
-      "category": 1
-    },
-    {
-      "id": "29",
-      "name": "Rust Lifetimes",
-      "symbolSize": 2,
-      "value": "/cs/rust/tutorial/lifetimes/",
-      "category": 1
-    },
-    {
-      "id": "30",
-      "name": "Testing in Rust",
-      "symbolSize": 1,
-      "value": "/cs/rust/tutorial/testing/testing-in-rust/",
-      "category": 1
-    },
-    {
-      "id": "31",
-      "name": "Testing in Rust - Part 2",
-      "symbolSize": 1,
-      "value": "/cs/rust/tutorial/testing/testing-in-rust-2/",
-      "category": 1
-    },
-    {
-      "id": "32",
-      "name": "CLI App in Rust",
-      "symbolSize": 1,
-      "value": "/cs/rust/tutorial/cli-app/cli-app-in-rust/",
-      "category": 1
-    },
-    {
-      "id": "33",
-      "name": "CLI App in Rust - Part 2",
-      "symbolSize": 1,
-      "value": "/cs/rust/tutorial/cli-app/cli-app-in-rust-2/",
-      "category": 1
-    },
-    {
-      "id": "34",
-      "name": "Closures in Rust",
-      "symbolSize": 1,
-      "value": "/cs/rust/tutorial/functional/closures/",
-      "category": 1
-    },
-    {
-      "id": "35",
-      "name": "Iterators in Rust",
-      "symbolSize": 1,
-      "value": "/cs/rust/tutorial/functional/iterators/",
-      "category": 1
-    },
-    {
-      "id": "36",
-      "name": "Cargo Workspaces",
-      "symbolSize": 1,
-      "value": "/cs/rust/tutorial/cargo/cargo-workspaces/",
-      "category": 1
-    },
-    {
-      "id": "37",
-      "name": "Publishing a Rust Crate",
-      "symbolSize": 1,
-      "value": "/cs/rust/tutorial/cargo/publishing-crate/",
-      "category": 1
-    },
-    {
-      "id": "38",
-      "name": "Smart Pointers in Rust - The Deref Trait",
-      "symbolSize": 1,
-      "value": "/cs/rust/tutorial/smart-pointers/deref-trait/",
-      "category": 1
-    },
-    {
-      "id": "39",
-      "name": "Smart Pointers in Rust - The Drop Trait",
-      "symbolSize": 1,
-      "value": "/cs/rust/tutorial/smart-pointers/drop-trait/",
-      "category": 1
-    },
-    {
-      "id": "40",
-      "name": "Smart Pointers in Rust - Reference Counting",
-      "symbolSize": 1,
-      "value": "/cs/rust/tutorial/smart-pointers/reference-counting/",
-      "category": 1
-    },
-    {
-      "id": "41",
-      "name": "Smart Pointers in Rust - Interior Mutability",
-      "symbolSize": 1,
-      "value": "/cs/rust/tutorial/smart-pointers/interior-mutability/",
-      "category": 1
-    },
-    {
-      "id": "42",
-      "name": "Smart Pointers in Rust - References Cycles",
-      "symbolSize": 1,
-      "value": "/cs/rust/tutorial/smart-pointers/reference-cycles/",
-      "category": 1
-    },
-    {
-      "id": "43",
-      "name": "Box Smart Pointer in Rust",
-      "symbolSize": 1,
-      "value": "/cs/rust/tutorial/smart-pointers/box-smart-pointer/",
-      "category": 1
-    },
-    {
-      "id": "44",
-      "name": "Concurrency in Rust - Creating Threads",
-      "symbolSize": 1,
-      "value": "/cs/rust/tutorial/concurrency/creating-threads/",
-      "category": 1
-    },
-    {
-      "id": "45",
-      "name": "Concurrency in Rust - Message Passing",
-      "symbolSize": 1,
-      "value": "/cs/rust/tutorial/concurrency/message-passing/",
-      "category": 1
-    },
-    {
-      "id": "46",
-      "name": "Concurrency in Rust - Sharing State",
-      "symbolSize": 1,
-      "value": "/cs/rust/tutorial/concurrency/sharing-state/",
-      "category": 1
-    },
-    {
-      "id": "47",
-      "name": "Object Oriented Programming in Rust",
-      "symbolSize": 1,
-      "value": "/cs/rust/tutorial/oops/object-oriented-programming/",
-      "category": 1
-    },
-    {
-      "id": "48",
-      "name": "Using Trait Objects in Rust",
-      "symbolSize": 1,
-      "value": "/cs/rust/tutorial/oops/trait-objects/",
-      "category": 1
-    },
-    {
-      "id": "49",
-      "name": "State Design Pattern in Rust",
-      "symbolSize": 1,
-      "value": "/cs/rust/tutorial/oops/state-design-pattern/",
-      "category": 1
-    },
-    {
-      "id": "50",
-      "name": "Patterns and Matching in Rust",
-      "symbolSize": 1,
-      "value": "/cs/rust/tutorial/patterns/patterns-and-matching/",
-      "category": 1
-    },
-    {
-      "id": "51",
-      "name": "Pattern Syntax in Rust",
-      "symbolSize": 1,
-      "value": "/cs/rust/tutorial/patterns/pattern-syntax/",
-      "category": 1
-    },
-    {
-      "id": "52",
-      "name": "Writing Unsafe Rust",
-      "symbolSize": 1,
-      "value": "/cs/rust/tutorial/advanced/unsafe/",
-      "category": 1
-    },
-    {
-      "id": "53",
-      "name": "Advanced Traits Rust",
-      "symbolSize": 1,
-      "value": "/cs/rust/tutorial/advanced/advanced-traits/",
-      "category": 1
-    },
-    {
-      "id": "54",
-      "name": "Advanced Types in Rust",
-      "symbolSize": 1,
-      "value": "/cs/rust/tutorial/advanced/advanced-types/",
-      "category": 1
-    },
-    {
-      "id": "55",
-      "name": "Advanced Functions and Closures in Rust",
-      "symbolSize": 1,
-      "value": "/cs/rust/tutorial/advanced/advanced-functions-and-closures/",
-      "category": 1
-    },
-    {
-      "id": "56",
-      "name": "Macros in Rust",
-      "symbolSize": 1,
-      "value": "/cs/rust/tutorial/advanced/macros/",
-      "category": 1
-    },
-    {
-      "id": "57",
-      "name": "All Rust String Types explained",
-      "symbolSize": 2,
-      "value": "/cs/rust/advanced/rust_str_types/",
-      "category": 1
-    },
-    {
-      "id": "58",
-      "name": "Common SQL queries",
-      "symbolSize": 2,
-      "value": "/cs/curriculum/sql/common-queries/",
-      "category": 1
-    },
-    {
-      "id": "59",
-      "name": "IPv6",
-      "symbolSize": 2,
-      "value": "/cs/curriculum/networking/ipv6/",
-      "category": 1
-    },
-    {
-      "id": "60",
-      "name": "Terraform",
-      "symbolSize": 2,
-      "value": "/cs/devops/terraform/terraform-freecodecamp-course/",
-      "category": 1
-    },
-    {
-      "id": "61",
-      "name": "Regex",
-      "symbolSize": 6,
-      "value": "/etc/regular-expressions/",
-      "category": 1
-    },
-    {
-      "id": "62",
-      "name": "Maths Formula Compendium",
-      "symbolSize": 4,
-      "value": "/etc/mathematics/maths-formula/",
-      "category": 1
-    },
-    {
-      "id": "63",
-      "name": "Propositional Logic",
-      "symbolSize": 2,
-      "value": "/etc/mathematics/discrete-mathematics/propositional-logic/",
-      "category": 1
-    },
-    {
-      "id": "64",
+      "id": "directory:/",
       "name": "Wiki",
-      "symbolSize": 20,
       "value": "",
+      "kind": "directory",
+      "symbolSize": 20,
       "category": 0
     },
     {
-      "id": "65",
-      "name": "devops",
-      "symbolSize": 6,
-      "value": "",
-      "category": 1
-    },
-    {
-      "id": "66",
-      "name": "functional",
-      "symbolSize": 2,
-      "value": "",
-      "category": 1
-    },
-    {
-      "id": "67",
-      "name": "networking",
-      "symbolSize": 4,
-      "value": "",
-      "category": 1
-    },
-    {
-      "id": "68",
-      "name": "ml-data-lifecycle",
-      "symbolSize": 4,
-      "value": "",
-      "category": 1
-    },
-    {
-      "id": "69",
-      "name": "tutorial",
-      "symbolSize": 4,
-      "value": "",
-      "category": 1
-    },
-    {
-      "id": "70",
-      "name": "concurrency",
-      "symbolSize": 2,
-      "value": "",
-      "category": 1
-    },
-    {
-      "id": "71",
-      "name": "ml-modeling-pipeline",
-      "symbolSize": 4,
-      "value": "",
-      "category": 1
-    },
-    {
-      "id": "72",
-      "name": "mathematics",
-      "symbolSize": 6,
-      "value": "",
-      "category": 1
-    },
-    {
-      "id": "73",
-      "name": "mle-for-production",
-      "symbolSize": 6,
-      "value": "",
-      "category": 1
-    },
-    {
-      "id": "74",
-      "name": "cargo",
-      "symbolSize": 2,
-      "value": "",
-      "category": 1
-    },
-    {
-      "id": "75",
-      "name": "etc",
-      "symbolSize": 8,
-      "value": "",
-      "category": 2
-    },
-    {
-      "id": "76",
-      "name": "oops",
-      "symbolSize": 2,
-      "value": "",
-      "category": 1
-    },
-    {
-      "id": "77",
-      "name": "advanced",
-      "symbolSize": 2,
-      "value": "",
-      "category": 1
-    },
-    {
-      "id": "78",
-      "name": "smart-pointers",
-      "symbolSize": 2,
-      "value": "",
-      "category": 1
-    },
-    {
-      "id": "79",
-      "name": "rust",
-      "symbolSize": 6,
-      "value": "",
-      "category": 1
-    },
-    {
-      "id": "80",
-      "name": "terraform",
-      "symbolSize": 4,
-      "value": "",
-      "category": 1
-    },
-    {
-      "id": "81",
-      "name": "intro-to-mle-for-production",
-      "symbolSize": 4,
-      "value": "",
-      "category": 1
-    },
-    {
-      "id": "82",
-      "name": "cs",
-      "symbolSize": 8,
-      "value": "",
+      "id": "page:ml/intro-dl/index.md",
+      "name": "Introduction to Deep Learning",
+      "value": "/ml/intro-dl/",
+      "kind": "page",
+      "symbolSize": 9,
       "category": 3
     },
     {
-      "id": "83",
-      "name": "discrete-mathematics",
-      "symbolSize": 4,
-      "value": "",
+      "id": "page:ml/intro-dl/neural-networks/index.md",
+      "name": "Neural Networks",
+      "value": "/ml/intro-dl/neural-networks/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 3
+    },
+    {
+      "id": "page:ml/intro-dl/neural-networks/week1.md",
+      "name": "Week 1 — Neural Networks and Deep Learning",
+      "value": "/ml/intro-dl/neural-networks/week1/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 3
+    },
+    {
+      "id": "page:ml/intro-dl/neural-networks/week2.md",
+      "name": "Week 2 — Basics of Neural Network programming",
+      "value": "/ml/intro-dl/neural-networks/week2/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 3
+    },
+    {
+      "id": "page:ml/intro-dl/neural-networks/week3.md",
+      "name": "Week 3 — One hidden layer Neural Networks",
+      "value": "/ml/intro-dl/neural-networks/week3/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 3
+    },
+    {
+      "id": "page:ml/intro-dl/neural-networks/week4.md",
+      "name": "Week 4 — L Layers Deep Neural Networks",
+      "value": "/ml/intro-dl/neural-networks/week4/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 3
+    },
+    {
+      "id": "page:ml/mle-for-production/index.md",
+      "name": "Machine Learning Engineering for Production",
+      "value": "/ml/mle-for-production/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 3
+    },
+    {
+      "id": "page:ml/mle-for-production/intro-to-mle-for-production/index.md",
+      "name": "Intro to ML in Production",
+      "value": "/ml/mle-for-production/intro-to-mle-for-production/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 3
+    },
+    {
+      "id": "page:ml/mle-for-production/intro-to-mle-for-production/week1.md",
+      "name": "Week 1 — The ML project lifecycle",
+      "value": "/ml/mle-for-production/intro-to-mle-for-production/week1/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 3
+    },
+    {
+      "id": "page:ml/mle-for-production/intro-to-mle-for-production/week2.md",
+      "name": "Week 2 — Key challenges in Modelling",
+      "value": "/ml/mle-for-production/intro-to-mle-for-production/week2/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 3
+    },
+    {
+      "id": "page:ml/mle-for-production/intro-to-mle-for-production/week3.md",
+      "name": "Week 3 — Data",
+      "value": "/ml/mle-for-production/intro-to-mle-for-production/week3/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 3
+    },
+    {
+      "id": "page:ml/mle-for-production/ml-data-lifecycle/index.md",
+      "name": "ML Data Lifecycle in Production",
+      "value": "/ml/mle-for-production/ml-data-lifecycle/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 3
+    },
+    {
+      "id": "page:ml/mle-for-production/ml-data-lifecycle/week1.md",
+      "name": "Week 1 — Collecting, labeling, and validating data",
+      "value": "/ml/mle-for-production/ml-data-lifecycle/week1/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 3
+    },
+    {
+      "id": "page:ml/mle-for-production/ml-data-lifecycle/week2.md",
+      "name": "Week 2 — Feature Engineering",
+      "value": "/ml/mle-for-production/ml-data-lifecycle/week2/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 3
+    },
+    {
+      "id": "page:ml/mle-for-production/ml-data-lifecycle/week3.md",
+      "name": "Week 3 — Data Journey",
+      "value": "/ml/mle-for-production/ml-data-lifecycle/week3/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 3
+    },
+    {
+      "id": "page:ml/mle-for-production/ml-modeling-pipeline/index.md",
+      "name": "ML modeling Pipeline in Production",
+      "value": "/ml/mle-for-production/ml-modeling-pipeline/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 3
+    },
+    {
+      "id": "page:ml/mle-for-production/ml-modeling-pipeline/week1.md",
+      "name": "Week 1 — Hyperparameter tuning: searching for the best architecture",
+      "value": "/ml/mle-for-production/ml-modeling-pipeline/week1/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 3
+    },
+    {
+      "id": "page:ml/mle-for-production/ml-modeling-pipeline/week2.md",
+      "name": "Week 2 — Dimensionality Reduction",
+      "value": "/ml/mle-for-production/ml-modeling-pipeline/week2/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 3
+    },
+    {
+      "id": "page:ml/mle-for-production/ml-modeling-pipeline/week3.md",
+      "name": "Week 3 — High Performance Modeling\"",
+      "value": "/ml/mle-for-production/ml-modeling-pipeline/week3/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 3
+    },
+    {
+      "id": "page:ml/mle-for-production/ml-modeling-pipeline/week4.md",
+      "name": "Week 4 — Model Performance Analysis",
+      "value": "/ml/mle-for-production/ml-modeling-pipeline/week4/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 3
+    },
+    {
+      "id": "page:ml/mle-for-production/deploying-ml-models/index.md",
+      "name": "ML Models Deployment in Production",
+      "value": "/ml/mle-for-production/deploying-ml-models/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 3
+    },
+    {
+      "id": "page:ml/mle-for-production/deploying-ml-models/week1.md",
+      "name": "Week 1 — Intro to Model Serving and Infrastructure",
+      "value": "/ml/mle-for-production/deploying-ml-models/week1/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 3
+    },
+    {
+      "id": "page:ml/mle-for-production/deploying-ml-models/week2.md",
+      "name": "Week 2 — Model Serving Architecture, Scaling Infrastructure and More.",
+      "value": "/ml/mle-for-production/deploying-ml-models/week2/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 3
+    },
+    {
+      "id": "page:ml/mle-for-production/deploying-ml-models/week3.md",
+      "name": "Week 3 — ML Experiment Management and Workflow Automation & MLOps Methodology",
+      "value": "/ml/mle-for-production/deploying-ml-models/week3/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 3
+    },
+    {
+      "id": "page:ml/mle-for-production/deploying-ml-models/week4.md",
+      "name": "Week 4 — Model monitoring, Logging & model decay, GDPR, and Privacy",
+      "value": "/ml/mle-for-production/deploying-ml-models/week4/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 3
+    },
+    {
+      "id": "page:cs/rust/tutorial/getting-started.md",
+      "name": "Getting Started with Rust",
+      "value": "/cs/rust/tutorial/getting-started/",
+      "kind": "page",
+      "symbolSize": 9,
       "category": 1
     },
     {
-      "id": "84",
-      "name": "intro-dl",
-      "symbolSize": 6,
-      "value": "",
+      "id": "page:cs/rust/tutorial/guessing-game.md",
+      "name": "Guessing game",
+      "value": "/cs/rust/tutorial/guessing-game/",
+      "kind": "page",
+      "symbolSize": 9,
       "category": 1
     },
     {
-      "id": "85",
-      "name": "advanced",
-      "symbolSize": 4,
-      "value": "",
+      "id": "page:cs/rust/tutorial/common-programming-concepts.md",
+      "name": "Common Programming Concepts in Rust",
+      "value": "/cs/rust/tutorial/common-programming-concepts/",
+      "kind": "page",
+      "symbolSize": 9,
       "category": 1
     },
     {
-      "id": "86",
-      "name": "neural-networks",
-      "symbolSize": 4,
-      "value": "",
+      "id": "page:cs/rust/tutorial/ownership.md",
+      "name": "Ownership in Rust",
+      "value": "/cs/rust/tutorial/ownership/",
+      "kind": "page",
+      "symbolSize": 9,
       "category": 1
     },
     {
-      "id": "87",
-      "name": "ml",
-      "symbolSize": 8,
-      "value": "",
-      "category": 4
+      "id": "page:cs/rust/tutorial/structs.md",
+      "name": "Structs in Rust",
+      "value": "/cs/rust/tutorial/structs/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
     },
     {
-      "id": "88",
+      "id": "page:cs/rust/tutorial/enums-and-pattern-matching.md",
+      "name": "Enums and Pattern Matching in Rust\"",
+      "value": "/cs/rust/tutorial/enums-and-pattern-matching/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/rust/tutorial/module-system.md",
+      "name": "Rust's Module System",
+      "value": "/cs/rust/tutorial/module-system/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/rust/tutorial/common-collections.md",
+      "name": "Common Collections in Rust",
+      "value": "/cs/rust/tutorial/common-collections/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/rust/tutorial/error-handling.md",
+      "name": "Error Handling in Rust",
+      "value": "/cs/rust/tutorial/error-handling/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/rust/tutorial/generic-types.md",
+      "name": "Generic Types in Rust",
+      "value": "/cs/rust/tutorial/generic-types/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/rust/tutorial/traits.md",
+      "name": "Traits in Rust",
+      "value": "/cs/rust/tutorial/traits/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/rust/tutorial/lifetimes.md",
+      "name": "Rust Lifetimes",
+      "value": "/cs/rust/tutorial/lifetimes/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/rust/tutorial/testing/testing-in-rust.md",
+      "name": "Testing in Rust",
+      "value": "/cs/rust/tutorial/testing/testing-in-rust/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/rust/tutorial/testing/testing-in-rust-2.md",
+      "name": "Testing in Rust - Part 2",
+      "value": "/cs/rust/tutorial/testing/testing-in-rust-2/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/rust/tutorial/cli-app/cli-app-in-rust.md",
+      "name": "CLI App in Rust",
+      "value": "/cs/rust/tutorial/cli-app/cli-app-in-rust/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/rust/tutorial/cli-app/cli-app-in-rust-2.md",
+      "name": "CLI App in Rust - Part 2",
+      "value": "/cs/rust/tutorial/cli-app/cli-app-in-rust-2/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/rust/tutorial/functional/closures.md",
+      "name": "Closures in Rust",
+      "value": "/cs/rust/tutorial/functional/closures/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/rust/tutorial/functional/iterators.md",
+      "name": "Iterators in Rust",
+      "value": "/cs/rust/tutorial/functional/iterators/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/rust/tutorial/cargo/cargo-workspaces.md",
+      "name": "Cargo Workspaces",
+      "value": "/cs/rust/tutorial/cargo/cargo-workspaces/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/rust/tutorial/cargo/publishing-crate.md",
+      "name": "Publishing a Rust Crate",
+      "value": "/cs/rust/tutorial/cargo/publishing-crate/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/rust/tutorial/smart-pointers/deref-trait.md",
+      "name": "Smart Pointers in Rust - The Deref Trait",
+      "value": "/cs/rust/tutorial/smart-pointers/deref-trait/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/rust/tutorial/smart-pointers/drop-trait.md",
+      "name": "Smart Pointers in Rust - The Drop Trait",
+      "value": "/cs/rust/tutorial/smart-pointers/drop-trait/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/rust/tutorial/smart-pointers/reference-counting.md",
+      "name": "Smart Pointers in Rust - Reference Counting",
+      "value": "/cs/rust/tutorial/smart-pointers/reference-counting/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/rust/tutorial/smart-pointers/interior-mutability.md",
+      "name": "Smart Pointers in Rust - Interior Mutability",
+      "value": "/cs/rust/tutorial/smart-pointers/interior-mutability/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/rust/tutorial/smart-pointers/reference-cycles.md",
+      "name": "Smart Pointers in Rust - References Cycles",
+      "value": "/cs/rust/tutorial/smart-pointers/reference-cycles/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/rust/tutorial/smart-pointers/box-smart-pointer.md",
+      "name": "Box Smart Pointer in Rust",
+      "value": "/cs/rust/tutorial/smart-pointers/box-smart-pointer/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/rust/tutorial/concurrency/creating-threads.md",
+      "name": "Concurrency in Rust - Creating Threads",
+      "value": "/cs/rust/tutorial/concurrency/creating-threads/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/rust/tutorial/concurrency/message-passing.md",
+      "name": "Concurrency in Rust - Message Passing",
+      "value": "/cs/rust/tutorial/concurrency/message-passing/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/rust/tutorial/concurrency/sharing-state.md",
+      "name": "Concurrency in Rust - Sharing State",
+      "value": "/cs/rust/tutorial/concurrency/sharing-state/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/rust/tutorial/oops/object-oriented-programming.md",
+      "name": "Object Oriented Programming in Rust",
+      "value": "/cs/rust/tutorial/oops/object-oriented-programming/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/rust/tutorial/oops/trait-objects.md",
+      "name": "Using Trait Objects in Rust",
+      "value": "/cs/rust/tutorial/oops/trait-objects/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/rust/tutorial/oops/state-design-pattern.md",
+      "name": "State Design Pattern in Rust",
+      "value": "/cs/rust/tutorial/oops/state-design-pattern/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/rust/tutorial/patterns/patterns-and-matching.md",
+      "name": "Patterns and Matching in Rust",
+      "value": "/cs/rust/tutorial/patterns/patterns-and-matching/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/rust/tutorial/patterns/pattern-syntax.md",
+      "name": "Pattern Syntax in Rust",
+      "value": "/cs/rust/tutorial/patterns/pattern-syntax/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/rust/tutorial/advanced/unsafe.md",
+      "name": "Writing Unsafe Rust",
+      "value": "/cs/rust/tutorial/advanced/unsafe/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/rust/tutorial/advanced/advanced-traits.md",
+      "name": "Advanced Traits Rust",
+      "value": "/cs/rust/tutorial/advanced/advanced-traits/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/rust/tutorial/advanced/advanced-types.md",
+      "name": "Advanced Types in Rust",
+      "value": "/cs/rust/tutorial/advanced/advanced-types/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/rust/tutorial/advanced/advanced-functions-and-closures.md",
+      "name": "Advanced Functions and Closures in Rust",
+      "value": "/cs/rust/tutorial/advanced/advanced-functions-and-closures/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/rust/tutorial/advanced/macros.md",
+      "name": "Macros in Rust",
+      "value": "/cs/rust/tutorial/advanced/macros/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/rust/advanced/rust_str_types.md",
+      "name": "All Rust String Types explained",
+      "value": "/cs/rust/advanced/rust_str_types/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/curriculum/sql/common-queries.md",
+      "name": "Common SQL queries",
+      "value": "/cs/curriculum/sql/common-queries/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/curriculum/networking/ipv6.md",
+      "name": "IPv6",
+      "value": "/cs/curriculum/networking/ipv6/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:cs/devops/terraform/terraform-freecodecamp-course.md",
+      "name": "Terraform",
+      "value": "/cs/devops/terraform/terraform-freecodecamp-course/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 1
+    },
+    {
+      "id": "page:etc/regular-expressions.md",
+      "name": "Regex",
+      "value": "/etc/regular-expressions/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 2
+    },
+    {
+      "id": "page:etc/mathematics/maths-formula.md",
+      "name": "Maths Formula Compendium",
+      "value": "/etc/mathematics/maths-formula/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 2
+    },
+    {
+      "id": "page:etc/mathematics/discrete-mathematics/propositional-logic.md",
+      "name": "Propositional Logic",
+      "value": "/etc/mathematics/discrete-mathematics/propositional-logic/",
+      "kind": "page",
+      "symbolSize": 9,
+      "category": 2
+    },
+    {
+      "id": "directory:/cs",
+      "name": "cs",
+      "value": "",
+      "kind": "directory",
+      "symbolSize": 14,
+      "category": 1
+    },
+    {
+      "id": "directory:/cs/curriculum",
       "name": "curriculum",
-      "symbolSize": 6,
       "value": "",
+      "kind": "directory",
+      "symbolSize": 12,
       "category": 1
     },
     {
-      "id": "89",
+      "id": "directory:/cs/curriculum/networking",
+      "name": "networking",
+      "value": "",
+      "kind": "directory",
+      "symbolSize": 10,
+      "category": 1
+    },
+    {
+      "id": "directory:/cs/curriculum/sql",
       "name": "sql",
-      "symbolSize": 4,
       "value": "",
+      "kind": "directory",
+      "symbolSize": 10,
       "category": 1
     },
     {
-      "id": "90",
-      "name": "deploying-ml-models",
-      "symbolSize": 4,
+      "id": "directory:/cs/devops",
+      "name": "devops",
       "value": "",
+      "kind": "directory",
+      "symbolSize": 12,
       "category": 1
     },
     {
-      "id": "91",
-      "name": "testing",
-      "symbolSize": 2,
+      "id": "directory:/cs/devops/terraform",
+      "name": "terraform",
       "value": "",
+      "kind": "directory",
+      "symbolSize": 10,
       "category": 1
     },
     {
-      "id": "92",
+      "id": "directory:/cs/rust",
+      "name": "rust",
+      "value": "",
+      "kind": "directory",
+      "symbolSize": 12,
+      "category": 1
+    },
+    {
+      "id": "directory:/cs/rust/advanced",
+      "name": "advanced",
+      "value": "",
+      "kind": "directory",
+      "symbolSize": 10,
+      "category": 1
+    },
+    {
+      "id": "directory:/cs/rust/tutorial",
+      "name": "tutorial",
+      "value": "",
+      "kind": "directory",
+      "symbolSize": 10,
+      "category": 1
+    },
+    {
+      "id": "directory:/cs/rust/tutorial/advanced",
+      "name": "advanced",
+      "value": "",
+      "kind": "directory",
+      "symbolSize": 8,
+      "category": 1
+    },
+    {
+      "id": "directory:/cs/rust/tutorial/cargo",
+      "name": "cargo",
+      "value": "",
+      "kind": "directory",
+      "symbolSize": 8,
+      "category": 1
+    },
+    {
+      "id": "directory:/cs/rust/tutorial/cli-app",
       "name": "cli-app",
-      "symbolSize": 2,
       "value": "",
+      "kind": "directory",
+      "symbolSize": 8,
       "category": 1
     },
     {
-      "id": "93",
-      "name": "patterns",
-      "symbolSize": 2,
+      "id": "directory:/cs/rust/tutorial/concurrency",
+      "name": "concurrency",
       "value": "",
+      "kind": "directory",
+      "symbolSize": 8,
       "category": 1
+    },
+    {
+      "id": "directory:/cs/rust/tutorial/functional",
+      "name": "functional",
+      "value": "",
+      "kind": "directory",
+      "symbolSize": 8,
+      "category": 1
+    },
+    {
+      "id": "directory:/cs/rust/tutorial/oops",
+      "name": "oops",
+      "value": "",
+      "kind": "directory",
+      "symbolSize": 8,
+      "category": 1
+    },
+    {
+      "id": "directory:/cs/rust/tutorial/patterns",
+      "name": "patterns",
+      "value": "",
+      "kind": "directory",
+      "symbolSize": 8,
+      "category": 1
+    },
+    {
+      "id": "directory:/cs/rust/tutorial/smart-pointers",
+      "name": "smart-pointers",
+      "value": "",
+      "kind": "directory",
+      "symbolSize": 8,
+      "category": 1
+    },
+    {
+      "id": "directory:/cs/rust/tutorial/testing",
+      "name": "testing",
+      "value": "",
+      "kind": "directory",
+      "symbolSize": 8,
+      "category": 1
+    },
+    {
+      "id": "directory:/etc",
+      "name": "etc",
+      "value": "",
+      "kind": "directory",
+      "symbolSize": 14,
+      "category": 2
+    },
+    {
+      "id": "directory:/etc/mathematics",
+      "name": "mathematics",
+      "value": "",
+      "kind": "directory",
+      "symbolSize": 12,
+      "category": 2
+    },
+    {
+      "id": "directory:/etc/mathematics/discrete-mathematics",
+      "name": "discrete-mathematics",
+      "value": "",
+      "kind": "directory",
+      "symbolSize": 10,
+      "category": 2
+    },
+    {
+      "id": "directory:/ml",
+      "name": "ml",
+      "value": "",
+      "kind": "directory",
+      "symbolSize": 14,
+      "category": 3
+    },
+    {
+      "id": "directory:/ml/intro-dl",
+      "name": "intro-dl",
+      "value": "",
+      "kind": "directory",
+      "symbolSize": 12,
+      "category": 3
+    },
+    {
+      "id": "directory:/ml/intro-dl/neural-networks",
+      "name": "neural-networks",
+      "value": "",
+      "kind": "directory",
+      "symbolSize": 10,
+      "category": 3
+    },
+    {
+      "id": "directory:/ml/mle-for-production",
+      "name": "mle-for-production",
+      "value": "",
+      "kind": "directory",
+      "symbolSize": 12,
+      "category": 3
+    },
+    {
+      "id": "directory:/ml/mle-for-production/deploying-ml-models",
+      "name": "deploying-ml-models",
+      "value": "",
+      "kind": "directory",
+      "symbolSize": 10,
+      "category": 3
+    },
+    {
+      "id": "directory:/ml/mle-for-production/intro-to-mle-for-production",
+      "name": "intro-to-mle-for-production",
+      "value": "",
+      "kind": "directory",
+      "symbolSize": 10,
+      "category": 3
+    },
+    {
+      "id": "directory:/ml/mle-for-production/ml-data-lifecycle",
+      "name": "ml-data-lifecycle",
+      "value": "",
+      "kind": "directory",
+      "symbolSize": 10,
+      "category": 3
+    },
+    {
+      "id": "directory:/ml/mle-for-production/ml-modeling-pipeline",
+      "name": "ml-modeling-pipeline",
+      "value": "",
+      "kind": "directory",
+      "symbolSize": 10,
+      "category": 3
     }
   ],
   "links": [
     {
-      "source": "86",
-      "target": "0"
+      "source": "directory:/",
+      "target": "directory:/cs",
+      "kind": "hierarchy"
     },
     {
-      "source": "86",
-      "target": "1"
+      "source": "directory:/",
+      "target": "directory:/etc",
+      "kind": "hierarchy"
     },
     {
-      "source": "86",
-      "target": "2"
+      "source": "directory:/",
+      "target": "directory:/ml",
+      "kind": "hierarchy"
     },
     {
-      "source": "86",
-      "target": "3"
+      "source": "directory:/cs",
+      "target": "directory:/cs/curriculum",
+      "kind": "hierarchy"
     },
     {
-      "source": "81",
-      "target": "4"
+      "source": "directory:/cs",
+      "target": "directory:/cs/devops",
+      "kind": "hierarchy"
     },
     {
-      "source": "81",
-      "target": "5"
+      "source": "directory:/cs",
+      "target": "directory:/cs/rust",
+      "kind": "hierarchy"
     },
     {
-      "source": "81",
-      "target": "6"
+      "source": "directory:/cs/curriculum",
+      "target": "directory:/cs/curriculum/networking",
+      "kind": "hierarchy"
     },
     {
-      "source": "68",
-      "target": "7"
+      "source": "directory:/cs/curriculum",
+      "target": "directory:/cs/curriculum/sql",
+      "kind": "hierarchy"
     },
     {
-      "source": "68",
-      "target": "8"
+      "source": "directory:/cs/curriculum/networking",
+      "target": "page:cs/curriculum/networking/ipv6.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "68",
-      "target": "9"
+      "source": "directory:/cs/curriculum/sql",
+      "target": "page:cs/curriculum/sql/common-queries.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "71",
-      "target": "10"
+      "source": "directory:/cs/devops",
+      "target": "directory:/cs/devops/terraform",
+      "kind": "hierarchy"
     },
     {
-      "source": "71",
-      "target": "11"
+      "source": "directory:/cs/devops/terraform",
+      "target": "page:cs/devops/terraform/terraform-freecodecamp-course.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "71",
-      "target": "12"
+      "source": "directory:/cs/rust",
+      "target": "directory:/cs/rust/advanced",
+      "kind": "hierarchy"
     },
     {
-      "source": "71",
-      "target": "13"
+      "source": "directory:/cs/rust",
+      "target": "directory:/cs/rust/tutorial",
+      "kind": "hierarchy"
     },
     {
-      "source": "90",
-      "target": "14"
+      "source": "directory:/cs/rust/advanced",
+      "target": "page:cs/rust/advanced/rust_str_types.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "90",
-      "target": "15"
+      "source": "directory:/cs/rust/tutorial",
+      "target": "directory:/cs/rust/tutorial/advanced",
+      "kind": "hierarchy"
     },
     {
-      "source": "90",
-      "target": "16"
+      "source": "directory:/cs/rust/tutorial",
+      "target": "directory:/cs/rust/tutorial/cargo",
+      "kind": "hierarchy"
     },
     {
-      "source": "90",
-      "target": "17"
+      "source": "directory:/cs/rust/tutorial",
+      "target": "directory:/cs/rust/tutorial/cli-app",
+      "kind": "hierarchy"
     },
     {
-      "source": "69",
-      "target": "18"
+      "source": "directory:/cs/rust/tutorial",
+      "target": "directory:/cs/rust/tutorial/concurrency",
+      "kind": "hierarchy"
     },
     {
-      "source": "69",
-      "target": "19"
+      "source": "directory:/cs/rust/tutorial",
+      "target": "directory:/cs/rust/tutorial/functional",
+      "kind": "hierarchy"
     },
     {
-      "source": "69",
-      "target": "20"
+      "source": "directory:/cs/rust/tutorial",
+      "target": "directory:/cs/rust/tutorial/oops",
+      "kind": "hierarchy"
     },
     {
-      "source": "69",
-      "target": "21"
+      "source": "directory:/cs/rust/tutorial",
+      "target": "directory:/cs/rust/tutorial/patterns",
+      "kind": "hierarchy"
     },
     {
-      "source": "69",
-      "target": "22"
+      "source": "directory:/cs/rust/tutorial",
+      "target": "directory:/cs/rust/tutorial/smart-pointers",
+      "kind": "hierarchy"
     },
     {
-      "source": "69",
-      "target": "23"
+      "source": "directory:/cs/rust/tutorial",
+      "target": "directory:/cs/rust/tutorial/testing",
+      "kind": "hierarchy"
     },
     {
-      "source": "69",
-      "target": "24"
+      "source": "directory:/cs/rust/tutorial",
+      "target": "page:cs/rust/tutorial/common-collections.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "69",
-      "target": "25"
+      "source": "directory:/cs/rust/tutorial",
+      "target": "page:cs/rust/tutorial/common-programming-concepts.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "69",
-      "target": "26"
+      "source": "directory:/cs/rust/tutorial",
+      "target": "page:cs/rust/tutorial/enums-and-pattern-matching.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "69",
-      "target": "27"
+      "source": "directory:/cs/rust/tutorial",
+      "target": "page:cs/rust/tutorial/error-handling.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "69",
-      "target": "28"
+      "source": "directory:/cs/rust/tutorial",
+      "target": "page:cs/rust/tutorial/generic-types.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "69",
-      "target": "29"
+      "source": "directory:/cs/rust/tutorial",
+      "target": "page:cs/rust/tutorial/getting-started.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "91",
-      "target": "30"
+      "source": "directory:/cs/rust/tutorial",
+      "target": "page:cs/rust/tutorial/guessing-game.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "91",
-      "target": "31"
+      "source": "directory:/cs/rust/tutorial",
+      "target": "page:cs/rust/tutorial/lifetimes.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "92",
-      "target": "32"
+      "source": "directory:/cs/rust/tutorial",
+      "target": "page:cs/rust/tutorial/module-system.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "92",
-      "target": "33"
+      "source": "directory:/cs/rust/tutorial",
+      "target": "page:cs/rust/tutorial/ownership.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "66",
-      "target": "34"
+      "source": "directory:/cs/rust/tutorial",
+      "target": "page:cs/rust/tutorial/structs.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "66",
-      "target": "35"
+      "source": "directory:/cs/rust/tutorial",
+      "target": "page:cs/rust/tutorial/traits.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "74",
-      "target": "36"
+      "source": "directory:/cs/rust/tutorial/advanced",
+      "target": "page:cs/rust/tutorial/advanced/advanced-functions-and-closures.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "74",
-      "target": "37"
+      "source": "directory:/cs/rust/tutorial/advanced",
+      "target": "page:cs/rust/tutorial/advanced/advanced-traits.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "78",
-      "target": "38"
+      "source": "directory:/cs/rust/tutorial/advanced",
+      "target": "page:cs/rust/tutorial/advanced/advanced-types.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "78",
-      "target": "39"
+      "source": "directory:/cs/rust/tutorial/advanced",
+      "target": "page:cs/rust/tutorial/advanced/macros.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "78",
-      "target": "40"
+      "source": "directory:/cs/rust/tutorial/advanced",
+      "target": "page:cs/rust/tutorial/advanced/unsafe.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "78",
-      "target": "41"
+      "source": "directory:/cs/rust/tutorial/cargo",
+      "target": "page:cs/rust/tutorial/cargo/cargo-workspaces.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "78",
-      "target": "42"
+      "source": "directory:/cs/rust/tutorial/cargo",
+      "target": "page:cs/rust/tutorial/cargo/publishing-crate.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "78",
-      "target": "43"
+      "source": "directory:/cs/rust/tutorial/cli-app",
+      "target": "page:cs/rust/tutorial/cli-app/cli-app-in-rust-2.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "70",
-      "target": "44"
+      "source": "directory:/cs/rust/tutorial/cli-app",
+      "target": "page:cs/rust/tutorial/cli-app/cli-app-in-rust.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "70",
-      "target": "45"
+      "source": "directory:/cs/rust/tutorial/concurrency",
+      "target": "page:cs/rust/tutorial/concurrency/creating-threads.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "70",
-      "target": "46"
+      "source": "directory:/cs/rust/tutorial/concurrency",
+      "target": "page:cs/rust/tutorial/concurrency/message-passing.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "76",
-      "target": "47"
+      "source": "directory:/cs/rust/tutorial/concurrency",
+      "target": "page:cs/rust/tutorial/concurrency/sharing-state.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "76",
-      "target": "48"
+      "source": "directory:/cs/rust/tutorial/functional",
+      "target": "page:cs/rust/tutorial/functional/closures.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "76",
-      "target": "49"
+      "source": "directory:/cs/rust/tutorial/functional",
+      "target": "page:cs/rust/tutorial/functional/iterators.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "93",
-      "target": "50"
+      "source": "directory:/cs/rust/tutorial/oops",
+      "target": "page:cs/rust/tutorial/oops/object-oriented-programming.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "93",
-      "target": "51"
+      "source": "directory:/cs/rust/tutorial/oops",
+      "target": "page:cs/rust/tutorial/oops/state-design-pattern.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "77",
-      "target": "52"
+      "source": "directory:/cs/rust/tutorial/oops",
+      "target": "page:cs/rust/tutorial/oops/trait-objects.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "77",
-      "target": "53"
+      "source": "directory:/cs/rust/tutorial/patterns",
+      "target": "page:cs/rust/tutorial/patterns/pattern-syntax.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "77",
-      "target": "54"
+      "source": "directory:/cs/rust/tutorial/patterns",
+      "target": "page:cs/rust/tutorial/patterns/patterns-and-matching.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "77",
-      "target": "55"
+      "source": "directory:/cs/rust/tutorial/smart-pointers",
+      "target": "page:cs/rust/tutorial/smart-pointers/box-smart-pointer.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "77",
-      "target": "56"
+      "source": "directory:/cs/rust/tutorial/smart-pointers",
+      "target": "page:cs/rust/tutorial/smart-pointers/deref-trait.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "85",
-      "target": "57"
+      "source": "directory:/cs/rust/tutorial/smart-pointers",
+      "target": "page:cs/rust/tutorial/smart-pointers/drop-trait.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "89",
-      "target": "58"
+      "source": "directory:/cs/rust/tutorial/smart-pointers",
+      "target": "page:cs/rust/tutorial/smart-pointers/interior-mutability.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "67",
-      "target": "59"
+      "source": "directory:/cs/rust/tutorial/smart-pointers",
+      "target": "page:cs/rust/tutorial/smart-pointers/reference-counting.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "80",
-      "target": "60"
+      "source": "directory:/cs/rust/tutorial/smart-pointers",
+      "target": "page:cs/rust/tutorial/smart-pointers/reference-cycles.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "75",
-      "target": "61"
+      "source": "directory:/cs/rust/tutorial/testing",
+      "target": "page:cs/rust/tutorial/testing/testing-in-rust-2.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "72",
-      "target": "62"
+      "source": "directory:/cs/rust/tutorial/testing",
+      "target": "page:cs/rust/tutorial/testing/testing-in-rust.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "83",
-      "target": "63"
+      "source": "directory:/etc",
+      "target": "directory:/etc/mathematics",
+      "kind": "hierarchy"
     },
     {
-      "source": "82",
-      "target": "65"
+      "source": "directory:/etc",
+      "target": "page:etc/regular-expressions.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "69",
-      "target": "66"
+      "source": "directory:/etc/mathematics",
+      "target": "directory:/etc/mathematics/discrete-mathematics",
+      "kind": "hierarchy"
     },
     {
-      "source": "88",
-      "target": "67"
+      "source": "directory:/etc/mathematics",
+      "target": "page:etc/mathematics/maths-formula.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "73",
-      "target": "68"
+      "source": "directory:/etc/mathematics/discrete-mathematics",
+      "target": "page:etc/mathematics/discrete-mathematics/propositional-logic.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "79",
-      "target": "69"
+      "source": "directory:/ml",
+      "target": "directory:/ml/intro-dl",
+      "kind": "hierarchy"
     },
     {
-      "source": "69",
-      "target": "70"
+      "source": "directory:/ml",
+      "target": "directory:/ml/mle-for-production",
+      "kind": "hierarchy"
     },
     {
-      "source": "73",
-      "target": "71"
+      "source": "directory:/ml/intro-dl",
+      "target": "directory:/ml/intro-dl/neural-networks",
+      "kind": "hierarchy"
     },
     {
-      "source": "75",
-      "target": "72"
+      "source": "directory:/ml/intro-dl",
+      "target": "page:ml/intro-dl/index.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "87",
-      "target": "73"
+      "source": "directory:/ml/intro-dl/neural-networks",
+      "target": "page:ml/intro-dl/neural-networks/index.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "69",
-      "target": "74"
+      "source": "directory:/ml/intro-dl/neural-networks",
+      "target": "page:ml/intro-dl/neural-networks/week1.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "64",
-      "target": "75"
+      "source": "directory:/ml/intro-dl/neural-networks",
+      "target": "page:ml/intro-dl/neural-networks/week2.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "69",
-      "target": "76"
+      "source": "directory:/ml/intro-dl/neural-networks",
+      "target": "page:ml/intro-dl/neural-networks/week3.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "69",
-      "target": "77"
+      "source": "directory:/ml/intro-dl/neural-networks",
+      "target": "page:ml/intro-dl/neural-networks/week4.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "69",
-      "target": "78"
+      "source": "directory:/ml/mle-for-production",
+      "target": "directory:/ml/mle-for-production/deploying-ml-models",
+      "kind": "hierarchy"
     },
     {
-      "source": "82",
-      "target": "79"
+      "source": "directory:/ml/mle-for-production",
+      "target": "directory:/ml/mle-for-production/intro-to-mle-for-production",
+      "kind": "hierarchy"
     },
     {
-      "source": "65",
-      "target": "80"
+      "source": "directory:/ml/mle-for-production",
+      "target": "directory:/ml/mle-for-production/ml-data-lifecycle",
+      "kind": "hierarchy"
     },
     {
-      "source": "73",
-      "target": "81"
+      "source": "directory:/ml/mle-for-production",
+      "target": "directory:/ml/mle-for-production/ml-modeling-pipeline",
+      "kind": "hierarchy"
     },
     {
-      "source": "64",
-      "target": "82"
+      "source": "directory:/ml/mle-for-production",
+      "target": "page:ml/mle-for-production/index.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "72",
-      "target": "83"
+      "source": "directory:/ml/mle-for-production/deploying-ml-models",
+      "target": "page:ml/mle-for-production/deploying-ml-models/index.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "87",
-      "target": "84"
+      "source": "directory:/ml/mle-for-production/deploying-ml-models",
+      "target": "page:ml/mle-for-production/deploying-ml-models/week1.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "79",
-      "target": "85"
+      "source": "directory:/ml/mle-for-production/deploying-ml-models",
+      "target": "page:ml/mle-for-production/deploying-ml-models/week2.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "84",
-      "target": "86"
+      "source": "directory:/ml/mle-for-production/deploying-ml-models",
+      "target": "page:ml/mle-for-production/deploying-ml-models/week3.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "64",
-      "target": "87"
+      "source": "directory:/ml/mle-for-production/deploying-ml-models",
+      "target": "page:ml/mle-for-production/deploying-ml-models/week4.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "82",
-      "target": "88"
+      "source": "directory:/ml/mle-for-production/intro-to-mle-for-production",
+      "target": "page:ml/mle-for-production/intro-to-mle-for-production/index.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "88",
-      "target": "89"
+      "source": "directory:/ml/mle-for-production/intro-to-mle-for-production",
+      "target": "page:ml/mle-for-production/intro-to-mle-for-production/week1.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "73",
-      "target": "90"
+      "source": "directory:/ml/mle-for-production/intro-to-mle-for-production",
+      "target": "page:ml/mle-for-production/intro-to-mle-for-production/week2.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "69",
-      "target": "91"
+      "source": "directory:/ml/mle-for-production/intro-to-mle-for-production",
+      "target": "page:ml/mle-for-production/intro-to-mle-for-production/week3.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "69",
-      "target": "92"
+      "source": "directory:/ml/mle-for-production/ml-data-lifecycle",
+      "target": "page:ml/mle-for-production/ml-data-lifecycle/index.md",
+      "kind": "hierarchy"
     },
     {
-      "source": "69",
-      "target": "93"
+      "source": "directory:/ml/mle-for-production/ml-data-lifecycle",
+      "target": "page:ml/mle-for-production/ml-data-lifecycle/week1.md",
+      "kind": "hierarchy"
+    },
+    {
+      "source": "directory:/ml/mle-for-production/ml-data-lifecycle",
+      "target": "page:ml/mle-for-production/ml-data-lifecycle/week2.md",
+      "kind": "hierarchy"
+    },
+    {
+      "source": "directory:/ml/mle-for-production/ml-data-lifecycle",
+      "target": "page:ml/mle-for-production/ml-data-lifecycle/week3.md",
+      "kind": "hierarchy"
+    },
+    {
+      "source": "directory:/ml/mle-for-production/ml-modeling-pipeline",
+      "target": "page:ml/mle-for-production/ml-modeling-pipeline/index.md",
+      "kind": "hierarchy"
+    },
+    {
+      "source": "directory:/ml/mle-for-production/ml-modeling-pipeline",
+      "target": "page:ml/mle-for-production/ml-modeling-pipeline/week1.md",
+      "kind": "hierarchy"
+    },
+    {
+      "source": "directory:/ml/mle-for-production/ml-modeling-pipeline",
+      "target": "page:ml/mle-for-production/ml-modeling-pipeline/week2.md",
+      "kind": "hierarchy"
+    },
+    {
+      "source": "directory:/ml/mle-for-production/ml-modeling-pipeline",
+      "target": "page:ml/mle-for-production/ml-modeling-pipeline/week3.md",
+      "kind": "hierarchy"
+    },
+    {
+      "source": "directory:/ml/mle-for-production/ml-modeling-pipeline",
+      "target": "page:ml/mle-for-production/ml-modeling-pipeline/week4.md",
+      "kind": "hierarchy"
+    },
+    {
+      "source": "page:cs/rust/advanced/rust_str_types.md",
+      "target": "page:cs/rust/tutorial/smart-pointers/box-smart-pointer.md",
+      "kind": "markdown"
+    },
+    {
+      "source": "page:cs/rust/advanced/rust_str_types.md",
+      "target": "page:cs/rust/tutorial/smart-pointers/reference-counting.md",
+      "kind": "markdown"
+    },
+    {
+      "source": "page:cs/rust/tutorial/advanced/advanced-functions-and-closures.md",
+      "target": "page:cs/rust/tutorial/functional/closures.md",
+      "kind": "markdown"
+    },
+    {
+      "source": "page:cs/rust/tutorial/advanced/advanced-traits.md",
+      "target": "page:cs/rust/tutorial/traits.md",
+      "kind": "markdown"
+    },
+    {
+      "source": "page:cs/rust/tutorial/advanced/advanced-types.md",
+      "target": "page:cs/rust/tutorial/advanced/advanced-traits.md",
+      "kind": "markdown"
+    },
+    {
+      "source": "page:cs/rust/tutorial/advanced/advanced-types.md",
+      "target": "page:cs/rust/tutorial/guessing-game.md",
+      "kind": "markdown"
+    },
+    {
+      "source": "page:cs/rust/tutorial/advanced/unsafe.md",
+      "target": "page:cs/rust/tutorial/ownership.md",
+      "kind": "markdown"
+    },
+    {
+      "source": "page:cs/rust/tutorial/cli-app/cli-app-in-rust.md",
+      "target": "page:cs/rust/tutorial/functional/closures.md",
+      "kind": "markdown"
+    },
+    {
+      "source": "page:cs/rust/tutorial/functional/iterators.md",
+      "target": "page:cs/rust/tutorial/advanced/advanced-traits.md",
+      "kind": "markdown"
+    },
+    {
+      "source": "page:cs/rust/tutorial/oops/object-oriented-programming.md",
+      "target": "page:cs/rust/tutorial/traits.md",
+      "kind": "markdown"
+    },
+    {
+      "source": "page:cs/rust/tutorial/oops/state-design-pattern.md",
+      "target": "page:cs/rust/tutorial/oops/trait-objects.md",
+      "kind": "markdown"
+    },
+    {
+      "source": "page:cs/rust/tutorial/oops/trait-objects.md",
+      "target": "page:cs/rust/tutorial/advanced/advanced-types.md",
+      "kind": "markdown"
+    },
+    {
+      "source": "page:cs/rust/tutorial/patterns/patterns-and-matching.md",
+      "target": "page:cs/rust/tutorial/enums-and-pattern-matching.md",
+      "kind": "markdown"
+    },
+    {
+      "source": "page:ml/intro-dl/neural-networks/index.md",
+      "target": "page:ml/intro-dl/neural-networks/week1.md",
+      "kind": "markdown"
+    },
+    {
+      "source": "page:ml/intro-dl/neural-networks/index.md",
+      "target": "page:ml/intro-dl/neural-networks/week2.md",
+      "kind": "markdown"
+    },
+    {
+      "source": "page:ml/intro-dl/neural-networks/index.md",
+      "target": "page:ml/intro-dl/neural-networks/week3.md",
+      "kind": "markdown"
+    },
+    {
+      "source": "page:ml/intro-dl/neural-networks/index.md",
+      "target": "page:ml/intro-dl/neural-networks/week4.md",
+      "kind": "markdown"
+    },
+    {
+      "source": "page:ml/mle-for-production/index.md",
+      "target": "page:ml/mle-for-production/deploying-ml-models/index.md",
+      "kind": "wikilink"
+    },
+    {
+      "source": "page:ml/mle-for-production/index.md",
+      "target": "page:ml/mle-for-production/intro-to-mle-for-production/index.md",
+      "kind": "wikilink"
+    },
+    {
+      "source": "page:ml/mle-for-production/index.md",
+      "target": "page:ml/mle-for-production/ml-data-lifecycle/index.md",
+      "kind": "wikilink"
+    },
+    {
+      "source": "page:ml/mle-for-production/index.md",
+      "target": "page:ml/mle-for-production/ml-modeling-pipeline/index.md",
+      "kind": "wikilink"
     }
   ],
   "categories": [
@@ -1038,19 +1421,13 @@
       "name": "Wiki"
     },
     {
-      "name": "Content"
+      "name": "CS"
     },
     {
       "name": "etc"
     },
     {
-      "name": "cs"
-    },
-    {
-      "name": "ml"
-    },
-    {
-      "name": "Default"
+      "name": "ML"
     }
   ]
 }

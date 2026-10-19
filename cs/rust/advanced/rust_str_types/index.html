@@ -19,8 +19,11 @@
         <link rel="next" href="../../../curriculum/sql/common-queries/">
       
       
+        
+      
+      
       <link rel="icon" href="../../../../assets/logo-wiki.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+      <meta name="generator" content="zensical-0.0.69">
     
     
       
@@ -28,58 +31,94 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      <link rel="stylesheet" href="../../../../assets/stylesheets/classic/main.3d7537f3.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/classic/palette.031959be.min.css">
       
       
   
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
     
+      
+      
     
   
   
-  <style>:root{--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M13%2013h-2V7h2m0%2010h-2v-2h2M12%202A10%2010%200%200%200%202%2012a10%2010%200%200%200%2010%2010%2010%2010%200%200%200%2010-10A10%2010%200%200%200%2012%202%22/%3E%3C/svg%3E');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%202C6.5%202%202%206.5%202%2012s4.5%2010%2010%2010%2010-4.5%2010-10S17.5%202%2012%202m-2%2015-5-5%201.41-1.41L10%2014.17l7.59-7.59L19%208z%22/%3E%3C/svg%3E');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M13%2014h-2V9h2m0%209h-2v-2h2M1%2021h22L12%202z%22/%3E%3C/svg%3E');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M13%2013h-2V7h2m-2%208h2v2h-2m4.73-14H8.27L3%208.27v7.46L8.27%2021h7.46L21%2015.73V8.27z%22/%3E%3C/svg%3E');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M13%2013h-2V7h2m0%2010h-2v-2h2M12%202A10%2010%200%200%200%202%2012a10%2010%200%200%200%2010%2010%2010%2010%200%200%200%2010-10A10%2010%200%200%200%2012%202%22/%3E%3C/svg%3E');}</style>
+  <style>:root{--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M13%2013h-2V7h2m-2%208h2v2h-2m4.73-14H8.27L3%208.27v7.46L8.27%2021h7.46L21%2015.73V8.27z%22/%3E%3C/svg%3E');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M13%2013h-2V7h2m0%2010h-2v-2h2M12%202A10%2010%200%200%200%202%2012a10%2010%200%200%200%2010%2010%2010%2010%200%200%200%2010-10A10%2010%200%200%200%2012%202%22/%3E%3C/svg%3E');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M13%2013h-2V7h2m0%2010h-2v-2h2M12%202A10%2010%200%200%200%202%2012a10%2010%200%200%200%2010%2010%2010%2010%200%200%200%2010-10A10%2010%200%200%200%2012%202%22/%3E%3C/svg%3E');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%202C6.5%202%202%206.5%202%2012s4.5%2010%2010%2010%2010-4.5%2010-10S17.5%202%2012%202m-2%2015-5-5%201.41-1.41L10%2014.17l7.59-7.59L19%208z%22/%3E%3C/svg%3E');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M13%2014h-2V9h2m0%209h-2v-2h2M1%2021h22L12%202z%22/%3E%3C/svg%3E');}</style>
 
 
 
     
     
 <!--katex scripts-->
-<link rel="stylesheet" href="../../../../assets/external/cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer">
-<script src="../../../../assets/external/cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" integrity="sha512-LQNxIMR5rXv7o+b1l8+N1EZMfhG7iFZ9HhnbJkTp4zjNr5Wvst75AqUeFDxeRUa7l5vEDyUiAip//r+EFLLCyA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="../../../../assets/external/cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js" integrity="sha512-iWiuBS5nt6r60fCz26Nd0Zqe0nbk1ZTIQbl3Kv7kYsX+yKMUFHzjaH2+AnM6vp2Xs+gNmaBAVWJjSmuPw76Efg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css"
+        integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"
+/>
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"
+        integrity="sha512-LQNxIMR5rXv7o+b1l8+N1EZMfhG7iFZ9HhnbJkTp4zjNr5Wvst75AqUeFDxeRUa7l5vEDyUiAip//r+EFLLCyA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+></script>
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"
+        integrity="sha512-iWiuBS5nt6r60fCz26Nd0Zqe0nbk1ZTIQbl3Kv7kYsX+yKMUFHzjaH2+AnM6vp2Xs+gNmaBAVWJjSmuPw76Efg=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+></script>
 
       
     
 <!-- Add scripts that need to run afterwards here -->
 
 <!-- Highligh.js -->
-<!-- <script src="../../../../assets/external/cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" integrity="sha512-bgHRAiTjGrzHzLyKOnpFvaEpGzJet3z4tZnXGjpsCcqOnAH6VGUx9frc5bcIhKTVLEiCO6vEhNAgx5jtLUYrfA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
-<!-- <link rel="stylesheet" href="../../../../assets/external/cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/darkula.css" integrity="sha256-Mnoy1/a+4vhQ8P0UqXtjDrRWwJs5gMrolbe2VBmKmiM=" crossorigin="anonymous"> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" integrity="sha512-bgHRAiTjGrzHzLyKOnpFvaEpGzJet3z4tZnXGjpsCcqOnAH6VGUx9frc5bcIhKTVLEiCO6vEhNAgx5jtLUYrfA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/darkula.css" integrity="sha256-Mnoy1/a+4vhQ8P0UqXtjDrRWwJs5gMrolbe2VBmKmiM=" crossorigin="anonymous"> -->
 
-<script src="../../../../assets/external/cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" defer></script>
-<script src="../../../../assets/external/cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.waves.min.js" defer></script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"
+    defer
+></script>
+<script
+    src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.waves.min.js"
+    defer
+></script>
 
     
       
         
         
-        
-        <link rel="stylesheet" href="../../../../assets/external/fonts.googleapis.com/css.56f7ac64.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
         <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
@@ -92,7 +131,7 @@
     
       <link rel="stylesheet" href="../../../../assets/css/interactive_graph.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
   
@@ -108,43 +147,19 @@
 
     
     
-      
-        <meta  property="og:type"  content="website" >
-      
-        <meta  property="og:title"  content="All Rust String Types explained - Wiki" >
-      
-        <meta  property="og:description"  content="Unlike other languages, Rust str types comes in many flavours offering Safety, Efficiency & Flexibility." >
-      
-        <meta  property="og:image"  content="https://wiki.adhadse.com/assets/images/social/cs/rust/advanced/rust_str_types.png" >
-      
-        <meta  property="og:image:type"  content="image/png" >
-      
-        <meta  property="og:image:width"  content="1200" >
-      
-        <meta  property="og:image:height"  content="630" >
-      
-        <meta  property="og:url"  content="https://wiki.adhadse.com/cs/rust/advanced/rust_str_types/" >
-      
-        <meta  name="twitter:card"  content="summary_large_image" >
-      
-        <meta  name="twitter:title"  content="All Rust String Types explained - Wiki" >
-      
-        <meta  name="twitter:description"  content="Unlike other languages, Rust str types comes in many flavours offering Safety, Efficiency & Flexibility." >
-      
-        <meta  name="twitter:image"  content="https://wiki.adhadse.com/assets/images/social/cs/rust/advanced/rust_str_types.png" >
-      
-    
-    
-   <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-    html.glightbox-open { overflow: initial; height: 100%; }
-    .gslide-title { margin-top: 0px; user-select: text; }
-    .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }
-    .gscrollbar-fixer { padding-right: 15px; }
-    .gdesc-inner { font-size: 0.75rem; }
-    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
+  <meta property="og:type" content="website" />
+<meta property="og:title" content="All Rust String Types explained - Wiki" />
+<meta property="og:description" content="Unlike other languages, Rust str types comes in many flavours offering Safety, Efficiency &amp; Flexibility." />
+<meta property="og:image" content="https://wiki.adhadse.com/assets/images/social/cs/rust/advanced/rust_str_types.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://wiki.adhadse.com/cs/rust/advanced/rust_str_types/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="All Rust String Types explained - Wiki" />
+<meta property="twitter:description" content="Unlike other languages, Rust str types comes in many flavours offering Safety, Efficiency &amp; Flexibility." />
+<meta property="twitter:image" content="https://wiki.adhadse.com/assets/images/social/cs/rust/advanced/rust_str_types.png" />
+</head>
   
   
     
@@ -159,14 +174,11 @@
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
     <div data-md-component="skip">
-      
-        
-        <a href="#all-rust-string-types-explained" class="md-skip">
-          Skip to content
-        </a>
-      
+      <a href="#__skip" class="md-skip">
+        Skip to content
+      </a>
     </div>
     <div data-md-component="announce">
       
@@ -181,10 +193,10 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../../../.." title="Wiki" class="md-header__button md-logo" aria-label="Wiki" data-md-component="logo">
       
-  <img src="../../../../assets/adhadse.png" alt="logo">
+  <img src="../../../../assets/adhadse.png" alt="Wiki">
 
     </a>
-    <label class="md-header__button md-icon" for="__drawer">
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
@@ -238,47 +250,20 @@
     
       
       
-        <label class="md-header__button md-icon" for="__search">
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-        <div class="md-search__suggest" data-md-component="search-suggest"></div>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
 </div>
       
     
-    
+    <div class="md-header__source">
+      
+    </div>
   </nav>
   
     
@@ -296,9 +281,6 @@
       <a href="https://adhadse.com" class="md-tabs__link">
         
   
-  
-    
-  
   Blog
 
       </a>
@@ -312,6 +294,15 @@
   
   
     
+      
+      
+        
+      
+        
+      
+    
+    
+    
     
       
   
@@ -319,28 +310,26 @@
   
   
     
-    
       
-  
-  
-  
-  
+      
+        
+          
+        
+      
+        
+      
+    
+    
     
     
       <li class="md-tabs__item">
-        <a href="../../../../ml/intro-dl/neural-networks/week1/" class="md-tabs__link">
+        <a href="../../../../ml/intro-dl/" class="md-tabs__link">
           
-  
-  
-    
   
   ML
 
         </a>
       </li>
-    
-  
-
     
   
 
@@ -356,6 +345,17 @@
   
   
     
+      
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
     
       
   
@@ -365,6 +365,15 @@
   
   
     
+      
+      
+        
+      
+        
+      
+    
+    
+    
     
       
   
@@ -373,14 +382,58 @@
     
   
   
+    
+      
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
     
     
       <li class="md-tabs__item md-tabs__item--active">
         <a href="../../tutorial/getting-started/" class="md-tabs__link">
           
-  
-  
-    
   
   CS
 
@@ -402,13 +455,19 @@
   
   
     
+      
+      
+        
+      
+        
+      
+    
+    
+    
     
       <li class="md-tabs__item">
         <a href="../../../../etc/regular-expressions/" class="md-tabs__link">
           
-  
-  
-    
   
   etc
 
@@ -448,7 +507,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../../.." title="Wiki" class="md-nav__button md-logo" aria-label="Wiki" data-md-component="logo">
       
-  <img src="../../../../assets/adhadse.png" alt="logo">
+  <img src="../../../../assets/adhadse.png" alt="Wiki">
 
     </a>
     Wiki
@@ -468,9 +527,13 @@
   
   
   <span class="md-ellipsis">
-    Blog
+    
+  
+  Blog
+
     
   </span>
+  
   
 
       </a>
@@ -512,29 +575,41 @@
   
   
   <span class="md-ellipsis">
-    ML
+    
+  
+  ML
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
-            ML
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  ML
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
               
                 
+                  
   
   
   
   
     
     
+      
+        
+          
+        
       
         
       
@@ -554,34 +629,55 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
         
           
-          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
-            
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../ml/intro-dl/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
-    Introduction To Deep Learning
+    
+  
+  Introduction To Deep Learning
+
     
   </span>
   
+  
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_1">
-            <span class="md-nav__icon md-icon"></span>
-            Introduction To Deep Learning
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+            </a>
             
               
+              <label class="md-nav__link " for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2_1">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Introduction To Deep Learning
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
                 
+              
+                
+                  
   
   
   
   
     
     
+      
+        
+          
+        
       
         
       
@@ -604,31 +700,48 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_2" >
         
           
-          <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
-            
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../ml/intro-dl/neural-networks/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
-    Neural Networks
+    
+  
+  Neural Networks
+
     
   </span>
   
+  
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_1_1">
-            <span class="md-nav__icon md-icon"></span>
-            Neural Networks
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+            </a>
             
               
+              <label class="md-nav__link " for="__nav_2_1_2" id="__nav_2_1_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2_1_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Neural Networks
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
                 
+              
+                
+                  
   
   
   
@@ -639,19 +752,23 @@
   
   
   <span class="md-ellipsis">
-    Week 1 — Neural Networks and Deep Learning
+    
+  
+  Week 1 — Neural Networks and Deep Learning
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -662,19 +779,23 @@
   
   
   <span class="md-ellipsis">
-    Week 2 — Basics of Neural Network programming
+    
+  
+  Week 2 — Basics of Neural Network programming
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -685,19 +806,23 @@
   
   
   <span class="md-ellipsis">
-    Week 3 — One hidden layer Neural Networks
+    
+  
+  Week 3 — One hidden layer Neural Networks
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -708,41 +833,51 @@
   
   
   <span class="md-ellipsis">
-    Week 4 — L Layers Deep Neural Networks
+    
+  
+  Week 4 — L Layers Deep Neural Networks
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
+                
               
-            
-          </ul>
-        </nav>
+            </ul>
+          </nav>
+        
       
     </li>
   
 
+                
               
-            
-          </ul>
-        </nav>
+            </ul>
+          </nav>
+        
       
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
   
     
     
+      
+        
+          
+        
       
         
       
@@ -768,28 +903,45 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
         
           
-          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
-            
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../ml/mle-for-production/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
-    Machine Learning Engineering for Production
+    
+  
+  Machine Learning Engineering for Production
+
     
   </span>
   
+  
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2">
-            <span class="md-nav__icon md-icon"></span>
-            Machine Learning Engineering for Production
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+            </a>
             
               
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Machine Learning Engineering for Production
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
                 
+              
+                
+                  
   
   
   
@@ -797,133 +949,9 @@
     
     
       
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" >
         
           
-          <label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Introduction to Machine Learning Engineering for production
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2_1">
-            <span class="md-nav__icon md-icon"></span>
-            Introduction to Machine Learning Engineering for production
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../ml/mle-for-production/intro-to-mle-for-production/week1/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Week 1 — The ML project lifecycle
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../ml/mle-for-production/intro-to-mle-for-production/week2/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Week 2 — Key challenges in Modelling
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../ml/mle-for-production/intro-to-mle-for-production/week3/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Week 3 — Data
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
       
         
       
@@ -947,105 +975,135 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
         
           
-          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
-            
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../ml/mle-for-production/intro-to-mle-for-production/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
-    ML Data Lifecycle
+    
+  
+  Introduction to Machine Learning Engineering for production
+
     
   </span>
   
+  
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2_2">
-            <span class="md-nav__icon md-icon"></span>
-            ML Data Lifecycle
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+            </a>
             
               
+              <label class="md-nav__link " for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2_2_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Introduction to Machine Learning Engineering for production
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
                 
+              
+                
+                  
   
   
   
   
     <li class="md-nav__item">
-      <a href="../../../../ml/mle-for-production/ml-data-lifecycle/week1/" class="md-nav__link">
+      <a href="../../../../ml/mle-for-production/intro-to-mle-for-production/week1/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Week 1 — Collecting, labeling, and validating data
+    
+  
+  Week 1 — The ML project lifecycle
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
   
     <li class="md-nav__item">
-      <a href="../../../../ml/mle-for-production/ml-data-lifecycle/week2/" class="md-nav__link">
+      <a href="../../../../ml/mle-for-production/intro-to-mle-for-production/week2/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Week 2 — Feature Engineering
+    
+  
+  Week 2 — Key challenges in Modelling
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
   
     <li class="md-nav__item">
-      <a href="../../../../ml/mle-for-production/ml-data-lifecycle/week3/" class="md-nav__link">
+      <a href="../../../../ml/mle-for-production/intro-to-mle-for-production/week3/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Week 3 — Data Journey
+    
+  
+  Week 3 — Data
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
+                
               
-            
-          </ul>
-        </nav>
+            </ul>
+          </nav>
+        
       
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -1053,6 +1111,8 @@
     
     
       
+        
+          
         
       
         
@@ -1077,134 +1137,145 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3" >
         
           
-          <label class="md-nav__link" for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
-            
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../ml/mle-for-production/ml-data-lifecycle/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
-    ML Modeling Pipeline
+    
+  
+  ML Data Lifecycle
+
     
   </span>
   
+  
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2_3">
-            <span class="md-nav__icon md-icon"></span>
-            ML Modeling Pipeline
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+            </a>
             
               
+              <label class="md-nav__link " for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  ML Data Lifecycle
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
                 
+              
+                
+                  
   
   
   
   
     <li class="md-nav__item">
-      <a href="../../../../ml/mle-for-production/ml-modeling-pipeline/week1/" class="md-nav__link">
+      <a href="../../../../ml/mle-for-production/ml-data-lifecycle/week1/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Week 1 — Hyperparameter tuning: searching for the best architecture
+    
+  
+  Week 1 — Collecting, labeling, and validating data
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
   
     <li class="md-nav__item">
-      <a href="../../../../ml/mle-for-production/ml-modeling-pipeline/week2/" class="md-nav__link">
+      <a href="../../../../ml/mle-for-production/ml-data-lifecycle/week2/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Week 2 — Dimensionality Reduction
+    
+  
+  Week 2 — Feature Engineering
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
   
     <li class="md-nav__item">
-      <a href="../../../../ml/mle-for-production/ml-modeling-pipeline/week3/" class="md-nav__link">
+      <a href="../../../../ml/mle-for-production/ml-data-lifecycle/week3/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Week 3 — High Performance Modeling"
+    
+  
+  Week 3 — Data Journey
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
-              
                 
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../ml/mle-for-production/ml-modeling-pipeline/week4/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Week 4 — Model Performance Analysis
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
               
-            
-          </ul>
-        </nav>
+            </ul>
+          </nav>
+        
       
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
   
     
     
+      
+        
+          
+        
       
         
       
@@ -1230,28 +1301,236 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4" >
         
           
-          <label class="md-nav__link" for="__nav_2_2_4" id="__nav_2_2_4_label" tabindex="0">
-            
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../ml/mle-for-production/ml-modeling-pipeline/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
-    Deloying ML models
+    
+  
+  ML Modeling Pipeline
+
     
   </span>
   
+  
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2_4">
-            <span class="md-nav__icon md-icon"></span>
-            Deloying ML models
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+            </a>
             
               
+              <label class="md-nav__link " for="__nav_2_2_4" id="__nav_2_2_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2_2_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  ML Modeling Pipeline
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
                 
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ml/mle-for-production/ml-modeling-pipeline/week1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Week 1 — Hyperparameter tuning: searching for the best architecture
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ml/mle-for-production/ml-modeling-pipeline/week2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Week 2 — Dimensionality Reduction
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ml/mle-for-production/ml-modeling-pipeline/week3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Week 3 — High Performance Modeling"
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ml/mle-for-production/ml-modeling-pipeline/week4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Week 4 — Model Performance Analysis
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../ml/mle-for-production/deploying-ml-models/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Deploying ML Models
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_5" id="__nav_2_2_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2_2_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Deploying ML Models
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
   
   
   
@@ -1262,19 +1541,23 @@
   
   
   <span class="md-ellipsis">
-    Week 1 — Intro to Model Serving and Infrastructure
+    
+  
+  Week 1 — Intro to Model Serving and Infrastructure
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -1285,19 +1568,23 @@
   
   
   <span class="md-ellipsis">
-    Week 2 — Model Serving Architecture, Scaling Infrastructure and More.
+    
+  
+  Week 2 — Model Serving Architecture, Scaling Infrastructure and More.
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -1308,19 +1595,23 @@
   
   
   <span class="md-ellipsis">
-    Week 3 — ML Experiment Management and Workflow Automation &amp; MLOps Methodology
+    
+  
+  Week 3 — ML Experiment Management and Workflow Automation &amp; MLOps Methodology
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -1331,35 +1622,42 @@
   
   
   <span class="md-ellipsis">
-    Week 4 — Model monitoring, Logging &amp; model decay, GDPR, and Privacy
+    
+  
+  Week 4 — Model monitoring, Logging &amp; model decay, GDPR, and Privacy
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
+                
               
-            
-          </ul>
-        </nav>
+            </ul>
+          </nav>
+        
       
     </li>
   
 
+                
               
-            
-          </ul>
-        </nav>
+            </ul>
+          </nav>
+        
       
     </li>
   
 
+                
               
-            
-          </ul>
-        </nav>
+            </ul>
+          </nav>
+        
       
     </li>
   
@@ -1406,23 +1704,31 @@
   
   
   <span class="md-ellipsis">
-    CS
+    
+  
+  CS
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            CS
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  CS
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
               
                 
+                  
   
   
     
@@ -1460,23 +1766,31 @@
   
   
   <span class="md-ellipsis">
-    Rust
+    
+  
+  Rust
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_1">
-            <span class="md-nav__icon md-icon"></span>
-            Rust
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_3_1">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Rust
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
               
                 
+                  
   
   
   
@@ -1547,23 +1861,31 @@
   
   
   <span class="md-ellipsis">
-    Tutorial
+    
+  
+  Tutorial
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_1_1">
-            <span class="md-nav__icon md-icon"></span>
-            Tutorial
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
+        
+          <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_1_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_1_1">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Tutorial
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
               
                 
+                  
   
   
   
@@ -1574,19 +1896,23 @@
   
   
   <span class="md-ellipsis">
-    Getting Started with Rust
+    
+  
+  Getting Started with Rust
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -1597,19 +1923,23 @@
   
   
   <span class="md-ellipsis">
-    Guessing game
+    
+  
+  Guessing game
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -1620,19 +1950,23 @@
   
   
   <span class="md-ellipsis">
-    Common Programming Concepts in Rust
+    
+  
+  Common Programming Concepts in Rust
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -1643,19 +1977,23 @@
   
   
   <span class="md-ellipsis">
-    Ownership in Rust
+    
+  
+  Ownership in Rust
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -1666,19 +2004,23 @@
   
   
   <span class="md-ellipsis">
-    Structs in Rust
+    
+  
+  Structs in Rust
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -1689,19 +2031,23 @@
   
   
   <span class="md-ellipsis">
-    Enums and Pattern Matching in Rust"
+    
+  
+  Enums and Pattern Matching in Rust"
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -1712,19 +2058,23 @@
   
   
   <span class="md-ellipsis">
-    Rust's Module System
+    
+  
+  Rust's Module System
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -1735,19 +2085,23 @@
   
   
   <span class="md-ellipsis">
-    Common Collections in Rust
+    
+  
+  Common Collections in Rust
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -1758,19 +2112,23 @@
   
   
   <span class="md-ellipsis">
-    Error Handling in Rust
+    
+  
+  Error Handling in Rust
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -1781,19 +2139,23 @@
   
   
   <span class="md-ellipsis">
-    Generic Types in Rust
+    
+  
+  Generic Types in Rust
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -1804,19 +2166,23 @@
   
   
   <span class="md-ellipsis">
-    Traits in Rust
+    
+  
+  Traits in Rust
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -1827,19 +2193,23 @@
   
   
   <span class="md-ellipsis">
-    Rust Lifetimes
+    
+  
+  Rust Lifetimes
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -1872,23 +2242,31 @@
   
   
   <span class="md-ellipsis">
-    Testing
+    
+  
+  Testing
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_13_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_1_1_13">
-            <span class="md-nav__icon md-icon"></span>
-            Testing
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
+        
+          <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_13_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_1_1_13">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Testing
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
               
                 
+                  
   
   
   
@@ -1899,19 +2277,23 @@
   
   
   <span class="md-ellipsis">
-    Testing in Rust
+    
+  
+  Testing in Rust
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -1922,27 +2304,32 @@
   
   
   <span class="md-ellipsis">
-    Testing in Rust - Part 2
+    
+  
+  Testing in Rust - Part 2
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
+                
               
-            
-          </ul>
-        </nav>
+            </ul>
+          </nav>
+        
       
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -1975,23 +2362,31 @@
   
   
   <span class="md-ellipsis">
-    CLI App
+    
+  
+  CLI App
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_14_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_1_1_14">
-            <span class="md-nav__icon md-icon"></span>
-            CLI App
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
+        
+          <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_14_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_1_1_14">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  CLI App
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
               
                 
+                  
   
   
   
@@ -2002,19 +2397,23 @@
   
   
   <span class="md-ellipsis">
-    CLI App in Rust
+    
+  
+  CLI App in Rust
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -2025,27 +2424,32 @@
   
   
   <span class="md-ellipsis">
-    CLI App in Rust - Part 2
+    
+  
+  CLI App in Rust - Part 2
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
+                
               
-            
-          </ul>
-        </nav>
+            </ul>
+          </nav>
+        
       
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -2078,23 +2482,31 @@
   
   
   <span class="md-ellipsis">
-    Functional
+    
+  
+  Functional
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_15_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_1_1_15">
-            <span class="md-nav__icon md-icon"></span>
-            Functional
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
+        
+          <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_15_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_1_1_15">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Functional
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
               
                 
+                  
   
   
   
@@ -2105,19 +2517,23 @@
   
   
   <span class="md-ellipsis">
-    Closures in Rust
+    
+  
+  Closures in Rust
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -2128,27 +2544,32 @@
   
   
   <span class="md-ellipsis">
-    Iterators in Rust
+    
+  
+  Iterators in Rust
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
+                
               
-            
-          </ul>
-        </nav>
+            </ul>
+          </nav>
+        
       
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -2181,23 +2602,31 @@
   
   
   <span class="md-ellipsis">
-    Cargo
+    
+  
+  Cargo
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_16_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_1_1_16">
-            <span class="md-nav__icon md-icon"></span>
-            Cargo
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
+        
+          <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_16_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_1_1_16">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Cargo
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
               
                 
+                  
   
   
   
@@ -2208,19 +2637,23 @@
   
   
   <span class="md-ellipsis">
-    Cargo Workspaces
+    
+  
+  Cargo Workspaces
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -2231,27 +2664,32 @@
   
   
   <span class="md-ellipsis">
-    Publishing a Rust Crate
+    
+  
+  Publishing a Rust Crate
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
+                
               
-            
-          </ul>
-        </nav>
+            </ul>
+          </nav>
+        
       
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -2292,23 +2730,31 @@
   
   
   <span class="md-ellipsis">
-    Smart Pointers
+    
+  
+  Smart Pointers
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_17_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_1_1_17">
-            <span class="md-nav__icon md-icon"></span>
-            Smart Pointers
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
+        
+          <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_17_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_1_1_17">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Smart Pointers
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
               
                 
+                  
   
   
   
@@ -2319,19 +2765,23 @@
   
   
   <span class="md-ellipsis">
-    Smart Pointers in Rust - The Deref Trait
+    
+  
+  Smart Pointers in Rust - The Deref Trait
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -2342,19 +2792,23 @@
   
   
   <span class="md-ellipsis">
-    Smart Pointers in Rust - The Drop Trait
+    
+  
+  Smart Pointers in Rust - The Drop Trait
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -2365,19 +2819,23 @@
   
   
   <span class="md-ellipsis">
-    Smart Pointers in Rust - Reference Counting
+    
+  
+  Smart Pointers in Rust - Reference Counting
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -2388,19 +2846,23 @@
   
   
   <span class="md-ellipsis">
-    Smart Pointers in Rust - Interior Mutability
+    
+  
+  Smart Pointers in Rust - Interior Mutability
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -2411,19 +2873,23 @@
   
   
   <span class="md-ellipsis">
-    Smart Pointers in Rust - References Cycles
+    
+  
+  Smart Pointers in Rust - References Cycles
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -2434,27 +2900,32 @@
   
   
   <span class="md-ellipsis">
-    Box Smart Pointer in Rust
+    
+  
+  Box Smart Pointer in Rust
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
+                
               
-            
-          </ul>
-        </nav>
+            </ul>
+          </nav>
+        
       
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -2489,23 +2960,31 @@
   
   
   <span class="md-ellipsis">
-    Concurrency
+    
+  
+  Concurrency
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_18_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_1_1_18">
-            <span class="md-nav__icon md-icon"></span>
-            Concurrency
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
+        
+          <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_18_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_1_1_18">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Concurrency
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
               
                 
+                  
   
   
   
@@ -2516,19 +2995,23 @@
   
   
   <span class="md-ellipsis">
-    Concurrency in Rust - Creating Threads
+    
+  
+  Concurrency in Rust - Creating Threads
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -2539,19 +3022,23 @@
   
   
   <span class="md-ellipsis">
-    Concurrency in Rust - Message Passing
+    
+  
+  Concurrency in Rust - Message Passing
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -2562,27 +3049,32 @@
   
   
   <span class="md-ellipsis">
-    Concurrency in Rust - Sharing State
+    
+  
+  Concurrency in Rust - Sharing State
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
+                
               
-            
-          </ul>
-        </nav>
+            </ul>
+          </nav>
+        
       
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -2617,23 +3109,31 @@
   
   
   <span class="md-ellipsis">
-    OOPS
+    
+  
+  OOPS
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_19_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_1_1_19">
-            <span class="md-nav__icon md-icon"></span>
-            OOPS
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
+        
+          <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_19_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_1_1_19">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  OOPS
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
               
                 
+                  
   
   
   
@@ -2644,19 +3144,23 @@
   
   
   <span class="md-ellipsis">
-    Object Oriented Programming in Rust
+    
+  
+  Object Oriented Programming in Rust
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -2667,19 +3171,23 @@
   
   
   <span class="md-ellipsis">
-    Using Trait Objects in Rust
+    
+  
+  Using Trait Objects in Rust
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -2690,27 +3198,32 @@
   
   
   <span class="md-ellipsis">
-    State Design Pattern in Rust
+    
+  
+  State Design Pattern in Rust
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
+                
               
-            
-          </ul>
-        </nav>
+            </ul>
+          </nav>
+        
       
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -2743,23 +3256,31 @@
   
   
   <span class="md-ellipsis">
-    Patterns
+    
+  
+  Patterns
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_20_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_1_1_20">
-            <span class="md-nav__icon md-icon"></span>
-            Patterns
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
+        
+          <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_20_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_1_1_20">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Patterns
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
               
                 
+                  
   
   
   
@@ -2770,19 +3291,23 @@
   
   
   <span class="md-ellipsis">
-    Patterns and Matching in Rust
+    
+  
+  Patterns and Matching in Rust
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -2793,27 +3318,32 @@
   
   
   <span class="md-ellipsis">
-    Pattern Syntax in Rust
+    
+  
+  Pattern Syntax in Rust
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
+                
               
-            
-          </ul>
-        </nav>
+            </ul>
+          </nav>
+        
       
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -2852,23 +3382,31 @@
   
   
   <span class="md-ellipsis">
-    Advanced Rust
+    
+  
+  Advanced Rust
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_21_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_1_1_21">
-            <span class="md-nav__icon md-icon"></span>
-            Advanced Rust
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
+        
+          <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_21_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_1_1_21">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Advanced Rust
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
               
                 
+                  
   
   
   
@@ -2879,19 +3417,23 @@
   
   
   <span class="md-ellipsis">
-    Writing Unsafe Rust
+    
+  
+  Writing Unsafe Rust
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -2902,19 +3444,23 @@
   
   
   <span class="md-ellipsis">
-    Advanced Traits Rust
+    
+  
+  Advanced Traits Rust
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -2925,19 +3471,23 @@
   
   
   <span class="md-ellipsis">
-    Advanced Types in Rust
+    
+  
+  Advanced Types in Rust
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -2948,19 +3498,23 @@
   
   
   <span class="md-ellipsis">
-    Advanced Functions and Closures in Rust
+    
+  
+  Advanced Functions and Closures in Rust
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -2971,35 +3525,41 @@
   
   
   <span class="md-ellipsis">
-    Macros in Rust
+    
+  
+  Macros in Rust
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
+                
               
-            
-          </ul>
-        </nav>
+            </ul>
+          </nav>
+        
       
     </li>
   
 
+                
               
-            
-          </ul>
-        </nav>
+            </ul>
+          </nav>
+        
       
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
     
@@ -3032,23 +3592,31 @@
   
   
   <span class="md-ellipsis">
-    Advanced Rust Concepts
+    
+  
+  Advanced Rust Concepts
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_1_2">
-            <span class="md-nav__icon md-icon"></span>
-            Advanced Rust Concepts
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
+        
+          <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_2_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_3_1_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Advanced Rust Concepts
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
               
                 
+                  
   
   
     
@@ -3057,7 +3625,9 @@
   
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+        <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
       
       
         
@@ -3068,29 +3638,38 @@
   
   
   <span class="md-ellipsis">
-    All Rust String Types explained
+    
+  
+  All Rust String Types explained
+
     
   </span>
+  
   
 
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="./" class="md-nav__link md-nav__link--active">
+      <a href="././" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
-    All Rust String Types explained
+    
+  
+  All Rust String Types explained
+
     
   </span>
+  
   
 
       </a>
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
   
   
   
@@ -3099,14 +3678,16 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      On this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#string-fundamentals" class="md-nav__link">
     <span class="md-ellipsis">
-      String Fundamentals
+      <span class="md-typeset">
+        String Fundamentals
+      </span>
     </span>
   </a>
   
@@ -3116,7 +3697,9 @@
           <li class="md-nav__item">
   <a href="#encoding" class="md-nav__link">
     <span class="md-ellipsis">
-      Encoding
+      <span class="md-typeset">
+        Encoding
+      </span>
     </span>
   </a>
   
@@ -3130,7 +3713,9 @@
         <li class="md-nav__item">
   <a href="#strings-in-c" class="md-nav__link">
     <span class="md-ellipsis">
-      Strings in C
+      <span class="md-typeset">
+        Strings in C
+      </span>
     </span>
   </a>
   
@@ -3139,7 +3724,9 @@
         <li class="md-nav__item">
   <a href="#strings-in-rust" class="md-nav__link">
     <span class="md-ellipsis">
-      Strings in Rust
+      <span class="md-typeset">
+        Strings in Rust
+      </span>
     </span>
   </a>
   
@@ -3149,7 +3736,9 @@
           <li class="md-nav__item">
   <a href="#strings-and-str" class="md-nav__link">
     <span class="md-ellipsis">
-      Strings and &amp;str
+      <span class="md-typeset">
+        Strings and &amp;str
+      </span>
     </span>
   </a>
   
@@ -3158,7 +3747,9 @@
           <li class="md-nav__item">
   <a href="#static-str" class="md-nav__link">
     <span class="md-ellipsis">
-      &amp;'static str
+      <span class="md-typeset">
+        <code>&amp;'static str</code>
+      </span>
     </span>
   </a>
   
@@ -3167,7 +3758,9 @@
           <li class="md-nav__item">
   <a href="#boxstr" class="md-nav__link">
     <span class="md-ellipsis">
-      Box&lt;str&gt;
+      <span class="md-typeset">
+        <code>Box&lt;str&gt;</code>
+      </span>
     </span>
   </a>
   
@@ -3176,7 +3769,9 @@
           <li class="md-nav__item">
   <a href="#rcstr" class="md-nav__link">
     <span class="md-ellipsis">
-      Rc&lt;str&gt;
+      <span class="md-typeset">
+        <code>Rc&lt;str&gt;</code>
+      </span>
     </span>
   </a>
   
@@ -3185,7 +3780,9 @@
           <li class="md-nav__item">
   <a href="#arcstr" class="md-nav__link">
     <span class="md-ellipsis">
-      Arc&lt;str&gt;
+      <span class="md-typeset">
+        <code>Arc&lt;str&gt;</code>
+      </span>
     </span>
   </a>
   
@@ -3194,7 +3791,9 @@
           <li class="md-nav__item">
   <a href="#vecu8-u8" class="md-nav__link">
     <span class="md-ellipsis">
-      Vec[u8] &amp; &amp;[u8]
+      <span class="md-typeset">
+        <code>Vec[u8]</code> &amp; <code>&amp;[u8]</code>
+      </span>
     </span>
   </a>
   
@@ -3203,7 +3802,9 @@
           <li class="md-nav__item">
   <a href="#string-literal-representations-u8-n" class="md-nav__link">
     <span class="md-ellipsis">
-      String literal representations (&amp;[u8; N])
+      <span class="md-typeset">
+        String literal representations (<code>&amp;[u8; N]</code>)
+      </span>
     </span>
   </a>
   
@@ -3212,7 +3813,9 @@
           <li class="md-nav__item">
   <a href="#mut-str" class="md-nav__link">
     <span class="md-ellipsis">
-      &amp;mut str
+      <span class="md-typeset">
+        <code>&amp;mut str</code>
+      </span>
     </span>
   </a>
   
@@ -3221,7 +3824,9 @@
           <li class="md-nav__item">
   <a href="#cowa-str" class="md-nav__link">
     <span class="md-ellipsis">
-      Cow&lt;'a, str&gt;
+      <span class="md-typeset">
+        <code>Cow&lt;'a, str&gt;</code>
+      </span>
     </span>
   </a>
   
@@ -3230,7 +3835,9 @@
           <li class="md-nav__item">
   <a href="#osstring-osstr" class="md-nav__link">
     <span class="md-ellipsis">
-      OsString &amp; OsStr
+      <span class="md-typeset">
+        <code>OsString</code> &amp; <code>OsStr</code>
+      </span>
     </span>
   </a>
   
@@ -3239,7 +3846,9 @@
           <li class="md-nav__item">
   <a href="#path-pathbuf" class="md-nav__link">
     <span class="md-ellipsis">
-      Path &amp; PathBuf
+      <span class="md-typeset">
+        <code>Path</code> &amp; <code>PathBuf</code>
+      </span>
     </span>
   </a>
   
@@ -3248,7 +3857,9 @@
           <li class="md-nav__item">
   <a href="#cstr-cstring" class="md-nav__link">
     <span class="md-ellipsis">
-      CStr &amp; CString
+      <span class="md-typeset">
+        <code>CStr</code> &amp; <code>CString</code>
+      </span>
     </span>
   </a>
   
@@ -3266,26 +3877,28 @@
     </li>
   
 
+                
               
-            
-          </ul>
-        </nav>
+            </ul>
+          </nav>
+        
       
     </li>
   
 
+                
               
-            
-          </ul>
-        </nav>
+            </ul>
+          </nav>
+        
       
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -3321,23 +3934,31 @@
   
   
   <span class="md-ellipsis">
-    Curriculum
+    
+  
+  Curriculum
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2">
-            <span class="md-nav__icon md-icon"></span>
-            Curriculum
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Curriculum
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
               
                 
+                  
   
   
   
@@ -3368,23 +3989,31 @@
   
   
   <span class="md-ellipsis">
-    SQL
+    
+  
+  SQL
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2_1">
-            <span class="md-nav__icon md-icon"></span>
-            SQL
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
+        
+          <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_1_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_2_1">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  SQL
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
               
                 
+                  
   
   
   
@@ -3395,27 +4024,32 @@
   
   
   <span class="md-ellipsis">
-    Common SQL queries
+    
+  
+  Common SQL queries
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
+                
               
-            
-          </ul>
-        </nav>
+            </ul>
+          </nav>
+        
       
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -3446,23 +4080,31 @@
   
   
   <span class="md-ellipsis">
-    Networking
+    
+  
+  Networking
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2_2">
-            <span class="md-nav__icon md-icon"></span>
-            Networking
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
+        
+          <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_2_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Networking
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
               
                 
+                  
   
   
   
@@ -3473,35 +4115,41 @@
   
   
   <span class="md-ellipsis">
-    IPv6
+    
+  
+  IPv6
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
+                
               
-            
-          </ul>
-        </nav>
+            </ul>
+          </nav>
+        
       
     </li>
   
 
+                
               
-            
-          </ul>
-        </nav>
+            </ul>
+          </nav>
+        
       
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -3535,23 +4183,31 @@
   
   
   <span class="md-ellipsis">
-    DevOps
+    
+  
+  DevOps
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_3">
-            <span class="md-nav__icon md-icon"></span>
-            DevOps
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_3">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  DevOps
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
               
                 
+                  
   
   
   
@@ -3582,23 +4238,31 @@
   
   
   <span class="md-ellipsis">
-    Terraform
+    
+  
+  Terraform
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_3_1">
-            <span class="md-nav__icon md-icon"></span>
-            Terraform
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
+        
+          <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_1_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3_3_1">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Terraform
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
               
                 
+                  
   
   
   
@@ -3609,35 +4273,42 @@
   
   
   <span class="md-ellipsis">
-    Terraform
+    
+  
+  Terraform
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
+                
               
-            
-          </ul>
-        </nav>
+            </ul>
+          </nav>
+        
       
     </li>
   
 
+                
               
-            
-          </ul>
-        </nav>
+            </ul>
+          </nav>
+        
       
     </li>
   
 
+                
               
-            
-          </ul>
-        </nav>
+            </ul>
+          </nav>
+        
       
     </li>
   
@@ -3677,23 +4348,31 @@
   
   
   <span class="md-ellipsis">
-    etc
+    
+  
+  etc
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            etc
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  etc
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
               
                 
+                  
   
   
   
@@ -3704,19 +4383,23 @@
   
   
   <span class="md-ellipsis">
-    Regex
+    
+  
+  Regex
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -3749,23 +4432,31 @@
   
   
   <span class="md-ellipsis">
-    Mathematics
+    
+  
+  Mathematics
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_2">
-            <span class="md-nav__icon md-icon"></span>
-            Mathematics
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_4_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Mathematics
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
               
                 
+                  
   
   
   
@@ -3776,19 +4467,23 @@
   
   
   <span class="md-ellipsis">
-    Maths Formula Compendium
+    
+  
+  Maths Formula Compendium
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
+                
               
                 
+                  
   
   
   
@@ -3819,23 +4514,31 @@
   
   
   <span class="md-ellipsis">
-    Discrete Mathematics
+    
+  
+  Discrete Mathematics
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_2_2">
-            <span class="md-nav__icon md-icon"></span>
-            Discrete Mathematics
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
+        
+          <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_4_2_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Discrete Mathematics
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
               
                 
+                  
   
   
   
@@ -3846,35 +4549,42 @@
   
   
   <span class="md-ellipsis">
-    Propositional Logic
+    
+  
+  Propositional Logic
+
     
   </span>
+  
   
 
       </a>
     </li>
   
 
+                
               
-            
-          </ul>
-        </nav>
+            </ul>
+          </nav>
+        
       
     </li>
   
 
+                
               
-            
-          </ul>
-        </nav>
+            </ul>
+          </nav>
+        
       
     </li>
   
 
+                
               
-            
-          </ul>
-        </nav>
+            </ul>
+          </nav>
+        
       
     </li>
   
@@ -3890,10 +4600,12 @@
               
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
+                  
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
   
   
   
@@ -3902,14 +4614,16 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      On this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#string-fundamentals" class="md-nav__link">
     <span class="md-ellipsis">
-      String Fundamentals
+      <span class="md-typeset">
+        String Fundamentals
+      </span>
     </span>
   </a>
   
@@ -3919,7 +4633,9 @@
           <li class="md-nav__item">
   <a href="#encoding" class="md-nav__link">
     <span class="md-ellipsis">
-      Encoding
+      <span class="md-typeset">
+        Encoding
+      </span>
     </span>
   </a>
   
@@ -3933,7 +4649,9 @@
         <li class="md-nav__item">
   <a href="#strings-in-c" class="md-nav__link">
     <span class="md-ellipsis">
-      Strings in C
+      <span class="md-typeset">
+        Strings in C
+      </span>
     </span>
   </a>
   
@@ -3942,7 +4660,9 @@
         <li class="md-nav__item">
   <a href="#strings-in-rust" class="md-nav__link">
     <span class="md-ellipsis">
-      Strings in Rust
+      <span class="md-typeset">
+        Strings in Rust
+      </span>
     </span>
   </a>
   
@@ -3952,7 +4672,9 @@
           <li class="md-nav__item">
   <a href="#strings-and-str" class="md-nav__link">
     <span class="md-ellipsis">
-      Strings and &amp;str
+      <span class="md-typeset">
+        Strings and &amp;str
+      </span>
     </span>
   </a>
   
@@ -3961,7 +4683,9 @@
           <li class="md-nav__item">
   <a href="#static-str" class="md-nav__link">
     <span class="md-ellipsis">
-      &amp;'static str
+      <span class="md-typeset">
+        <code>&amp;'static str</code>
+      </span>
     </span>
   </a>
   
@@ -3970,7 +4694,9 @@
           <li class="md-nav__item">
   <a href="#boxstr" class="md-nav__link">
     <span class="md-ellipsis">
-      Box&lt;str&gt;
+      <span class="md-typeset">
+        <code>Box&lt;str&gt;</code>
+      </span>
     </span>
   </a>
   
@@ -3979,7 +4705,9 @@
           <li class="md-nav__item">
   <a href="#rcstr" class="md-nav__link">
     <span class="md-ellipsis">
-      Rc&lt;str&gt;
+      <span class="md-typeset">
+        <code>Rc&lt;str&gt;</code>
+      </span>
     </span>
   </a>
   
@@ -3988,7 +4716,9 @@
           <li class="md-nav__item">
   <a href="#arcstr" class="md-nav__link">
     <span class="md-ellipsis">
-      Arc&lt;str&gt;
+      <span class="md-typeset">
+        <code>Arc&lt;str&gt;</code>
+      </span>
     </span>
   </a>
   
@@ -3997,7 +4727,9 @@
           <li class="md-nav__item">
   <a href="#vecu8-u8" class="md-nav__link">
     <span class="md-ellipsis">
-      Vec[u8] &amp; &amp;[u8]
+      <span class="md-typeset">
+        <code>Vec[u8]</code> &amp; <code>&amp;[u8]</code>
+      </span>
     </span>
   </a>
   
@@ -4006,7 +4738,9 @@
           <li class="md-nav__item">
   <a href="#string-literal-representations-u8-n" class="md-nav__link">
     <span class="md-ellipsis">
-      String literal representations (&amp;[u8; N])
+      <span class="md-typeset">
+        String literal representations (<code>&amp;[u8; N]</code>)
+      </span>
     </span>
   </a>
   
@@ -4015,7 +4749,9 @@
           <li class="md-nav__item">
   <a href="#mut-str" class="md-nav__link">
     <span class="md-ellipsis">
-      &amp;mut str
+      <span class="md-typeset">
+        <code>&amp;mut str</code>
+      </span>
     </span>
   </a>
   
@@ -4024,7 +4760,9 @@
           <li class="md-nav__item">
   <a href="#cowa-str" class="md-nav__link">
     <span class="md-ellipsis">
-      Cow&lt;'a, str&gt;
+      <span class="md-typeset">
+        <code>Cow&lt;'a, str&gt;</code>
+      </span>
     </span>
   </a>
   
@@ -4033,7 +4771,9 @@
           <li class="md-nav__item">
   <a href="#osstring-osstr" class="md-nav__link">
     <span class="md-ellipsis">
-      OsString &amp; OsStr
+      <span class="md-typeset">
+        <code>OsString</code> &amp; <code>OsStr</code>
+      </span>
     </span>
   </a>
   
@@ -4042,7 +4782,9 @@
           <li class="md-nav__item">
   <a href="#path-pathbuf" class="md-nav__link">
     <span class="md-ellipsis">
-      Path &amp; PathBuf
+      <span class="md-typeset">
+        <code>Path</code> &amp; <code>PathBuf</code>
+      </span>
     </span>
   </a>
   
@@ -4051,7 +4793,9 @@
           <li class="md-nav__item">
   <a href="#cstr-cstring" class="md-nav__link">
     <span class="md-ellipsis">
-      CStr &amp; CString
+      <span class="md-typeset">
+        <code>CStr</code> &amp; <code>CString</code>
+      </span>
     </span>
   </a>
   
@@ -4072,10 +4816,11 @@
           
           
             <div class="md-content" data-md-component="content">
+              
               <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
                 
                   
-
 
 
 <h1 id="all-rust-string-types-explained">All Rust String Types explained</h1>
@@ -4107,7 +4852,7 @@
 <p>ASCII: Stands for <em>American Standard Code for Information Interchange</em> very simple standard dating back to 90's.</p>
 <p>ASCII's simplicity is also it's limiting factor, and can only represent 256 characters. And as such, can only represent english alphabet symbols and control characters and has no support for other languages or emoji/emoticons.</p>
 <p><figure>
-  <a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/assets/images/cs/rust/ASCII-Table.png"></a></img>
+  <a class="glightbox" href="/assets/images/cs/rust/ASCII-Table.png" data-type="image"><img src="/assets/images/cs/rust/ASCII-Table.png"></a>
   <figcaption>(source: Wikipedia)</figcaption>
 </figure></p>
 </li>
@@ -4125,14 +4870,14 @@
 <p>Let's understand why strings in C is really simple but also makes it dangerous.</p>
 <p>In C, string is represented as an array of character:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">my_string</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello, World!&quot;</span><span class="p">;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">my_string</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello, World!"</span><span class="p">;</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>or a pointer pointing to the first character in the string:</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">my_string</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello, World!&quot;</span><span class="p">;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">my_string</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello, World!"</span><span class="p">;</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">string_ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my_string</span><span class="p">;</span>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
@@ -4140,7 +4885,7 @@
 </span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">}</span>
 </span></code></pre></div>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="hll"><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">my_string</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello, World!</span><span class="se">\0</span><span class="s">&quot;</span><span class="p">;</span><span class="w">   </span><span class="c1">// (1)</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="hll"><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">my_string</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello, World!</span><span class="se">\0</span><span class="s">"</span><span class="p">;</span><span class="w">   </span><span class="c1">// (1)</span>
 </span></span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">string_ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my_string</span><span class="p">;</span>
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
@@ -4153,12 +4898,12 @@
 <p>C doesn't enfore any encoding and developer is supposed to enforce it. If your program takes in an invalid input say, invalid utf-8 characters, or your validation isn't done properly, can lead to data corruption or security vulnerabilities.</p>
 <p>Take a look at this example, this can lead to data corruption, undefined behavior, security vulnerabilities or system crashes.</p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">my_string</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello, World&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// 12 characters</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">my_string</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello, World"</span><span class="p">;</span><span class="w"> </span><span class="c1">// 12 characters</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span><span class="w">  </span><span class="c1">// Buffer is one character (null terminator) short</span>
 </span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="n">strcpy</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="n">my_string</span><span class="p">);</span>
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;The copied string is: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">);</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"The copied string is: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">);</span>
 </span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">}</span>
 </span></code></pre></div>
@@ -4176,18 +4921,18 @@
 <li>It's an owned type, since it owns the underlying data</li>
 <li>responsible for deallocating the underlying data when the string variable goes out of scope.</li>
 </ul>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">let</span><span class="w"> </span><span class="n">my_string</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span><span class="p">::</span><span class="n">from</span><span class="p">(</span><span class="s">&quot;Hello!&quot;</span><span class="p">);</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">let</span><span class="w"> </span><span class="n">my_string</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span><span class="p">::</span><span class="n">from</span><span class="p">(</span><span class="s">"Hello!"</span><span class="p">);</span>
 </span></code></pre></div>
 <p><mark class="v">This type consists of a pointer to the data on the heap, it's length and it's capcity.</mark></p>
 <p><strong>String slices</strong></p>
 <p><mark class="y">String slices (<code>&amp;str</code>) on the other hand is a view into a string it represents.</mark> It represents a cotiguous sequence of UTF-8 encoded bytes.</p>
 <ul>
 <li>It's called a borrow type, as it doesn't own the underlying data. Instead it simply has access to it.</li>
-<li><mark class="v">It's only holds the pointer to the starting byte of the data and the length.<mark></li>
+<li><mark class="v">It only holds the pointer to the starting byte of the data and the length.</mark></li>
 <li>They also doesn't have a <code>capacity</code>, since they are not growable.</li>
 <li>They can reference data on the heap or in the data section of the compiled binary (which is the case for string literals) or strings stored on stack.</li>
 </ul>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">let</span><span class="w"> </span><span class="n">my_string</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span><span class="p">::</span><span class="n">from</span><span class="p">(</span><span class="s">&quot;Hello!&quot;</span><span class="p">);</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">let</span><span class="w"> </span><span class="n">my_string</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span><span class="p">::</span><span class="n">from</span><span class="p">(</span><span class="s">"Hello!"</span><span class="p">);</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="hll"><span class="kd">let</span><span class="w"> </span><span class="n">my_str</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="kt">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">my_string</span><span class="p">;</span>
 </span></span></code></pre></div>
 <p>Use case:
@@ -4196,10 +4941,10 @@
 <h3 id="static-str"><code>&amp;'static str</code></h3>
 <p>Now let's see how Rust handle string with efficiency &amp; flexibility in mind:</p>
 <p>This is an example of string literal, which is a reference to string slice. String literals are stored in compiler's binary.</p>
-<p><div class="language-rust highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">let</span><span class="w"> </span><span class="n">hello</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="kt">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello, world!&quot;</span><span class="p">;</span>
+<p><div class="language-rust highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">let</span><span class="w"> </span><span class="n">hello</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="kt">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello, world!"</span><span class="p">;</span>
 </span></code></pre></div>
 This is actually just a syntactic sugar for a reference with static lifetime.</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">let</span><span class="w"> </span><span class="n">hello</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="o">&#39;</span><span class="nb">static</span><span class="w"> </span><span class="kt">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello, world!&quot;</span><span class="p">;</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">let</span><span class="w"> </span><span class="n">hello</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="o">'</span><span class="nb">static</span><span class="w"> </span><span class="kt">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello, world!"</span><span class="p">;</span>
 </span></code></pre></div>
 <p><mark class="v">A static lifetime indicates that the data being pointed to is guaranteed to be available during the entirity of the program execution.</mark></p>
 <p>You don't need to explicity write out the static lifetime, except in certain cases, for e.g.:</p>
@@ -4209,19 +4954,19 @@ This is actually just a syntactic sugar for a reference with static lifetime.</p
 <p><div class="language-rust highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cp">#[dervice(Debug]</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">enum</span><span class="w"> </span><span class="nc">MyError</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="n">IoErrror</span><span class="p">,</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="n">ParseError</span><span class="p">(</span><span class="o">&amp;&#39;</span><span class="nb">static</span><span class="w"> </span><span class="kt">str</span><span class="p">),</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="n">ParseError</span><span class="p">(</span><span class="o">&amp;'</span><span class="nb">static</span><span class="w"> </span><span class="kt">str</span><span class="p">),</span>
 </span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="p">}</span>
 </span></code></pre></div>
 - when, returning a string slice from a function that has no other borrowed paramter.</p>
 </li>
 </ul>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">fn</span><span class="w"> </span><span class="nf">get_greeting</span><span class="p">(</span><span class="n">hour</span><span class="p">:</span><span class="w"> </span><span class="kt">u8</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="kp">&amp;</span><span class="o">&#39;</span><span class="nb">static</span><span class="w"> </span><span class="kt">str</span><span class="w"> </span><span class="p">{</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">fn</span><span class="w"> </span><span class="nf">get_greeting</span><span class="p">(</span><span class="n">hour</span><span class="p">:</span><span class="w"> </span><span class="kt">u8</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="kp">&amp;</span><span class="o">'</span><span class="nb">static</span><span class="w"> </span><span class="kt">str</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">hour</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">        </span><span class="s">&quot;Good Morning&quot;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">        </span><span class="s">"Good Morning"</span>
 </span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">hour</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">18</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">        </span><span class="s">&quot;Good Afternnon!&quot;</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">        </span><span class="s">"Good Afternnon!"</span>
 </span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">        </span><span class="s">&quot;Good evening!&quot;</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">        </span><span class="s">"Good evening!"</span>
 </span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="p">}</span>
 </span></code></pre></div>
@@ -4236,12 +4981,12 @@ This is actually just a syntactic sugar for a reference with static lifetime.</p
 <li><mark class="v">Heap allocated</mark></li>
 </ol>
 <p>Useful when you want to freeze a <code>String</code> to avoid extra modification or save memory by dropping the extra capacity information.</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kd">let</span><span class="w"> </span><span class="n">my_string</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span><span class="p">::</span><span class="n">from</span><span class="p">(</span><span class="s">&quot;This is a long string, needs no modification&quot;</span><span class="p">);</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kd">let</span><span class="w"> </span><span class="n">my_string</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span><span class="p">::</span><span class="n">from</span><span class="p">(</span><span class="s">"This is a long string, needs no modification"</span><span class="p">);</span>
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c1">// convert the String to a Box&lt;str&gt;</span>
 </span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="kd">let</span><span class="w"> </span><span class="n">my_boxed_str</span><span class="p">:</span><span class="w"> </span><span class="nb">Box</span><span class="o">&lt;</span><span class="kt">str</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my_string</span><span class="p">.</span><span class="n">into_boxed_str</span><span class="p">();</span>
 </span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;My boxed str: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">my_boxed_str</span><span class="p">);</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="fm">println!</span><span class="p">(</span><span class="s">"My boxed str: {}"</span><span class="p">,</span><span class="w"> </span><span class="n">my_boxed_str</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="rcstr"><code>Rc&lt;str&gt;</code></h3>
 <p>We can also use <code>str</code> with <a href="/cs/rust/tutorial/smart-pointers/reference-counting/"><code>Rc</code> (reference counting) smart pointer</a>: <code>Rc&lt;str&gt;</code>.</p>
@@ -4253,7 +4998,7 @@ This is actually just a syntactic sugar for a reference with static lifetime.</p
 <div class="language-rust highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">use</span><span class="w"> </span><span class="kt">str</span><span class="p">::</span><span class="n">rc</span><span class="p">::</span><span class="n">Rc</span><span class="p">;</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">fn</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">some_large_text</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="o">&#39;</span><span class="nb">static</span><span class="w"> </span><span class="kt">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;This is some large text that we need to work with.&quot;</span><span class="p">;</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">some_large_text</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="o">'</span><span class="nb">static</span><span class="w"> </span><span class="kt">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"This is some large text that we need to work with."</span><span class="p">;</span>
 </span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
 </span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="c1">// Extract a subsection that multiple parts of the program will need to reference</span>
 </span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">subsection</span><span class="p">:</span><span class="w"> </span><span class="nc">Rc</span><span class="o">&lt;</span><span class="kt">str</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Rc</span><span class="p">::</span><span class="n">from</span><span class="p">(</span><span class="o">&amp;</span><span class="n">some_large_text</span><span class="p">[</span><span class="mi">5</span><span class="o">..</span><span class="mi">24</span><span class="p">]);</span>
@@ -4262,9 +5007,9 @@ This is actually just a syntactic sugar for a reference with static lifetime.</p
 </span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">another_reference</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Rc</span><span class="p">::</span><span class="n">clone</span><span class="p">(</span><span class="o">&amp;</span><span class="n">subsection</span><span class="p">);</span>
 </span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">yet_another_reference</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Rc</span><span class="p">::</span><span class="n">clone</span><span class="p">(</span><span class="o">&amp;</span><span class="n">subsection</span><span class="p">);</span>
 </span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>
-</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;First reference: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">subsection</span><span class="p">);</span>
-</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;Second refernce: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">another_reference</span><span class="p">);</span>
-</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;Third reference: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">yet_another_reference</span><span class="p">);</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">"First reference: {}"</span><span class="p">,</span><span class="w"> </span><span class="n">subsection</span><span class="p">);</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">"Second refernce: {}"</span><span class="p">,</span><span class="w"> </span><span class="n">another_reference</span><span class="p">);</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">"Third reference: {}"</span><span class="p">,</span><span class="w"> </span><span class="n">yet_another_reference</span><span class="p">);</span>
 </span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="p">}</span>
 </span></code></pre></div>
 <h3 id="arcstr"><code>Arc&lt;str&gt;</code></h3>
@@ -4277,14 +5022,14 @@ This is actually just a syntactic sugar for a reference with static lifetime.</p
 </ol>
 <p>Allows us to share the <code>str</code> across threads, without having to clone the data.</p>
 <div class="language-rust highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">fn</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">tet_string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span><span class="p">::</span><span class="n">from</span><span class="p">(</span><span class="s">&quot;This is some text taht multiple threads will read.&quot;</span><span class="p">);</span>
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">text_slice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">text_string</span><span class="p">[</span><span class="o">..</span><span class="p">];</span><span class="w">  </span><span class="c1">// this also doesn&#39;t have &#39;static lifetime</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">tet_string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span><span class="p">::</span><span class="n">from</span><span class="p">(</span><span class="s">"This is some text taht multiple threads will read."</span><span class="p">);</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">text_slice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">text_string</span><span class="p">[</span><span class="o">..</span><span class="p">];</span><span class="w">  </span><span class="c1">// this also doesn't have 'static lifetime</span>
 </span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
 </span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="c1">// Convert it to an Arc&lt;str&gt;</span>
 </span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">..</span><span class="mi">3</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">text_ref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arc</span><span class="p">::</span><span class="n">clone</span><span class="p">(</span><span class="o">&amp;</span><span class="n">shared_text</span><span class="p">);</span>
 </span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">handle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">thread</span><span class="p">::</span><span class="n">spawn</span><span class="p">(</span><span class="k">move</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">            </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;Thread is reading: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">text_ref</span><span class="p">)</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">            </span><span class="fm">println!</span><span class="p">(</span><span class="s">"Thread is reading: {}"</span><span class="p">,</span><span class="w"> </span><span class="n">text_ref</span><span class="p">)</span>
 </span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">        </span><span class="p">})</span>
 </span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>
@@ -4308,7 +5053,7 @@ This is actually just a syntactic sugar for a reference with static lifetime.</p
 </span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">    </span><span class="c1">// Convert Latin-1 data to a UTF-8 Rust String</span>
 </span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">utf8_string</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">latin1_to_string</span><span class="p">(</span><span class="o">&amp;</span><span class="n">latin1_data</span><span class="p">);</span>
 </span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>
-</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;Converted string: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">utf8_string</span><span class="p">);</span>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">"Converted string: {}"</span><span class="p">,</span><span class="w"> </span><span class="n">utf8_string</span><span class="p">);</span>
 </span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>
 </span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="w">    </span><span class="nb">Ok</span><span class="p">(());</span>
 </span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="p">}</span>
@@ -4317,10 +5062,10 @@ This is actually just a syntactic sugar for a reference with static lifetime.</p
 <ol>
 <li>
 <p>Raw string literals: allows us to write special characters like back slashes without need of escape character. They are creating by starting the string with <code>r</code> and adding a <code>#</code> hash symbol on either side of string literal.</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kd">let</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;He said </span><span class="se">\&quot;</span><span class="s">goodbye</span><span class="se">\&quot;</span><span class="s"> and left&quot;</span><span class="p">;</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kd">let</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"He said </span><span class="se">\"</span><span class="s">goodbye</span><span class="se">\"</span><span class="s"> and left"</span><span class="p">;</span>
 </span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="kd">let</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">r#&quot;He said &quot;goodbye&quot; and left&quot;#</span><span class="p">;</span><span class="w"> </span><span class="c1">// raw string literal (1)</span>
-</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="kd">let</span><span class="w"> </span><span class="n">re</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">regex</span><span class="p">::</span><span class="n">Regex</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="s">r#&quot;\b(word)\b&quot;#</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="kd">let</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">r#"He said "goodbye" and left"#</span><span class="p">;</span><span class="w"> </span><span class="c1">// raw string literal (1)</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="kd">let</span><span class="w"> </span><span class="n">re</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">regex</span><span class="p">::</span><span class="n">Regex</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="s">r#"\b(word)\b"#</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span>
 </span></code></pre></div>
 <ol>
 <li>Raw string literals can be useful in cases like writing regular expressions or defining JSON objects as string literals.</li>
@@ -4330,14 +5075,14 @@ This is actually just a syntactic sugar for a reference with static lifetime.</p
 <p>Byte string: are created by prefixing a string literal with a <code>b</code>. This creates a slice of bytes which is useful for dealing with network protocols that expects a byte sequence.</p>
 </li>
 </ol>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kd">let</span><span class="w"> </span><span class="n">http_ok</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="p">[</span><span class="kt">u8</span><span class="p">;</span><span class="w"> </span><span class="mi">17</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">b&quot;HTTP/1.1 200 ok</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">;</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kd">let</span><span class="w"> </span><span class="n">http_ok</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="p">[</span><span class="kt">u8</span><span class="p">;</span><span class="w"> </span><span class="mi">17</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">b"HTTP/1.1 200 ok</span><span class="se">\r\n</span><span class="s">"</span><span class="p">;</span>
 </span></code></pre></div>
 <h3 id="mut-str"><code>&amp;mut str</code></h3>
 <p>String slices are usually represented as <code>&amp;str</code>, i.e, immutable. But it is possible to create a mutable reference, i.e., <code>&amp;mut str</code>.</p>
 <p>This allows us to directly modify the contents of a string slice while ensuring memory safety and UTF-8 compliance.</p>
 <p><mark class="y">Useful for in-place string transformations without needing to create a allocate memory for separate string.</mark></p>
 <div class="language-rust highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">fn</span><span class="w"> </span><span class="nf">anonymize_emails</span><span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="nc">mut</span><span class="w"> </span><span class="kt">str</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">re</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">regex</span><span class="p">::</span><span class="n">Regex</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="s">r&quot;\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b&quot;</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">re</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">regex</span><span class="p">::</span><span class="n">Regex</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="s">r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b"</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span>
 </span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
 </span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">matches</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Vec</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
 </span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>
@@ -4346,7 +5091,7 @@ This is actually just a syntactic sugar for a reference with static lifetime.</p
 </span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">    </span><span class="c1">// Now that we have the matches, perform the replacements</span>
 </span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">s_bytes</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="nc">mut</span><span class="w"> </span><span class="p">[</span><span class="kt">u8</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">as_bytes_mut</span><span class="p">()</span><span class="w"> </span><span class="p">};</span>
 </span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">range</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">matches</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">replacement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span><span class="sc">b&#39;*&#39;</span><span class="p">;</span><span class="w"> </span><span class="n">range</span><span class="p">.</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">range</span><span class="p">.</span><span class="n">start</span><span class="p">];</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">replacement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span><span class="sc">b'*'</span><span class="p">;</span><span class="w"> </span><span class="n">range</span><span class="p">.</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">range</span><span class="p">.</span><span class="n">start</span><span class="p">];</span>
 </span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="w">        </span><span class="n">s_bytes</span><span class="p">[</span><span class="n">range</span><span class="p">].</span><span class="n">copy_from_slice</span><span class="p">(</span><span class="o">&amp;</span><span class="n">replacement</span><span class="p">);</span>
 </span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="p">}</span>
@@ -4360,8 +5105,8 @@ This is actually just a syntactic sugar for a reference with static lifetime.</p
 <div class="language-rust highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">use</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">borrow</span><span class="p">::</span><span class="n">Cow</span><span class="p">;</span>
 </span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
 </span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="k">fn</span><span class="w"> </span><span class="nf">sanitize</span><span class="p">(</span><span class="n">input</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="kt">str</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nc">Cow</span><span class="p">(</span><span class="kt">str</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="s">&quot;badword&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">sanitized</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;badword&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;****&quot;</span><span class="p">);</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="s">"badword"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">sanitized</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"badword"</span><span class="p">,</span><span class="w"> </span><span class="s">"****"</span><span class="p">);</span>
 </span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Cow</span><span class="p">::</span><span class="n">Owned</span><span class="p">(</span><span class="n">sanitized</span><span class="p">);</span>
 </span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">    </span><span class="n">Cow</span><span class="p">::</span><span class="n">Borrowed</span><span class="p">(</span><span class="n">input</span><span class="p">)</span><span class="w">  </span><span class="c1">// (1)</span>
@@ -4376,18 +5121,18 @@ This is actually just a syntactic sugar for a reference with static lifetime.</p
 <p><code>OsString</code> &amp; <code>OsStr</code> can contain any sequence of bytes on unix-like systems or
 any sequence of 16-bit values on Windows. This is useful for interacting with system calls that don't require strings to be UTF-8 encoded.</p>
 <div class="language-rust highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="k">fn</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nc">std</span><span class="p">::</span><span class="n">io</span><span class="p">::</span><span class="nb">Result</span><span class="o">&lt;</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">paths</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fs</span><span class="p">::</span><span class="n">read_dir</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">)</span><span class="o">?</span><span class="p">;</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">paths</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fs</span><span class="p">::</span><span class="n">read_dir</span><span class="p">(</span><span class="s">"."</span><span class="p">)</span><span class="o">?</span><span class="p">;</span>
 </span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>
 </span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">paths</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">        </span><span class="k">match</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">            </span><span class="nb">Ok</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="w">                </span><span class="kd">let</span><span class="w"> </span><span class="n">os_string</span><span class="p">:</span><span class="w"> </span><span class="nc">OsString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">entry</span><span class="p">.</span><span class="n">file_name</span><span class="p">();</span>
 </span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="w">                </span><span class="k">match</span><span class="w"> </span><span class="n">os_string</span><span class="p">.</span><span class="n">into_string</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="w">                    </span><span class="nb">Ok</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;Found a file: {]&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">string</span><span class="p">),</span>
-</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="w">                    </span><span class="nb">Err</span><span class="p">(</span><span class="n">os_string</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;Found a non-UTF-8 filename: {:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">os_string</span><span class="p">),</span>
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="w">                    </span><span class="nb">Ok</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">"Found a file: {]"</span><span class="p">,</span><span class="w"> </span><span class="n">string</span><span class="p">),</span>
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="w">                    </span><span class="nb">Err</span><span class="p">(</span><span class="n">os_string</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">"Found a non-UTF-8 filename: {:?}"</span><span class="p">,</span><span class="w"> </span><span class="n">os_string</span><span class="p">),</span>
 </span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="w">                </span><span class="p">}</span>
 </span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="w">            </span><span class="p">}</span>
-</span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="w">            </span><span class="nb">Err</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;Couldn&#39;t read the path.&quot;</span><span class="p">),</span>
+</span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="w">            </span><span class="nb">Err</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">"Couldn't read the path."</span><span class="p">),</span>
 </span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="w">        </span><span class="p">}</span>
 </span><span id="__span-18-15"><a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-18-16"><a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>
@@ -4411,9 +5156,9 @@ any sequence of 16-bit values on Windows. This is useful for interacting with sy
 </span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="p">}</span>
 </span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>
 </span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a><span class="k">fn</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nc">std</span><span class="p">::</span><span class="n">io</span><span class="p">::</span><span class="nb">Result</span><span class="o">&lt;</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Path</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="s">&quot;./&quot;</span><span class="p">);</span>
-</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read_file</span><span class="p">(</span><span class="n">dir</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;example.txt&quot;</span><span class="p">)</span><span class="o">?</span><span class="p">;</span>
-</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a><span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;File content: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">content</span><span class="p">);</span>
+</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Path</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="s">"./"</span><span class="p">);</span>
+</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read_file</span><span class="p">(</span><span class="n">dir</span><span class="p">,</span><span class="w"> </span><span class="s">"example.txt"</span><span class="p">)</span><span class="o">?</span><span class="p">;</span>
+</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a><span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">"File content: {}"</span><span class="p">,</span><span class="w"> </span><span class="n">content</span><span class="p">);</span>
 </span><span id="__span-19-16"><a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a>
 </span><span id="__span-19-17"><a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a><span class="w">    </span><span class="nb">Ok</span><span class="p">(())</span>
 </span><span id="__span-19-18"><a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a><span class="p">}</span>
@@ -4421,22 +5166,22 @@ any sequence of 16-bit values on Windows. This is useful for interacting with sy
 <h3 id="cstr-cstring"><code>CStr</code> &amp; <code>CString</code></h3>
 <p>Useful when interfacing rust code with C libraries that expects null terminated strings, providing a safe way to handle C compatible strings.</p>
 <p>Let's see an example of retrieving env variable from a C code:</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="k">extern</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="w"> </span><span class="p">{</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="k">extern</span><span class="w"> </span><span class="s">"C"</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nf">getenv</span><span class="p">(</span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="kt">str</span><span class="p">::</span><span class="n">os</span><span class="p">::</span><span class="n">raw</span><span class="p">::</span><span class="n">c_char</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">os</span><span class="p">::</span><span class="n">raw</span><span class="p">::</span><span class="n">c_char</span><span class="p">;</span>
 </span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="p">}</span>
 </span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>
 </span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="k">use</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">ffi</span><span class="p">::{</span><span class="n">CStr</span><span class="p">,</span><span class="w"> </span><span class="n">CString</span><span class="p">};</span>
 </span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>
 </span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="k">fn</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CString</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="s">&quot;PATH&quot;</span><span class="p">).</span><span class="n">expect</span><span class="p">(</span><span class="s">&quot;CString::new failed&quot;</span><span class="p">);</span>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CString</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="s">"PATH"</span><span class="p">).</span><span class="n">expect</span><span class="p">(</span><span class="s">"CString::new failed"</span><span class="p">);</span>
 </span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="w">    </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getenv</span><span class="p">(</span><span class="n">key</span><span class="p">.</span><span class="n">as_ptr</span><span class="p">());</span>
 </span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">val</span><span class="p">.</span><span class="n">is_null</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a><span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="n">c_str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CStr</span><span class="p">::</span><span class="n">from_ptr</span><span class="p">(</span><span class="n">val</span><span class="p">);</span>
 </span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a><span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="n">str_slices</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c_str</span><span class="p">.</span><span class="n">to_str</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span>
-</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a><span class="w">            </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;Found: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">str_slice</span>
+</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a><span class="w">            </span><span class="fm">println!</span><span class="p">(</span><span class="s">"Found: {}"</span><span class="p">,</span><span class="w"> </span><span class="n">str_slice</span>
 </span><span id="__span-20-15"><a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-20-16"><a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a><span class="w">            </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;Not found&quot;</span><span class="p">);</span>
+</span><span id="__span-20-16"><a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a><span class="w">            </span><span class="fm">println!</span><span class="p">(</span><span class="s">"Not found"</span><span class="p">);</span>
 </span><span id="__span-20-17"><a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a><span class="w">        </span><span class="p">}</span>
 </span><span id="__span-20-18"><a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-20-19"><a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a><span class="p">}</span>
@@ -4449,6 +5194,8 @@ any sequence of 16-bit values on Windows. This is useful for interacting with sy
 </li>
 </ol>
 </div>
+
+
 
 
 
@@ -4536,13 +5283,14 @@ any sequence of 16-bit values on Windows. This is useful for interacting with sy
   
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
     </a>
   
 </div>
       
-        <div class="md-social">
+        
+<div class="md-social">
   
     
     
@@ -4552,7 +5300,7 @@ any sequence of 16-bit values on Windows. This is useful for interacting with sy
       
     
     <a href="https://github.com/adhadse/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5v52c0 15 12.5 23.5 27.5 17.5C441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5v-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21"/></svg>
     </a>
   
     
@@ -4563,7 +5311,7 @@ any sequence of 16-bit values on Windows. This is useful for interacting with sy
       
     
     <a href="https://www.linkedin.com/in/adhadse/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
     </a>
   
 </div>
@@ -4573,25 +5321,26 @@ any sequence of 16-bit values on Windows. This is useful for interacting with sy
 </footer>
       
     </div>
-    <div class="md-dialog" data-md-component="dialog">
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
     
     
       
-      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "toc.follow", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotate", "content.code.copy", "navigation.footer"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"../../../..","features":["navigation.instant","navigation.tracking","navigation.indexes","navigation.tabs","navigation.tabs.sticky","navigation.sections","navigation.top","toc.follow","search.suggest","search.highlight","content.tabs.link","content.code.annotate","content.code.copy","navigation.footer"],"redirect":null,"search":"../../../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
-     
-      <script src="../../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+    
+      <script src="../../../../assets/javascripts/bundle.8b1c90bd.min.js"></script>
       
-        <script src="../../../../assets/external/fastly.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+        <script src="https://fastly.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
       
-        <script src="../../../../assets/external/fastly.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
-      
-        <script src="../../../../assets/external/cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/fonts/KaTeX_Math-Italic.woff2"></script>
-      
-        <script src="../../../../assets/external/cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/fonts/KaTeX_Main-Regular.woff2"></script>
+        <script src="https://fastly.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
       
         <script src="../../../../assets/js/katex.js"></script>
       
@@ -4602,35 +5351,5 @@ any sequence of 16-bit values on Windows. This is useful for interacting with sy
         <script src="../../../../assets/js/interactive_graph.js"></script>
       
     
-<script defer>
-    VANTA.HALO({
-        el: ".hero-container",
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 200.0,
-        minWidth: 200.0,
-        baseColor: 0x0,
-        backgroundColor: 0x0,
-        xOffset: 0.09,
-        amplitudeFactor: 0.2,
-        size: 0.9,
-    });
-</script>
-
-  <script id="init-glightbox">document.querySelectorAll('.glightbox').forEach(function(element) {
-    try {
-        var img = element.querySelector('img');
-        if (img && img.src) {
-            element.setAttribute('href', img.src);
-        } else {
-            console.log('No img element with src attribute found');
-        }
-    } catch (error) {
-        console.log('Error:', error);
-    }
-});
-const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body>
+  </body>
 </html>

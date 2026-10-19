@@ -1,4 +1,4 @@
-@import url("../external/fonts.googleapis.com/css2.398072f1.css");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
 .md-ellipsis {
     font-family: "Inter", --apple-system, sans-serif;
@@ -21,16 +21,34 @@
 [data-md-color-primary="black"] .md-header,
 [data-md-color-primary="black"] .md-tabs,
 html [data-md-color-primary="black"] .md-nav--primary .md-nav__title[for="__drawer"] {
-    background-color: #000;
+    background-color: #000 !important;
+    color: #fff !important;
 }
 
-.highlight,
-[data-md-color-scheme="default"],
-.highlight [data-md-color-scheme="slate"],
-[data-md-color-scheme="slate"] {
-    --md-footer-bg-color: #000;
-    --md-footer-bg-color--dark: #000; /* color for bottom most footer in dark mode */
+[data-md-color-primary="black"] .md-header__button,
+[data-md-color-primary="black"] .md-header__title,
+[data-md-color-primary="black"] .md-header__topic,
+[data-md-color-primary="black"] .md-tabs__link {
+    color: #fff !important;
+}
 
+[data-md-color-scheme="default"] {
+    --md-footer-bg-color: #f5f5f5;
+    --md-footer-bg-color--dark: #e8e8e8;
+    --md-footer-fg-color: #171717;
+    --md-footer-fg-color--light: #444;
+    --md-footer-fg-color--lighter: #666;
+}
+
+[data-md-color-scheme="slate"] {
+    --md-footer-bg-color: #0f0f0f;
+    --md-footer-bg-color--dark: #000;
+    --md-footer-fg-color: #fff;
+    --md-footer-fg-color--light: rgba(255, 255, 255, 0.7);
+    --md-footer-fg-color--lighter: rgba(255, 255, 255, 0.5);
+}
+
+.highlight {
     /* code color */
     --md-code-fg-color: #ffffff;
     --md-code-hl-punctuation-color: #fff;
@@ -90,28 +108,42 @@ html [data-md-color-primary="black"] .md-nav--primary .md-nav__title[for="__draw
 
 /* width */
 ::-webkit-scrollbar {
-    width: 0.6rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    background: transparent;
 }
 
 html {
     overflow-y: overlay;
+    scrollbar-width: thin;
+    scrollbar-color: #888 transparent;
+}
+
+.md-sidebar__scrollwrap {
+    scrollbar-width: thin;
+    scrollbar-color: #888 transparent;
 }
 
 /* Track */
-::-webkit-scrollbar-track {
-    display: none;
-    background: none;
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-track-piece,
+::-webkit-scrollbar-corner {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #888;
-    width: 70%;
+    background-color: #888 !important;
+    background-clip: padding-box;
+    border: 2px solid transparent;
+    min-height: 1.25rem;
+    border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    /* Handle on hover */
-    background: #555;
+    background-color: #555 !important;
 }
 
 .MathJax {
