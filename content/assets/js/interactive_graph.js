@@ -286,10 +286,7 @@ function makeChartOptions(data, global) {
 
 function createChart(container, data, global) {
   if (!container || !window.echarts) return null;
-  const chart = window.echarts.init(container, null, {
-    renderer: "canvas",
-    useDirtyRect: true,
-  });
+  const chart = window.echarts.init(container, null, {renderer: "canvas"});
   chart.setOption(makeChartOptions(data, global), true);
   chart.on("click", (params) => {
     if (params.dataType !== "node") return;
